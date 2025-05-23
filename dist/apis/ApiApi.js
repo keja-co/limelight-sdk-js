@@ -5487,6 +5487,341 @@ var ApiApi = /** @class */ (function (_super) {
         });
     };
     /**
+     */
+    ApiApi.prototype.apiProductionProductionsCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, token, tokenString, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['production'] == null) {
+                            throw new runtime.RequiredError('production', 'Required parameter "production" was null or undefined when calling apiProductionProductionsCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+                        }
+                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
+                        token = this.configuration.accessToken;
+                        return [4 /*yield*/, token("CadenceOIDC", [])];
+                    case 1:
+                        tokenString = _a.sent();
+                        if (tokenString) {
+                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
+                        }
+                        _a.label = 2;
+                    case 2: return [4 /*yield*/, this.request({
+                            path: "/api/production/productions/",
+                            method: 'POST',
+                            headers: headerParameters,
+                            query: queryParameters,
+                            body: (0, index_1.ProductionToJSON)(requestParameters['production']),
+                        }, initOverrides)];
+                    case 3:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.apiProductionProductionsCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, token, tokenString, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling apiProductionProductionsDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+                        }
+                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
+                        token = this.configuration.accessToken;
+                        return [4 /*yield*/, token("CadenceOIDC", [])];
+                    case 1:
+                        tokenString = _a.sent();
+                        if (tokenString) {
+                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
+                        }
+                        _a.label = 2;
+                    case 2: return [4 /*yield*/, this.request({
+                            path: "/api/production/productions/{id}/".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                            method: 'DELETE',
+                            headers: headerParameters,
+                            query: queryParameters,
+                        }, initOverrides)];
+                    case 3:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.apiProductionProductionsDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, token, tokenString, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+                        }
+                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
+                        token = this.configuration.accessToken;
+                        return [4 /*yield*/, token("CadenceOIDC", [])];
+                    case 1:
+                        tokenString = _a.sent();
+                        if (tokenString) {
+                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
+                        }
+                        _a.label = 2;
+                    case 2: return [4 /*yield*/, this.request({
+                            path: "/api/production/productions/",
+                            method: 'GET',
+                            headers: headerParameters,
+                            query: queryParameters,
+                        }, initOverrides)];
+                    case 3:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsList = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+            var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.apiProductionProductionsListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, token, tokenString, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling apiProductionProductionsPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+                        }
+                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
+                        token = this.configuration.accessToken;
+                        return [4 /*yield*/, token("CadenceOIDC", [])];
+                    case 1:
+                        tokenString = _a.sent();
+                        if (tokenString) {
+                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
+                        }
+                        _a.label = 2;
+                    case 2: return [4 /*yield*/, this.request({
+                            path: "/api/production/productions/{id}/".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                            method: 'PATCH',
+                            headers: headerParameters,
+                            query: queryParameters,
+                            body: (0, index_1.PatchedProductionToJSON)(requestParameters['patchedProduction']),
+                        }, initOverrides)];
+                    case 3:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.apiProductionProductionsPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, token, tokenString, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling apiProductionProductionsRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+                        }
+                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
+                        token = this.configuration.accessToken;
+                        return [4 /*yield*/, token("CadenceOIDC", [])];
+                    case 1:
+                        tokenString = _a.sent();
+                        if (tokenString) {
+                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
+                        }
+                        _a.label = 2;
+                    case 2: return [4 /*yield*/, this.request({
+                            path: "/api/production/productions/{id}/".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                            method: 'GET',
+                            headers: headerParameters,
+                            query: queryParameters,
+                        }, initOverrides)];
+                    case 3:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.apiProductionProductionsRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, token, tokenString, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling apiProductionProductionsUpdate().');
+                        }
+                        if (requestParameters['production'] == null) {
+                            throw new runtime.RequiredError('production', 'Required parameter "production" was null or undefined when calling apiProductionProductionsUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+                        }
+                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
+                        token = this.configuration.accessToken;
+                        return [4 /*yield*/, token("CadenceOIDC", [])];
+                    case 1:
+                        tokenString = _a.sent();
+                        if (tokenString) {
+                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
+                        }
+                        _a.label = 2;
+                    case 2: return [4 /*yield*/, this.request({
+                            path: "/api/production/productions/{id}/".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                            method: 'PUT',
+                            headers: headerParameters,
+                            query: queryParameters,
+                            body: (0, index_1.ProductionToJSON)(requestParameters['production']),
+                        }, initOverrides)];
+                    case 3:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     */
+    ApiApi.prototype.apiProductionProductionsUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.apiProductionProductionsUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * OpenApi3 schema for this API. Format can be selected via content negotiation.  - YAML: application/vnd.oai.openapi - JSON: application/vnd.oai.openapi+json
      */
     ApiApi.prototype.apiSchemaRetrieveRaw = function (requestParameters, initOverrides) {

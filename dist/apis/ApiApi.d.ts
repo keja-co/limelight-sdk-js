@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { Address, AuditLog, Context, ContextKey, Country, Employee, EmployeeQualification, EmploymentType, PaginatedAddressList, PaginatedAuditLogList, PaginatedContextKeyList, PaginatedContextList, PaginatedCountryList, PaginatedEmployeeList, PaginatedEmployeeQualificationList, PaginatedEmploymentTypeList, PaginatedPermissionList, PaginatedQualificationList, PaginatedRoleList, PaginatedRolePermissionList, PaginatedStateList, PaginatedUserList, PaginatedUserRoleAssignmentList, PaginatedWorkLocationList, PatchedAddress, PatchedAuditLog, PatchedContext, PatchedContextKey, PatchedCountry, PatchedEmployee, PatchedEmployeeQualification, PatchedEmploymentType, PatchedPermission, PatchedQualification, PatchedRole, PatchedRolePermission, PatchedState, PatchedUser, PatchedUserRoleAssignment, PatchedWorkLocation, Permission, Qualification, Role, RolePermission, SessionStatus, State, User, UserRoleAssignment, WorkLocation } from '../models/index';
+import type { Address, AuditLog, Context, ContextKey, Country, Employee, EmployeeQualification, EmploymentType, PaginatedAddressList, PaginatedAuditLogList, PaginatedContextKeyList, PaginatedContextList, PaginatedCountryList, PaginatedEmployeeList, PaginatedEmployeeQualificationList, PaginatedEmploymentTypeList, PaginatedPermissionList, PaginatedProductionList, PaginatedQualificationList, PaginatedRoleList, PaginatedRolePermissionList, PaginatedStateList, PaginatedUserList, PaginatedUserRoleAssignmentList, PaginatedWorkLocationList, PatchedAddress, PatchedAuditLog, PatchedContext, PatchedContextKey, PatchedCountry, PatchedEmployee, PatchedEmployeeQualification, PatchedEmploymentType, PatchedPermission, PatchedProduction, PatchedQualification, PatchedRole, PatchedRolePermission, PatchedState, PatchedUser, PatchedUserRoleAssignment, PatchedWorkLocation, Permission, Production, Qualification, Role, RolePermission, SessionStatus, State, User, UserRoleAssignment, WorkLocation } from '../models/index';
 export interface ApiComplianceAuditlogsCreateRequest {
     auditLog: Omit<AuditLog, 'id' | 'timestamp'>;
 }
@@ -346,6 +346,27 @@ export interface ApiLocationStatesRetrieveRequest {
 export interface ApiLocationStatesUpdateRequest {
     id: number;
     state: Omit<State, 'id'>;
+}
+export interface ApiProductionProductionsCreateRequest {
+    production: Omit<Production, 'id'>;
+}
+export interface ApiProductionProductionsDestroyRequest {
+    id: number;
+}
+export interface ApiProductionProductionsListRequest {
+    page?: number;
+    pageSize?: number;
+}
+export interface ApiProductionProductionsPartialUpdateRequest {
+    id: number;
+    patchedProduction?: Omit<PatchedProduction, 'id'>;
+}
+export interface ApiProductionProductionsRetrieveRequest {
+    id: number;
+}
+export interface ApiProductionProductionsUpdateRequest {
+    id: number;
+    production: Omit<Production, 'id'>;
 }
 export interface ApiSchemaRetrieveRequest {
     format?: ApiSchemaRetrieveFormatEnum;
@@ -937,6 +958,42 @@ export declare class ApiApi extends runtime.BaseAPI {
     /**
      */
     apiLocationStatesUpdate(requestParameters: ApiLocationStatesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
+    /**
+     */
+    apiProductionProductionsCreateRaw(requestParameters: ApiProductionProductionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
+    /**
+     */
+    apiProductionProductionsCreate(requestParameters: ApiProductionProductionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
+    /**
+     */
+    apiProductionProductionsDestroyRaw(requestParameters: ApiProductionProductionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     */
+    apiProductionProductionsDestroy(requestParameters: ApiProductionProductionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     */
+    apiProductionProductionsListRaw(requestParameters: ApiProductionProductionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionList>>;
+    /**
+     */
+    apiProductionProductionsList(requestParameters?: ApiProductionProductionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionList>;
+    /**
+     */
+    apiProductionProductionsPartialUpdateRaw(requestParameters: ApiProductionProductionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
+    /**
+     */
+    apiProductionProductionsPartialUpdate(requestParameters: ApiProductionProductionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
+    /**
+     */
+    apiProductionProductionsRetrieveRaw(requestParameters: ApiProductionProductionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
+    /**
+     */
+    apiProductionProductionsRetrieve(requestParameters: ApiProductionProductionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
+    /**
+     */
+    apiProductionProductionsUpdateRaw(requestParameters: ApiProductionProductionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
+    /**
+     */
+    apiProductionProductionsUpdate(requestParameters: ApiProductionProductionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
     /**
      * OpenApi3 schema for this API. Format can be selected via content negotiation.  - YAML: application/vnd.oai.openapi - JSON: application/vnd.oai.openapi+json
      */

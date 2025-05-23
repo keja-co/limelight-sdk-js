@@ -32,6 +32,7 @@ import type {
   PaginatedEmployeeQualificationList,
   PaginatedEmploymentTypeList,
   PaginatedPermissionList,
+  PaginatedProductionList,
   PaginatedQualificationList,
   PaginatedRoleList,
   PaginatedRolePermissionList,
@@ -48,6 +49,7 @@ import type {
   PatchedEmployeeQualification,
   PatchedEmploymentType,
   PatchedPermission,
+  PatchedProduction,
   PatchedQualification,
   PatchedRole,
   PatchedRolePermission,
@@ -56,6 +58,7 @@ import type {
   PatchedUserRoleAssignment,
   PatchedWorkLocation,
   Permission,
+  Production,
   Qualification,
   Role,
   RolePermission,
@@ -100,6 +103,8 @@ import {
     PaginatedEmploymentTypeListToJSON,
     PaginatedPermissionListFromJSON,
     PaginatedPermissionListToJSON,
+    PaginatedProductionListFromJSON,
+    PaginatedProductionListToJSON,
     PaginatedQualificationListFromJSON,
     PaginatedQualificationListToJSON,
     PaginatedRoleListFromJSON,
@@ -132,6 +137,8 @@ import {
     PatchedEmploymentTypeToJSON,
     PatchedPermissionFromJSON,
     PatchedPermissionToJSON,
+    PatchedProductionFromJSON,
+    PatchedProductionToJSON,
     PatchedQualificationFromJSON,
     PatchedQualificationToJSON,
     PatchedRoleFromJSON,
@@ -148,6 +155,8 @@ import {
     PatchedWorkLocationToJSON,
     PermissionFromJSON,
     PermissionToJSON,
+    ProductionFromJSON,
+    ProductionToJSON,
     QualificationFromJSON,
     QualificationToJSON,
     RoleFromJSON,
@@ -596,6 +605,33 @@ export interface ApiLocationStatesRetrieveRequest {
 export interface ApiLocationStatesUpdateRequest {
     id: number;
     state: Omit<State, 'id'>;
+}
+
+export interface ApiProductionProductionsCreateRequest {
+    production: Omit<Production, 'id'>;
+}
+
+export interface ApiProductionProductionsDestroyRequest {
+    id: number;
+}
+
+export interface ApiProductionProductionsListRequest {
+    page?: number;
+    pageSize?: number;
+}
+
+export interface ApiProductionProductionsPartialUpdateRequest {
+    id: number;
+    patchedProduction?: Omit<PatchedProduction, 'id'>;
+}
+
+export interface ApiProductionProductionsRetrieveRequest {
+    id: number;
+}
+
+export interface ApiProductionProductionsUpdateRequest {
+    id: number;
+    production: Omit<Production, 'id'>;
 }
 
 export interface ApiSchemaRetrieveRequest {
@@ -4928,6 +4964,274 @@ export class ApiApi extends runtime.BaseAPI {
      */
     async apiLocationStatesUpdate(requestParameters: ApiLocationStatesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
         const response = await this.apiLocationStatesUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async apiProductionProductionsCreateRaw(requestParameters: ApiProductionProductionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+        if (requestParameters['production'] == null) {
+            throw new runtime.RequiredError(
+                'production',
+                'Required parameter "production" was null or undefined when calling apiProductionProductionsCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("CadenceOIDC", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/production/productions/`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductionToJSON(requestParameters['production']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async apiProductionProductionsCreate(requestParameters: ApiProductionProductionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
+        const response = await this.apiProductionProductionsCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async apiProductionProductionsDestroyRaw(requestParameters: ApiProductionProductionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling apiProductionProductionsDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("CadenceOIDC", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/production/productions/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     */
+    async apiProductionProductionsDestroy(requestParameters: ApiProductionProductionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.apiProductionProductionsDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     */
+    async apiProductionProductionsListRaw(requestParameters: ApiProductionProductionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionList>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("CadenceOIDC", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/production/productions/`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedProductionListFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async apiProductionProductionsList(requestParameters: ApiProductionProductionsListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionList> {
+        const response = await this.apiProductionProductionsListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async apiProductionProductionsPartialUpdateRaw(requestParameters: ApiProductionProductionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling apiProductionProductionsPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("CadenceOIDC", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/production/productions/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedProductionToJSON(requestParameters['patchedProduction']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async apiProductionProductionsPartialUpdate(requestParameters: ApiProductionProductionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
+        const response = await this.apiProductionProductionsPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async apiProductionProductionsRetrieveRaw(requestParameters: ApiProductionProductionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling apiProductionProductionsRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("CadenceOIDC", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/production/productions/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async apiProductionProductionsRetrieve(requestParameters: ApiProductionProductionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
+        const response = await this.apiProductionProductionsRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async apiProductionProductionsUpdateRaw(requestParameters: ApiProductionProductionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling apiProductionProductionsUpdate().'
+            );
+        }
+
+        if (requestParameters['production'] == null) {
+            throw new runtime.RequiredError(
+                'production',
+                'Required parameter "production" was null or undefined when calling apiProductionProductionsUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("CadenceOIDC", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const response = await this.request({
+            path: `/api/production/productions/{id}/`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductionToJSON(requestParameters['production']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async apiProductionProductionsUpdate(requestParameters: ApiProductionProductionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
+        const response = await this.apiProductionProductionsUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
