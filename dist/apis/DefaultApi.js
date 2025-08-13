@@ -79,25 +79,12 @@ var DefaultApi = /** @class */ (function (_super) {
      */
     DefaultApi.prototype.rootRetrieveRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -105,7 +92,7 @@ var DefaultApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ServerMetaFromJSON)(jsonValue); })];
                 }

@@ -80,7 +80,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssetsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -90,19 +90,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assets/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -111,7 +98,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AssetToJSON)(requestParameters['asset']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AssetFromJSON)(jsonValue); })];
                 }
@@ -140,7 +127,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssetsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -149,19 +136,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assets/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -170,7 +144,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -197,7 +171,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssetsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -209,19 +183,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assets/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -229,7 +190,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedAssetListFromJSON)(jsonValue); })];
                 }
@@ -259,7 +220,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssetsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -269,19 +230,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assets/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -291,7 +239,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedAssetToJSON)(requestParameters['patchedAsset']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AssetFromJSON)(jsonValue); })];
                 }
@@ -320,7 +268,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssetsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -329,19 +277,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assets/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -350,7 +285,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AssetFromJSON)(jsonValue); })];
                 }
@@ -379,7 +314,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssetsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -392,19 +327,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assets/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -414,7 +336,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AssetToJSON)(requestParameters['asset']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AssetFromJSON)(jsonValue); })];
                 }
@@ -443,7 +365,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssignmentsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -453,19 +375,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assignments/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -474,7 +383,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AssignmentToJSON)(requestParameters['assignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AssignmentFromJSON)(jsonValue); })];
                 }
@@ -503,7 +412,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssignmentsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -512,19 +421,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -533,7 +429,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -560,7 +456,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssignmentsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -572,19 +468,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assignments/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -592,7 +475,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedAssignmentListFromJSON)(jsonValue); })];
                 }
@@ -622,7 +505,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssignmentsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -632,19 +515,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -654,7 +524,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedAssignmentToJSON)(requestParameters['patchedAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AssignmentFromJSON)(jsonValue); })];
                 }
@@ -683,7 +553,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssignmentsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -692,19 +562,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -713,7 +570,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AssignmentFromJSON)(jsonValue); })];
                 }
@@ -742,7 +599,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAssetsV1AssignmentsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -755,19 +612,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/assets/v1/assignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -777,7 +621,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AssignmentToJSON)(requestParameters['assignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AssignmentFromJSON)(jsonValue); })];
                 }
@@ -805,7 +649,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1AuditionCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -815,19 +659,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/audition/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -836,7 +667,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AuditionToJSON)(requestParameters['audition']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AuditionFromJSON)(jsonValue); })];
                 }
@@ -863,7 +694,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1AuditionDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -872,19 +703,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/audition/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -893,7 +711,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -918,7 +736,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1AuditionListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -930,19 +748,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/audition/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -950,7 +755,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedAuditionListFromJSON)(jsonValue); })];
                 }
@@ -978,7 +783,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1AuditionPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -988,19 +793,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/audition/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1010,7 +802,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedAuditionToJSON)(requestParameters['patchedAudition']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AuditionFromJSON)(jsonValue); })];
                 }
@@ -1037,7 +829,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1AuditionRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1046,19 +838,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/audition/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1067,7 +846,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AuditionFromJSON)(jsonValue); })];
                 }
@@ -1094,7 +873,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1AuditionUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1107,19 +886,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/audition/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1129,7 +895,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AuditionToJSON)(requestParameters['audition']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AuditionFromJSON)(jsonValue); })];
                 }
@@ -1156,7 +922,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1FeedbackCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1166,19 +932,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/feedback/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1187,7 +940,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.FeedbackToJSON)(requestParameters['feedback']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FeedbackFromJSON)(jsonValue); })];
                 }
@@ -1214,7 +967,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1FeedbackDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1223,19 +976,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/feedback/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1244,7 +984,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -1269,7 +1009,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1FeedbackListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1281,19 +1021,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/feedback/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1301,7 +1028,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedFeedbackListFromJSON)(jsonValue); })];
                 }
@@ -1329,7 +1056,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1FeedbackPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1339,19 +1066,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/feedback/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1361,7 +1075,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedFeedbackToJSON)(requestParameters['patchedFeedback']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FeedbackFromJSON)(jsonValue); })];
                 }
@@ -1388,7 +1102,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1FeedbackRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1397,19 +1111,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/feedback/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1418,7 +1119,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FeedbackFromJSON)(jsonValue); })];
                 }
@@ -1445,7 +1146,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1FeedbackUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1458,19 +1159,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/feedback/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1480,7 +1168,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.FeedbackToJSON)(requestParameters['feedback']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FeedbackFromJSON)(jsonValue); })];
                 }
@@ -1507,7 +1195,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SignupCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1517,19 +1205,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/signup/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1538,7 +1213,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.SignupToJSON)(requestParameters['signup']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SignupFromJSON)(jsonValue); })];
                 }
@@ -1565,7 +1240,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SignupDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1574,19 +1249,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/signup/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1595,7 +1257,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -1620,7 +1282,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SignupListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1632,19 +1294,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/signup/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1652,7 +1301,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedSignupListFromJSON)(jsonValue); })];
                 }
@@ -1680,7 +1329,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SignupPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1690,19 +1339,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/signup/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1712,7 +1348,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedSignupToJSON)(requestParameters['patchedSignup']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SignupFromJSON)(jsonValue); })];
                 }
@@ -1739,7 +1375,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SignupRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1748,19 +1384,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/signup/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1769,7 +1392,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SignupFromJSON)(jsonValue); })];
                 }
@@ -1796,7 +1419,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SignupUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1809,19 +1432,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/signup/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1831,7 +1441,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.SignupToJSON)(requestParameters['signup']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SignupFromJSON)(jsonValue); })];
                 }
@@ -1858,7 +1468,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SlotCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1868,19 +1478,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/slot/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1889,7 +1486,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.SlotToJSON)(requestParameters['slot']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SlotFromJSON)(jsonValue); })];
                 }
@@ -1916,7 +1513,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SlotDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1925,19 +1522,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/slot/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -1946,7 +1530,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -1971,7 +1555,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SlotListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1983,19 +1567,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/slot/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -2003,7 +1574,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedSlotListFromJSON)(jsonValue); })];
                 }
@@ -2031,7 +1602,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SlotPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2041,19 +1612,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/slot/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2063,7 +1621,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedSlotToJSON)(requestParameters['patchedSlot']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SlotFromJSON)(jsonValue); })];
                 }
@@ -2090,7 +1648,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SlotRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2099,19 +1657,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/slot/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2120,7 +1665,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SlotFromJSON)(jsonValue); })];
                 }
@@ -2147,7 +1692,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiAuditionsV1SlotUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2160,19 +1705,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/auditions/v1/slot/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2182,7 +1714,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.SlotToJSON)(requestParameters['slot']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SlotFromJSON)(jsonValue); })];
                 }
@@ -2209,7 +1741,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceAuditlogsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2219,19 +1751,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/auditlogs/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -2240,7 +1759,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AuditLogToJSON)(requestParameters['auditLog']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AuditLogFromJSON)(jsonValue); })];
                 }
@@ -2267,7 +1786,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceAuditlogsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2276,19 +1795,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/auditlogs/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2297,7 +1803,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -2322,7 +1828,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceAuditlogsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2334,19 +1840,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/auditlogs/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -2354,7 +1847,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedAuditLogListFromJSON)(jsonValue); })];
                 }
@@ -2382,7 +1875,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceAuditlogsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2392,19 +1885,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/auditlogs/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2414,7 +1894,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedAuditLogToJSON)(requestParameters['patchedAuditLog']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AuditLogFromJSON)(jsonValue); })];
                 }
@@ -2441,7 +1921,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceAuditlogsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2450,19 +1930,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/auditlogs/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2471,7 +1938,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AuditLogFromJSON)(jsonValue); })];
                 }
@@ -2498,7 +1965,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceAuditlogsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2511,19 +1978,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/auditlogs/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2533,7 +1987,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AuditLogToJSON)(requestParameters['auditLog']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AuditLogFromJSON)(jsonValue); })];
                 }
@@ -2560,7 +2014,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextkeysCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2570,19 +2024,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contextkeys/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -2591,7 +2032,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ContextKeyToJSON)(requestParameters['contextKey']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContextKeyFromJSON)(jsonValue); })];
                 }
@@ -2618,7 +2059,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextkeysDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2627,19 +2068,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contextkeys/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2648,7 +2076,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -2673,7 +2101,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextkeysListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2685,19 +2113,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contextkeys/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -2705,7 +2120,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedContextKeyListFromJSON)(jsonValue); })];
                 }
@@ -2733,7 +2148,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextkeysPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2743,19 +2158,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contextkeys/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2765,7 +2167,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedContextKeyToJSON)(requestParameters['patchedContextKey']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContextKeyFromJSON)(jsonValue); })];
                 }
@@ -2792,7 +2194,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextkeysRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2801,19 +2203,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contextkeys/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2822,7 +2211,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContextKeyFromJSON)(jsonValue); })];
                 }
@@ -2849,7 +2238,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextkeysUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2862,19 +2251,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contextkeys/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2884,7 +2260,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ContextKeyToJSON)(requestParameters['contextKey']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContextKeyFromJSON)(jsonValue); })];
                 }
@@ -2911,7 +2287,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2921,19 +2297,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contexts/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -2942,7 +2305,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ContextToJSON)(requestParameters['context']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContextFromJSON)(jsonValue); })];
                 }
@@ -2969,7 +2332,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2978,19 +2341,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contexts/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -2999,7 +2349,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -3024,7 +2374,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3036,19 +2386,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contexts/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -3056,7 +2393,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedContextListFromJSON)(jsonValue); })];
                 }
@@ -3084,7 +2421,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3094,19 +2431,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contexts/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3116,7 +2440,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedContextToJSON)(requestParameters['patchedContext']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContextFromJSON)(jsonValue); })];
                 }
@@ -3143,7 +2467,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3152,19 +2476,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contexts/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3173,7 +2484,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContextFromJSON)(jsonValue); })];
                 }
@@ -3200,7 +2511,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceContextsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3213,19 +2524,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/contexts/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3235,7 +2533,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ContextToJSON)(requestParameters['context']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContextFromJSON)(jsonValue); })];
                 }
@@ -3262,7 +2560,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiCompliancePermissionsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3272,19 +2570,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/permissions/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -3293,7 +2578,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PermissionToJSON)(requestParameters['permission']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PermissionFromJSON)(jsonValue); })];
                 }
@@ -3320,7 +2605,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiCompliancePermissionsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3329,19 +2614,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/permissions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3350,7 +2622,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -3375,7 +2647,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiCompliancePermissionsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3387,19 +2659,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/permissions/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -3407,7 +2666,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedPermissionListFromJSON)(jsonValue); })];
                 }
@@ -3435,7 +2694,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiCompliancePermissionsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3445,19 +2704,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/permissions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3467,7 +2713,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedPermissionToJSON)(requestParameters['patchedPermission']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PermissionFromJSON)(jsonValue); })];
                 }
@@ -3494,7 +2740,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiCompliancePermissionsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3503,19 +2749,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/permissions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3524,7 +2757,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PermissionFromJSON)(jsonValue); })];
                 }
@@ -3551,7 +2784,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiCompliancePermissionsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3564,19 +2797,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/permissions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3586,7 +2806,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PermissionToJSON)(requestParameters['permission']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PermissionFromJSON)(jsonValue); })];
                 }
@@ -3613,7 +2833,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolepermissionsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3623,19 +2843,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/rolepermissions/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -3644,7 +2851,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.RolePermissionToJSON)(requestParameters['rolePermission']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RolePermissionFromJSON)(jsonValue); })];
                 }
@@ -3671,7 +2878,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolepermissionsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3680,19 +2887,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/rolepermissions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3701,7 +2895,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -3726,7 +2920,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolepermissionsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3738,19 +2932,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/rolepermissions/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -3758,7 +2939,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedRolePermissionListFromJSON)(jsonValue); })];
                 }
@@ -3786,7 +2967,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolepermissionsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3796,19 +2977,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/rolepermissions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3818,7 +2986,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedRolePermissionToJSON)(requestParameters['patchedRolePermission']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RolePermissionFromJSON)(jsonValue); })];
                 }
@@ -3845,7 +3013,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolepermissionsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3854,19 +3022,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/rolepermissions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3875,7 +3030,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RolePermissionFromJSON)(jsonValue); })];
                 }
@@ -3902,7 +3057,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolepermissionsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3915,19 +3070,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/rolepermissions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -3937,7 +3079,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.RolePermissionToJSON)(requestParameters['rolePermission']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RolePermissionFromJSON)(jsonValue); })];
                 }
@@ -3964,7 +3106,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3974,19 +3116,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/roles/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -3995,7 +3124,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.RoleToJSON)(requestParameters['role']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RoleFromJSON)(jsonValue); })];
                 }
@@ -4022,7 +3151,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4031,19 +3160,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/roles/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4052,7 +3168,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -4077,7 +3193,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4089,19 +3205,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/roles/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -4109,7 +3212,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedRoleListFromJSON)(jsonValue); })];
                 }
@@ -4137,7 +3240,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4147,19 +3250,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/roles/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4169,7 +3259,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedRoleToJSON)(requestParameters['patchedRole']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RoleFromJSON)(jsonValue); })];
                 }
@@ -4196,7 +3286,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4205,19 +3295,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/roles/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4226,7 +3303,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RoleFromJSON)(jsonValue); })];
                 }
@@ -4253,7 +3330,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceRolesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4266,19 +3343,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/roles/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4288,7 +3352,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.RoleToJSON)(requestParameters['role']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RoleFromJSON)(jsonValue); })];
                 }
@@ -4315,7 +3379,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceUserroleassignmentsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4325,19 +3389,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/userroleassignments/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -4346,7 +3397,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.UserRoleAssignmentToJSON)(requestParameters['userRoleAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.UserRoleAssignmentFromJSON)(jsonValue); })];
                 }
@@ -4373,7 +3424,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceUserroleassignmentsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4382,19 +3433,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/userroleassignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4403,7 +3441,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -4428,7 +3466,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceUserroleassignmentsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4440,19 +3478,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/userroleassignments/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -4460,7 +3485,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedUserRoleAssignmentListFromJSON)(jsonValue); })];
                 }
@@ -4488,7 +3513,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceUserroleassignmentsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4498,19 +3523,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/userroleassignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4520,7 +3532,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedUserRoleAssignmentToJSON)(requestParameters['patchedUserRoleAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.UserRoleAssignmentFromJSON)(jsonValue); })];
                 }
@@ -4547,7 +3559,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceUserroleassignmentsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4556,19 +3568,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/userroleassignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4577,7 +3576,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.UserRoleAssignmentFromJSON)(jsonValue); })];
                 }
@@ -4604,7 +3603,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiComplianceUserroleassignmentsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4617,19 +3616,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/compliance/userroleassignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4639,7 +3625,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.UserRoleAssignmentToJSON)(requestParameters['userRoleAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.UserRoleAssignmentFromJSON)(jsonValue); })];
                 }
@@ -4666,7 +3652,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeeQualificationsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4676,19 +3662,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employee-qualifications/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -4697,7 +3670,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.EmployeeQualificationToJSON)(requestParameters['employeeQualification']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmployeeQualificationFromJSON)(jsonValue); })];
                 }
@@ -4724,7 +3697,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeeQualificationsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4733,19 +3706,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employee-qualifications/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4754,7 +3714,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -4779,7 +3739,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeeQualificationsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4791,19 +3751,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employee-qualifications/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -4811,7 +3758,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedEmployeeQualificationListFromJSON)(jsonValue); })];
                 }
@@ -4839,7 +3786,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeeQualificationsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4849,19 +3796,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employee-qualifications/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4871,7 +3805,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedEmployeeQualificationToJSON)(requestParameters['patchedEmployeeQualification']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmployeeQualificationFromJSON)(jsonValue); })];
                 }
@@ -4898,7 +3832,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeeQualificationsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4907,19 +3841,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employee-qualifications/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4928,7 +3849,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmployeeQualificationFromJSON)(jsonValue); })];
                 }
@@ -4955,7 +3876,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeeQualificationsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -4968,19 +3889,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employee-qualifications/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -4990,7 +3898,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.EmployeeQualificationToJSON)(requestParameters['employeeQualification']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmployeeQualificationFromJSON)(jsonValue); })];
                 }
@@ -5017,7 +3925,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5027,19 +3935,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employees/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -5048,7 +3943,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.EmployeeToJSON)(requestParameters['employee']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmployeeFromJSON)(jsonValue); })];
                 }
@@ -5075,7 +3970,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5084,19 +3979,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employees/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5105,7 +3987,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -5130,7 +4012,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5142,19 +4024,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employees/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -5162,7 +4031,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedEmployeeListFromJSON)(jsonValue); })];
                 }
@@ -5190,7 +4059,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5200,19 +4069,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employees/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5222,7 +4078,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedEmployeeToJSON)(requestParameters['patchedEmployee']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmployeeFromJSON)(jsonValue); })];
                 }
@@ -5249,7 +4105,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5258,19 +4114,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employees/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5279,7 +4122,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmployeeFromJSON)(jsonValue); })];
                 }
@@ -5306,7 +4149,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmployeesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5319,19 +4162,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employees/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5341,7 +4171,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.EmployeeToJSON)(requestParameters['employee']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmployeeFromJSON)(jsonValue); })];
                 }
@@ -5368,7 +4198,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmploymentTypesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5378,19 +4208,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employment-types/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -5399,7 +4216,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.EmploymentTypeToJSON)(requestParameters['employmentType']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmploymentTypeFromJSON)(jsonValue); })];
                 }
@@ -5426,7 +4243,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmploymentTypesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5435,19 +4252,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employment-types/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5456,7 +4260,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -5481,7 +4285,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmploymentTypesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5493,19 +4297,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employment-types/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -5513,7 +4304,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedEmploymentTypeListFromJSON)(jsonValue); })];
                 }
@@ -5541,7 +4332,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmploymentTypesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5551,19 +4342,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employment-types/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5573,7 +4351,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedEmploymentTypeToJSON)(requestParameters['patchedEmploymentType']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmploymentTypeFromJSON)(jsonValue); })];
                 }
@@ -5600,7 +4378,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmploymentTypesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5609,19 +4387,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employment-types/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5630,7 +4395,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmploymentTypeFromJSON)(jsonValue); })];
                 }
@@ -5657,7 +4422,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrEmploymentTypesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5670,19 +4435,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/employment-types/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5692,7 +4444,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.EmploymentTypeToJSON)(requestParameters['employmentType']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.EmploymentTypeFromJSON)(jsonValue); })];
                 }
@@ -5719,7 +4471,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrQualificationsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5729,19 +4481,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/qualifications/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -5750,7 +4489,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.QualificationToJSON)(requestParameters['qualification']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.QualificationFromJSON)(jsonValue); })];
                 }
@@ -5777,7 +4516,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrQualificationsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5786,19 +4525,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/qualifications/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5807,7 +4533,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -5832,7 +4558,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrQualificationsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5844,19 +4570,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/qualifications/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -5864,7 +4577,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedQualificationListFromJSON)(jsonValue); })];
                 }
@@ -5892,7 +4605,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrQualificationsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5902,19 +4615,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/qualifications/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5924,7 +4624,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedQualificationToJSON)(requestParameters['patchedQualification']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.QualificationFromJSON)(jsonValue); })];
                 }
@@ -5951,7 +4651,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrQualificationsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -5960,19 +4660,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/qualifications/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -5981,7 +4668,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.QualificationFromJSON)(jsonValue); })];
                 }
@@ -6008,7 +4695,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrQualificationsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6021,19 +4708,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/qualifications/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6043,7 +4717,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.QualificationToJSON)(requestParameters['qualification']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.QualificationFromJSON)(jsonValue); })];
                 }
@@ -6070,7 +4744,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrWorkLocationsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6080,19 +4754,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/work-locations/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -6101,7 +4762,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.WorkLocationToJSON)(requestParameters['workLocation']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.WorkLocationFromJSON)(jsonValue); })];
                 }
@@ -6128,7 +4789,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrWorkLocationsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6137,19 +4798,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/work-locations/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6158,7 +4806,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -6183,7 +4831,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrWorkLocationsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6195,19 +4843,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/work-locations/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -6215,7 +4850,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedWorkLocationListFromJSON)(jsonValue); })];
                 }
@@ -6243,7 +4878,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrWorkLocationsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6253,19 +4888,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/work-locations/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6275,7 +4897,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedWorkLocationToJSON)(requestParameters['patchedWorkLocation']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.WorkLocationFromJSON)(jsonValue); })];
                 }
@@ -6302,7 +4924,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrWorkLocationsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6311,19 +4933,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/work-locations/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6332,7 +4941,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.WorkLocationFromJSON)(jsonValue); })];
                 }
@@ -6359,7 +4968,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiHrWorkLocationsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6372,19 +4981,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/hr/work-locations/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6394,7 +4990,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.WorkLocationToJSON)(requestParameters['workLocation']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.WorkLocationFromJSON)(jsonValue); })];
                 }
@@ -6421,25 +5017,12 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiIdentitySessionStatusRetrieveRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/identity/session-status/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -6447,7 +5030,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SessionStatusFromJSON)(jsonValue); })];
                 }
@@ -6474,7 +5057,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiIdentityUsersCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6484,19 +5067,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/identity/users/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -6505,7 +5075,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.UserToJSON)(requestParameters['user']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.UserFromJSON)(jsonValue); })];
                 }
@@ -6532,7 +5102,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiIdentityUsersDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6541,19 +5111,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/identity/users/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6562,7 +5119,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -6587,7 +5144,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiIdentityUsersListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6599,19 +5156,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/identity/users/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -6619,7 +5163,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedUserListFromJSON)(jsonValue); })];
                 }
@@ -6647,7 +5191,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiIdentityUsersPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6657,19 +5201,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/identity/users/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6679,7 +5210,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedUserToJSON)(requestParameters['patchedUser']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.UserFromJSON)(jsonValue); })];
                 }
@@ -6706,7 +5237,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiIdentityUsersRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6715,19 +5246,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/identity/users/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6736,7 +5254,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.UserFromJSON)(jsonValue); })];
                 }
@@ -6763,7 +5281,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiIdentityUsersUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6776,19 +5294,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/identity/users/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6798,7 +5303,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.UserToJSON)(requestParameters['user']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.UserFromJSON)(jsonValue); })];
                 }
@@ -6825,7 +5330,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1AddressesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6835,19 +5340,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/addresses/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -6856,7 +5348,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AddressToJSON)(requestParameters['address']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AddressFromJSON)(jsonValue); })];
                 }
@@ -6883,7 +5375,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1AddressesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6892,19 +5384,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/addresses/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -6913,7 +5392,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -6938,7 +5417,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1AddressesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6950,19 +5429,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/addresses/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -6970,7 +5436,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedAddressListFromJSON)(jsonValue); })];
                 }
@@ -6998,7 +5464,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1AddressesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7008,19 +5474,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/addresses/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7030,7 +5483,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedAddressToJSON)(requestParameters['patchedAddress']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AddressFromJSON)(jsonValue); })];
                 }
@@ -7057,7 +5510,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1AddressesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7066,19 +5519,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/addresses/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7087,7 +5527,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AddressFromJSON)(jsonValue); })];
                 }
@@ -7114,7 +5554,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1AddressesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7127,19 +5567,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/addresses/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7149,7 +5576,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.AddressToJSON)(requestParameters['address']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AddressFromJSON)(jsonValue); })];
                 }
@@ -7176,7 +5603,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1CountriesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7186,19 +5613,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/countries/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -7207,7 +5621,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.CountryToJSON)(requestParameters['country']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CountryFromJSON)(jsonValue); })];
                 }
@@ -7234,7 +5648,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1CountriesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7243,19 +5657,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/countries/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7264,7 +5665,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -7289,7 +5690,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1CountriesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7301,19 +5702,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/countries/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -7321,7 +5709,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedCountryListFromJSON)(jsonValue); })];
                 }
@@ -7349,7 +5737,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1CountriesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7359,19 +5747,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/countries/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7381,7 +5756,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedCountryToJSON)(requestParameters['patchedCountry']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CountryFromJSON)(jsonValue); })];
                 }
@@ -7408,7 +5783,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1CountriesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7417,19 +5792,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/countries/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7438,7 +5800,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CountryFromJSON)(jsonValue); })];
                 }
@@ -7465,7 +5827,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1CountriesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7478,19 +5840,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/countries/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7500,7 +5849,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.CountryToJSON)(requestParameters['country']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CountryFromJSON)(jsonValue); })];
                 }
@@ -7527,7 +5876,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1StatesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7537,19 +5886,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/states/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -7558,7 +5894,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.StateToJSON)(requestParameters['state']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
                 }
@@ -7585,7 +5921,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1StatesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7594,19 +5930,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/states/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7615,7 +5938,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -7640,7 +5963,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1StatesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7652,19 +5975,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/states/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -7672,7 +5982,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedStateListFromJSON)(jsonValue); })];
                 }
@@ -7700,7 +6010,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1StatesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7710,19 +6020,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/states/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7732,7 +6029,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedStateToJSON)(requestParameters['patchedState']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
                 }
@@ -7759,7 +6056,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1StatesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7768,19 +6065,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/states/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7789,7 +6073,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
                 }
@@ -7816,7 +6100,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1StatesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7829,19 +6113,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/states/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7851,7 +6122,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.StateToJSON)(requestParameters['state']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
                 }
@@ -7878,7 +6149,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueCapacitiesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7888,19 +6159,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-capacities/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -7909,7 +6167,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.VenueCapacityToJSON)(requestParameters['venueCapacity']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
                 }
@@ -7936,7 +6194,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueCapacitiesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7945,19 +6203,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-capacities/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -7966,7 +6211,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -7991,7 +6236,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueCapacitiesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8003,19 +6248,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-capacities/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -8023,7 +6255,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedVenueCapacityListFromJSON)(jsonValue); })];
                 }
@@ -8051,7 +6283,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueCapacitiesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8061,19 +6293,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-capacities/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8083,7 +6302,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedVenueCapacityToJSON)(requestParameters['patchedVenueCapacity']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
                 }
@@ -8110,7 +6329,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueCapacitiesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8119,19 +6338,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-capacities/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8140,7 +6346,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
                 }
@@ -8167,7 +6373,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueCapacitiesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8180,19 +6386,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-capacities/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8202,7 +6395,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.VenueCapacityToJSON)(requestParameters['venueCapacity']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
                 }
@@ -8229,7 +6422,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagAssignmentsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8239,19 +6432,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tag-assignments/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -8260,7 +6440,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.VenueTagAssignmentToJSON)(requestParameters['venueTagAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
                 }
@@ -8287,7 +6467,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagAssignmentsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8296,19 +6476,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tag-assignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8317,7 +6484,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -8342,7 +6509,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagAssignmentsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8354,19 +6521,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tag-assignments/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -8374,7 +6528,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedVenueTagAssignmentListFromJSON)(jsonValue); })];
                 }
@@ -8402,7 +6556,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagAssignmentsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8412,19 +6566,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tag-assignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8434,7 +6575,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedVenueTagAssignmentToJSON)(requestParameters['patchedVenueTagAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
                 }
@@ -8461,7 +6602,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagAssignmentsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8470,19 +6611,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tag-assignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8491,7 +6619,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
                 }
@@ -8518,7 +6646,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagAssignmentsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8531,19 +6659,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tag-assignments/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8553,7 +6668,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.VenueTagAssignmentToJSON)(requestParameters['venueTagAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
                 }
@@ -8580,7 +6695,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8590,19 +6705,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tags/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -8611,7 +6713,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.VenueTagToJSON)(requestParameters['venueTag']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagFromJSON)(jsonValue); })];
                 }
@@ -8638,7 +6740,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8647,19 +6749,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tags/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8668,7 +6757,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -8693,7 +6782,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8705,19 +6794,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tags/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -8725,7 +6801,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedVenueTagListFromJSON)(jsonValue); })];
                 }
@@ -8753,7 +6829,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8763,19 +6839,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tags/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8785,7 +6848,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedVenueTagToJSON)(requestParameters['patchedVenueTag']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagFromJSON)(jsonValue); })];
                 }
@@ -8812,7 +6875,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8821,19 +6884,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tags/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8842,7 +6892,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagFromJSON)(jsonValue); })];
                 }
@@ -8869,7 +6919,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenueTagsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8882,19 +6932,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venue-tags/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -8904,7 +6941,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.VenueTagToJSON)(requestParameters['venueTag']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagFromJSON)(jsonValue); })];
                 }
@@ -8931,7 +6968,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenuesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8941,19 +6978,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venues/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -8962,7 +6986,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.VenueToJSON)(requestParameters['venue']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueFromJSON)(jsonValue); })];
                 }
@@ -8989,7 +7013,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenuesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8998,19 +7022,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venues/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9019,7 +7030,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -9044,7 +7055,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenuesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9056,19 +7067,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venues/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -9076,7 +7074,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedVenueListFromJSON)(jsonValue); })];
                 }
@@ -9104,7 +7102,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenuesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9114,19 +7112,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venues/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9136,7 +7121,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedVenueToJSON)(requestParameters['patchedVenue']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueFromJSON)(jsonValue); })];
                 }
@@ -9163,7 +7148,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenuesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9172,19 +7157,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venues/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9193,7 +7165,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueFromJSON)(jsonValue); })];
                 }
@@ -9220,7 +7192,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiLocationV1VenuesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9233,19 +7205,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/location/v1/venues/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9255,7 +7214,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.VenueToJSON)(requestParameters['venue']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueFromJSON)(jsonValue); })];
                 }
@@ -9282,7 +7241,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1PerformanceCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9292,19 +7251,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/performance/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -9313,7 +7259,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PerformanceToJSON)(requestParameters['performance']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
                 }
@@ -9340,7 +7286,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1PerformanceDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9349,19 +7295,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/performance/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9370,7 +7303,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -9395,7 +7328,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1PerformanceListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9407,19 +7340,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/performance/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -9427,7 +7347,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedPerformanceListFromJSON)(jsonValue); })];
                 }
@@ -9455,7 +7375,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1PerformancePartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9465,19 +7385,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/performance/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9487,7 +7394,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedPerformanceToJSON)(requestParameters['patchedPerformance']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
                 }
@@ -9514,7 +7421,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1PerformanceRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9523,19 +7430,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/performance/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9544,7 +7438,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
                 }
@@ -9571,7 +7465,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1PerformanceUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9584,19 +7478,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/performance/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9606,7 +7487,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PerformanceToJSON)(requestParameters['performance']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
                 }
@@ -9633,7 +7514,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryAssignmentCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9643,19 +7524,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category-assignment/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -9664,7 +7532,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionCategoryAssignmentToJSON)(requestParameters['productionCategoryAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryAssignmentFromJSON)(jsonValue); })];
                 }
@@ -9691,7 +7559,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryAssignmentDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9700,19 +7568,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category-assignment/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9721,7 +7576,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -9746,7 +7601,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryAssignmentListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9758,19 +7613,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category-assignment/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -9778,7 +7620,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionCategoryAssignmentListFromJSON)(jsonValue); })];
                 }
@@ -9806,7 +7648,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryAssignmentPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9816,19 +7658,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category-assignment/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9838,7 +7667,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedProductionCategoryAssignmentToJSON)(requestParameters['patchedProductionCategoryAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryAssignmentFromJSON)(jsonValue); })];
                 }
@@ -9865,7 +7694,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryAssignmentRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9874,19 +7703,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category-assignment/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9895,7 +7711,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryAssignmentFromJSON)(jsonValue); })];
                 }
@@ -9922,7 +7738,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryAssignmentUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9935,19 +7751,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category-assignment/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -9957,7 +7760,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionCategoryAssignmentToJSON)(requestParameters['productionCategoryAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryAssignmentFromJSON)(jsonValue); })];
                 }
@@ -9984,7 +7787,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9994,19 +7797,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -10015,7 +7805,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionCategoryToJSON)(requestParameters['productionCategory']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryFromJSON)(jsonValue); })];
                 }
@@ -10042,7 +7832,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10051,19 +7841,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10072,7 +7849,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -10097,7 +7874,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10109,19 +7886,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -10129,7 +7893,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionCategoryListFromJSON)(jsonValue); })];
                 }
@@ -10157,7 +7921,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10167,19 +7931,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10189,7 +7940,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedProductionCategoryToJSON)(requestParameters['patchedProductionCategory']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryFromJSON)(jsonValue); })];
                 }
@@ -10216,7 +7967,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10225,19 +7976,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10246,7 +7984,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryFromJSON)(jsonValue); })];
                 }
@@ -10273,7 +8011,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdCategoryUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10286,19 +8024,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-category/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10308,7 +8033,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionCategoryToJSON)(requestParameters['productionCategory']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryFromJSON)(jsonValue); })];
                 }
@@ -10335,7 +8060,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdMembersCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10345,19 +8070,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-members/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -10366,7 +8078,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionMemberToJSON)(requestParameters['productionMember']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
                 }
@@ -10393,7 +8105,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdMembersDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10402,19 +8114,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-members/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10423,7 +8122,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -10448,7 +8147,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdMembersListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10460,19 +8159,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-members/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -10480,7 +8166,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionMemberListFromJSON)(jsonValue); })];
                 }
@@ -10508,7 +8194,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdMembersPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10518,19 +8204,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-members/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10540,7 +8213,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedProductionMemberToJSON)(requestParameters['patchedProductionMember']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
                 }
@@ -10567,7 +8240,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdMembersRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10576,19 +8249,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-members/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10597,7 +8257,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
                 }
@@ -10624,7 +8284,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdMembersUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10637,19 +8297,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-members/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10659,7 +8306,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionMemberToJSON)(requestParameters['productionMember']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
                 }
@@ -10686,7 +8333,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdRolesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10696,19 +8343,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-roles/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -10717,7 +8351,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionRoleAssignmentToJSON)(requestParameters['productionRoleAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
                 }
@@ -10744,7 +8378,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdRolesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10753,19 +8387,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-roles/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10774,7 +8395,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -10799,7 +8420,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdRolesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10811,19 +8432,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-roles/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -10831,7 +8439,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionRoleAssignmentListFromJSON)(jsonValue); })];
                 }
@@ -10859,7 +8467,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdRolesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10869,19 +8477,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-roles/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10891,7 +8486,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedProductionRoleAssignmentToJSON)(requestParameters['patchedProductionRoleAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
                 }
@@ -10918,7 +8513,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdRolesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10927,19 +8522,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-roles/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -10948,7 +8530,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
                 }
@@ -10975,7 +8557,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProdRolesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -10988,19 +8570,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/prod-roles/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11010,7 +8579,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionRoleAssignmentToJSON)(requestParameters['productionRoleAssignment']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
                 }
@@ -11037,7 +8606,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProductionCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11047,19 +8616,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/production/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -11068,7 +8624,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionToJSON)(requestParameters['production']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionFromJSON)(jsonValue); })];
                 }
@@ -11095,7 +8651,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProductionDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11104,19 +8660,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/production/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11125,7 +8668,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -11150,7 +8693,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProductionListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11162,19 +8705,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/production/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -11182,7 +8712,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionListFromJSON)(jsonValue); })];
                 }
@@ -11210,7 +8740,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProductionPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11220,19 +8750,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/production/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11242,7 +8759,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedProductionToJSON)(requestParameters['patchedProduction']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionFromJSON)(jsonValue); })];
                 }
@@ -11269,7 +8786,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProductionRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11278,19 +8795,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/production/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11299,7 +8803,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionFromJSON)(jsonValue); })];
                 }
@@ -11326,7 +8830,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1ProductionUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11339,19 +8843,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/production/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11361,7 +8852,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.ProductionToJSON)(requestParameters['production']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionFromJSON)(jsonValue); })];
                 }
@@ -11388,7 +8879,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11398,19 +8889,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -11419,7 +8897,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.RehearsalToJSON)(requestParameters['rehearsal']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
                 }
@@ -11446,7 +8924,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11455,19 +8933,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11476,7 +8941,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -11501,7 +8966,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11513,19 +8978,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -11533,7 +8985,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedRehearsalListFromJSON)(jsonValue); })];
                 }
@@ -11561,7 +9013,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11571,19 +9023,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11593,7 +9032,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedRehearsalToJSON)(requestParameters['patchedRehearsal']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
                 }
@@ -11620,7 +9059,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalParticipantCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11630,19 +9069,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal-participant/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -11651,7 +9077,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.RehearsalParticipantToJSON)(requestParameters['rehearsalParticipant']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
                 }
@@ -11678,7 +9104,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalParticipantDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11687,19 +9113,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal-participant/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11708,7 +9121,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -11733,7 +9146,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalParticipantListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11745,19 +9158,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal-participant/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -11765,7 +9165,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedRehearsalParticipantListFromJSON)(jsonValue); })];
                 }
@@ -11793,7 +9193,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalParticipantPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11803,19 +9203,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal-participant/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11825,7 +9212,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.PatchedRehearsalParticipantToJSON)(requestParameters['patchedRehearsalParticipant']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
                 }
@@ -11852,7 +9239,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalParticipantRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11861,19 +9248,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal-participant/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11882,7 +9256,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
                 }
@@ -11909,7 +9283,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalParticipantUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11922,19 +9296,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal-participant/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -11944,7 +9305,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.RehearsalParticipantToJSON)(requestParameters['rehearsalParticipant']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
                 }
@@ -11971,7 +9332,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -11980,19 +9341,6 @@ var ApiApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -12001,7 +9349,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
                 }
@@ -12028,7 +9376,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiProductionV1RehearsalUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -12041,19 +9389,6 @@ var ApiApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/production/v1/rehearsal/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
@@ -12063,7 +9398,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 query: queryParameters,
                                 body: (0, index_1.RehearsalToJSON)(requestParameters['rehearsal']),
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
                 }
@@ -12091,7 +9426,7 @@ var ApiApi = /** @class */ (function (_super) {
      */
     ApiApi.prototype.apiSchemaRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, token, tokenString, urlPath, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -12103,19 +9438,6 @@ var ApiApi = /** @class */ (function (_super) {
                             queryParameters['lang'] = requestParameters['lang'];
                         }
                         headerParameters = {};
-                        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-                            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-                        }
-                        if (!(this.configuration && this.configuration.accessToken)) return [3 /*break*/, 2];
-                        token = this.configuration.accessToken;
-                        return [4 /*yield*/, token("CadenceOIDC", [])];
-                    case 1:
-                        tokenString = _a.sent();
-                        if (tokenString) {
-                            headerParameters["Authorization"] = "Bearer ".concat(tokenString);
-                        }
-                        _a.label = 2;
-                    case 2:
                         urlPath = "/api/schema/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -12123,7 +9445,7 @@ var ApiApi = /** @class */ (function (_super) {
                                 headers: headerParameters,
                                 query: queryParameters,
                             }, initOverrides)];
-                    case 3:
+                    case 1:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response)];
                 }
