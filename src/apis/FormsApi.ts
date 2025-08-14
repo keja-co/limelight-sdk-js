@@ -55,112 +55,142 @@ import {
     SubmissionFieldValueToJSON,
 } from '../models/index';
 
-export interface FormsV1FormCreateRequest {
+export interface FormsV1FormsCreateRequest {
     form: Omit<Form, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface FormsV1FormDestroyRequest {
+export interface FormsV1FormsDestroyRequest {
     id: number;
 }
 
-export interface FormsV1FormFieldCreateRequest {
+export interface FormsV1FormsFieldsCreateRequest {
+    formId: number;
     formField: Omit<FormField, 'id'|'created_at'|'updated_at'>;
 }
 
-export interface FormsV1FormFieldDestroyRequest {
+export interface FormsV1FormsFieldsDestroyRequest {
+    formId: number;
     id: number;
 }
 
-export interface FormsV1FormFieldListRequest {
+export interface FormsV1FormsFieldsListRequest {
+    formId: number;
     page?: number;
     pageSize?: number;
 }
 
-export interface FormsV1FormFieldPartialUpdateRequest {
+export interface FormsV1FormsFieldsPartialUpdateRequest {
+    formId: number;
     id: number;
     patchedFormField?: Omit<PatchedFormField, 'id'|'created_at'|'updated_at'>;
 }
 
-export interface FormsV1FormFieldRetrieveRequest {
+export interface FormsV1FormsFieldsRetrieveRequest {
+    formId: number;
     id: number;
 }
 
-export interface FormsV1FormFieldUpdateRequest {
+export interface FormsV1FormsFieldsUpdateRequest {
+    formId: number;
     id: number;
     formField: Omit<FormField, 'id'|'created_at'|'updated_at'>;
 }
 
-export interface FormsV1FormListRequest {
+export interface FormsV1FormsListRequest {
     page?: number;
     pageSize?: number;
 }
 
-export interface FormsV1FormPartialUpdateRequest {
+export interface FormsV1FormsPartialUpdateRequest {
     id: number;
     patchedForm?: Omit<PatchedForm, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface FormsV1FormRetrieveRequest {
+export interface FormsV1FormsRetrieveRequest {
     id: number;
 }
 
-export interface FormsV1FormUpdateRequest {
-    id: number;
-    form: Omit<Form, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface FormsV1SubmissionCreateRequest {
+export interface FormsV1FormsSubmissionsCreateRequest {
+    formId: number;
     submission: Omit<Submission, 'id'|'created_at'|'updated_at'|'submitted_date_time'|'created_by'>;
 }
 
-export interface FormsV1SubmissionDestroyRequest {
+export interface FormsV1FormsSubmissionsDestroyRequest {
+    formId: number;
     id: number;
 }
 
-export interface FormsV1SubmissionFieldValueCreateRequest {
+export interface FormsV1FormsSubmissionsFieldResponseCreateRequest {
+    fieldId: number;
+    formId: number;
+    submissionId: number;
     submissionFieldValue: Omit<SubmissionFieldValue, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface FormsV1SubmissionFieldValueDestroyRequest {
+export interface FormsV1FormsSubmissionsFieldResponseDestroyRequest {
+    fieldId: number;
+    formId: number;
     id: number;
+    submissionId: number;
 }
 
-export interface FormsV1SubmissionFieldValueListRequest {
+export interface FormsV1FormsSubmissionsFieldResponseListRequest {
+    fieldId: number;
+    formId: number;
+    submissionId: number;
     page?: number;
     pageSize?: number;
 }
 
-export interface FormsV1SubmissionFieldValuePartialUpdateRequest {
+export interface FormsV1FormsSubmissionsFieldResponsePartialUpdateRequest {
+    fieldId: number;
+    formId: number;
     id: number;
+    submissionId: number;
     patchedSubmissionFieldValue?: Omit<PatchedSubmissionFieldValue, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface FormsV1SubmissionFieldValueRetrieveRequest {
+export interface FormsV1FormsSubmissionsFieldResponseRetrieveRequest {
+    fieldId: number;
+    formId: number;
     id: number;
+    submissionId: number;
 }
 
-export interface FormsV1SubmissionFieldValueUpdateRequest {
+export interface FormsV1FormsSubmissionsFieldResponseUpdateRequest {
+    fieldId: number;
+    formId: number;
     id: number;
+    submissionId: number;
     submissionFieldValue: Omit<SubmissionFieldValue, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface FormsV1SubmissionListRequest {
+export interface FormsV1FormsSubmissionsListRequest {
+    formId: number;
     page?: number;
     pageSize?: number;
 }
 
-export interface FormsV1SubmissionPartialUpdateRequest {
+export interface FormsV1FormsSubmissionsPartialUpdateRequest {
+    formId: number;
     id: number;
     patchedSubmission?: Omit<PatchedSubmission, 'id'|'created_at'|'updated_at'|'submitted_date_time'|'created_by'>;
 }
 
-export interface FormsV1SubmissionRetrieveRequest {
+export interface FormsV1FormsSubmissionsRetrieveRequest {
+    formId: number;
     id: number;
 }
 
-export interface FormsV1SubmissionUpdateRequest {
+export interface FormsV1FormsSubmissionsUpdateRequest {
+    formId: number;
     id: number;
     submission: Omit<Submission, 'id'|'created_at'|'updated_at'|'submitted_date_time'|'created_by'>;
+}
+
+export interface FormsV1FormsUpdateRequest {
+    id: number;
+    form: Omit<Form, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
 /**
@@ -169,12 +199,14 @@ export interface FormsV1SubmissionUpdateRequest {
 export class FormsApi extends runtime.BaseAPI {
 
     /**
+     * Add a new form to the system.
+     * Create a new form
      */
-    async formsV1FormCreateRaw(requestParameters: FormsV1FormCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>> {
+    async formsV1FormsCreateRaw(requestParameters: FormsV1FormsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>> {
         if (requestParameters['form'] == null) {
             throw new runtime.RequiredError(
                 'form',
-                'Required parameter "form" was null or undefined when calling formsV1FormCreate().'
+                'Required parameter "form" was null or undefined when calling formsV1FormsCreate().'
             );
         }
 
@@ -185,7 +217,7 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/form/`;
+        let urlPath = `/api/forms/v1/forms/`;
 
         const response = await this.request({
             path: urlPath,
@@ -199,19 +231,23 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new form to the system.
+     * Create a new form
      */
-    async formsV1FormCreate(requestParameters: FormsV1FormCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form> {
-        const response = await this.formsV1FormCreateRaw(requestParameters, initOverrides);
+    async formsV1FormsCreate(requestParameters: FormsV1FormsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form> {
+        const response = await this.formsV1FormsCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Remove a form from the system by its ID.
+     * Delete a form
      */
-    async formsV1FormDestroyRaw(requestParameters: FormsV1FormDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async formsV1FormsDestroyRaw(requestParameters: FormsV1FormsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1FormDestroy().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsDestroy().'
             );
         }
 
@@ -220,7 +256,7 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/form/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -234,18 +270,29 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a form from the system by its ID.
+     * Delete a form
      */
-    async formsV1FormDestroy(requestParameters: FormsV1FormDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.formsV1FormDestroyRaw(requestParameters, initOverrides);
+    async formsV1FormsDestroy(requestParameters: FormsV1FormsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.formsV1FormsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Add a new field to a specific form.
+     * Create a new form field
      */
-    async formsV1FormFieldCreateRaw(requestParameters: FormsV1FormFieldCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>> {
+    async formsV1FormsFieldsCreateRaw(requestParameters: FormsV1FormsFieldsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsCreate().'
+            );
+        }
+
         if (requestParameters['formField'] == null) {
             throw new runtime.RequiredError(
                 'formField',
-                'Required parameter "formField" was null or undefined when calling formsV1FormFieldCreate().'
+                'Required parameter "formField" was null or undefined when calling formsV1FormsFieldsCreate().'
             );
         }
 
@@ -256,7 +303,8 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/form-field/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/fields/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -270,19 +318,30 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new field to a specific form.
+     * Create a new form field
      */
-    async formsV1FormFieldCreate(requestParameters: FormsV1FormFieldCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField> {
-        const response = await this.formsV1FormFieldCreateRaw(requestParameters, initOverrides);
+    async formsV1FormsFieldsCreate(requestParameters: FormsV1FormsFieldsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField> {
+        const response = await this.formsV1FormsFieldsCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Remove a form field from the system by its ID.
+     * Delete a form field
      */
-    async formsV1FormFieldDestroyRaw(requestParameters: FormsV1FormFieldDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async formsV1FormsFieldsDestroyRaw(requestParameters: FormsV1FormsFieldsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsDestroy().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1FormFieldDestroy().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsFieldsDestroy().'
             );
         }
 
@@ -291,7 +350,8 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/form-field/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/fields/{id}/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -305,14 +365,25 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a form field from the system by its ID.
+     * Delete a form field
      */
-    async formsV1FormFieldDestroy(requestParameters: FormsV1FormFieldDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.formsV1FormFieldDestroyRaw(requestParameters, initOverrides);
+    async formsV1FormsFieldsDestroy(requestParameters: FormsV1FormsFieldsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.formsV1FormsFieldsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve a list of all fields associated with a specific form.
+     * List all form fields
      */
-    async formsV1FormFieldListRaw(requestParameters: FormsV1FormFieldListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFormFieldList>> {
+    async formsV1FormsFieldsListRaw(requestParameters: FormsV1FormsFieldsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFormFieldList>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsList().'
+            );
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -326,7 +397,8 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/form-field/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/fields/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -339,19 +411,30 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a list of all fields associated with a specific form.
+     * List all form fields
      */
-    async formsV1FormFieldList(requestParameters: FormsV1FormFieldListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFormFieldList> {
-        const response = await this.formsV1FormFieldListRaw(requestParameters, initOverrides);
+    async formsV1FormsFieldsList(requestParameters: FormsV1FormsFieldsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFormFieldList> {
+        const response = await this.formsV1FormsFieldsListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update specific fields of an existing form field without affecting others.
+     * Partially update a form field
      */
-    async formsV1FormFieldPartialUpdateRaw(requestParameters: FormsV1FormFieldPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>> {
+    async formsV1FormsFieldsPartialUpdateRaw(requestParameters: FormsV1FormsFieldsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsPartialUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1FormFieldPartialUpdate().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsFieldsPartialUpdate().'
             );
         }
 
@@ -362,7 +445,8 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/form-field/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/fields/{id}/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -377,19 +461,30 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing form field without affecting others.
+     * Partially update a form field
      */
-    async formsV1FormFieldPartialUpdate(requestParameters: FormsV1FormFieldPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField> {
-        const response = await this.formsV1FormFieldPartialUpdateRaw(requestParameters, initOverrides);
+    async formsV1FormsFieldsPartialUpdate(requestParameters: FormsV1FormsFieldsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField> {
+        const response = await this.formsV1FormsFieldsPartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Get detailed information about a specific form field by its ID.
+     * Retrieve a specific form field
      */
-    async formsV1FormFieldRetrieveRaw(requestParameters: FormsV1FormFieldRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>> {
+    async formsV1FormsFieldsRetrieveRaw(requestParameters: FormsV1FormsFieldsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsRetrieve().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1FormFieldRetrieve().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsFieldsRetrieve().'
             );
         }
 
@@ -398,7 +493,8 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/form-field/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/fields/{id}/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -412,26 +508,37 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific form field by its ID.
+     * Retrieve a specific form field
      */
-    async formsV1FormFieldRetrieve(requestParameters: FormsV1FormFieldRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField> {
-        const response = await this.formsV1FormFieldRetrieveRaw(requestParameters, initOverrides);
+    async formsV1FormsFieldsRetrieve(requestParameters: FormsV1FormsFieldsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField> {
+        const response = await this.formsV1FormsFieldsRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Modify the details of an existing form field by its ID.
+     * Update an existing form field
      */
-    async formsV1FormFieldUpdateRaw(requestParameters: FormsV1FormFieldUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>> {
+    async formsV1FormsFieldsUpdateRaw(requestParameters: FormsV1FormsFieldsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1FormFieldUpdate().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsFieldsUpdate().'
             );
         }
 
         if (requestParameters['formField'] == null) {
             throw new runtime.RequiredError(
                 'formField',
-                'Required parameter "formField" was null or undefined when calling formsV1FormFieldUpdate().'
+                'Required parameter "formField" was null or undefined when calling formsV1FormsFieldsUpdate().'
             );
         }
 
@@ -442,7 +549,8 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/form-field/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/fields/{id}/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -457,15 +565,19 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Modify the details of an existing form field by its ID.
+     * Update an existing form field
      */
-    async formsV1FormFieldUpdate(requestParameters: FormsV1FormFieldUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField> {
-        const response = await this.formsV1FormFieldUpdateRaw(requestParameters, initOverrides);
+    async formsV1FormsFieldsUpdate(requestParameters: FormsV1FormsFieldsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField> {
+        const response = await this.formsV1FormsFieldsUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Retrieve a list of all forms in the system.
+     * List all forms
      */
-    async formsV1FormListRaw(requestParameters: FormsV1FormListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFormList>> {
+    async formsV1FormsListRaw(requestParameters: FormsV1FormsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFormList>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -479,7 +591,7 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/form/`;
+        let urlPath = `/api/forms/v1/forms/`;
 
         const response = await this.request({
             path: urlPath,
@@ -492,19 +604,23 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a list of all forms in the system.
+     * List all forms
      */
-    async formsV1FormList(requestParameters: FormsV1FormListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFormList> {
-        const response = await this.formsV1FormListRaw(requestParameters, initOverrides);
+    async formsV1FormsList(requestParameters: FormsV1FormsListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFormList> {
+        const response = await this.formsV1FormsListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update specific fields of an existing form without affecting others.
+     * Partially update a form
      */
-    async formsV1FormPartialUpdateRaw(requestParameters: FormsV1FormPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>> {
+    async formsV1FormsPartialUpdateRaw(requestParameters: FormsV1FormsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1FormPartialUpdate().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsPartialUpdate().'
             );
         }
 
@@ -515,7 +631,7 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/form/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -530,19 +646,23 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing form without affecting others.
+     * Partially update a form
      */
-    async formsV1FormPartialUpdate(requestParameters: FormsV1FormPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form> {
-        const response = await this.formsV1FormPartialUpdateRaw(requestParameters, initOverrides);
+    async formsV1FormsPartialUpdate(requestParameters: FormsV1FormsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form> {
+        const response = await this.formsV1FormsPartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Get detailed information about a specific form by its ID.
+     * Retrieve a specific form
      */
-    async formsV1FormRetrieveRaw(requestParameters: FormsV1FormRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>> {
+    async formsV1FormsRetrieveRaw(requestParameters: FormsV1FormsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1FormRetrieve().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsRetrieve().'
             );
         }
 
@@ -551,7 +671,7 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/form/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -565,64 +685,30 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific form by its ID.
+     * Retrieve a specific form
      */
-    async formsV1FormRetrieve(requestParameters: FormsV1FormRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form> {
-        const response = await this.formsV1FormRetrieveRaw(requestParameters, initOverrides);
+    async formsV1FormsRetrieve(requestParameters: FormsV1FormsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form> {
+        const response = await this.formsV1FormsRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Add a new submission to a specific form.
+     * Create a new submission for a form
      */
-    async formsV1FormUpdateRaw(requestParameters: FormsV1FormUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>> {
-        if (requestParameters['id'] == null) {
+    async formsV1FormsSubmissionsCreateRaw(requestParameters: FormsV1FormsSubmissionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>> {
+        if (requestParameters['formId'] == null) {
             throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling formsV1FormUpdate().'
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsCreate().'
             );
         }
 
-        if (requestParameters['form'] == null) {
-            throw new runtime.RequiredError(
-                'form',
-                'Required parameter "form" was null or undefined when calling formsV1FormUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/forms/v1/form/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: FormToJSON(requestParameters['form']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => FormFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async formsV1FormUpdate(requestParameters: FormsV1FormUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form> {
-        const response = await this.formsV1FormUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async formsV1SubmissionCreateRaw(requestParameters: FormsV1SubmissionCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>> {
         if (requestParameters['submission'] == null) {
             throw new runtime.RequiredError(
                 'submission',
-                'Required parameter "submission" was null or undefined when calling formsV1SubmissionCreate().'
+                'Required parameter "submission" was null or undefined when calling formsV1FormsSubmissionsCreate().'
             );
         }
 
@@ -633,7 +719,8 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/submission/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -647,19 +734,30 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new submission to a specific form.
+     * Create a new submission for a form
      */
-    async formsV1SubmissionCreate(requestParameters: FormsV1SubmissionCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission> {
-        const response = await this.formsV1SubmissionCreateRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsCreate(requestParameters: FormsV1FormsSubmissionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission> {
+        const response = await this.formsV1FormsSubmissionsCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Remove a submission from the system by its ID.
+     * Delete a submission
      */
-    async formsV1SubmissionDestroyRaw(requestParameters: FormsV1SubmissionDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async formsV1FormsSubmissionsDestroyRaw(requestParameters: FormsV1FormsSubmissionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsDestroy().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1SubmissionDestroy().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsDestroy().'
             );
         }
 
@@ -668,7 +766,8 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/submission/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{id}/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -682,18 +781,43 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a submission from the system by its ID.
+     * Delete a submission
      */
-    async formsV1SubmissionDestroy(requestParameters: FormsV1SubmissionDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.formsV1SubmissionDestroyRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsDestroy(requestParameters: FormsV1FormsSubmissionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.formsV1FormsSubmissionsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Add a new field value to a specific submission.
+     * Create a new field value for a submission
      */
-    async formsV1SubmissionFieldValueCreateRaw(requestParameters: FormsV1SubmissionFieldValueCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>> {
+    async formsV1FormsSubmissionsFieldResponseCreateRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>> {
+        if (requestParameters['fieldId'] == null) {
+            throw new runtime.RequiredError(
+                'fieldId',
+                'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseCreate().'
+            );
+        }
+
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseCreate().'
+            );
+        }
+
+        if (requestParameters['submissionId'] == null) {
+            throw new runtime.RequiredError(
+                'submissionId',
+                'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseCreate().'
+            );
+        }
+
         if (requestParameters['submissionFieldValue'] == null) {
             throw new runtime.RequiredError(
                 'submissionFieldValue',
-                'Required parameter "submissionFieldValue" was null or undefined when calling formsV1SubmissionFieldValueCreate().'
+                'Required parameter "submissionFieldValue" was null or undefined when calling formsV1FormsSubmissionsFieldResponseCreate().'
             );
         }
 
@@ -704,7 +828,10 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/submission-field-value/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/`;
+        urlPath = urlPath.replace(`{${"field_id"}}`, encodeURIComponent(String(requestParameters['fieldId'])));
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
+        urlPath = urlPath.replace(`{${"submission_id"}}`, encodeURIComponent(String(requestParameters['submissionId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -718,19 +845,44 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new field value to a specific submission.
+     * Create a new field value for a submission
      */
-    async formsV1SubmissionFieldValueCreate(requestParameters: FormsV1SubmissionFieldValueCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue> {
-        const response = await this.formsV1SubmissionFieldValueCreateRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsFieldResponseCreate(requestParameters: FormsV1FormsSubmissionsFieldResponseCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue> {
+        const response = await this.formsV1FormsSubmissionsFieldResponseCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Remove a field value from the system by its ID.
+     * Delete a field value
      */
-    async formsV1SubmissionFieldValueDestroyRaw(requestParameters: FormsV1SubmissionFieldValueDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async formsV1FormsSubmissionsFieldResponseDestroyRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['fieldId'] == null) {
+            throw new runtime.RequiredError(
+                'fieldId',
+                'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseDestroy().'
+            );
+        }
+
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseDestroy().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1SubmissionFieldValueDestroy().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsFieldResponseDestroy().'
+            );
+        }
+
+        if (requestParameters['submissionId'] == null) {
+            throw new runtime.RequiredError(
+                'submissionId',
+                'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseDestroy().'
             );
         }
 
@@ -739,8 +891,11 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/submission-field-value/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/{id}/`;
+        urlPath = urlPath.replace(`{${"field_id"}}`, encodeURIComponent(String(requestParameters['fieldId'])));
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"submission_id"}}`, encodeURIComponent(String(requestParameters['submissionId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -753,14 +908,39 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a field value from the system by its ID.
+     * Delete a field value
      */
-    async formsV1SubmissionFieldValueDestroy(requestParameters: FormsV1SubmissionFieldValueDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.formsV1SubmissionFieldValueDestroyRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsFieldResponseDestroy(requestParameters: FormsV1FormsSubmissionsFieldResponseDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.formsV1FormsSubmissionsFieldResponseDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve a list of all field values associated with a specific submission.
+     * List all field values for a submission
      */
-    async formsV1SubmissionFieldValueListRaw(requestParameters: FormsV1SubmissionFieldValueListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSubmissionFieldValueList>> {
+    async formsV1FormsSubmissionsFieldResponseListRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSubmissionFieldValueList>> {
+        if (requestParameters['fieldId'] == null) {
+            throw new runtime.RequiredError(
+                'fieldId',
+                'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseList().'
+            );
+        }
+
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseList().'
+            );
+        }
+
+        if (requestParameters['submissionId'] == null) {
+            throw new runtime.RequiredError(
+                'submissionId',
+                'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseList().'
+            );
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -774,7 +954,10 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/submission-field-value/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/`;
+        urlPath = urlPath.replace(`{${"field_id"}}`, encodeURIComponent(String(requestParameters['fieldId'])));
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
+        urlPath = urlPath.replace(`{${"submission_id"}}`, encodeURIComponent(String(requestParameters['submissionId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -787,19 +970,44 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a list of all field values associated with a specific submission.
+     * List all field values for a submission
      */
-    async formsV1SubmissionFieldValueList(requestParameters: FormsV1SubmissionFieldValueListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSubmissionFieldValueList> {
-        const response = await this.formsV1SubmissionFieldValueListRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsFieldResponseList(requestParameters: FormsV1FormsSubmissionsFieldResponseListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSubmissionFieldValueList> {
+        const response = await this.formsV1FormsSubmissionsFieldResponseListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update specific fields of an existing field value without affecting others.
+     * Partially update a field value
      */
-    async formsV1SubmissionFieldValuePartialUpdateRaw(requestParameters: FormsV1SubmissionFieldValuePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>> {
+    async formsV1FormsSubmissionsFieldResponsePartialUpdateRaw(requestParameters: FormsV1FormsSubmissionsFieldResponsePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>> {
+        if (requestParameters['fieldId'] == null) {
+            throw new runtime.RequiredError(
+                'fieldId',
+                'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponsePartialUpdate().'
+            );
+        }
+
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponsePartialUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1SubmissionFieldValuePartialUpdate().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsFieldResponsePartialUpdate().'
+            );
+        }
+
+        if (requestParameters['submissionId'] == null) {
+            throw new runtime.RequiredError(
+                'submissionId',
+                'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponsePartialUpdate().'
             );
         }
 
@@ -810,8 +1018,11 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/submission-field-value/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/{id}/`;
+        urlPath = urlPath.replace(`{${"field_id"}}`, encodeURIComponent(String(requestParameters['fieldId'])));
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"submission_id"}}`, encodeURIComponent(String(requestParameters['submissionId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -825,19 +1036,44 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing field value without affecting others.
+     * Partially update a field value
      */
-    async formsV1SubmissionFieldValuePartialUpdate(requestParameters: FormsV1SubmissionFieldValuePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue> {
-        const response = await this.formsV1SubmissionFieldValuePartialUpdateRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsFieldResponsePartialUpdate(requestParameters: FormsV1FormsSubmissionsFieldResponsePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue> {
+        const response = await this.formsV1FormsSubmissionsFieldResponsePartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Get detailed information about a specific field value by its ID.
+     * Retrieve a specific field value
      */
-    async formsV1SubmissionFieldValueRetrieveRaw(requestParameters: FormsV1SubmissionFieldValueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>> {
+    async formsV1FormsSubmissionsFieldResponseRetrieveRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>> {
+        if (requestParameters['fieldId'] == null) {
+            throw new runtime.RequiredError(
+                'fieldId',
+                'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseRetrieve().'
+            );
+        }
+
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseRetrieve().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1SubmissionFieldValueRetrieve().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsFieldResponseRetrieve().'
+            );
+        }
+
+        if (requestParameters['submissionId'] == null) {
+            throw new runtime.RequiredError(
+                'submissionId',
+                'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseRetrieve().'
             );
         }
 
@@ -846,8 +1082,11 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/submission-field-value/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/{id}/`;
+        urlPath = urlPath.replace(`{${"field_id"}}`, encodeURIComponent(String(requestParameters['fieldId'])));
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"submission_id"}}`, encodeURIComponent(String(requestParameters['submissionId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -860,26 +1099,51 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific field value by its ID.
+     * Retrieve a specific field value
      */
-    async formsV1SubmissionFieldValueRetrieve(requestParameters: FormsV1SubmissionFieldValueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue> {
-        const response = await this.formsV1SubmissionFieldValueRetrieveRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsFieldResponseRetrieve(requestParameters: FormsV1FormsSubmissionsFieldResponseRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue> {
+        const response = await this.formsV1FormsSubmissionsFieldResponseRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Modify the details of an existing field value by its ID.
+     * Update an existing field value
      */
-    async formsV1SubmissionFieldValueUpdateRaw(requestParameters: FormsV1SubmissionFieldValueUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>> {
+    async formsV1FormsSubmissionsFieldResponseUpdateRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>> {
+        if (requestParameters['fieldId'] == null) {
+            throw new runtime.RequiredError(
+                'fieldId',
+                'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().'
+            );
+        }
+
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1SubmissionFieldValueUpdate().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().'
+            );
+        }
+
+        if (requestParameters['submissionId'] == null) {
+            throw new runtime.RequiredError(
+                'submissionId',
+                'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().'
             );
         }
 
         if (requestParameters['submissionFieldValue'] == null) {
             throw new runtime.RequiredError(
                 'submissionFieldValue',
-                'Required parameter "submissionFieldValue" was null or undefined when calling formsV1SubmissionFieldValueUpdate().'
+                'Required parameter "submissionFieldValue" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().'
             );
         }
 
@@ -890,8 +1154,11 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/submission-field-value/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/{id}/`;
+        urlPath = urlPath.replace(`{${"field_id"}}`, encodeURIComponent(String(requestParameters['fieldId'])));
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"submission_id"}}`, encodeURIComponent(String(requestParameters['submissionId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -905,15 +1172,26 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Modify the details of an existing field value by its ID.
+     * Update an existing field value
      */
-    async formsV1SubmissionFieldValueUpdate(requestParameters: FormsV1SubmissionFieldValueUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue> {
-        const response = await this.formsV1SubmissionFieldValueUpdateRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsFieldResponseUpdate(requestParameters: FormsV1FormsSubmissionsFieldResponseUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue> {
+        const response = await this.formsV1FormsSubmissionsFieldResponseUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Retrieve a list of all submissions associated with a specific form.
+     * List all submissions for a form
      */
-    async formsV1SubmissionListRaw(requestParameters: FormsV1SubmissionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSubmissionList>> {
+    async formsV1FormsSubmissionsListRaw(requestParameters: FormsV1FormsSubmissionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSubmissionList>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsList().'
+            );
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -927,7 +1205,8 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/submission/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -940,19 +1219,30 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a list of all submissions associated with a specific form.
+     * List all submissions for a form
      */
-    async formsV1SubmissionList(requestParameters: FormsV1SubmissionListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSubmissionList> {
-        const response = await this.formsV1SubmissionListRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsList(requestParameters: FormsV1FormsSubmissionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSubmissionList> {
+        const response = await this.formsV1FormsSubmissionsListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update specific fields of an existing submission without affecting others.
+     * Partially update a submission
      */
-    async formsV1SubmissionPartialUpdateRaw(requestParameters: FormsV1SubmissionPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>> {
+    async formsV1FormsSubmissionsPartialUpdateRaw(requestParameters: FormsV1FormsSubmissionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsPartialUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1SubmissionPartialUpdate().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsPartialUpdate().'
             );
         }
 
@@ -963,7 +1253,8 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/submission/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{id}/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -978,19 +1269,30 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing submission without affecting others.
+     * Partially update a submission
      */
-    async formsV1SubmissionPartialUpdate(requestParameters: FormsV1SubmissionPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission> {
-        const response = await this.formsV1SubmissionPartialUpdateRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsPartialUpdate(requestParameters: FormsV1FormsSubmissionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission> {
+        const response = await this.formsV1FormsSubmissionsPartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Get detailed information about a specific submission by its ID.
+     * Retrieve a specific submission
      */
-    async formsV1SubmissionRetrieveRaw(requestParameters: FormsV1SubmissionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>> {
+    async formsV1FormsSubmissionsRetrieveRaw(requestParameters: FormsV1FormsSubmissionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsRetrieve().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1SubmissionRetrieve().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsRetrieve().'
             );
         }
 
@@ -999,7 +1301,8 @@ export class FormsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/forms/v1/submission/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{id}/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1013,26 +1316,37 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific submission by its ID.
+     * Retrieve a specific submission
      */
-    async formsV1SubmissionRetrieve(requestParameters: FormsV1SubmissionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission> {
-        const response = await this.formsV1SubmissionRetrieveRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsRetrieve(requestParameters: FormsV1FormsSubmissionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission> {
+        const response = await this.formsV1FormsSubmissionsRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Modify the details of an existing submission by its ID.
+     * Update an existing submission
      */
-    async formsV1SubmissionUpdateRaw(requestParameters: FormsV1SubmissionUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>> {
+    async formsV1FormsSubmissionsUpdateRaw(requestParameters: FormsV1FormsSubmissionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>> {
+        if (requestParameters['formId'] == null) {
+            throw new runtime.RequiredError(
+                'formId',
+                'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling formsV1SubmissionUpdate().'
+                'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsUpdate().'
             );
         }
 
         if (requestParameters['submission'] == null) {
             throw new runtime.RequiredError(
                 'submission',
-                'Required parameter "submission" was null or undefined when calling formsV1SubmissionUpdate().'
+                'Required parameter "submission" was null or undefined when calling formsV1FormsSubmissionsUpdate().'
             );
         }
 
@@ -1043,7 +1357,8 @@ export class FormsApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/forms/v1/submission/{id}/`;
+        let urlPath = `/api/forms/v1/forms/{form_id}/submissions/{id}/`;
+        urlPath = urlPath.replace(`{${"form_id"}}`, encodeURIComponent(String(requestParameters['formId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1058,9 +1373,60 @@ export class FormsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Modify the details of an existing submission by its ID.
+     * Update an existing submission
      */
-    async formsV1SubmissionUpdate(requestParameters: FormsV1SubmissionUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission> {
-        const response = await this.formsV1SubmissionUpdateRaw(requestParameters, initOverrides);
+    async formsV1FormsSubmissionsUpdate(requestParameters: FormsV1FormsSubmissionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission> {
+        const response = await this.formsV1FormsSubmissionsUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Modify the details of an existing form by its ID.
+     * Update an existing form
+     */
+    async formsV1FormsUpdateRaw(requestParameters: FormsV1FormsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling formsV1FormsUpdate().'
+            );
+        }
+
+        if (requestParameters['form'] == null) {
+            throw new runtime.RequiredError(
+                'form',
+                'Required parameter "form" was null or undefined when calling formsV1FormsUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/forms/v1/forms/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: FormToJSON(requestParameters['form']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FormFromJSON(jsonValue));
+    }
+
+    /**
+     * Modify the details of an existing form by its ID.
+     * Update an existing form
+     */
+    async formsV1FormsUpdate(requestParameters: FormsV1FormsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form> {
+        const response = await this.formsV1FormsUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

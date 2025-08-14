@@ -76,20 +76,22 @@ var FormsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Add a new form to the system.
+     * Create a new form
      */
-    FormsApi.prototype.formsV1FormCreateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['form'] == null) {
-                            throw new runtime.RequiredError('form', 'Required parameter "form" was null or undefined when calling formsV1FormCreate().');
+                            throw new runtime.RequiredError('form', 'Required parameter "form" was null or undefined when calling formsV1FormsCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/form/";
+                        urlPath = "/api/forms/v1/forms/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -105,13 +107,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new form to the system.
+     * Create a new form
      */
-    FormsApi.prototype.formsV1FormCreate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -121,19 +125,21 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a form from the system by its ID.
+     * Delete a form
      */
-    FormsApi.prototype.formsV1FormDestroyRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/form/{id}/";
+                        urlPath = "/api/forms/v1/forms/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -149,12 +155,14 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a form from the system by its ID.
+     * Delete a form
      */
-    FormsApi.prototype.formsV1FormDestroy = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -163,20 +171,26 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new field to a specific form.
+     * Create a new form field
      */
-    FormsApi.prototype.formsV1FormFieldCreateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsCreate().');
+                        }
                         if (requestParameters['formField'] == null) {
-                            throw new runtime.RequiredError('formField', 'Required parameter "formField" was null or undefined when calling formsV1FormFieldCreate().');
+                            throw new runtime.RequiredError('formField', 'Required parameter "formField" was null or undefined when calling formsV1FormsFieldsCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/form-field/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/fields/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -192,13 +206,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new field to a specific form.
+     * Create a new form field
      */
-    FormsApi.prototype.formsV1FormFieldCreate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormFieldCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsFieldsCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -208,19 +224,25 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a form field from the system by its ID.
+     * Delete a form field
      */
-    FormsApi.prototype.formsV1FormFieldDestroyRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsDestroy().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormFieldDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsFieldsDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/form-field/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/fields/{id}/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -236,12 +258,14 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a form field from the system by its ID.
+     * Delete a form field
      */
-    FormsApi.prototype.formsV1FormFieldDestroy = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormFieldDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsFieldsDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -250,13 +274,18 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all fields associated with a specific form.
+     * List all form fields
      */
-    FormsApi.prototype.formsV1FormFieldListRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsList().');
+                        }
                         queryParameters = {};
                         if (requestParameters['page'] != null) {
                             queryParameters['page'] = requestParameters['page'];
@@ -265,7 +294,8 @@ var FormsApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/form-field/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/fields/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -280,14 +310,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all fields associated with a specific form.
+     * List all form fields
      */
-    FormsApi.prototype.formsV1FormFieldList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
             var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormFieldListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsFieldsListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -297,20 +328,26 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing form field without affecting others.
+     * Partially update a form field
      */
-    FormsApi.prototype.formsV1FormFieldPartialUpdateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsPartialUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormFieldPartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsFieldsPartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/form-field/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/fields/{id}/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -327,13 +364,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing form field without affecting others.
+     * Partially update a form field
      */
-    FormsApi.prototype.formsV1FormFieldPartialUpdate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormFieldPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsFieldsPartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -343,19 +382,25 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific form field by its ID.
+     * Retrieve a specific form field
      */
-    FormsApi.prototype.formsV1FormFieldRetrieveRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsRetrieve().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormFieldRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsFieldsRetrieve().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/form-field/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/fields/{id}/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -371,13 +416,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific form field by its ID.
+     * Retrieve a specific form field
      */
-    FormsApi.prototype.formsV1FormFieldRetrieve = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormFieldRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsFieldsRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -387,23 +434,29 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing form field by its ID.
+     * Update an existing form field
      */
-    FormsApi.prototype.formsV1FormFieldUpdateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsFieldsUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormFieldUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsFieldsUpdate().');
                         }
                         if (requestParameters['formField'] == null) {
-                            throw new runtime.RequiredError('formField', 'Required parameter "formField" was null or undefined when calling formsV1FormFieldUpdate().');
+                            throw new runtime.RequiredError('formField', 'Required parameter "formField" was null or undefined when calling formsV1FormsFieldsUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/form-field/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/fields/{id}/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -420,13 +473,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing form field by its ID.
+     * Update an existing form field
      */
-    FormsApi.prototype.formsV1FormFieldUpdate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsFieldsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormFieldUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsFieldsUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -436,8 +491,10 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all forms in the system.
+     * List all forms
      */
-    FormsApi.prototype.formsV1FormListRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
@@ -451,7 +508,7 @@ var FormsApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/form/";
+                        urlPath = "/api/forms/v1/forms/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -466,14 +523,16 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all forms in the system.
+     * List all forms
      */
-    FormsApi.prototype.formsV1FormList = function () {
+    FormsApi.prototype.formsV1FormsList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
             var response;
             if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -483,20 +542,22 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing form without affecting others.
+     * Partially update a form
      */
-    FormsApi.prototype.formsV1FormPartialUpdateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormPartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsPartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/form/{id}/";
+                        urlPath = "/api/forms/v1/forms/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -513,13 +574,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing form without affecting others.
+     * Partially update a form
      */
-    FormsApi.prototype.formsV1FormPartialUpdate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsPartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -529,19 +592,21 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific form by its ID.
+     * Retrieve a specific form
      */
-    FormsApi.prototype.formsV1FormRetrieveRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsRetrieve().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/form/{id}/";
+                        urlPath = "/api/forms/v1/forms/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -557,13 +622,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific form by its ID.
+     * Retrieve a specific form
      */
-    FormsApi.prototype.formsV1FormRetrieve = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -573,69 +640,26 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new submission to a specific form.
+     * Create a new submission for a form
      */
-    FormsApi.prototype.formsV1FormUpdateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormUpdate().');
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsCreate().');
                         }
-                        if (requestParameters['form'] == null) {
-                            throw new runtime.RequiredError('form', 'Required parameter "form" was null or undefined when calling formsV1FormUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/form/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.FormToJSON)(requestParameters['form']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FormFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    FormsApi.prototype.formsV1FormUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1FormUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    FormsApi.prototype.formsV1SubmissionCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
                         if (requestParameters['submission'] == null) {
-                            throw new runtime.RequiredError('submission', 'Required parameter "submission" was null or undefined when calling formsV1SubmissionCreate().');
+                            throw new runtime.RequiredError('submission', 'Required parameter "submission" was null or undefined when calling formsV1FormsSubmissionsCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/submission/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -651,13 +675,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new submission to a specific form.
+     * Create a new submission for a form
      */
-    FormsApi.prototype.formsV1SubmissionCreate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -667,19 +693,25 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a submission from the system by its ID.
+     * Delete a submission
      */
-    FormsApi.prototype.formsV1SubmissionDestroyRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsDestroy().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1SubmissionDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/submission/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{id}/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -695,12 +727,14 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a submission from the system by its ID.
+     * Delete a submission
      */
-    FormsApi.prototype.formsV1SubmissionDestroy = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -709,20 +743,34 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new field value to a specific submission.
+     * Create a new field value for a submission
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueCreateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['fieldId'] == null) {
+                            throw new runtime.RequiredError('fieldId', 'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseCreate().');
+                        }
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseCreate().');
+                        }
+                        if (requestParameters['submissionId'] == null) {
+                            throw new runtime.RequiredError('submissionId', 'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseCreate().');
+                        }
                         if (requestParameters['submissionFieldValue'] == null) {
-                            throw new runtime.RequiredError('submissionFieldValue', 'Required parameter "submissionFieldValue" was null or undefined when calling formsV1SubmissionFieldValueCreate().');
+                            throw new runtime.RequiredError('submissionFieldValue', 'Required parameter "submissionFieldValue" was null or undefined when calling formsV1FormsSubmissionsFieldResponseCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/submission-field-value/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/";
+                        urlPath = urlPath.replace("{".concat("field_id", "}"), encodeURIComponent(String(requestParameters['fieldId'])));
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
+                        urlPath = urlPath.replace("{".concat("submission_id", "}"), encodeURIComponent(String(requestParameters['submissionId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -738,13 +786,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new field value to a specific submission.
+     * Create a new field value for a submission
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueCreate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionFieldValueCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsFieldResponseCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -754,20 +804,34 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a field value from the system by its ID.
+     * Delete a field value
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueDestroyRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['fieldId'] == null) {
+                            throw new runtime.RequiredError('fieldId', 'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseDestroy().');
+                        }
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseDestroy().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1SubmissionFieldValueDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsFieldResponseDestroy().');
+                        }
+                        if (requestParameters['submissionId'] == null) {
+                            throw new runtime.RequiredError('submissionId', 'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/submission-field-value/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/{id}/";
+                        urlPath = urlPath.replace("{".concat("field_id", "}"), encodeURIComponent(String(requestParameters['fieldId'])));
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("submission_id", "}"), encodeURIComponent(String(requestParameters['submissionId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'DELETE',
@@ -782,12 +846,14 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a field value from the system by its ID.
+     * Delete a field value
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueDestroy = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionFieldValueDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsFieldResponseDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -796,13 +862,24 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all field values associated with a specific submission.
+     * List all field values for a submission
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueListRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['fieldId'] == null) {
+                            throw new runtime.RequiredError('fieldId', 'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseList().');
+                        }
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseList().');
+                        }
+                        if (requestParameters['submissionId'] == null) {
+                            throw new runtime.RequiredError('submissionId', 'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseList().');
+                        }
                         queryParameters = {};
                         if (requestParameters['page'] != null) {
                             queryParameters['page'] = requestParameters['page'];
@@ -811,7 +888,10 @@ var FormsApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/submission-field-value/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/";
+                        urlPath = urlPath.replace("{".concat("field_id", "}"), encodeURIComponent(String(requestParameters['fieldId'])));
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
+                        urlPath = urlPath.replace("{".concat("submission_id", "}"), encodeURIComponent(String(requestParameters['submissionId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -826,14 +906,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all field values associated with a specific submission.
+     * List all field values for a submission
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
             var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionFieldValueListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsFieldResponseListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -843,21 +924,35 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing field value without affecting others.
+     * Partially update a field value
      */
-    FormsApi.prototype.formsV1SubmissionFieldValuePartialUpdateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponsePartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['fieldId'] == null) {
+                            throw new runtime.RequiredError('fieldId', 'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponsePartialUpdate().');
+                        }
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponsePartialUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1SubmissionFieldValuePartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsFieldResponsePartialUpdate().');
+                        }
+                        if (requestParameters['submissionId'] == null) {
+                            throw new runtime.RequiredError('submissionId', 'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponsePartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/submission-field-value/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/{id}/";
+                        urlPath = urlPath.replace("{".concat("field_id", "}"), encodeURIComponent(String(requestParameters['fieldId'])));
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("submission_id", "}"), encodeURIComponent(String(requestParameters['submissionId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'PATCH',
@@ -873,13 +968,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing field value without affecting others.
+     * Partially update a field value
      */
-    FormsApi.prototype.formsV1SubmissionFieldValuePartialUpdate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponsePartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionFieldValuePartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsFieldResponsePartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -889,20 +986,34 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific field value by its ID.
+     * Retrieve a specific field value
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueRetrieveRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['fieldId'] == null) {
+                            throw new runtime.RequiredError('fieldId', 'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseRetrieve().');
+                        }
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseRetrieve().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1SubmissionFieldValueRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsFieldResponseRetrieve().');
+                        }
+                        if (requestParameters['submissionId'] == null) {
+                            throw new runtime.RequiredError('submissionId', 'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseRetrieve().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/submission-field-value/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/{id}/";
+                        urlPath = urlPath.replace("{".concat("field_id", "}"), encodeURIComponent(String(requestParameters['fieldId'])));
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("submission_id", "}"), encodeURIComponent(String(requestParameters['submissionId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -917,13 +1028,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific field value by its ID.
+     * Retrieve a specific field value
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueRetrieve = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionFieldValueRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsFieldResponseRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -933,24 +1046,38 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing field value by its ID.
+     * Update an existing field value
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueUpdateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['fieldId'] == null) {
+                            throw new runtime.RequiredError('fieldId', 'Required parameter "fieldId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().');
+                        }
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1SubmissionFieldValueUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().');
+                        }
+                        if (requestParameters['submissionId'] == null) {
+                            throw new runtime.RequiredError('submissionId', 'Required parameter "submissionId" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().');
                         }
                         if (requestParameters['submissionFieldValue'] == null) {
-                            throw new runtime.RequiredError('submissionFieldValue', 'Required parameter "submissionFieldValue" was null or undefined when calling formsV1SubmissionFieldValueUpdate().');
+                            throw new runtime.RequiredError('submissionFieldValue', 'Required parameter "submissionFieldValue" was null or undefined when calling formsV1FormsSubmissionsFieldResponseUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/submission-field-value/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{submission_id}/field/{field_id}/response/{id}/";
+                        urlPath = urlPath.replace("{".concat("field_id", "}"), encodeURIComponent(String(requestParameters['fieldId'])));
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("submission_id", "}"), encodeURIComponent(String(requestParameters['submissionId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'PUT',
@@ -966,13 +1093,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing field value by its ID.
+     * Update an existing field value
      */
-    FormsApi.prototype.formsV1SubmissionFieldValueUpdate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsFieldResponseUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionFieldValueUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsFieldResponseUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -982,13 +1111,18 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all submissions associated with a specific form.
+     * List all submissions for a form
      */
-    FormsApi.prototype.formsV1SubmissionListRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsList().');
+                        }
                         queryParameters = {};
                         if (requestParameters['page'] != null) {
                             queryParameters['page'] = requestParameters['page'];
@@ -997,7 +1131,8 @@ var FormsApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/submission/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -1012,14 +1147,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all submissions associated with a specific form.
+     * List all submissions for a form
      */
-    FormsApi.prototype.formsV1SubmissionList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
             var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1029,20 +1165,26 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing submission without affecting others.
+     * Partially update a submission
      */
-    FormsApi.prototype.formsV1SubmissionPartialUpdateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsPartialUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1SubmissionPartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsPartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/submission/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{id}/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1059,13 +1201,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing submission without affecting others.
+     * Partially update a submission
      */
-    FormsApi.prototype.formsV1SubmissionPartialUpdate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsPartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1075,19 +1219,25 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific submission by its ID.
+     * Retrieve a specific submission
      */
-    FormsApi.prototype.formsV1SubmissionRetrieveRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsRetrieve().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1SubmissionRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsRetrieve().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/forms/v1/submission/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{id}/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1103,13 +1253,15 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific submission by its ID.
+     * Retrieve a specific submission
      */
-    FormsApi.prototype.formsV1SubmissionRetrieve = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1119,23 +1271,29 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing submission by its ID.
+     * Update an existing submission
      */
-    FormsApi.prototype.formsV1SubmissionUpdateRaw = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['formId'] == null) {
+                            throw new runtime.RequiredError('formId', 'Required parameter "formId" was null or undefined when calling formsV1FormsSubmissionsUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1SubmissionUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsSubmissionsUpdate().');
                         }
                         if (requestParameters['submission'] == null) {
-                            throw new runtime.RequiredError('submission', 'Required parameter "submission" was null or undefined when calling formsV1SubmissionUpdate().');
+                            throw new runtime.RequiredError('submission', 'Required parameter "submission" was null or undefined when calling formsV1FormsSubmissionsUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/forms/v1/submission/{id}/";
+                        urlPath = "/api/forms/v1/forms/{form_id}/submissions/{id}/";
+                        urlPath = urlPath.replace("{".concat("form_id", "}"), encodeURIComponent(String(requestParameters['formId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1152,13 +1310,68 @@ var FormsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing submission by its ID.
+     * Update an existing submission
      */
-    FormsApi.prototype.formsV1SubmissionUpdate = function (requestParameters, initOverrides) {
+    FormsApi.prototype.formsV1FormsSubmissionsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.formsV1SubmissionUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.formsV1FormsSubmissionsUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing form by its ID.
+     * Update an existing form
+     */
+    FormsApi.prototype.formsV1FormsUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling formsV1FormsUpdate().');
+                        }
+                        if (requestParameters['form'] == null) {
+                            throw new runtime.RequiredError('form', 'Required parameter "form" was null or undefined when calling formsV1FormsUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/forms/v1/forms/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.FormToJSON)(requestParameters['form']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FormFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing form by its ID.
+     * Update an existing form
+     */
+    FormsApi.prototype.formsV1FormsUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.formsV1FormsUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];

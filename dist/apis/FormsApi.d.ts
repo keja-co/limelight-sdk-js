@@ -11,236 +11,362 @@
  */
 import * as runtime from '../runtime';
 import type { Form, FormField, PaginatedFormFieldList, PaginatedFormList, PaginatedSubmissionFieldValueList, PaginatedSubmissionList, PatchedForm, PatchedFormField, PatchedSubmission, PatchedSubmissionFieldValue, Submission, SubmissionFieldValue } from '../models/index';
-export interface FormsV1FormCreateRequest {
+export interface FormsV1FormsCreateRequest {
     form: Omit<Form, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface FormsV1FormDestroyRequest {
+export interface FormsV1FormsDestroyRequest {
     id: number;
 }
-export interface FormsV1FormFieldCreateRequest {
+export interface FormsV1FormsFieldsCreateRequest {
+    formId: number;
     formField: Omit<FormField, 'id' | 'created_at' | 'updated_at'>;
 }
-export interface FormsV1FormFieldDestroyRequest {
+export interface FormsV1FormsFieldsDestroyRequest {
+    formId: number;
     id: number;
 }
-export interface FormsV1FormFieldListRequest {
+export interface FormsV1FormsFieldsListRequest {
+    formId: number;
     page?: number;
     pageSize?: number;
 }
-export interface FormsV1FormFieldPartialUpdateRequest {
+export interface FormsV1FormsFieldsPartialUpdateRequest {
+    formId: number;
     id: number;
     patchedFormField?: Omit<PatchedFormField, 'id' | 'created_at' | 'updated_at'>;
 }
-export interface FormsV1FormFieldRetrieveRequest {
+export interface FormsV1FormsFieldsRetrieveRequest {
+    formId: number;
     id: number;
 }
-export interface FormsV1FormFieldUpdateRequest {
+export interface FormsV1FormsFieldsUpdateRequest {
+    formId: number;
     id: number;
     formField: Omit<FormField, 'id' | 'created_at' | 'updated_at'>;
 }
-export interface FormsV1FormListRequest {
+export interface FormsV1FormsListRequest {
     page?: number;
     pageSize?: number;
 }
-export interface FormsV1FormPartialUpdateRequest {
+export interface FormsV1FormsPartialUpdateRequest {
     id: number;
     patchedForm?: Omit<PatchedForm, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface FormsV1FormRetrieveRequest {
+export interface FormsV1FormsRetrieveRequest {
     id: number;
 }
-export interface FormsV1FormUpdateRequest {
-    id: number;
-    form: Omit<Form, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface FormsV1SubmissionCreateRequest {
+export interface FormsV1FormsSubmissionsCreateRequest {
+    formId: number;
     submission: Omit<Submission, 'id' | 'created_at' | 'updated_at' | 'submitted_date_time' | 'created_by'>;
 }
-export interface FormsV1SubmissionDestroyRequest {
+export interface FormsV1FormsSubmissionsDestroyRequest {
+    formId: number;
     id: number;
 }
-export interface FormsV1SubmissionFieldValueCreateRequest {
+export interface FormsV1FormsSubmissionsFieldResponseCreateRequest {
+    fieldId: number;
+    formId: number;
+    submissionId: number;
     submissionFieldValue: Omit<SubmissionFieldValue, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface FormsV1SubmissionFieldValueDestroyRequest {
+export interface FormsV1FormsSubmissionsFieldResponseDestroyRequest {
+    fieldId: number;
+    formId: number;
     id: number;
+    submissionId: number;
 }
-export interface FormsV1SubmissionFieldValueListRequest {
+export interface FormsV1FormsSubmissionsFieldResponseListRequest {
+    fieldId: number;
+    formId: number;
+    submissionId: number;
     page?: number;
     pageSize?: number;
 }
-export interface FormsV1SubmissionFieldValuePartialUpdateRequest {
+export interface FormsV1FormsSubmissionsFieldResponsePartialUpdateRequest {
+    fieldId: number;
+    formId: number;
     id: number;
+    submissionId: number;
     patchedSubmissionFieldValue?: Omit<PatchedSubmissionFieldValue, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface FormsV1SubmissionFieldValueRetrieveRequest {
+export interface FormsV1FormsSubmissionsFieldResponseRetrieveRequest {
+    fieldId: number;
+    formId: number;
     id: number;
+    submissionId: number;
 }
-export interface FormsV1SubmissionFieldValueUpdateRequest {
+export interface FormsV1FormsSubmissionsFieldResponseUpdateRequest {
+    fieldId: number;
+    formId: number;
     id: number;
+    submissionId: number;
     submissionFieldValue: Omit<SubmissionFieldValue, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface FormsV1SubmissionListRequest {
+export interface FormsV1FormsSubmissionsListRequest {
+    formId: number;
     page?: number;
     pageSize?: number;
 }
-export interface FormsV1SubmissionPartialUpdateRequest {
+export interface FormsV1FormsSubmissionsPartialUpdateRequest {
+    formId: number;
     id: number;
     patchedSubmission?: Omit<PatchedSubmission, 'id' | 'created_at' | 'updated_at' | 'submitted_date_time' | 'created_by'>;
 }
-export interface FormsV1SubmissionRetrieveRequest {
+export interface FormsV1FormsSubmissionsRetrieveRequest {
+    formId: number;
     id: number;
 }
-export interface FormsV1SubmissionUpdateRequest {
+export interface FormsV1FormsSubmissionsUpdateRequest {
+    formId: number;
     id: number;
     submission: Omit<Submission, 'id' | 'created_at' | 'updated_at' | 'submitted_date_time' | 'created_by'>;
+}
+export interface FormsV1FormsUpdateRequest {
+    id: number;
+    form: Omit<Form, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 /**
  *
  */
 export declare class FormsApi extends runtime.BaseAPI {
     /**
+     * Add a new form to the system.
+     * Create a new form
      */
-    formsV1FormCreateRaw(requestParameters: FormsV1FormCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>>;
+    formsV1FormsCreateRaw(requestParameters: FormsV1FormsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>>;
     /**
+     * Add a new form to the system.
+     * Create a new form
      */
-    formsV1FormCreate(requestParameters: FormsV1FormCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form>;
+    formsV1FormsCreate(requestParameters: FormsV1FormsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form>;
     /**
+     * Remove a form from the system by its ID.
+     * Delete a form
      */
-    formsV1FormDestroyRaw(requestParameters: FormsV1FormDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    formsV1FormsDestroyRaw(requestParameters: FormsV1FormsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a form from the system by its ID.
+     * Delete a form
      */
-    formsV1FormDestroy(requestParameters: FormsV1FormDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    formsV1FormsDestroy(requestParameters: FormsV1FormsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Add a new field to a specific form.
+     * Create a new form field
      */
-    formsV1FormFieldCreateRaw(requestParameters: FormsV1FormFieldCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>>;
+    formsV1FormsFieldsCreateRaw(requestParameters: FormsV1FormsFieldsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>>;
     /**
+     * Add a new field to a specific form.
+     * Create a new form field
      */
-    formsV1FormFieldCreate(requestParameters: FormsV1FormFieldCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField>;
+    formsV1FormsFieldsCreate(requestParameters: FormsV1FormsFieldsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField>;
     /**
+     * Remove a form field from the system by its ID.
+     * Delete a form field
      */
-    formsV1FormFieldDestroyRaw(requestParameters: FormsV1FormFieldDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    formsV1FormsFieldsDestroyRaw(requestParameters: FormsV1FormsFieldsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a form field from the system by its ID.
+     * Delete a form field
      */
-    formsV1FormFieldDestroy(requestParameters: FormsV1FormFieldDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    formsV1FormsFieldsDestroy(requestParameters: FormsV1FormsFieldsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all fields associated with a specific form.
+     * List all form fields
      */
-    formsV1FormFieldListRaw(requestParameters: FormsV1FormFieldListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFormFieldList>>;
+    formsV1FormsFieldsListRaw(requestParameters: FormsV1FormsFieldsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFormFieldList>>;
     /**
+     * Retrieve a list of all fields associated with a specific form.
+     * List all form fields
      */
-    formsV1FormFieldList(requestParameters?: FormsV1FormFieldListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFormFieldList>;
+    formsV1FormsFieldsList(requestParameters: FormsV1FormsFieldsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFormFieldList>;
     /**
+     * Update specific fields of an existing form field without affecting others.
+     * Partially update a form field
      */
-    formsV1FormFieldPartialUpdateRaw(requestParameters: FormsV1FormFieldPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>>;
+    formsV1FormsFieldsPartialUpdateRaw(requestParameters: FormsV1FormsFieldsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>>;
     /**
+     * Update specific fields of an existing form field without affecting others.
+     * Partially update a form field
      */
-    formsV1FormFieldPartialUpdate(requestParameters: FormsV1FormFieldPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField>;
+    formsV1FormsFieldsPartialUpdate(requestParameters: FormsV1FormsFieldsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField>;
     /**
+     * Get detailed information about a specific form field by its ID.
+     * Retrieve a specific form field
      */
-    formsV1FormFieldRetrieveRaw(requestParameters: FormsV1FormFieldRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>>;
+    formsV1FormsFieldsRetrieveRaw(requestParameters: FormsV1FormsFieldsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>>;
     /**
+     * Get detailed information about a specific form field by its ID.
+     * Retrieve a specific form field
      */
-    formsV1FormFieldRetrieve(requestParameters: FormsV1FormFieldRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField>;
+    formsV1FormsFieldsRetrieve(requestParameters: FormsV1FormsFieldsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField>;
     /**
+     * Modify the details of an existing form field by its ID.
+     * Update an existing form field
      */
-    formsV1FormFieldUpdateRaw(requestParameters: FormsV1FormFieldUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>>;
+    formsV1FormsFieldsUpdateRaw(requestParameters: FormsV1FormsFieldsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FormField>>;
     /**
+     * Modify the details of an existing form field by its ID.
+     * Update an existing form field
      */
-    formsV1FormFieldUpdate(requestParameters: FormsV1FormFieldUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField>;
+    formsV1FormsFieldsUpdate(requestParameters: FormsV1FormsFieldsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FormField>;
     /**
+     * Retrieve a list of all forms in the system.
+     * List all forms
      */
-    formsV1FormListRaw(requestParameters: FormsV1FormListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFormList>>;
+    formsV1FormsListRaw(requestParameters: FormsV1FormsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFormList>>;
     /**
+     * Retrieve a list of all forms in the system.
+     * List all forms
      */
-    formsV1FormList(requestParameters?: FormsV1FormListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFormList>;
+    formsV1FormsList(requestParameters?: FormsV1FormsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFormList>;
     /**
+     * Update specific fields of an existing form without affecting others.
+     * Partially update a form
      */
-    formsV1FormPartialUpdateRaw(requestParameters: FormsV1FormPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>>;
+    formsV1FormsPartialUpdateRaw(requestParameters: FormsV1FormsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>>;
     /**
+     * Update specific fields of an existing form without affecting others.
+     * Partially update a form
      */
-    formsV1FormPartialUpdate(requestParameters: FormsV1FormPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form>;
+    formsV1FormsPartialUpdate(requestParameters: FormsV1FormsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form>;
     /**
+     * Get detailed information about a specific form by its ID.
+     * Retrieve a specific form
      */
-    formsV1FormRetrieveRaw(requestParameters: FormsV1FormRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>>;
+    formsV1FormsRetrieveRaw(requestParameters: FormsV1FormsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>>;
     /**
+     * Get detailed information about a specific form by its ID.
+     * Retrieve a specific form
      */
-    formsV1FormRetrieve(requestParameters: FormsV1FormRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form>;
+    formsV1FormsRetrieve(requestParameters: FormsV1FormsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form>;
     /**
+     * Add a new submission to a specific form.
+     * Create a new submission for a form
      */
-    formsV1FormUpdateRaw(requestParameters: FormsV1FormUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>>;
+    formsV1FormsSubmissionsCreateRaw(requestParameters: FormsV1FormsSubmissionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>>;
     /**
+     * Add a new submission to a specific form.
+     * Create a new submission for a form
      */
-    formsV1FormUpdate(requestParameters: FormsV1FormUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form>;
+    formsV1FormsSubmissionsCreate(requestParameters: FormsV1FormsSubmissionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission>;
     /**
+     * Remove a submission from the system by its ID.
+     * Delete a submission
      */
-    formsV1SubmissionCreateRaw(requestParameters: FormsV1SubmissionCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>>;
+    formsV1FormsSubmissionsDestroyRaw(requestParameters: FormsV1FormsSubmissionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a submission from the system by its ID.
+     * Delete a submission
      */
-    formsV1SubmissionCreate(requestParameters: FormsV1SubmissionCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission>;
+    formsV1FormsSubmissionsDestroy(requestParameters: FormsV1FormsSubmissionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Add a new field value to a specific submission.
+     * Create a new field value for a submission
      */
-    formsV1SubmissionDestroyRaw(requestParameters: FormsV1SubmissionDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    formsV1FormsSubmissionsFieldResponseCreateRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>>;
     /**
+     * Add a new field value to a specific submission.
+     * Create a new field value for a submission
      */
-    formsV1SubmissionDestroy(requestParameters: FormsV1SubmissionDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    formsV1FormsSubmissionsFieldResponseCreate(requestParameters: FormsV1FormsSubmissionsFieldResponseCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue>;
     /**
+     * Remove a field value from the system by its ID.
+     * Delete a field value
      */
-    formsV1SubmissionFieldValueCreateRaw(requestParameters: FormsV1SubmissionFieldValueCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>>;
+    formsV1FormsSubmissionsFieldResponseDestroyRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a field value from the system by its ID.
+     * Delete a field value
      */
-    formsV1SubmissionFieldValueCreate(requestParameters: FormsV1SubmissionFieldValueCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue>;
+    formsV1FormsSubmissionsFieldResponseDestroy(requestParameters: FormsV1FormsSubmissionsFieldResponseDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all field values associated with a specific submission.
+     * List all field values for a submission
      */
-    formsV1SubmissionFieldValueDestroyRaw(requestParameters: FormsV1SubmissionFieldValueDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    formsV1FormsSubmissionsFieldResponseListRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSubmissionFieldValueList>>;
     /**
+     * Retrieve a list of all field values associated with a specific submission.
+     * List all field values for a submission
      */
-    formsV1SubmissionFieldValueDestroy(requestParameters: FormsV1SubmissionFieldValueDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    formsV1FormsSubmissionsFieldResponseList(requestParameters: FormsV1FormsSubmissionsFieldResponseListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSubmissionFieldValueList>;
     /**
+     * Update specific fields of an existing field value without affecting others.
+     * Partially update a field value
      */
-    formsV1SubmissionFieldValueListRaw(requestParameters: FormsV1SubmissionFieldValueListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSubmissionFieldValueList>>;
+    formsV1FormsSubmissionsFieldResponsePartialUpdateRaw(requestParameters: FormsV1FormsSubmissionsFieldResponsePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>>;
     /**
+     * Update specific fields of an existing field value without affecting others.
+     * Partially update a field value
      */
-    formsV1SubmissionFieldValueList(requestParameters?: FormsV1SubmissionFieldValueListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSubmissionFieldValueList>;
+    formsV1FormsSubmissionsFieldResponsePartialUpdate(requestParameters: FormsV1FormsSubmissionsFieldResponsePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue>;
     /**
+     * Get detailed information about a specific field value by its ID.
+     * Retrieve a specific field value
      */
-    formsV1SubmissionFieldValuePartialUpdateRaw(requestParameters: FormsV1SubmissionFieldValuePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>>;
+    formsV1FormsSubmissionsFieldResponseRetrieveRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>>;
     /**
+     * Get detailed information about a specific field value by its ID.
+     * Retrieve a specific field value
      */
-    formsV1SubmissionFieldValuePartialUpdate(requestParameters: FormsV1SubmissionFieldValuePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue>;
+    formsV1FormsSubmissionsFieldResponseRetrieve(requestParameters: FormsV1FormsSubmissionsFieldResponseRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue>;
     /**
+     * Modify the details of an existing field value by its ID.
+     * Update an existing field value
      */
-    formsV1SubmissionFieldValueRetrieveRaw(requestParameters: FormsV1SubmissionFieldValueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>>;
+    formsV1FormsSubmissionsFieldResponseUpdateRaw(requestParameters: FormsV1FormsSubmissionsFieldResponseUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>>;
     /**
+     * Modify the details of an existing field value by its ID.
+     * Update an existing field value
      */
-    formsV1SubmissionFieldValueRetrieve(requestParameters: FormsV1SubmissionFieldValueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue>;
+    formsV1FormsSubmissionsFieldResponseUpdate(requestParameters: FormsV1FormsSubmissionsFieldResponseUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue>;
     /**
+     * Retrieve a list of all submissions associated with a specific form.
+     * List all submissions for a form
      */
-    formsV1SubmissionFieldValueUpdateRaw(requestParameters: FormsV1SubmissionFieldValueUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubmissionFieldValue>>;
+    formsV1FormsSubmissionsListRaw(requestParameters: FormsV1FormsSubmissionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSubmissionList>>;
     /**
+     * Retrieve a list of all submissions associated with a specific form.
+     * List all submissions for a form
      */
-    formsV1SubmissionFieldValueUpdate(requestParameters: FormsV1SubmissionFieldValueUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubmissionFieldValue>;
+    formsV1FormsSubmissionsList(requestParameters: FormsV1FormsSubmissionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSubmissionList>;
     /**
+     * Update specific fields of an existing submission without affecting others.
+     * Partially update a submission
      */
-    formsV1SubmissionListRaw(requestParameters: FormsV1SubmissionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSubmissionList>>;
+    formsV1FormsSubmissionsPartialUpdateRaw(requestParameters: FormsV1FormsSubmissionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>>;
     /**
+     * Update specific fields of an existing submission without affecting others.
+     * Partially update a submission
      */
-    formsV1SubmissionList(requestParameters?: FormsV1SubmissionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSubmissionList>;
+    formsV1FormsSubmissionsPartialUpdate(requestParameters: FormsV1FormsSubmissionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission>;
     /**
+     * Get detailed information about a specific submission by its ID.
+     * Retrieve a specific submission
      */
-    formsV1SubmissionPartialUpdateRaw(requestParameters: FormsV1SubmissionPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>>;
+    formsV1FormsSubmissionsRetrieveRaw(requestParameters: FormsV1FormsSubmissionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>>;
     /**
+     * Get detailed information about a specific submission by its ID.
+     * Retrieve a specific submission
      */
-    formsV1SubmissionPartialUpdate(requestParameters: FormsV1SubmissionPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission>;
+    formsV1FormsSubmissionsRetrieve(requestParameters: FormsV1FormsSubmissionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission>;
     /**
+     * Modify the details of an existing submission by its ID.
+     * Update an existing submission
      */
-    formsV1SubmissionRetrieveRaw(requestParameters: FormsV1SubmissionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>>;
+    formsV1FormsSubmissionsUpdateRaw(requestParameters: FormsV1FormsSubmissionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>>;
     /**
+     * Modify the details of an existing submission by its ID.
+     * Update an existing submission
      */
-    formsV1SubmissionRetrieve(requestParameters: FormsV1SubmissionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission>;
+    formsV1FormsSubmissionsUpdate(requestParameters: FormsV1FormsSubmissionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission>;
     /**
+     * Modify the details of an existing form by its ID.
+     * Update an existing form
      */
-    formsV1SubmissionUpdateRaw(requestParameters: FormsV1SubmissionUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Submission>>;
+    formsV1FormsUpdateRaw(requestParameters: FormsV1FormsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Form>>;
     /**
+     * Modify the details of an existing form by its ID.
+     * Update an existing form
      */
-    formsV1SubmissionUpdate(requestParameters: FormsV1SubmissionUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Submission>;
+    formsV1FormsUpdate(requestParameters: FormsV1FormsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Form>;
 }
