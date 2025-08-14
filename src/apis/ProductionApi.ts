@@ -100,247 +100,295 @@ import {
     RehearsalParticipantToJSON,
 } from '../models/index';
 
-export interface ProductionV1PerformanceCreateRequest {
-    performance: Omit<Performance, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1PerformanceDestroyRequest {
-    id: number;
-}
-
-export interface ProductionV1PerformanceListRequest {
-    page?: number;
-    pageSize?: number;
-}
-
-export interface ProductionV1PerformancePartialUpdateRequest {
-    id: number;
-    patchedPerformance?: Omit<PatchedPerformance, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1PerformanceRetrieveRequest {
-    id: number;
-}
-
-export interface ProductionV1PerformanceUpdateRequest {
-    id: number;
-    performance: Omit<Performance, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1ProdCategoryAssignmentCreateRequest {
+export interface ProductionV1CategoriesAssignmentsCreateRequest {
+    categoryId: number;
     productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProdCategoryAssignmentDestroyRequest {
+export interface ProductionV1CategoriesAssignmentsDestroyRequest {
+    categoryId: number;
     id: number;
 }
 
-export interface ProductionV1ProdCategoryAssignmentListRequest {
+export interface ProductionV1CategoriesAssignmentsListRequest {
+    categoryId: number;
     page?: number;
     pageSize?: number;
 }
 
-export interface ProductionV1ProdCategoryAssignmentPartialUpdateRequest {
+export interface ProductionV1CategoriesAssignmentsPartialUpdateRequest {
+    categoryId: number;
     id: number;
     patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProdCategoryAssignmentRetrieveRequest {
+export interface ProductionV1CategoriesAssignmentsRetrieveRequest {
+    categoryId: number;
     id: number;
 }
 
-export interface ProductionV1ProdCategoryAssignmentUpdateRequest {
+export interface ProductionV1CategoriesAssignmentsUpdateRequest {
+    categoryId: number;
     id: number;
     productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProdCategoryCreateRequest {
+export interface ProductionV1CategoriesCreateRequest {
     productionCategory: Omit<ProductionCategory, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProdCategoryDestroyRequest {
+export interface ProductionV1CategoriesDestroyRequest {
     id: number;
 }
 
-export interface ProductionV1ProdCategoryListRequest {
+export interface ProductionV1CategoriesListRequest {
     page?: number;
     pageSize?: number;
 }
 
-export interface ProductionV1ProdCategoryPartialUpdateRequest {
+export interface ProductionV1CategoriesPartialUpdateRequest {
     id: number;
     patchedProductionCategory?: Omit<PatchedProductionCategory, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProdCategoryRetrieveRequest {
+export interface ProductionV1CategoriesRetrieveRequest {
     id: number;
 }
 
-export interface ProductionV1ProdCategoryUpdateRequest {
+export interface ProductionV1CategoriesUpdateRequest {
     id: number;
     productionCategory: Omit<ProductionCategory, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProdMembersCreateRequest {
-    productionMember: Omit<ProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1ProdMembersDestroyRequest {
-    id: number;
-}
-
-export interface ProductionV1ProdMembersListRequest {
-    page?: number;
-    pageSize?: number;
-}
-
-export interface ProductionV1ProdMembersPartialUpdateRequest {
-    id: number;
-    patchedProductionMember?: Omit<PatchedProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1ProdMembersRetrieveRequest {
-    id: number;
-}
-
-export interface ProductionV1ProdMembersUpdateRequest {
-    id: number;
-    productionMember: Omit<ProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1ProdRolesCreateRequest {
-    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1ProdRolesDestroyRequest {
-    id: number;
-}
-
-export interface ProductionV1ProdRolesListRequest {
-    page?: number;
-    pageSize?: number;
-}
-
-export interface ProductionV1ProdRolesPartialUpdateRequest {
-    id: number;
-    patchedProductionRoleAssignment?: Omit<PatchedProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1ProdRolesRetrieveRequest {
-    id: number;
-}
-
-export interface ProductionV1ProdRolesUpdateRequest {
-    id: number;
-    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1ProductionCreateRequest {
+export interface ProductionV1ProductionsCreateRequest {
     production: Omit<Production, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProductionDestroyRequest {
+export interface ProductionV1ProductionsDestroyRequest {
     id: number;
 }
 
-export interface ProductionV1ProductionListRequest {
+export interface ProductionV1ProductionsListRequest {
     page?: number;
     pageSize?: number;
 }
 
-export interface ProductionV1ProductionPartialUpdateRequest {
+export interface ProductionV1ProductionsMembersCreateRequest {
+    productionId: number;
+    productionMember: Omit<ProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsMembersDestroyRequest {
+    id: number;
+    productionId: number;
+}
+
+export interface ProductionV1ProductionsMembersListRequest {
+    productionId: number;
+    page?: number;
+    pageSize?: number;
+}
+
+export interface ProductionV1ProductionsMembersPartialUpdateRequest {
+    id: number;
+    productionId: number;
+    patchedProductionMember?: Omit<PatchedProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsMembersRetrieveRequest {
+    id: number;
+    productionId: number;
+}
+
+export interface ProductionV1ProductionsMembersRolesCreateRequest {
+    memberId: number;
+    productionId: number;
+    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsMembersRolesDestroyRequest {
+    id: number;
+    memberId: number;
+    productionId: number;
+}
+
+export interface ProductionV1ProductionsMembersRolesListRequest {
+    memberId: number;
+    productionId: number;
+    page?: number;
+    pageSize?: number;
+}
+
+export interface ProductionV1ProductionsMembersRolesPartialUpdateRequest {
+    id: number;
+    memberId: number;
+    productionId: number;
+    patchedProductionRoleAssignment?: Omit<PatchedProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsMembersRolesRetrieveRequest {
+    id: number;
+    memberId: number;
+    productionId: number;
+}
+
+export interface ProductionV1ProductionsMembersRolesUpdateRequest {
+    id: number;
+    memberId: number;
+    productionId: number;
+    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsMembersUpdateRequest {
+    id: number;
+    productionId: number;
+    productionMember: Omit<ProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsPartialUpdateRequest {
     id: number;
     patchedProduction?: Omit<PatchedProduction, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProductionRetrieveRequest {
+export interface ProductionV1ProductionsPerformancesCreateRequest {
+    productionId: number;
+    performance: Omit<Performance, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsPerformancesDestroyRequest {
+    id: number;
+    productionId: number;
+}
+
+export interface ProductionV1ProductionsPerformancesListRequest {
+    productionId: number;
+    page?: number;
+    pageSize?: number;
+}
+
+export interface ProductionV1ProductionsPerformancesPartialUpdateRequest {
+    id: number;
+    productionId: number;
+    patchedPerformance?: Omit<PatchedPerformance, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsPerformancesRetrieveRequest {
+    id: number;
+    productionId: number;
+}
+
+export interface ProductionV1ProductionsPerformancesUpdateRequest {
+    id: number;
+    productionId: number;
+    performance: Omit<Performance, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsRehearsalsCreateRequest {
+    productionId: number;
+    rehearsal: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsRehearsalsDestroyRequest {
+    id: number;
+    productionId: number;
+}
+
+export interface ProductionV1ProductionsRehearsalsListRequest {
+    productionId: number;
+    page?: number;
+    pageSize?: number;
+}
+
+export interface ProductionV1ProductionsRehearsalsPartialUpdateRequest {
+    id: number;
+    productionId: number;
+    patchedRehearsal?: Omit<PatchedRehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsRehearsalsParticipantsCreateRequest {
+    productionId: number;
+    rehearsalId: number;
+    rehearsalParticipant: Omit<RehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsRehearsalsParticipantsDestroyRequest {
+    id: string;
+    productionId: number;
+    rehearsalId: number;
+}
+
+export interface ProductionV1ProductionsRehearsalsParticipantsListRequest {
+    productionId: number;
+    rehearsalId: number;
+    page?: number;
+    pageSize?: number;
+}
+
+export interface ProductionV1ProductionsRehearsalsParticipantsPartialUpdateRequest {
+    id: string;
+    productionId: number;
+    rehearsalId: number;
+    patchedRehearsalParticipant?: Omit<PatchedRehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsRehearsalsParticipantsRetrieveRequest {
+    id: string;
+    productionId: number;
+    rehearsalId: number;
+}
+
+export interface ProductionV1ProductionsRehearsalsParticipantsUpdateRequest {
+    id: string;
+    productionId: number;
+    rehearsalId: number;
+    rehearsalParticipant: Omit<RehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsRehearsalsRetrieveRequest {
+    id: number;
+    productionId: number;
+}
+
+export interface ProductionV1ProductionsRehearsalsUpdateRequest {
+    id: number;
+    productionId: number;
+    rehearsal: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface ProductionV1ProductionsRetrieveRequest {
     id: number;
 }
 
-export interface ProductionV1ProductionUpdateRequest {
+export interface ProductionV1ProductionsUpdateRequest {
     id: number;
     production: Omit<Production, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProductionVenueCreateRequest {
+export interface ProductionV1VenuesCreateRequest {
     productionVenue: Omit<ProductionVenue, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProductionVenueDestroyRequest {
+export interface ProductionV1VenuesDestroyRequest {
     id: number;
 }
 
-export interface ProductionV1ProductionVenueListRequest {
+export interface ProductionV1VenuesListRequest {
     page?: number;
     pageSize?: number;
 }
 
-export interface ProductionV1ProductionVenuePartialUpdateRequest {
+export interface ProductionV1VenuesPartialUpdateRequest {
     id: number;
     patchedProductionVenue?: Omit<PatchedProductionVenue, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface ProductionV1ProductionVenueRetrieveRequest {
+export interface ProductionV1VenuesRetrieveRequest {
     id: number;
 }
 
-export interface ProductionV1ProductionVenueUpdateRequest {
+export interface ProductionV1VenuesUpdateRequest {
     id: number;
     productionVenue: Omit<ProductionVenue, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1RehearsalCreateRequest {
-    rehearsal: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1RehearsalDestroyRequest {
-    id: number;
-}
-
-export interface ProductionV1RehearsalListRequest {
-    page?: number;
-    pageSize?: number;
-}
-
-export interface ProductionV1RehearsalPartialUpdateRequest {
-    id: number;
-    patchedRehearsal?: Omit<PatchedRehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1RehearsalParticipantCreateRequest {
-    rehearsalParticipant: Omit<RehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1RehearsalParticipantDestroyRequest {
-    id: number;
-}
-
-export interface ProductionV1RehearsalParticipantListRequest {
-    page?: number;
-    pageSize?: number;
-}
-
-export interface ProductionV1RehearsalParticipantPartialUpdateRequest {
-    id: number;
-    patchedRehearsalParticipant?: Omit<PatchedRehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1RehearsalParticipantRetrieveRequest {
-    id: number;
-}
-
-export interface ProductionV1RehearsalParticipantUpdateRequest {
-    id: number;
-    rehearsalParticipant: Omit<RehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface ProductionV1RehearsalRetrieveRequest {
-    id: number;
-}
-
-export interface ProductionV1RehearsalUpdateRequest {
-    id: number;
-    rehearsal: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
 /**
@@ -349,236 +397,21 @@ export interface ProductionV1RehearsalUpdateRequest {
 export class ProductionApi extends runtime.BaseAPI {
 
     /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment
      */
-    async productionV1PerformanceCreateRaw(requestParameters: ProductionV1PerformanceCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>> {
-        if (requestParameters['performance'] == null) {
+    async productionV1CategoriesAssignmentsCreateRaw(requestParameters: ProductionV1CategoriesAssignmentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+        if (requestParameters['categoryId'] == null) {
             throw new runtime.RequiredError(
-                'performance',
-                'Required parameter "performance" was null or undefined when calling productionV1PerformanceCreate().'
+                'categoryId',
+                'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsCreate().'
             );
         }
 
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/performance/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PerformanceToJSON(requestParameters['performance']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PerformanceFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1PerformanceCreate(requestParameters: ProductionV1PerformanceCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance> {
-        const response = await this.productionV1PerformanceCreateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1PerformanceDestroyRaw(requestParameters: ProductionV1PerformanceDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1PerformanceDestroy().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/performance/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async productionV1PerformanceDestroy(requestParameters: ProductionV1PerformanceDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1PerformanceDestroyRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async productionV1PerformanceListRaw(requestParameters: ProductionV1PerformanceListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPerformanceList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/performance/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPerformanceListFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1PerformanceList(requestParameters: ProductionV1PerformanceListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedPerformanceList> {
-        const response = await this.productionV1PerformanceListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1PerformancePartialUpdateRaw(requestParameters: ProductionV1PerformancePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1PerformancePartialUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/performance/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PatchedPerformanceToJSON(requestParameters['patchedPerformance']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PerformanceFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1PerformancePartialUpdate(requestParameters: ProductionV1PerformancePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance> {
-        const response = await this.productionV1PerformancePartialUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1PerformanceRetrieveRaw(requestParameters: ProductionV1PerformanceRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1PerformanceRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/performance/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PerformanceFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1PerformanceRetrieve(requestParameters: ProductionV1PerformanceRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance> {
-        const response = await this.productionV1PerformanceRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1PerformanceUpdateRaw(requestParameters: ProductionV1PerformanceUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1PerformanceUpdate().'
-            );
-        }
-
-        if (requestParameters['performance'] == null) {
-            throw new runtime.RequiredError(
-                'performance',
-                'Required parameter "performance" was null or undefined when calling productionV1PerformanceUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/performance/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PerformanceToJSON(requestParameters['performance']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PerformanceFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1PerformanceUpdate(requestParameters: ProductionV1PerformanceUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance> {
-        const response = await this.productionV1PerformanceUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdCategoryAssignmentCreateRaw(requestParameters: ProductionV1ProdCategoryAssignmentCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
         if (requestParameters['productionCategoryAssignment'] == null) {
             throw new runtime.RequiredError(
                 'productionCategoryAssignment',
-                'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1ProdCategoryAssignmentCreate().'
+                'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1CategoriesAssignmentsCreate().'
             );
         }
 
@@ -589,7 +422,8 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/prod-category-assignment/`;
+        let urlPath = `/api/production/v1/categories/{category_id}/assignments/`;
+        urlPath = urlPath.replace(`{${"category_id"}}`, encodeURIComponent(String(requestParameters['categoryId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -603,19 +437,30 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentCreate(requestParameters: ProductionV1ProdCategoryAssignmentCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
-        const response = await this.productionV1ProdCategoryAssignmentCreateRaw(requestParameters, initOverrides);
+    async productionV1CategoriesAssignmentsCreate(requestParameters: ProductionV1CategoriesAssignmentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
+        const response = await this.productionV1CategoriesAssignmentsCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentDestroyRaw(requestParameters: ProductionV1ProdCategoryAssignmentDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async productionV1CategoriesAssignmentsDestroyRaw(requestParameters: ProductionV1CategoriesAssignmentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['categoryId'] == null) {
+            throw new runtime.RequiredError(
+                'categoryId',
+                'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsDestroy().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdCategoryAssignmentDestroy().'
+                'Required parameter "id" was null or undefined when calling productionV1CategoriesAssignmentsDestroy().'
             );
         }
 
@@ -624,7 +469,8 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/prod-category-assignment/{id}/`;
+        let urlPath = `/api/production/v1/categories/{category_id}/assignments/{id}/`;
+        urlPath = urlPath.replace(`{${"category_id"}}`, encodeURIComponent(String(requestParameters['categoryId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -638,14 +484,25 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentDestroy(requestParameters: ProductionV1ProdCategoryAssignmentDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1ProdCategoryAssignmentDestroyRaw(requestParameters, initOverrides);
+    async productionV1CategoriesAssignmentsDestroy(requestParameters: ProductionV1CategoriesAssignmentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1CategoriesAssignmentsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments
      */
-    async productionV1ProdCategoryAssignmentListRaw(requestParameters: ProductionV1ProdCategoryAssignmentListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryAssignmentList>> {
+    async productionV1CategoriesAssignmentsListRaw(requestParameters: ProductionV1CategoriesAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryAssignmentList>> {
+        if (requestParameters['categoryId'] == null) {
+            throw new runtime.RequiredError(
+                'categoryId',
+                'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsList().'
+            );
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -659,7 +516,8 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/prod-category-assignment/`;
+        let urlPath = `/api/production/v1/categories/{category_id}/assignments/`;
+        urlPath = urlPath.replace(`{${"category_id"}}`, encodeURIComponent(String(requestParameters['categoryId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -672,19 +530,30 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments
      */
-    async productionV1ProdCategoryAssignmentList(requestParameters: ProductionV1ProdCategoryAssignmentListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryAssignmentList> {
-        const response = await this.productionV1ProdCategoryAssignmentListRaw(requestParameters, initOverrides);
+    async productionV1CategoriesAssignmentsList(requestParameters: ProductionV1CategoriesAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryAssignmentList> {
+        const response = await this.productionV1CategoriesAssignmentsListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentPartialUpdateRaw(requestParameters: ProductionV1ProdCategoryAssignmentPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+    async productionV1CategoriesAssignmentsPartialUpdateRaw(requestParameters: ProductionV1CategoriesAssignmentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+        if (requestParameters['categoryId'] == null) {
+            throw new runtime.RequiredError(
+                'categoryId',
+                'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsPartialUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdCategoryAssignmentPartialUpdate().'
+                'Required parameter "id" was null or undefined when calling productionV1CategoriesAssignmentsPartialUpdate().'
             );
         }
 
@@ -695,7 +564,8 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/prod-category-assignment/{id}/`;
+        let urlPath = `/api/production/v1/categories/{category_id}/assignments/{id}/`;
+        urlPath = urlPath.replace(`{${"category_id"}}`, encodeURIComponent(String(requestParameters['categoryId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -710,19 +580,30 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentPartialUpdate(requestParameters: ProductionV1ProdCategoryAssignmentPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
-        const response = await this.productionV1ProdCategoryAssignmentPartialUpdateRaw(requestParameters, initOverrides);
+    async productionV1CategoriesAssignmentsPartialUpdate(requestParameters: ProductionV1CategoriesAssignmentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
+        const response = await this.productionV1CategoriesAssignmentsPartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentRetrieveRaw(requestParameters: ProductionV1ProdCategoryAssignmentRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+    async productionV1CategoriesAssignmentsRetrieveRaw(requestParameters: ProductionV1CategoriesAssignmentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+        if (requestParameters['categoryId'] == null) {
+            throw new runtime.RequiredError(
+                'categoryId',
+                'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsRetrieve().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdCategoryAssignmentRetrieve().'
+                'Required parameter "id" was null or undefined when calling productionV1CategoriesAssignmentsRetrieve().'
             );
         }
 
@@ -731,7 +612,8 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/prod-category-assignment/{id}/`;
+        let urlPath = `/api/production/v1/categories/{category_id}/assignments/{id}/`;
+        urlPath = urlPath.replace(`{${"category_id"}}`, encodeURIComponent(String(requestParameters['categoryId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -745,26 +627,37 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentRetrieve(requestParameters: ProductionV1ProdCategoryAssignmentRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
-        const response = await this.productionV1ProdCategoryAssignmentRetrieveRaw(requestParameters, initOverrides);
+    async productionV1CategoriesAssignmentsRetrieve(requestParameters: ProductionV1CategoriesAssignmentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
+        const response = await this.productionV1CategoriesAssignmentsRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentUpdateRaw(requestParameters: ProductionV1ProdCategoryAssignmentUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+    async productionV1CategoriesAssignmentsUpdateRaw(requestParameters: ProductionV1CategoriesAssignmentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+        if (requestParameters['categoryId'] == null) {
+            throw new runtime.RequiredError(
+                'categoryId',
+                'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdCategoryAssignmentUpdate().'
+                'Required parameter "id" was null or undefined when calling productionV1CategoriesAssignmentsUpdate().'
             );
         }
 
         if (requestParameters['productionCategoryAssignment'] == null) {
             throw new runtime.RequiredError(
                 'productionCategoryAssignment',
-                'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1ProdCategoryAssignmentUpdate().'
+                'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1CategoriesAssignmentsUpdate().'
             );
         }
 
@@ -775,7 +668,8 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/prod-category-assignment/{id}/`;
+        let urlPath = `/api/production/v1/categories/{category_id}/assignments/{id}/`;
+        urlPath = urlPath.replace(`{${"category_id"}}`, encodeURIComponent(String(requestParameters['categoryId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -790,19 +684,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment
      */
-    async productionV1ProdCategoryAssignmentUpdate(requestParameters: ProductionV1ProdCategoryAssignmentUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
-        const response = await this.productionV1ProdCategoryAssignmentUpdateRaw(requestParameters, initOverrides);
+    async productionV1CategoriesAssignmentsUpdate(requestParameters: ProductionV1CategoriesAssignmentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
+        const response = await this.productionV1CategoriesAssignmentsUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Create a new production category.
+     * Create a Production Category
      */
-    async productionV1ProdCategoryCreateRaw(requestParameters: ProductionV1ProdCategoryCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>> {
+    async productionV1CategoriesCreateRaw(requestParameters: ProductionV1CategoriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>> {
         if (requestParameters['productionCategory'] == null) {
             throw new runtime.RequiredError(
                 'productionCategory',
-                'Required parameter "productionCategory" was null or undefined when calling productionV1ProdCategoryCreate().'
+                'Required parameter "productionCategory" was null or undefined when calling productionV1CategoriesCreate().'
             );
         }
 
@@ -813,7 +711,7 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/prod-category/`;
+        let urlPath = `/api/production/v1/categories/`;
 
         const response = await this.request({
             path: urlPath,
@@ -827,19 +725,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new production category.
+     * Create a Production Category
      */
-    async productionV1ProdCategoryCreate(requestParameters: ProductionV1ProdCategoryCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
-        const response = await this.productionV1ProdCategoryCreateRaw(requestParameters, initOverrides);
+    async productionV1CategoriesCreate(requestParameters: ProductionV1CategoriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
+        const response = await this.productionV1CategoriesCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Delete a specific production category.
+     * Delete a Production Category
      */
-    async productionV1ProdCategoryDestroyRaw(requestParameters: ProductionV1ProdCategoryDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async productionV1CategoriesDestroyRaw(requestParameters: ProductionV1CategoriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdCategoryDestroy().'
+                'Required parameter "id" was null or undefined when calling productionV1CategoriesDestroy().'
             );
         }
 
@@ -848,7 +750,7 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/prod-category/{id}/`;
+        let urlPath = `/api/production/v1/categories/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -862,14 +764,18 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific production category.
+     * Delete a Production Category
      */
-    async productionV1ProdCategoryDestroy(requestParameters: ProductionV1ProdCategoryDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1ProdCategoryDestroyRaw(requestParameters, initOverrides);
+    async productionV1CategoriesDestroy(requestParameters: ProductionV1CategoriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1CategoriesDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all production categories.
+     * List Production Categories
      */
-    async productionV1ProdCategoryListRaw(requestParameters: ProductionV1ProdCategoryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryList>> {
+    async productionV1CategoriesListRaw(requestParameters: ProductionV1CategoriesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryList>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -883,7 +789,7 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/prod-category/`;
+        let urlPath = `/api/production/v1/categories/`;
 
         const response = await this.request({
             path: urlPath,
@@ -896,19 +802,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all production categories.
+     * List Production Categories
      */
-    async productionV1ProdCategoryList(requestParameters: ProductionV1ProdCategoryListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryList> {
-        const response = await this.productionV1ProdCategoryListRaw(requestParameters, initOverrides);
+    async productionV1CategoriesList(requestParameters: ProductionV1CategoriesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryList> {
+        const response = await this.productionV1CategoriesListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Partially update an existing production category.
+     * Partially Update a Production Category
      */
-    async productionV1ProdCategoryPartialUpdateRaw(requestParameters: ProductionV1ProdCategoryPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>> {
+    async productionV1CategoriesPartialUpdateRaw(requestParameters: ProductionV1CategoriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdCategoryPartialUpdate().'
+                'Required parameter "id" was null or undefined when calling productionV1CategoriesPartialUpdate().'
             );
         }
 
@@ -919,7 +829,7 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/prod-category/{id}/`;
+        let urlPath = `/api/production/v1/categories/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -934,19 +844,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing production category.
+     * Partially Update a Production Category
      */
-    async productionV1ProdCategoryPartialUpdate(requestParameters: ProductionV1ProdCategoryPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
-        const response = await this.productionV1ProdCategoryPartialUpdateRaw(requestParameters, initOverrides);
+    async productionV1CategoriesPartialUpdate(requestParameters: ProductionV1CategoriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
+        const response = await this.productionV1CategoriesPartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Retrieve a specific production category.
+     * Retrieve a Production Category
      */
-    async productionV1ProdCategoryRetrieveRaw(requestParameters: ProductionV1ProdCategoryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>> {
+    async productionV1CategoriesRetrieveRaw(requestParameters: ProductionV1CategoriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdCategoryRetrieve().'
+                'Required parameter "id" was null or undefined when calling productionV1CategoriesRetrieve().'
             );
         }
 
@@ -955,7 +869,7 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/prod-category/{id}/`;
+        let urlPath = `/api/production/v1/categories/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -969,26 +883,30 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific production category.
+     * Retrieve a Production Category
      */
-    async productionV1ProdCategoryRetrieve(requestParameters: ProductionV1ProdCategoryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
-        const response = await this.productionV1ProdCategoryRetrieveRaw(requestParameters, initOverrides);
+    async productionV1CategoriesRetrieve(requestParameters: ProductionV1CategoriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
+        const response = await this.productionV1CategoriesRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update an existing production category.
+     * Update a Production Category
      */
-    async productionV1ProdCategoryUpdateRaw(requestParameters: ProductionV1ProdCategoryUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>> {
+    async productionV1CategoriesUpdateRaw(requestParameters: ProductionV1CategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdCategoryUpdate().'
+                'Required parameter "id" was null or undefined when calling productionV1CategoriesUpdate().'
             );
         }
 
         if (requestParameters['productionCategory'] == null) {
             throw new runtime.RequiredError(
                 'productionCategory',
-                'Required parameter "productionCategory" was null or undefined when calling productionV1ProdCategoryUpdate().'
+                'Required parameter "productionCategory" was null or undefined when calling productionV1CategoriesUpdate().'
             );
         }
 
@@ -999,7 +917,7 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/prod-category/{id}/`;
+        let urlPath = `/api/production/v1/categories/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1014,467 +932,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing production category.
+     * Update a Production Category
      */
-    async productionV1ProdCategoryUpdate(requestParameters: ProductionV1ProdCategoryUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
-        const response = await this.productionV1ProdCategoryUpdateRaw(requestParameters, initOverrides);
+    async productionV1CategoriesUpdate(requestParameters: ProductionV1CategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
+        const response = await this.productionV1CategoriesUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Create a new production.
+     * Create a Production
      */
-    async productionV1ProdMembersCreateRaw(requestParameters: ProductionV1ProdMembersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>> {
-        if (requestParameters['productionMember'] == null) {
-            throw new runtime.RequiredError(
-                'productionMember',
-                'Required parameter "productionMember" was null or undefined when calling productionV1ProdMembersCreate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/prod-members/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ProductionMemberToJSON(requestParameters['productionMember']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionMemberFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdMembersCreate(requestParameters: ProductionV1ProdMembersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember> {
-        const response = await this.productionV1ProdMembersCreateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdMembersDestroyRaw(requestParameters: ProductionV1ProdMembersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdMembersDestroy().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/prod-members/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async productionV1ProdMembersDestroy(requestParameters: ProductionV1ProdMembersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1ProdMembersDestroyRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async productionV1ProdMembersListRaw(requestParameters: ProductionV1ProdMembersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionMemberList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/prod-members/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedProductionMemberListFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdMembersList(requestParameters: ProductionV1ProdMembersListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionMemberList> {
-        const response = await this.productionV1ProdMembersListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdMembersPartialUpdateRaw(requestParameters: ProductionV1ProdMembersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdMembersPartialUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/prod-members/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PatchedProductionMemberToJSON(requestParameters['patchedProductionMember']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionMemberFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdMembersPartialUpdate(requestParameters: ProductionV1ProdMembersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember> {
-        const response = await this.productionV1ProdMembersPartialUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdMembersRetrieveRaw(requestParameters: ProductionV1ProdMembersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdMembersRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/prod-members/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionMemberFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdMembersRetrieve(requestParameters: ProductionV1ProdMembersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember> {
-        const response = await this.productionV1ProdMembersRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdMembersUpdateRaw(requestParameters: ProductionV1ProdMembersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdMembersUpdate().'
-            );
-        }
-
-        if (requestParameters['productionMember'] == null) {
-            throw new runtime.RequiredError(
-                'productionMember',
-                'Required parameter "productionMember" was null or undefined when calling productionV1ProdMembersUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/prod-members/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ProductionMemberToJSON(requestParameters['productionMember']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionMemberFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdMembersUpdate(requestParameters: ProductionV1ProdMembersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember> {
-        const response = await this.productionV1ProdMembersUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdRolesCreateRaw(requestParameters: ProductionV1ProdRolesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>> {
-        if (requestParameters['productionRoleAssignment'] == null) {
-            throw new runtime.RequiredError(
-                'productionRoleAssignment',
-                'Required parameter "productionRoleAssignment" was null or undefined when calling productionV1ProdRolesCreate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/prod-roles/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ProductionRoleAssignmentToJSON(requestParameters['productionRoleAssignment']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionRoleAssignmentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdRolesCreate(requestParameters: ProductionV1ProdRolesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment> {
-        const response = await this.productionV1ProdRolesCreateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdRolesDestroyRaw(requestParameters: ProductionV1ProdRolesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdRolesDestroy().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/prod-roles/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async productionV1ProdRolesDestroy(requestParameters: ProductionV1ProdRolesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1ProdRolesDestroyRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async productionV1ProdRolesListRaw(requestParameters: ProductionV1ProdRolesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionRoleAssignmentList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/prod-roles/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedProductionRoleAssignmentListFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdRolesList(requestParameters: ProductionV1ProdRolesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionRoleAssignmentList> {
-        const response = await this.productionV1ProdRolesListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdRolesPartialUpdateRaw(requestParameters: ProductionV1ProdRolesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdRolesPartialUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/prod-roles/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PatchedProductionRoleAssignmentToJSON(requestParameters['patchedProductionRoleAssignment']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionRoleAssignmentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdRolesPartialUpdate(requestParameters: ProductionV1ProdRolesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment> {
-        const response = await this.productionV1ProdRolesPartialUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdRolesRetrieveRaw(requestParameters: ProductionV1ProdRolesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdRolesRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/prod-roles/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionRoleAssignmentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdRolesRetrieve(requestParameters: ProductionV1ProdRolesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment> {
-        const response = await this.productionV1ProdRolesRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProdRolesUpdateRaw(requestParameters: ProductionV1ProdRolesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProdRolesUpdate().'
-            );
-        }
-
-        if (requestParameters['productionRoleAssignment'] == null) {
-            throw new runtime.RequiredError(
-                'productionRoleAssignment',
-                'Required parameter "productionRoleAssignment" was null or undefined when calling productionV1ProdRolesUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/prod-roles/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ProductionRoleAssignmentToJSON(requestParameters['productionRoleAssignment']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionRoleAssignmentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1ProdRolesUpdate(requestParameters: ProductionV1ProdRolesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment> {
-        const response = await this.productionV1ProdRolesUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1ProductionCreateRaw(requestParameters: ProductionV1ProductionCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+    async productionV1ProductionsCreateRaw(requestParameters: ProductionV1ProductionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
         if (requestParameters['production'] == null) {
             throw new runtime.RequiredError(
                 'production',
-                'Required parameter "production" was null or undefined when calling productionV1ProductionCreate().'
+                'Required parameter "production" was null or undefined when calling productionV1ProductionsCreate().'
             );
         }
 
@@ -1485,7 +959,7 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/production/`;
+        let urlPath = `/api/production/v1/productions/`;
 
         const response = await this.request({
             path: urlPath,
@@ -1499,19 +973,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new production.
+     * Create a Production
      */
-    async productionV1ProductionCreate(requestParameters: ProductionV1ProductionCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
-        const response = await this.productionV1ProductionCreateRaw(requestParameters, initOverrides);
+    async productionV1ProductionsCreate(requestParameters: ProductionV1ProductionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
+        const response = await this.productionV1ProductionsCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Delete a specific production.
+     * Delete a Production
      */
-    async productionV1ProductionDestroyRaw(requestParameters: ProductionV1ProductionDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async productionV1ProductionsDestroyRaw(requestParameters: ProductionV1ProductionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProductionDestroy().'
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsDestroy().'
             );
         }
 
@@ -1520,7 +998,7 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/production/{id}/`;
+        let urlPath = `/api/production/v1/productions/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1534,14 +1012,18 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific production.
+     * Delete a Production
      */
-    async productionV1ProductionDestroy(requestParameters: ProductionV1ProductionDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1ProductionDestroyRaw(requestParameters, initOverrides);
+    async productionV1ProductionsDestroy(requestParameters: ProductionV1ProductionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1ProductionsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all productions.
+     * List Productions
      */
-    async productionV1ProductionListRaw(requestParameters: ProductionV1ProductionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionList>> {
+    async productionV1ProductionsListRaw(requestParameters: ProductionV1ProductionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionList>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -1555,7 +1037,7 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/production/`;
+        let urlPath = `/api/production/v1/productions/`;
 
         const response = await this.request({
             path: urlPath,
@@ -1568,19 +1050,30 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all productions.
+     * List Productions
      */
-    async productionV1ProductionList(requestParameters: ProductionV1ProductionListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionList> {
-        const response = await this.productionV1ProductionListRaw(requestParameters, initOverrides);
+    async productionV1ProductionsList(requestParameters: ProductionV1ProductionsListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionList> {
+        const response = await this.productionV1ProductionsListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Create a new production member.
+     * Create a Production Member
      */
-    async productionV1ProductionPartialUpdateRaw(requestParameters: ProductionV1ProductionPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
-        if (requestParameters['id'] == null) {
+    async productionV1ProductionsMembersCreateRaw(requestParameters: ProductionV1ProductionsMembersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>> {
+        if (requestParameters['productionId'] == null) {
             throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProductionPartialUpdate().'
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersCreate().'
+            );
+        }
+
+        if (requestParameters['productionMember'] == null) {
+            throw new runtime.RequiredError(
+                'productionMember',
+                'Required parameter "productionMember" was null or undefined when calling productionV1ProductionsMembersCreate().'
             );
         }
 
@@ -1591,7 +1084,640 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/production/{id}/`;
+        let urlPath = `/api/production/v1/productions/{production_id}/members/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductionMemberToJSON(requestParameters['productionMember']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionMemberFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new production member.
+     * Create a Production Member
+     */
+    async productionV1ProductionsMembersCreate(requestParameters: ProductionV1ProductionsMembersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember> {
+        const response = await this.productionV1ProductionsMembersCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a specific production member.
+     * Delete a Production Member
+     */
+    async productionV1ProductionsMembersDestroyRaw(requestParameters: ProductionV1ProductionsMembersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersDestroy().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a specific production member.
+     * Delete a Production Member
+     */
+    async productionV1ProductionsMembersDestroy(requestParameters: ProductionV1ProductionsMembersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1ProductionsMembersDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve all members of a production.
+     * List Production Members
+     */
+    async productionV1ProductionsMembersListRaw(requestParameters: ProductionV1ProductionsMembersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionMemberList>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedProductionMemberListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all members of a production.
+     * List Production Members
+     */
+    async productionV1ProductionsMembersList(requestParameters: ProductionV1ProductionsMembersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionMemberList> {
+        const response = await this.productionV1ProductionsMembersListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Partially update an existing production member.
+     * Partially Update a Production Member
+     */
+    async productionV1ProductionsMembersPartialUpdateRaw(requestParameters: ProductionV1ProductionsMembersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedProductionMemberToJSON(requestParameters['patchedProductionMember']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionMemberFromJSON(jsonValue));
+    }
+
+    /**
+     * Partially update an existing production member.
+     * Partially Update a Production Member
+     */
+    async productionV1ProductionsMembersPartialUpdate(requestParameters: ProductionV1ProductionsMembersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember> {
+        const response = await this.productionV1ProductionsMembersPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a specific production member.
+     * Retrieve a Production Member
+     */
+    async productionV1ProductionsMembersRetrieveRaw(requestParameters: ProductionV1ProductionsMembersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRetrieve().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionMemberFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a specific production member.
+     * Retrieve a Production Member
+     */
+    async productionV1ProductionsMembersRetrieve(requestParameters: ProductionV1ProductionsMembersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember> {
+        const response = await this.productionV1ProductionsMembersRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create a new production role assignment.
+     * Create a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesCreateRaw(requestParameters: ProductionV1ProductionsMembersRolesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>> {
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesCreate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesCreate().'
+            );
+        }
+
+        if (requestParameters['productionRoleAssignment'] == null) {
+            throw new runtime.RequiredError(
+                'productionRoleAssignment',
+                'Required parameter "productionRoleAssignment" was null or undefined when calling productionV1ProductionsMembersRolesCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{member_id}/roles/`;
+        urlPath = urlPath.replace(`{${"member_id"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductionRoleAssignmentToJSON(requestParameters['productionRoleAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionRoleAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new production role assignment.
+     * Create a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesCreate(requestParameters: ProductionV1ProductionsMembersRolesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment> {
+        const response = await this.productionV1ProductionsMembersRolesCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a specific production role assignment.
+     * Delete a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesDestroyRaw(requestParameters: ProductionV1ProductionsMembersRolesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRolesDestroy().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesDestroy().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{member_id}/roles/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"member_id"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a specific production role assignment.
+     * Delete a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesDestroy(requestParameters: ProductionV1ProductionsMembersRolesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1ProductionsMembersRolesDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve all role assignments for a production member.
+     * List Production Role Assignments
+     */
+    async productionV1ProductionsMembersRolesListRaw(requestParameters: ProductionV1ProductionsMembersRolesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionRoleAssignmentList>> {
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesList().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{member_id}/roles/`;
+        urlPath = urlPath.replace(`{${"member_id"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedProductionRoleAssignmentListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all role assignments for a production member.
+     * List Production Role Assignments
+     */
+    async productionV1ProductionsMembersRolesList(requestParameters: ProductionV1ProductionsMembersRolesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionRoleAssignmentList> {
+        const response = await this.productionV1ProductionsMembersRolesListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Partially update an existing production role assignment.
+     * Partially Update a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesPartialUpdateRaw(requestParameters: ProductionV1ProductionsMembersRolesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRolesPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{member_id}/roles/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"member_id"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedProductionRoleAssignmentToJSON(requestParameters['patchedProductionRoleAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionRoleAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Partially update an existing production role assignment.
+     * Partially Update a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesPartialUpdate(requestParameters: ProductionV1ProductionsMembersRolesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment> {
+        const response = await this.productionV1ProductionsMembersRolesPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a specific production role assignment.
+     * Retrieve a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesRetrieveRaw(requestParameters: ProductionV1ProductionsMembersRolesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRolesRetrieve().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesRetrieve().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{member_id}/roles/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"member_id"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionRoleAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a specific production role assignment.
+     * Retrieve a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesRetrieve(requestParameters: ProductionV1ProductionsMembersRolesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment> {
+        const response = await this.productionV1ProductionsMembersRolesRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update an existing production role assignment.
+     * Update a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesUpdateRaw(requestParameters: ProductionV1ProductionsMembersRolesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRolesUpdate().'
+            );
+        }
+
+        if (requestParameters['memberId'] == null) {
+            throw new runtime.RequiredError(
+                'memberId',
+                'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesUpdate().'
+            );
+        }
+
+        if (requestParameters['productionRoleAssignment'] == null) {
+            throw new runtime.RequiredError(
+                'productionRoleAssignment',
+                'Required parameter "productionRoleAssignment" was null or undefined when calling productionV1ProductionsMembersRolesUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{member_id}/roles/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"member_id"}}`, encodeURIComponent(String(requestParameters['memberId'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductionRoleAssignmentToJSON(requestParameters['productionRoleAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionRoleAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Update an existing production role assignment.
+     * Update a Production Role Assignment
+     */
+    async productionV1ProductionsMembersRolesUpdate(requestParameters: ProductionV1ProductionsMembersRolesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment> {
+        const response = await this.productionV1ProductionsMembersRolesUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update an existing production member.
+     * Update a Production Member
+     */
+    async productionV1ProductionsMembersUpdateRaw(requestParameters: ProductionV1ProductionsMembersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersUpdate().'
+            );
+        }
+
+        if (requestParameters['productionMember'] == null) {
+            throw new runtime.RequiredError(
+                'productionMember',
+                'Required parameter "productionMember" was null or undefined when calling productionV1ProductionsMembersUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/members/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductionMemberToJSON(requestParameters['productionMember']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionMemberFromJSON(jsonValue));
+    }
+
+    /**
+     * Update an existing production member.
+     * Update a Production Member
+     */
+    async productionV1ProductionsMembersUpdate(requestParameters: ProductionV1ProductionsMembersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember> {
+        const response = await this.productionV1ProductionsMembersUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Partially update an existing production.
+     * Partially Update a Production
+     */
+    async productionV1ProductionsPartialUpdateRaw(requestParameters: ProductionV1ProductionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1606,19 +1732,79 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing production.
+     * Partially Update a Production
      */
-    async productionV1ProductionPartialUpdate(requestParameters: ProductionV1ProductionPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
-        const response = await this.productionV1ProductionPartialUpdateRaw(requestParameters, initOverrides);
+    async productionV1ProductionsPartialUpdate(requestParameters: ProductionV1ProductionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
+        const response = await this.productionV1ProductionsPartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Create a new performance.
+     * Create a Performance
      */
-    async productionV1ProductionRetrieveRaw(requestParameters: ProductionV1ProductionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+    async productionV1ProductionsPerformancesCreateRaw(requestParameters: ProductionV1ProductionsPerformancesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesCreate().'
+            );
+        }
+
+        if (requestParameters['performance'] == null) {
+            throw new runtime.RequiredError(
+                'performance',
+                'Required parameter "performance" was null or undefined when calling productionV1ProductionsPerformancesCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/performances/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PerformanceToJSON(requestParameters['performance']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PerformanceFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new performance.
+     * Create a Performance
+     */
+    async productionV1ProductionsPerformancesCreate(requestParameters: ProductionV1ProductionsPerformancesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance> {
+        const response = await this.productionV1ProductionsPerformancesCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a specific performance.
+     * Delete a Performance
+     */
+    async productionV1ProductionsPerformancesDestroyRaw(requestParameters: ProductionV1ProductionsPerformancesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProductionRetrieve().'
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsPerformancesDestroy().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesDestroy().'
             );
         }
 
@@ -1627,7 +1813,887 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/production/{id}/`;
+        let urlPath = `/api/production/v1/productions/{production_id}/performances/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a specific performance.
+     * Delete a Performance
+     */
+    async productionV1ProductionsPerformancesDestroy(requestParameters: ProductionV1ProductionsPerformancesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1ProductionsPerformancesDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve all performances for a production.
+     * List Performances
+     */
+    async productionV1ProductionsPerformancesListRaw(requestParameters: ProductionV1ProductionsPerformancesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPerformanceList>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/performances/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedPerformanceListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all performances for a production.
+     * List Performances
+     */
+    async productionV1ProductionsPerformancesList(requestParameters: ProductionV1ProductionsPerformancesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedPerformanceList> {
+        const response = await this.productionV1ProductionsPerformancesListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Partially update an existing performance.
+     * Partially Update a Performance
+     */
+    async productionV1ProductionsPerformancesPartialUpdateRaw(requestParameters: ProductionV1ProductionsPerformancesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsPerformancesPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/performances/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedPerformanceToJSON(requestParameters['patchedPerformance']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PerformanceFromJSON(jsonValue));
+    }
+
+    /**
+     * Partially update an existing performance.
+     * Partially Update a Performance
+     */
+    async productionV1ProductionsPerformancesPartialUpdate(requestParameters: ProductionV1ProductionsPerformancesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance> {
+        const response = await this.productionV1ProductionsPerformancesPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a specific performance.
+     * Retrieve a Performance
+     */
+    async productionV1ProductionsPerformancesRetrieveRaw(requestParameters: ProductionV1ProductionsPerformancesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsPerformancesRetrieve().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/performances/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PerformanceFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a specific performance.
+     * Retrieve a Performance
+     */
+    async productionV1ProductionsPerformancesRetrieve(requestParameters: ProductionV1ProductionsPerformancesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance> {
+        const response = await this.productionV1ProductionsPerformancesRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update an existing performance.
+     * Update a Performance
+     */
+    async productionV1ProductionsPerformancesUpdateRaw(requestParameters: ProductionV1ProductionsPerformancesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsPerformancesUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesUpdate().'
+            );
+        }
+
+        if (requestParameters['performance'] == null) {
+            throw new runtime.RequiredError(
+                'performance',
+                'Required parameter "performance" was null or undefined when calling productionV1ProductionsPerformancesUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/performances/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PerformanceToJSON(requestParameters['performance']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PerformanceFromJSON(jsonValue));
+    }
+
+    /**
+     * Update an existing performance.
+     * Update a Performance
+     */
+    async productionV1ProductionsPerformancesUpdate(requestParameters: ProductionV1ProductionsPerformancesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance> {
+        const response = await this.productionV1ProductionsPerformancesUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create a new rehearsal.
+     * Create a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsCreateRaw(requestParameters: ProductionV1ProductionsRehearsalsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsCreate().'
+            );
+        }
+
+        if (requestParameters['rehearsal'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsal',
+                'Required parameter "rehearsal" was null or undefined when calling productionV1ProductionsRehearsalsCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RehearsalToJSON(requestParameters['rehearsal']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new rehearsal.
+     * Create a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsCreate(requestParameters: ProductionV1ProductionsRehearsalsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal> {
+        const response = await this.productionV1ProductionsRehearsalsCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a specific rehearsal.
+     * Delete a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsDestroyRaw(requestParameters: ProductionV1ProductionsRehearsalsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsDestroy().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a specific rehearsal.
+     * Delete a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsDestroy(requestParameters: ProductionV1ProductionsRehearsalsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1ProductionsRehearsalsDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve all rehearsals for a production.
+     * List Rehearsals
+     */
+    async productionV1ProductionsRehearsalsListRaw(requestParameters: ProductionV1ProductionsRehearsalsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRehearsalList>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedRehearsalListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all rehearsals for a production.
+     * List Rehearsals
+     */
+    async productionV1ProductionsRehearsalsList(requestParameters: ProductionV1ProductionsRehearsalsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedRehearsalList> {
+        const response = await this.productionV1ProductionsRehearsalsListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Partially update an existing rehearsal.
+     * Partially Update a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsPartialUpdateRaw(requestParameters: ProductionV1ProductionsRehearsalsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedRehearsalToJSON(requestParameters['patchedRehearsal']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalFromJSON(jsonValue));
+    }
+
+    /**
+     * Partially update an existing rehearsal.
+     * Partially Update a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsPartialUpdate(requestParameters: ProductionV1ProductionsRehearsalsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal> {
+        const response = await this.productionV1ProductionsRehearsalsPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create a new rehearsal participant.
+     * Create a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsCreateRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsCreate().'
+            );
+        }
+
+        if (requestParameters['rehearsalId'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsalId',
+                'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsCreate().'
+            );
+        }
+
+        if (requestParameters['rehearsalParticipant'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsalParticipant',
+                'Required parameter "rehearsalParticipant" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"rehearsal_id"}}`, encodeURIComponent(String(requestParameters['rehearsalId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RehearsalParticipantToJSON(requestParameters['rehearsalParticipant']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalParticipantFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new rehearsal participant.
+     * Create a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsCreate(requestParameters: ProductionV1ProductionsRehearsalsParticipantsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant> {
+        const response = await this.productionV1ProductionsRehearsalsParticipantsCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a specific rehearsal participant.
+     * Delete a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsDestroyRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsDestroy().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsDestroy().'
+            );
+        }
+
+        if (requestParameters['rehearsalId'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsalId',
+                'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"rehearsal_id"}}`, encodeURIComponent(String(requestParameters['rehearsalId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a specific rehearsal participant.
+     * Delete a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsDestroy(requestParameters: ProductionV1ProductionsRehearsalsParticipantsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1ProductionsRehearsalsParticipantsDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve all participants for a rehearsal.
+     * List Rehearsal Participants
+     */
+    async productionV1ProductionsRehearsalsParticipantsListRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRehearsalParticipantList>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsList().'
+            );
+        }
+
+        if (requestParameters['rehearsalId'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsalId',
+                'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"rehearsal_id"}}`, encodeURIComponent(String(requestParameters['rehearsalId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedRehearsalParticipantListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all participants for a rehearsal.
+     * List Rehearsal Participants
+     */
+    async productionV1ProductionsRehearsalsParticipantsList(requestParameters: ProductionV1ProductionsRehearsalsParticipantsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedRehearsalParticipantList> {
+        const response = await this.productionV1ProductionsRehearsalsParticipantsListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Partially update an existing rehearsal participant.
+     * Partially Update a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsPartialUpdateRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['rehearsalId'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsalId',
+                'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"rehearsal_id"}}`, encodeURIComponent(String(requestParameters['rehearsalId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedRehearsalParticipantToJSON(requestParameters['patchedRehearsalParticipant']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalParticipantFromJSON(jsonValue));
+    }
+
+    /**
+     * Partially update an existing rehearsal participant.
+     * Partially Update a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsPartialUpdate(requestParameters: ProductionV1ProductionsRehearsalsParticipantsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant> {
+        const response = await this.productionV1ProductionsRehearsalsParticipantsPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a specific rehearsal participant.
+     * Retrieve a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsRetrieveRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsRetrieve().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsRetrieve().'
+            );
+        }
+
+        if (requestParameters['rehearsalId'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsalId',
+                'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"rehearsal_id"}}`, encodeURIComponent(String(requestParameters['rehearsalId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalParticipantFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a specific rehearsal participant.
+     * Retrieve a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsRetrieve(requestParameters: ProductionV1ProductionsRehearsalsParticipantsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant> {
+        const response = await this.productionV1ProductionsRehearsalsParticipantsRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update an existing rehearsal participant.
+     * Update a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsUpdateRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsUpdate().'
+            );
+        }
+
+        if (requestParameters['rehearsalId'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsalId',
+                'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsUpdate().'
+            );
+        }
+
+        if (requestParameters['rehearsalParticipant'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsalParticipant',
+                'Required parameter "rehearsalParticipant" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"rehearsal_id"}}`, encodeURIComponent(String(requestParameters['rehearsalId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RehearsalParticipantToJSON(requestParameters['rehearsalParticipant']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalParticipantFromJSON(jsonValue));
+    }
+
+    /**
+     * Update an existing rehearsal participant.
+     * Update a Rehearsal Participant
+     */
+    async productionV1ProductionsRehearsalsParticipantsUpdate(requestParameters: ProductionV1ProductionsRehearsalsParticipantsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant> {
+        const response = await this.productionV1ProductionsRehearsalsParticipantsUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a specific rehearsal.
+     * Retrieve a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsRetrieveRaw(requestParameters: ProductionV1ProductionsRehearsalsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsRetrieve().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a specific rehearsal.
+     * Retrieve a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsRetrieve(requestParameters: ProductionV1ProductionsRehearsalsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal> {
+        const response = await this.productionV1ProductionsRehearsalsRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update an existing rehearsal.
+     * Update a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsUpdateRaw(requestParameters: ProductionV1ProductionsRehearsalsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsUpdate().'
+            );
+        }
+
+        if (requestParameters['rehearsal'] == null) {
+            throw new runtime.RequiredError(
+                'rehearsal',
+                'Required parameter "rehearsal" was null or undefined when calling productionV1ProductionsRehearsalsUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/production/v1/productions/{production_id}/rehearsals/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RehearsalToJSON(requestParameters['rehearsal']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalFromJSON(jsonValue));
+    }
+
+    /**
+     * Update an existing rehearsal.
+     * Update a Rehearsal
+     */
+    async productionV1ProductionsRehearsalsUpdate(requestParameters: ProductionV1ProductionsRehearsalsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal> {
+        const response = await this.productionV1ProductionsRehearsalsUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a specific production.
+     * Retrieve a Production
+     */
+    async productionV1ProductionsRetrieveRaw(requestParameters: ProductionV1ProductionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/production/v1/productions/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1641,26 +2707,30 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific production.
+     * Retrieve a Production
      */
-    async productionV1ProductionRetrieve(requestParameters: ProductionV1ProductionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
-        const response = await this.productionV1ProductionRetrieveRaw(requestParameters, initOverrides);
+    async productionV1ProductionsRetrieve(requestParameters: ProductionV1ProductionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
+        const response = await this.productionV1ProductionsRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update an existing production.
+     * Update a Production
      */
-    async productionV1ProductionUpdateRaw(requestParameters: ProductionV1ProductionUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
+    async productionV1ProductionsUpdateRaw(requestParameters: ProductionV1ProductionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProductionUpdate().'
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsUpdate().'
             );
         }
 
         if (requestParameters['production'] == null) {
             throw new runtime.RequiredError(
                 'production',
-                'Required parameter "production" was null or undefined when calling productionV1ProductionUpdate().'
+                'Required parameter "production" was null or undefined when calling productionV1ProductionsUpdate().'
             );
         }
 
@@ -1671,7 +2741,7 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/production/{id}/`;
+        let urlPath = `/api/production/v1/productions/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1686,19 +2756,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing production.
+     * Update a Production
      */
-    async productionV1ProductionUpdate(requestParameters: ProductionV1ProductionUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
-        const response = await this.productionV1ProductionUpdateRaw(requestParameters, initOverrides);
+    async productionV1ProductionsUpdate(requestParameters: ProductionV1ProductionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production> {
+        const response = await this.productionV1ProductionsUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Create a new production venue.
+     * Create a Production Venue
      */
-    async productionV1ProductionVenueCreateRaw(requestParameters: ProductionV1ProductionVenueCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>> {
+    async productionV1VenuesCreateRaw(requestParameters: ProductionV1VenuesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>> {
         if (requestParameters['productionVenue'] == null) {
             throw new runtime.RequiredError(
                 'productionVenue',
-                'Required parameter "productionVenue" was null or undefined when calling productionV1ProductionVenueCreate().'
+                'Required parameter "productionVenue" was null or undefined when calling productionV1VenuesCreate().'
             );
         }
 
@@ -1709,7 +2783,7 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/production-venue/`;
+        let urlPath = `/api/production/v1/venues/`;
 
         const response = await this.request({
             path: urlPath,
@@ -1723,19 +2797,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new production venue.
+     * Create a Production Venue
      */
-    async productionV1ProductionVenueCreate(requestParameters: ProductionV1ProductionVenueCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue> {
-        const response = await this.productionV1ProductionVenueCreateRaw(requestParameters, initOverrides);
+    async productionV1VenuesCreate(requestParameters: ProductionV1VenuesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue> {
+        const response = await this.productionV1VenuesCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Delete a specific production venue.
+     * Delete a Production Venue
      */
-    async productionV1ProductionVenueDestroyRaw(requestParameters: ProductionV1ProductionVenueDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async productionV1VenuesDestroyRaw(requestParameters: ProductionV1VenuesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProductionVenueDestroy().'
+                'Required parameter "id" was null or undefined when calling productionV1VenuesDestroy().'
             );
         }
 
@@ -1744,7 +2822,7 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/production-venue/{id}/`;
+        let urlPath = `/api/production/v1/venues/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1758,14 +2836,18 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific production venue.
+     * Delete a Production Venue
      */
-    async productionV1ProductionVenueDestroy(requestParameters: ProductionV1ProductionVenueDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1ProductionVenueDestroyRaw(requestParameters, initOverrides);
+    async productionV1VenuesDestroy(requestParameters: ProductionV1VenuesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1VenuesDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all production venues.
+     * List Production Venues
      */
-    async productionV1ProductionVenueListRaw(requestParameters: ProductionV1ProductionVenueListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionVenueList>> {
+    async productionV1VenuesListRaw(requestParameters: ProductionV1VenuesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionVenueList>> {
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -1779,7 +2861,7 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/production-venue/`;
+        let urlPath = `/api/production/v1/venues/`;
 
         const response = await this.request({
             path: urlPath,
@@ -1792,19 +2874,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all production venues.
+     * List Production Venues
      */
-    async productionV1ProductionVenueList(requestParameters: ProductionV1ProductionVenueListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionVenueList> {
-        const response = await this.productionV1ProductionVenueListRaw(requestParameters, initOverrides);
+    async productionV1VenuesList(requestParameters: ProductionV1VenuesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionVenueList> {
+        const response = await this.productionV1VenuesListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Partially update an existing production venue.
+     * Partially Update a Production Venue
      */
-    async productionV1ProductionVenuePartialUpdateRaw(requestParameters: ProductionV1ProductionVenuePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>> {
+    async productionV1VenuesPartialUpdateRaw(requestParameters: ProductionV1VenuesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProductionVenuePartialUpdate().'
+                'Required parameter "id" was null or undefined when calling productionV1VenuesPartialUpdate().'
             );
         }
 
@@ -1815,7 +2901,7 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/production-venue/{id}/`;
+        let urlPath = `/api/production/v1/venues/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1830,19 +2916,23 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing production venue.
+     * Partially Update a Production Venue
      */
-    async productionV1ProductionVenuePartialUpdate(requestParameters: ProductionV1ProductionVenuePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue> {
-        const response = await this.productionV1ProductionVenuePartialUpdateRaw(requestParameters, initOverrides);
+    async productionV1VenuesPartialUpdate(requestParameters: ProductionV1VenuesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue> {
+        const response = await this.productionV1VenuesPartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Retrieve a specific production venue.
+     * Retrieve a Production Venue
      */
-    async productionV1ProductionVenueRetrieveRaw(requestParameters: ProductionV1ProductionVenueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>> {
+    async productionV1VenuesRetrieveRaw(requestParameters: ProductionV1VenuesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProductionVenueRetrieve().'
+                'Required parameter "id" was null or undefined when calling productionV1VenuesRetrieve().'
             );
         }
 
@@ -1851,7 +2941,7 @@ export class ProductionApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/production/v1/production-venue/{id}/`;
+        let urlPath = `/api/production/v1/venues/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1865,26 +2955,30 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific production venue.
+     * Retrieve a Production Venue
      */
-    async productionV1ProductionVenueRetrieve(requestParameters: ProductionV1ProductionVenueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue> {
-        const response = await this.productionV1ProductionVenueRetrieveRaw(requestParameters, initOverrides);
+    async productionV1VenuesRetrieve(requestParameters: ProductionV1VenuesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue> {
+        const response = await this.productionV1VenuesRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update an existing production venue.
+     * Update a Production Venue
      */
-    async productionV1ProductionVenueUpdateRaw(requestParameters: ProductionV1ProductionVenueUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>> {
+    async productionV1VenuesUpdateRaw(requestParameters: ProductionV1VenuesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling productionV1ProductionVenueUpdate().'
+                'Required parameter "id" was null or undefined when calling productionV1VenuesUpdate().'
             );
         }
 
         if (requestParameters['productionVenue'] == null) {
             throw new runtime.RequiredError(
                 'productionVenue',
-                'Required parameter "productionVenue" was null or undefined when calling productionV1ProductionVenueUpdate().'
+                'Required parameter "productionVenue" was null or undefined when calling productionV1VenuesUpdate().'
             );
         }
 
@@ -1895,7 +2989,7 @@ export class ProductionApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/production/v1/production-venue/{id}/`;
+        let urlPath = `/api/production/v1/venues/{id}/`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -1910,457 +3004,11 @@ export class ProductionApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing production venue.
+     * Update a Production Venue
      */
-    async productionV1ProductionVenueUpdate(requestParameters: ProductionV1ProductionVenueUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue> {
-        const response = await this.productionV1ProductionVenueUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalCreateRaw(requestParameters: ProductionV1RehearsalCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>> {
-        if (requestParameters['rehearsal'] == null) {
-            throw new runtime.RequiredError(
-                'rehearsal',
-                'Required parameter "rehearsal" was null or undefined when calling productionV1RehearsalCreate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/rehearsal/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RehearsalToJSON(requestParameters['rehearsal']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalCreate(requestParameters: ProductionV1RehearsalCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal> {
-        const response = await this.productionV1RehearsalCreateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalDestroyRaw(requestParameters: ProductionV1RehearsalDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1RehearsalDestroy().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/rehearsal/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async productionV1RehearsalDestroy(requestParameters: ProductionV1RehearsalDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1RehearsalDestroyRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async productionV1RehearsalListRaw(requestParameters: ProductionV1RehearsalListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRehearsalList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/rehearsal/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedRehearsalListFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalList(requestParameters: ProductionV1RehearsalListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedRehearsalList> {
-        const response = await this.productionV1RehearsalListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalPartialUpdateRaw(requestParameters: ProductionV1RehearsalPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1RehearsalPartialUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/rehearsal/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PatchedRehearsalToJSON(requestParameters['patchedRehearsal']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalPartialUpdate(requestParameters: ProductionV1RehearsalPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal> {
-        const response = await this.productionV1RehearsalPartialUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantCreateRaw(requestParameters: ProductionV1RehearsalParticipantCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>> {
-        if (requestParameters['rehearsalParticipant'] == null) {
-            throw new runtime.RequiredError(
-                'rehearsalParticipant',
-                'Required parameter "rehearsalParticipant" was null or undefined when calling productionV1RehearsalParticipantCreate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/rehearsal-participant/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RehearsalParticipantToJSON(requestParameters['rehearsalParticipant']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalParticipantFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantCreate(requestParameters: ProductionV1RehearsalParticipantCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant> {
-        const response = await this.productionV1RehearsalParticipantCreateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantDestroyRaw(requestParameters: ProductionV1RehearsalParticipantDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1RehearsalParticipantDestroy().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/rehearsal-participant/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantDestroy(requestParameters: ProductionV1RehearsalParticipantDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.productionV1RehearsalParticipantDestroyRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantListRaw(requestParameters: ProductionV1RehearsalParticipantListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRehearsalParticipantList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/rehearsal-participant/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedRehearsalParticipantListFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantList(requestParameters: ProductionV1RehearsalParticipantListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedRehearsalParticipantList> {
-        const response = await this.productionV1RehearsalParticipantListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantPartialUpdateRaw(requestParameters: ProductionV1RehearsalParticipantPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1RehearsalParticipantPartialUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/rehearsal-participant/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PatchedRehearsalParticipantToJSON(requestParameters['patchedRehearsalParticipant']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalParticipantFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantPartialUpdate(requestParameters: ProductionV1RehearsalParticipantPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant> {
-        const response = await this.productionV1RehearsalParticipantPartialUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantRetrieveRaw(requestParameters: ProductionV1RehearsalParticipantRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1RehearsalParticipantRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/rehearsal-participant/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalParticipantFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantRetrieve(requestParameters: ProductionV1RehearsalParticipantRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant> {
-        const response = await this.productionV1RehearsalParticipantRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantUpdateRaw(requestParameters: ProductionV1RehearsalParticipantUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1RehearsalParticipantUpdate().'
-            );
-        }
-
-        if (requestParameters['rehearsalParticipant'] == null) {
-            throw new runtime.RequiredError(
-                'rehearsalParticipant',
-                'Required parameter "rehearsalParticipant" was null or undefined when calling productionV1RehearsalParticipantUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/rehearsal-participant/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RehearsalParticipantToJSON(requestParameters['rehearsalParticipant']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalParticipantFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalParticipantUpdate(requestParameters: ProductionV1RehearsalParticipantUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant> {
-        const response = await this.productionV1RehearsalParticipantUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalRetrieveRaw(requestParameters: ProductionV1RehearsalRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1RehearsalRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/production/v1/rehearsal/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalRetrieve(requestParameters: ProductionV1RehearsalRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal> {
-        const response = await this.productionV1RehearsalRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async productionV1RehearsalUpdateRaw(requestParameters: ProductionV1RehearsalUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling productionV1RehearsalUpdate().'
-            );
-        }
-
-        if (requestParameters['rehearsal'] == null) {
-            throw new runtime.RequiredError(
-                'rehearsal',
-                'Required parameter "rehearsal" was null or undefined when calling productionV1RehearsalUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/production/v1/rehearsal/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RehearsalToJSON(requestParameters['rehearsal']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => RehearsalFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async productionV1RehearsalUpdate(requestParameters: ProductionV1RehearsalUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal> {
-        const response = await this.productionV1RehearsalUpdateRaw(requestParameters, initOverrides);
+    async productionV1VenuesUpdate(requestParameters: ProductionV1VenuesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue> {
+        const response = await this.productionV1VenuesUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

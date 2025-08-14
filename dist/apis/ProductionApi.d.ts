@@ -11,521 +11,785 @@
  */
 import * as runtime from '../runtime';
 import type { PaginatedPerformanceList, PaginatedProductionCategoryAssignmentList, PaginatedProductionCategoryList, PaginatedProductionList, PaginatedProductionMemberList, PaginatedProductionRoleAssignmentList, PaginatedProductionVenueList, PaginatedRehearsalList, PaginatedRehearsalParticipantList, PatchedPerformance, PatchedProduction, PatchedProductionCategory, PatchedProductionCategoryAssignment, PatchedProductionMember, PatchedProductionRoleAssignment, PatchedProductionVenue, PatchedRehearsal, PatchedRehearsalParticipant, Performance, Production, ProductionCategory, ProductionCategoryAssignment, ProductionMember, ProductionRoleAssignment, ProductionVenue, Rehearsal, RehearsalParticipant } from '../models/index';
-export interface ProductionV1PerformanceCreateRequest {
-    performance: Omit<Performance, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1PerformanceDestroyRequest {
-    id: number;
-}
-export interface ProductionV1PerformanceListRequest {
-    page?: number;
-    pageSize?: number;
-}
-export interface ProductionV1PerformancePartialUpdateRequest {
-    id: number;
-    patchedPerformance?: Omit<PatchedPerformance, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1PerformanceRetrieveRequest {
-    id: number;
-}
-export interface ProductionV1PerformanceUpdateRequest {
-    id: number;
-    performance: Omit<Performance, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1ProdCategoryAssignmentCreateRequest {
+export interface ProductionV1CategoriesAssignmentsCreateRequest {
+    categoryId: number;
     productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProdCategoryAssignmentDestroyRequest {
+export interface ProductionV1CategoriesAssignmentsDestroyRequest {
+    categoryId: number;
     id: number;
 }
-export interface ProductionV1ProdCategoryAssignmentListRequest {
+export interface ProductionV1CategoriesAssignmentsListRequest {
+    categoryId: number;
     page?: number;
     pageSize?: number;
 }
-export interface ProductionV1ProdCategoryAssignmentPartialUpdateRequest {
+export interface ProductionV1CategoriesAssignmentsPartialUpdateRequest {
+    categoryId: number;
     id: number;
     patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProdCategoryAssignmentRetrieveRequest {
+export interface ProductionV1CategoriesAssignmentsRetrieveRequest {
+    categoryId: number;
     id: number;
 }
-export interface ProductionV1ProdCategoryAssignmentUpdateRequest {
+export interface ProductionV1CategoriesAssignmentsUpdateRequest {
+    categoryId: number;
     id: number;
     productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProdCategoryCreateRequest {
+export interface ProductionV1CategoriesCreateRequest {
     productionCategory: Omit<ProductionCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProdCategoryDestroyRequest {
+export interface ProductionV1CategoriesDestroyRequest {
     id: number;
 }
-export interface ProductionV1ProdCategoryListRequest {
+export interface ProductionV1CategoriesListRequest {
     page?: number;
     pageSize?: number;
 }
-export interface ProductionV1ProdCategoryPartialUpdateRequest {
+export interface ProductionV1CategoriesPartialUpdateRequest {
     id: number;
     patchedProductionCategory?: Omit<PatchedProductionCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProdCategoryRetrieveRequest {
+export interface ProductionV1CategoriesRetrieveRequest {
     id: number;
 }
-export interface ProductionV1ProdCategoryUpdateRequest {
+export interface ProductionV1CategoriesUpdateRequest {
     id: number;
     productionCategory: Omit<ProductionCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProdMembersCreateRequest {
-    productionMember: Omit<ProductionMember, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1ProdMembersDestroyRequest {
-    id: number;
-}
-export interface ProductionV1ProdMembersListRequest {
-    page?: number;
-    pageSize?: number;
-}
-export interface ProductionV1ProdMembersPartialUpdateRequest {
-    id: number;
-    patchedProductionMember?: Omit<PatchedProductionMember, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1ProdMembersRetrieveRequest {
-    id: number;
-}
-export interface ProductionV1ProdMembersUpdateRequest {
-    id: number;
-    productionMember: Omit<ProductionMember, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1ProdRolesCreateRequest {
-    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1ProdRolesDestroyRequest {
-    id: number;
-}
-export interface ProductionV1ProdRolesListRequest {
-    page?: number;
-    pageSize?: number;
-}
-export interface ProductionV1ProdRolesPartialUpdateRequest {
-    id: number;
-    patchedProductionRoleAssignment?: Omit<PatchedProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1ProdRolesRetrieveRequest {
-    id: number;
-}
-export interface ProductionV1ProdRolesUpdateRequest {
-    id: number;
-    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1ProductionCreateRequest {
+export interface ProductionV1ProductionsCreateRequest {
     production: Omit<Production, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProductionDestroyRequest {
+export interface ProductionV1ProductionsDestroyRequest {
     id: number;
 }
-export interface ProductionV1ProductionListRequest {
+export interface ProductionV1ProductionsListRequest {
     page?: number;
     pageSize?: number;
 }
-export interface ProductionV1ProductionPartialUpdateRequest {
+export interface ProductionV1ProductionsMembersCreateRequest {
+    productionId: number;
+    productionMember: Omit<ProductionMember, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsMembersDestroyRequest {
+    id: number;
+    productionId: number;
+}
+export interface ProductionV1ProductionsMembersListRequest {
+    productionId: number;
+    page?: number;
+    pageSize?: number;
+}
+export interface ProductionV1ProductionsMembersPartialUpdateRequest {
+    id: number;
+    productionId: number;
+    patchedProductionMember?: Omit<PatchedProductionMember, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsMembersRetrieveRequest {
+    id: number;
+    productionId: number;
+}
+export interface ProductionV1ProductionsMembersRolesCreateRequest {
+    memberId: number;
+    productionId: number;
+    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsMembersRolesDestroyRequest {
+    id: number;
+    memberId: number;
+    productionId: number;
+}
+export interface ProductionV1ProductionsMembersRolesListRequest {
+    memberId: number;
+    productionId: number;
+    page?: number;
+    pageSize?: number;
+}
+export interface ProductionV1ProductionsMembersRolesPartialUpdateRequest {
+    id: number;
+    memberId: number;
+    productionId: number;
+    patchedProductionRoleAssignment?: Omit<PatchedProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsMembersRolesRetrieveRequest {
+    id: number;
+    memberId: number;
+    productionId: number;
+}
+export interface ProductionV1ProductionsMembersRolesUpdateRequest {
+    id: number;
+    memberId: number;
+    productionId: number;
+    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsMembersUpdateRequest {
+    id: number;
+    productionId: number;
+    productionMember: Omit<ProductionMember, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsPartialUpdateRequest {
     id: number;
     patchedProduction?: Omit<PatchedProduction, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProductionRetrieveRequest {
+export interface ProductionV1ProductionsPerformancesCreateRequest {
+    productionId: number;
+    performance: Omit<Performance, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsPerformancesDestroyRequest {
+    id: number;
+    productionId: number;
+}
+export interface ProductionV1ProductionsPerformancesListRequest {
+    productionId: number;
+    page?: number;
+    pageSize?: number;
+}
+export interface ProductionV1ProductionsPerformancesPartialUpdateRequest {
+    id: number;
+    productionId: number;
+    patchedPerformance?: Omit<PatchedPerformance, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsPerformancesRetrieveRequest {
+    id: number;
+    productionId: number;
+}
+export interface ProductionV1ProductionsPerformancesUpdateRequest {
+    id: number;
+    productionId: number;
+    performance: Omit<Performance, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsRehearsalsCreateRequest {
+    productionId: number;
+    rehearsal: Omit<Rehearsal, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsRehearsalsDestroyRequest {
+    id: number;
+    productionId: number;
+}
+export interface ProductionV1ProductionsRehearsalsListRequest {
+    productionId: number;
+    page?: number;
+    pageSize?: number;
+}
+export interface ProductionV1ProductionsRehearsalsPartialUpdateRequest {
+    id: number;
+    productionId: number;
+    patchedRehearsal?: Omit<PatchedRehearsal, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsRehearsalsParticipantsCreateRequest {
+    productionId: number;
+    rehearsalId: number;
+    rehearsalParticipant: Omit<RehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsRehearsalsParticipantsDestroyRequest {
+    id: string;
+    productionId: number;
+    rehearsalId: number;
+}
+export interface ProductionV1ProductionsRehearsalsParticipantsListRequest {
+    productionId: number;
+    rehearsalId: number;
+    page?: number;
+    pageSize?: number;
+}
+export interface ProductionV1ProductionsRehearsalsParticipantsPartialUpdateRequest {
+    id: string;
+    productionId: number;
+    rehearsalId: number;
+    patchedRehearsalParticipant?: Omit<PatchedRehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsRehearsalsParticipantsRetrieveRequest {
+    id: string;
+    productionId: number;
+    rehearsalId: number;
+}
+export interface ProductionV1ProductionsRehearsalsParticipantsUpdateRequest {
+    id: string;
+    productionId: number;
+    rehearsalId: number;
+    rehearsalParticipant: Omit<RehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsRehearsalsRetrieveRequest {
+    id: number;
+    productionId: number;
+}
+export interface ProductionV1ProductionsRehearsalsUpdateRequest {
+    id: number;
+    productionId: number;
+    rehearsal: Omit<Rehearsal, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface ProductionV1ProductionsRetrieveRequest {
     id: number;
 }
-export interface ProductionV1ProductionUpdateRequest {
+export interface ProductionV1ProductionsUpdateRequest {
     id: number;
     production: Omit<Production, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProductionVenueCreateRequest {
+export interface ProductionV1VenuesCreateRequest {
     productionVenue: Omit<ProductionVenue, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProductionVenueDestroyRequest {
+export interface ProductionV1VenuesDestroyRequest {
     id: number;
 }
-export interface ProductionV1ProductionVenueListRequest {
+export interface ProductionV1VenuesListRequest {
     page?: number;
     pageSize?: number;
 }
-export interface ProductionV1ProductionVenuePartialUpdateRequest {
+export interface ProductionV1VenuesPartialUpdateRequest {
     id: number;
     patchedProductionVenue?: Omit<PatchedProductionVenue, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface ProductionV1ProductionVenueRetrieveRequest {
+export interface ProductionV1VenuesRetrieveRequest {
     id: number;
 }
-export interface ProductionV1ProductionVenueUpdateRequest {
+export interface ProductionV1VenuesUpdateRequest {
     id: number;
     productionVenue: Omit<ProductionVenue, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1RehearsalCreateRequest {
-    rehearsal: Omit<Rehearsal, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1RehearsalDestroyRequest {
-    id: number;
-}
-export interface ProductionV1RehearsalListRequest {
-    page?: number;
-    pageSize?: number;
-}
-export interface ProductionV1RehearsalPartialUpdateRequest {
-    id: number;
-    patchedRehearsal?: Omit<PatchedRehearsal, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1RehearsalParticipantCreateRequest {
-    rehearsalParticipant: Omit<RehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1RehearsalParticipantDestroyRequest {
-    id: number;
-}
-export interface ProductionV1RehearsalParticipantListRequest {
-    page?: number;
-    pageSize?: number;
-}
-export interface ProductionV1RehearsalParticipantPartialUpdateRequest {
-    id: number;
-    patchedRehearsalParticipant?: Omit<PatchedRehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1RehearsalParticipantRetrieveRequest {
-    id: number;
-}
-export interface ProductionV1RehearsalParticipantUpdateRequest {
-    id: number;
-    rehearsalParticipant: Omit<RehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface ProductionV1RehearsalRetrieveRequest {
-    id: number;
-}
-export interface ProductionV1RehearsalUpdateRequest {
-    id: number;
-    rehearsal: Omit<Rehearsal, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 /**
  *
  */
 export declare class ProductionApi extends runtime.BaseAPI {
     /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment
      */
-    productionV1PerformanceCreateRaw(requestParameters: ProductionV1PerformanceCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>>;
+    productionV1CategoriesAssignmentsCreateRaw(requestParameters: ProductionV1CategoriesAssignmentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
     /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment
      */
-    productionV1PerformanceCreate(requestParameters: ProductionV1PerformanceCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance>;
+    productionV1CategoriesAssignmentsCreate(requestParameters: ProductionV1CategoriesAssignmentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
     /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment
      */
-    productionV1PerformanceDestroyRaw(requestParameters: ProductionV1PerformanceDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1CategoriesAssignmentsDestroyRaw(requestParameters: ProductionV1CategoriesAssignmentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment
      */
-    productionV1PerformanceDestroy(requestParameters: ProductionV1PerformanceDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1CategoriesAssignmentsDestroy(requestParameters: ProductionV1CategoriesAssignmentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments
      */
-    productionV1PerformanceListRaw(requestParameters: ProductionV1PerformanceListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPerformanceList>>;
+    productionV1CategoriesAssignmentsListRaw(requestParameters: ProductionV1CategoriesAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryAssignmentList>>;
     /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments
      */
-    productionV1PerformanceList(requestParameters?: ProductionV1PerformanceListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedPerformanceList>;
+    productionV1CategoriesAssignmentsList(requestParameters: ProductionV1CategoriesAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryAssignmentList>;
     /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment
      */
-    productionV1PerformancePartialUpdateRaw(requestParameters: ProductionV1PerformancePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>>;
+    productionV1CategoriesAssignmentsPartialUpdateRaw(requestParameters: ProductionV1CategoriesAssignmentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
     /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment
      */
-    productionV1PerformancePartialUpdate(requestParameters: ProductionV1PerformancePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance>;
+    productionV1CategoriesAssignmentsPartialUpdate(requestParameters: ProductionV1CategoriesAssignmentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
     /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment
      */
-    productionV1PerformanceRetrieveRaw(requestParameters: ProductionV1PerformanceRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>>;
+    productionV1CategoriesAssignmentsRetrieveRaw(requestParameters: ProductionV1CategoriesAssignmentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
     /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment
      */
-    productionV1PerformanceRetrieve(requestParameters: ProductionV1PerformanceRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance>;
+    productionV1CategoriesAssignmentsRetrieve(requestParameters: ProductionV1CategoriesAssignmentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
     /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment
      */
-    productionV1PerformanceUpdateRaw(requestParameters: ProductionV1PerformanceUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>>;
+    productionV1CategoriesAssignmentsUpdateRaw(requestParameters: ProductionV1CategoriesAssignmentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
     /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment
      */
-    productionV1PerformanceUpdate(requestParameters: ProductionV1PerformanceUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance>;
+    productionV1CategoriesAssignmentsUpdate(requestParameters: ProductionV1CategoriesAssignmentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
     /**
+     * Create a new production category.
+     * Create a Production Category
      */
-    productionV1ProdCategoryAssignmentCreateRaw(requestParameters: ProductionV1ProdCategoryAssignmentCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
+    productionV1CategoriesCreateRaw(requestParameters: ProductionV1CategoriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>>;
     /**
+     * Create a new production category.
+     * Create a Production Category
      */
-    productionV1ProdCategoryAssignmentCreate(requestParameters: ProductionV1ProdCategoryAssignmentCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
+    productionV1CategoriesCreate(requestParameters: ProductionV1CategoriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
     /**
+     * Delete a specific production category.
+     * Delete a Production Category
      */
-    productionV1ProdCategoryAssignmentDestroyRaw(requestParameters: ProductionV1ProdCategoryAssignmentDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1CategoriesDestroyRaw(requestParameters: ProductionV1CategoriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific production category.
+     * Delete a Production Category
      */
-    productionV1ProdCategoryAssignmentDestroy(requestParameters: ProductionV1ProdCategoryAssignmentDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1CategoriesDestroy(requestParameters: ProductionV1CategoriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all production categories.
+     * List Production Categories
      */
-    productionV1ProdCategoryAssignmentListRaw(requestParameters: ProductionV1ProdCategoryAssignmentListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryAssignmentList>>;
+    productionV1CategoriesListRaw(requestParameters: ProductionV1CategoriesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryList>>;
     /**
+     * Retrieve all production categories.
+     * List Production Categories
      */
-    productionV1ProdCategoryAssignmentList(requestParameters?: ProductionV1ProdCategoryAssignmentListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryAssignmentList>;
+    productionV1CategoriesList(requestParameters?: ProductionV1CategoriesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryList>;
     /**
+     * Partially update an existing production category.
+     * Partially Update a Production Category
      */
-    productionV1ProdCategoryAssignmentPartialUpdateRaw(requestParameters: ProductionV1ProdCategoryAssignmentPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
+    productionV1CategoriesPartialUpdateRaw(requestParameters: ProductionV1CategoriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>>;
     /**
+     * Partially update an existing production category.
+     * Partially Update a Production Category
      */
-    productionV1ProdCategoryAssignmentPartialUpdate(requestParameters: ProductionV1ProdCategoryAssignmentPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
+    productionV1CategoriesPartialUpdate(requestParameters: ProductionV1CategoriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
     /**
+     * Retrieve a specific production category.
+     * Retrieve a Production Category
      */
-    productionV1ProdCategoryAssignmentRetrieveRaw(requestParameters: ProductionV1ProdCategoryAssignmentRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
+    productionV1CategoriesRetrieveRaw(requestParameters: ProductionV1CategoriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>>;
     /**
+     * Retrieve a specific production category.
+     * Retrieve a Production Category
      */
-    productionV1ProdCategoryAssignmentRetrieve(requestParameters: ProductionV1ProdCategoryAssignmentRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
+    productionV1CategoriesRetrieve(requestParameters: ProductionV1CategoriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
     /**
+     * Update an existing production category.
+     * Update a Production Category
      */
-    productionV1ProdCategoryAssignmentUpdateRaw(requestParameters: ProductionV1ProdCategoryAssignmentUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
+    productionV1CategoriesUpdateRaw(requestParameters: ProductionV1CategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>>;
     /**
+     * Update an existing production category.
+     * Update a Production Category
      */
-    productionV1ProdCategoryAssignmentUpdate(requestParameters: ProductionV1ProdCategoryAssignmentUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
+    productionV1CategoriesUpdate(requestParameters: ProductionV1CategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
     /**
+     * Create a new production.
+     * Create a Production
      */
-    productionV1ProdCategoryCreateRaw(requestParameters: ProductionV1ProdCategoryCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>>;
+    productionV1ProductionsCreateRaw(requestParameters: ProductionV1ProductionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
     /**
+     * Create a new production.
+     * Create a Production
      */
-    productionV1ProdCategoryCreate(requestParameters: ProductionV1ProdCategoryCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
+    productionV1ProductionsCreate(requestParameters: ProductionV1ProductionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
     /**
+     * Delete a specific production.
+     * Delete a Production
      */
-    productionV1ProdCategoryDestroyRaw(requestParameters: ProductionV1ProdCategoryDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1ProductionsDestroyRaw(requestParameters: ProductionV1ProductionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific production.
+     * Delete a Production
      */
-    productionV1ProdCategoryDestroy(requestParameters: ProductionV1ProdCategoryDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1ProductionsDestroy(requestParameters: ProductionV1ProductionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all productions.
+     * List Productions
      */
-    productionV1ProdCategoryListRaw(requestParameters: ProductionV1ProdCategoryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryList>>;
+    productionV1ProductionsListRaw(requestParameters: ProductionV1ProductionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionList>>;
     /**
+     * Retrieve all productions.
+     * List Productions
      */
-    productionV1ProdCategoryList(requestParameters?: ProductionV1ProdCategoryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryList>;
+    productionV1ProductionsList(requestParameters?: ProductionV1ProductionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionList>;
     /**
+     * Create a new production member.
+     * Create a Production Member
      */
-    productionV1ProdCategoryPartialUpdateRaw(requestParameters: ProductionV1ProdCategoryPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>>;
+    productionV1ProductionsMembersCreateRaw(requestParameters: ProductionV1ProductionsMembersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>>;
     /**
+     * Create a new production member.
+     * Create a Production Member
      */
-    productionV1ProdCategoryPartialUpdate(requestParameters: ProductionV1ProdCategoryPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
+    productionV1ProductionsMembersCreate(requestParameters: ProductionV1ProductionsMembersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember>;
     /**
+     * Delete a specific production member.
+     * Delete a Production Member
      */
-    productionV1ProdCategoryRetrieveRaw(requestParameters: ProductionV1ProdCategoryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>>;
+    productionV1ProductionsMembersDestroyRaw(requestParameters: ProductionV1ProductionsMembersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific production member.
+     * Delete a Production Member
      */
-    productionV1ProdCategoryRetrieve(requestParameters: ProductionV1ProdCategoryRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
+    productionV1ProductionsMembersDestroy(requestParameters: ProductionV1ProductionsMembersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all members of a production.
+     * List Production Members
      */
-    productionV1ProdCategoryUpdateRaw(requestParameters: ProductionV1ProdCategoryUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategory>>;
+    productionV1ProductionsMembersListRaw(requestParameters: ProductionV1ProductionsMembersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionMemberList>>;
     /**
+     * Retrieve all members of a production.
+     * List Production Members
      */
-    productionV1ProdCategoryUpdate(requestParameters: ProductionV1ProdCategoryUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
+    productionV1ProductionsMembersList(requestParameters: ProductionV1ProductionsMembersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionMemberList>;
     /**
+     * Partially update an existing production member.
+     * Partially Update a Production Member
      */
-    productionV1ProdMembersCreateRaw(requestParameters: ProductionV1ProdMembersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>>;
+    productionV1ProductionsMembersPartialUpdateRaw(requestParameters: ProductionV1ProductionsMembersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>>;
     /**
+     * Partially update an existing production member.
+     * Partially Update a Production Member
      */
-    productionV1ProdMembersCreate(requestParameters: ProductionV1ProdMembersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember>;
+    productionV1ProductionsMembersPartialUpdate(requestParameters: ProductionV1ProductionsMembersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember>;
     /**
+     * Retrieve a specific production member.
+     * Retrieve a Production Member
      */
-    productionV1ProdMembersDestroyRaw(requestParameters: ProductionV1ProdMembersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1ProductionsMembersRetrieveRaw(requestParameters: ProductionV1ProductionsMembersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>>;
     /**
+     * Retrieve a specific production member.
+     * Retrieve a Production Member
      */
-    productionV1ProdMembersDestroy(requestParameters: ProductionV1ProdMembersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1ProductionsMembersRetrieve(requestParameters: ProductionV1ProductionsMembersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember>;
     /**
+     * Create a new production role assignment.
+     * Create a Production Role Assignment
      */
-    productionV1ProdMembersListRaw(requestParameters: ProductionV1ProdMembersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionMemberList>>;
+    productionV1ProductionsMembersRolesCreateRaw(requestParameters: ProductionV1ProductionsMembersRolesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>>;
     /**
+     * Create a new production role assignment.
+     * Create a Production Role Assignment
      */
-    productionV1ProdMembersList(requestParameters?: ProductionV1ProdMembersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionMemberList>;
+    productionV1ProductionsMembersRolesCreate(requestParameters: ProductionV1ProductionsMembersRolesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment>;
     /**
+     * Delete a specific production role assignment.
+     * Delete a Production Role Assignment
      */
-    productionV1ProdMembersPartialUpdateRaw(requestParameters: ProductionV1ProdMembersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>>;
+    productionV1ProductionsMembersRolesDestroyRaw(requestParameters: ProductionV1ProductionsMembersRolesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific production role assignment.
+     * Delete a Production Role Assignment
      */
-    productionV1ProdMembersPartialUpdate(requestParameters: ProductionV1ProdMembersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember>;
+    productionV1ProductionsMembersRolesDestroy(requestParameters: ProductionV1ProductionsMembersRolesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all role assignments for a production member.
+     * List Production Role Assignments
      */
-    productionV1ProdMembersRetrieveRaw(requestParameters: ProductionV1ProdMembersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>>;
+    productionV1ProductionsMembersRolesListRaw(requestParameters: ProductionV1ProductionsMembersRolesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionRoleAssignmentList>>;
     /**
+     * Retrieve all role assignments for a production member.
+     * List Production Role Assignments
      */
-    productionV1ProdMembersRetrieve(requestParameters: ProductionV1ProdMembersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember>;
+    productionV1ProductionsMembersRolesList(requestParameters: ProductionV1ProductionsMembersRolesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionRoleAssignmentList>;
     /**
+     * Partially update an existing production role assignment.
+     * Partially Update a Production Role Assignment
      */
-    productionV1ProdMembersUpdateRaw(requestParameters: ProductionV1ProdMembersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>>;
+    productionV1ProductionsMembersRolesPartialUpdateRaw(requestParameters: ProductionV1ProductionsMembersRolesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>>;
     /**
+     * Partially update an existing production role assignment.
+     * Partially Update a Production Role Assignment
      */
-    productionV1ProdMembersUpdate(requestParameters: ProductionV1ProdMembersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember>;
+    productionV1ProductionsMembersRolesPartialUpdate(requestParameters: ProductionV1ProductionsMembersRolesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment>;
     /**
+     * Retrieve a specific production role assignment.
+     * Retrieve a Production Role Assignment
      */
-    productionV1ProdRolesCreateRaw(requestParameters: ProductionV1ProdRolesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>>;
+    productionV1ProductionsMembersRolesRetrieveRaw(requestParameters: ProductionV1ProductionsMembersRolesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>>;
     /**
+     * Retrieve a specific production role assignment.
+     * Retrieve a Production Role Assignment
      */
-    productionV1ProdRolesCreate(requestParameters: ProductionV1ProdRolesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment>;
+    productionV1ProductionsMembersRolesRetrieve(requestParameters: ProductionV1ProductionsMembersRolesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment>;
     /**
+     * Update an existing production role assignment.
+     * Update a Production Role Assignment
      */
-    productionV1ProdRolesDestroyRaw(requestParameters: ProductionV1ProdRolesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1ProductionsMembersRolesUpdateRaw(requestParameters: ProductionV1ProductionsMembersRolesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>>;
     /**
+     * Update an existing production role assignment.
+     * Update a Production Role Assignment
      */
-    productionV1ProdRolesDestroy(requestParameters: ProductionV1ProdRolesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1ProductionsMembersRolesUpdate(requestParameters: ProductionV1ProductionsMembersRolesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment>;
     /**
+     * Update an existing production member.
+     * Update a Production Member
      */
-    productionV1ProdRolesListRaw(requestParameters: ProductionV1ProdRolesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionRoleAssignmentList>>;
+    productionV1ProductionsMembersUpdateRaw(requestParameters: ProductionV1ProductionsMembersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionMember>>;
     /**
+     * Update an existing production member.
+     * Update a Production Member
      */
-    productionV1ProdRolesList(requestParameters?: ProductionV1ProdRolesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionRoleAssignmentList>;
+    productionV1ProductionsMembersUpdate(requestParameters: ProductionV1ProductionsMembersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionMember>;
     /**
+     * Partially update an existing production.
+     * Partially Update a Production
      */
-    productionV1ProdRolesPartialUpdateRaw(requestParameters: ProductionV1ProdRolesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>>;
+    productionV1ProductionsPartialUpdateRaw(requestParameters: ProductionV1ProductionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
     /**
+     * Partially update an existing production.
+     * Partially Update a Production
      */
-    productionV1ProdRolesPartialUpdate(requestParameters: ProductionV1ProdRolesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment>;
+    productionV1ProductionsPartialUpdate(requestParameters: ProductionV1ProductionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
     /**
+     * Create a new performance.
+     * Create a Performance
      */
-    productionV1ProdRolesRetrieveRaw(requestParameters: ProductionV1ProdRolesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>>;
+    productionV1ProductionsPerformancesCreateRaw(requestParameters: ProductionV1ProductionsPerformancesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>>;
     /**
+     * Create a new performance.
+     * Create a Performance
      */
-    productionV1ProdRolesRetrieve(requestParameters: ProductionV1ProdRolesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment>;
+    productionV1ProductionsPerformancesCreate(requestParameters: ProductionV1ProductionsPerformancesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance>;
     /**
+     * Delete a specific performance.
+     * Delete a Performance
      */
-    productionV1ProdRolesUpdateRaw(requestParameters: ProductionV1ProdRolesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionRoleAssignment>>;
+    productionV1ProductionsPerformancesDestroyRaw(requestParameters: ProductionV1ProductionsPerformancesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific performance.
+     * Delete a Performance
      */
-    productionV1ProdRolesUpdate(requestParameters: ProductionV1ProdRolesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionRoleAssignment>;
+    productionV1ProductionsPerformancesDestroy(requestParameters: ProductionV1ProductionsPerformancesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all performances for a production.
+     * List Performances
      */
-    productionV1ProductionCreateRaw(requestParameters: ProductionV1ProductionCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
+    productionV1ProductionsPerformancesListRaw(requestParameters: ProductionV1ProductionsPerformancesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPerformanceList>>;
     /**
+     * Retrieve all performances for a production.
+     * List Performances
      */
-    productionV1ProductionCreate(requestParameters: ProductionV1ProductionCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
+    productionV1ProductionsPerformancesList(requestParameters: ProductionV1ProductionsPerformancesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedPerformanceList>;
     /**
+     * Partially update an existing performance.
+     * Partially Update a Performance
      */
-    productionV1ProductionDestroyRaw(requestParameters: ProductionV1ProductionDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1ProductionsPerformancesPartialUpdateRaw(requestParameters: ProductionV1ProductionsPerformancesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>>;
     /**
+     * Partially update an existing performance.
+     * Partially Update a Performance
      */
-    productionV1ProductionDestroy(requestParameters: ProductionV1ProductionDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1ProductionsPerformancesPartialUpdate(requestParameters: ProductionV1ProductionsPerformancesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance>;
     /**
+     * Retrieve a specific performance.
+     * Retrieve a Performance
      */
-    productionV1ProductionListRaw(requestParameters: ProductionV1ProductionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionList>>;
+    productionV1ProductionsPerformancesRetrieveRaw(requestParameters: ProductionV1ProductionsPerformancesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>>;
     /**
+     * Retrieve a specific performance.
+     * Retrieve a Performance
      */
-    productionV1ProductionList(requestParameters?: ProductionV1ProductionListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionList>;
+    productionV1ProductionsPerformancesRetrieve(requestParameters: ProductionV1ProductionsPerformancesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance>;
     /**
+     * Update an existing performance.
+     * Update a Performance
      */
-    productionV1ProductionPartialUpdateRaw(requestParameters: ProductionV1ProductionPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
+    productionV1ProductionsPerformancesUpdateRaw(requestParameters: ProductionV1ProductionsPerformancesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Performance>>;
     /**
+     * Update an existing performance.
+     * Update a Performance
      */
-    productionV1ProductionPartialUpdate(requestParameters: ProductionV1ProductionPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
+    productionV1ProductionsPerformancesUpdate(requestParameters: ProductionV1ProductionsPerformancesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Performance>;
     /**
+     * Create a new rehearsal.
+     * Create a Rehearsal
      */
-    productionV1ProductionRetrieveRaw(requestParameters: ProductionV1ProductionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
+    productionV1ProductionsRehearsalsCreateRaw(requestParameters: ProductionV1ProductionsRehearsalsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>>;
     /**
+     * Create a new rehearsal.
+     * Create a Rehearsal
      */
-    productionV1ProductionRetrieve(requestParameters: ProductionV1ProductionRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
+    productionV1ProductionsRehearsalsCreate(requestParameters: ProductionV1ProductionsRehearsalsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal>;
     /**
+     * Delete a specific rehearsal.
+     * Delete a Rehearsal
      */
-    productionV1ProductionUpdateRaw(requestParameters: ProductionV1ProductionUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
+    productionV1ProductionsRehearsalsDestroyRaw(requestParameters: ProductionV1ProductionsRehearsalsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific rehearsal.
+     * Delete a Rehearsal
      */
-    productionV1ProductionUpdate(requestParameters: ProductionV1ProductionUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
+    productionV1ProductionsRehearsalsDestroy(requestParameters: ProductionV1ProductionsRehearsalsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all rehearsals for a production.
+     * List Rehearsals
      */
-    productionV1ProductionVenueCreateRaw(requestParameters: ProductionV1ProductionVenueCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>>;
+    productionV1ProductionsRehearsalsListRaw(requestParameters: ProductionV1ProductionsRehearsalsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRehearsalList>>;
     /**
+     * Retrieve all rehearsals for a production.
+     * List Rehearsals
      */
-    productionV1ProductionVenueCreate(requestParameters: ProductionV1ProductionVenueCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue>;
+    productionV1ProductionsRehearsalsList(requestParameters: ProductionV1ProductionsRehearsalsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedRehearsalList>;
     /**
+     * Partially update an existing rehearsal.
+     * Partially Update a Rehearsal
      */
-    productionV1ProductionVenueDestroyRaw(requestParameters: ProductionV1ProductionVenueDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1ProductionsRehearsalsPartialUpdateRaw(requestParameters: ProductionV1ProductionsRehearsalsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>>;
     /**
+     * Partially update an existing rehearsal.
+     * Partially Update a Rehearsal
      */
-    productionV1ProductionVenueDestroy(requestParameters: ProductionV1ProductionVenueDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1ProductionsRehearsalsPartialUpdate(requestParameters: ProductionV1ProductionsRehearsalsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal>;
     /**
+     * Create a new rehearsal participant.
+     * Create a Rehearsal Participant
      */
-    productionV1ProductionVenueListRaw(requestParameters: ProductionV1ProductionVenueListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionVenueList>>;
+    productionV1ProductionsRehearsalsParticipantsCreateRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>>;
     /**
+     * Create a new rehearsal participant.
+     * Create a Rehearsal Participant
      */
-    productionV1ProductionVenueList(requestParameters?: ProductionV1ProductionVenueListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionVenueList>;
+    productionV1ProductionsRehearsalsParticipantsCreate(requestParameters: ProductionV1ProductionsRehearsalsParticipantsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant>;
     /**
+     * Delete a specific rehearsal participant.
+     * Delete a Rehearsal Participant
      */
-    productionV1ProductionVenuePartialUpdateRaw(requestParameters: ProductionV1ProductionVenuePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>>;
+    productionV1ProductionsRehearsalsParticipantsDestroyRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific rehearsal participant.
+     * Delete a Rehearsal Participant
      */
-    productionV1ProductionVenuePartialUpdate(requestParameters: ProductionV1ProductionVenuePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue>;
+    productionV1ProductionsRehearsalsParticipantsDestroy(requestParameters: ProductionV1ProductionsRehearsalsParticipantsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all participants for a rehearsal.
+     * List Rehearsal Participants
      */
-    productionV1ProductionVenueRetrieveRaw(requestParameters: ProductionV1ProductionVenueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>>;
+    productionV1ProductionsRehearsalsParticipantsListRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRehearsalParticipantList>>;
     /**
+     * Retrieve all participants for a rehearsal.
+     * List Rehearsal Participants
      */
-    productionV1ProductionVenueRetrieve(requestParameters: ProductionV1ProductionVenueRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue>;
+    productionV1ProductionsRehearsalsParticipantsList(requestParameters: ProductionV1ProductionsRehearsalsParticipantsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedRehearsalParticipantList>;
     /**
+     * Partially update an existing rehearsal participant.
+     * Partially Update a Rehearsal Participant
      */
-    productionV1ProductionVenueUpdateRaw(requestParameters: ProductionV1ProductionVenueUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>>;
+    productionV1ProductionsRehearsalsParticipantsPartialUpdateRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>>;
     /**
+     * Partially update an existing rehearsal participant.
+     * Partially Update a Rehearsal Participant
      */
-    productionV1ProductionVenueUpdate(requestParameters: ProductionV1ProductionVenueUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue>;
+    productionV1ProductionsRehearsalsParticipantsPartialUpdate(requestParameters: ProductionV1ProductionsRehearsalsParticipantsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant>;
     /**
+     * Retrieve a specific rehearsal participant.
+     * Retrieve a Rehearsal Participant
      */
-    productionV1RehearsalCreateRaw(requestParameters: ProductionV1RehearsalCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>>;
+    productionV1ProductionsRehearsalsParticipantsRetrieveRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>>;
     /**
+     * Retrieve a specific rehearsal participant.
+     * Retrieve a Rehearsal Participant
      */
-    productionV1RehearsalCreate(requestParameters: ProductionV1RehearsalCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal>;
+    productionV1ProductionsRehearsalsParticipantsRetrieve(requestParameters: ProductionV1ProductionsRehearsalsParticipantsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant>;
     /**
+     * Update an existing rehearsal participant.
+     * Update a Rehearsal Participant
      */
-    productionV1RehearsalDestroyRaw(requestParameters: ProductionV1RehearsalDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1ProductionsRehearsalsParticipantsUpdateRaw(requestParameters: ProductionV1ProductionsRehearsalsParticipantsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>>;
     /**
+     * Update an existing rehearsal participant.
+     * Update a Rehearsal Participant
      */
-    productionV1RehearsalDestroy(requestParameters: ProductionV1RehearsalDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1ProductionsRehearsalsParticipantsUpdate(requestParameters: ProductionV1ProductionsRehearsalsParticipantsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant>;
     /**
+     * Retrieve a specific rehearsal.
+     * Retrieve a Rehearsal
      */
-    productionV1RehearsalListRaw(requestParameters: ProductionV1RehearsalListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRehearsalList>>;
+    productionV1ProductionsRehearsalsRetrieveRaw(requestParameters: ProductionV1ProductionsRehearsalsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>>;
     /**
+     * Retrieve a specific rehearsal.
+     * Retrieve a Rehearsal
      */
-    productionV1RehearsalList(requestParameters?: ProductionV1RehearsalListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedRehearsalList>;
+    productionV1ProductionsRehearsalsRetrieve(requestParameters: ProductionV1ProductionsRehearsalsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal>;
     /**
+     * Update an existing rehearsal.
+     * Update a Rehearsal
      */
-    productionV1RehearsalPartialUpdateRaw(requestParameters: ProductionV1RehearsalPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>>;
+    productionV1ProductionsRehearsalsUpdateRaw(requestParameters: ProductionV1ProductionsRehearsalsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>>;
     /**
+     * Update an existing rehearsal.
+     * Update a Rehearsal
      */
-    productionV1RehearsalPartialUpdate(requestParameters: ProductionV1RehearsalPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal>;
+    productionV1ProductionsRehearsalsUpdate(requestParameters: ProductionV1ProductionsRehearsalsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal>;
     /**
+     * Retrieve a specific production.
+     * Retrieve a Production
      */
-    productionV1RehearsalParticipantCreateRaw(requestParameters: ProductionV1RehearsalParticipantCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>>;
+    productionV1ProductionsRetrieveRaw(requestParameters: ProductionV1ProductionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
     /**
+     * Retrieve a specific production.
+     * Retrieve a Production
      */
-    productionV1RehearsalParticipantCreate(requestParameters: ProductionV1RehearsalParticipantCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant>;
+    productionV1ProductionsRetrieve(requestParameters: ProductionV1ProductionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
     /**
+     * Update an existing production.
+     * Update a Production
      */
-    productionV1RehearsalParticipantDestroyRaw(requestParameters: ProductionV1RehearsalParticipantDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    productionV1ProductionsUpdateRaw(requestParameters: ProductionV1ProductionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Production>>;
     /**
+     * Update an existing production.
+     * Update a Production
      */
-    productionV1RehearsalParticipantDestroy(requestParameters: ProductionV1RehearsalParticipantDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    productionV1ProductionsUpdate(requestParameters: ProductionV1ProductionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Production>;
     /**
+     * Create a new production venue.
+     * Create a Production Venue
      */
-    productionV1RehearsalParticipantListRaw(requestParameters: ProductionV1RehearsalParticipantListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedRehearsalParticipantList>>;
+    productionV1VenuesCreateRaw(requestParameters: ProductionV1VenuesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>>;
     /**
+     * Create a new production venue.
+     * Create a Production Venue
      */
-    productionV1RehearsalParticipantList(requestParameters?: ProductionV1RehearsalParticipantListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedRehearsalParticipantList>;
+    productionV1VenuesCreate(requestParameters: ProductionV1VenuesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue>;
     /**
+     * Delete a specific production venue.
+     * Delete a Production Venue
      */
-    productionV1RehearsalParticipantPartialUpdateRaw(requestParameters: ProductionV1RehearsalParticipantPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>>;
+    productionV1VenuesDestroyRaw(requestParameters: ProductionV1VenuesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific production venue.
+     * Delete a Production Venue
      */
-    productionV1RehearsalParticipantPartialUpdate(requestParameters: ProductionV1RehearsalParticipantPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant>;
+    productionV1VenuesDestroy(requestParameters: ProductionV1VenuesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all production venues.
+     * List Production Venues
      */
-    productionV1RehearsalParticipantRetrieveRaw(requestParameters: ProductionV1RehearsalParticipantRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>>;
+    productionV1VenuesListRaw(requestParameters: ProductionV1VenuesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionVenueList>>;
     /**
+     * Retrieve all production venues.
+     * List Production Venues
      */
-    productionV1RehearsalParticipantRetrieve(requestParameters: ProductionV1RehearsalParticipantRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant>;
+    productionV1VenuesList(requestParameters?: ProductionV1VenuesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionVenueList>;
     /**
+     * Partially update an existing production venue.
+     * Partially Update a Production Venue
      */
-    productionV1RehearsalParticipantUpdateRaw(requestParameters: ProductionV1RehearsalParticipantUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RehearsalParticipant>>;
+    productionV1VenuesPartialUpdateRaw(requestParameters: ProductionV1VenuesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>>;
     /**
+     * Partially update an existing production venue.
+     * Partially Update a Production Venue
      */
-    productionV1RehearsalParticipantUpdate(requestParameters: ProductionV1RehearsalParticipantUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RehearsalParticipant>;
+    productionV1VenuesPartialUpdate(requestParameters: ProductionV1VenuesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue>;
     /**
+     * Retrieve a specific production venue.
+     * Retrieve a Production Venue
      */
-    productionV1RehearsalRetrieveRaw(requestParameters: ProductionV1RehearsalRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>>;
+    productionV1VenuesRetrieveRaw(requestParameters: ProductionV1VenuesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>>;
     /**
+     * Retrieve a specific production venue.
+     * Retrieve a Production Venue
      */
-    productionV1RehearsalRetrieve(requestParameters: ProductionV1RehearsalRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal>;
+    productionV1VenuesRetrieve(requestParameters: ProductionV1VenuesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue>;
     /**
+     * Update an existing production venue.
+     * Update a Production Venue
      */
-    productionV1RehearsalUpdateRaw(requestParameters: ProductionV1RehearsalUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rehearsal>>;
+    productionV1VenuesUpdateRaw(requestParameters: ProductionV1VenuesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionVenue>>;
     /**
+     * Update an existing production venue.
+     * Update a Production Venue
      */
-    productionV1RehearsalUpdate(requestParameters: ProductionV1RehearsalUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Rehearsal>;
+    productionV1VenuesUpdate(requestParameters: ProductionV1VenuesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionVenue>;
 }

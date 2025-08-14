@@ -76,293 +76,26 @@ var ProductionApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1PerformanceCreateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['performance'] == null) {
-                            throw new runtime.RequiredError('performance', 'Required parameter "performance" was null or undefined when calling productionV1PerformanceCreate().');
+                        if (requestParameters['categoryId'] == null) {
+                            throw new runtime.RequiredError('categoryId', 'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsCreate().');
                         }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/performance/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PerformanceToJSON)(requestParameters['performance']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceCreate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1PerformanceCreateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceDestroyRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1PerformanceDestroy().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/performance/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceDestroy = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1PerformanceDestroyRaw(requestParameters, initOverrides)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceListRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['page'] != null) {
-                            queryParameters['page'] = requestParameters['page'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['page_size'] = requestParameters['pageSize'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/performance/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedPerformanceListFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
-            var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1PerformanceListRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformancePartialUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1PerformancePartialUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/performance/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PatchedPerformanceToJSON)(requestParameters['patchedPerformance']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformancePartialUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1PerformancePartialUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceRetrieveRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1PerformanceRetrieve().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/performance/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceRetrieve = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1PerformanceRetrieveRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1PerformanceUpdate().');
-                        }
-                        if (requestParameters['performance'] == null) {
-                            throw new runtime.RequiredError('performance', 'Required parameter "performance" was null or undefined when calling productionV1PerformanceUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/performance/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PerformanceToJSON)(requestParameters['performance']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1PerformanceUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1PerformanceUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
                         if (requestParameters['productionCategoryAssignment'] == null) {
-                            throw new runtime.RequiredError('productionCategoryAssignment', 'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1ProdCategoryAssignmentCreate().');
+                            throw new runtime.RequiredError('productionCategoryAssignment', 'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1CategoriesAssignmentsCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-category-assignment/";
+                        urlPath = "/api/production/v1/categories/{category_id}/assignments/";
+                        urlPath = urlPath.replace("{".concat("category_id", "}"), encodeURIComponent(String(requestParameters['categoryId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -378,13 +111,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentCreate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryAssignmentCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesAssignmentsCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -394,19 +129,25 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentDestroyRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['categoryId'] == null) {
+                            throw new runtime.RequiredError('categoryId', 'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsDestroy().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdCategoryAssignmentDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1CategoriesAssignmentsDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/production/v1/prod-category-assignment/{id}/";
+                        urlPath = "/api/production/v1/categories/{category_id}/assignments/{id}/";
+                        urlPath = urlPath.replace("{".concat("category_id", "}"), encodeURIComponent(String(requestParameters['categoryId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -422,12 +163,14 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentDestroy = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryAssignmentDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesAssignmentsDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -436,13 +179,18 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentListRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['categoryId'] == null) {
+                            throw new runtime.RequiredError('categoryId', 'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsList().');
+                        }
                         queryParameters = {};
                         if (requestParameters['page'] != null) {
                             queryParameters['page'] = requestParameters['page'];
@@ -451,7 +199,8 @@ var ProductionApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/production/v1/prod-category-assignment/";
+                        urlPath = "/api/production/v1/categories/{category_id}/assignments/";
+                        urlPath = urlPath.replace("{".concat("category_id", "}"), encodeURIComponent(String(requestParameters['categoryId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -466,14 +215,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
             var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryAssignmentListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesAssignmentsListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -483,20 +233,26 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentPartialUpdateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['categoryId'] == null) {
+                            throw new runtime.RequiredError('categoryId', 'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsPartialUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdCategoryAssignmentPartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1CategoriesAssignmentsPartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-category-assignment/{id}/";
+                        urlPath = "/api/production/v1/categories/{category_id}/assignments/{id}/";
+                        urlPath = urlPath.replace("{".concat("category_id", "}"), encodeURIComponent(String(requestParameters['categoryId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -513,13 +269,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentPartialUpdate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryAssignmentPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesAssignmentsPartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -529,19 +287,25 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentRetrieveRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['categoryId'] == null) {
+                            throw new runtime.RequiredError('categoryId', 'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsRetrieve().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdCategoryAssignmentRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1CategoriesAssignmentsRetrieve().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/production/v1/prod-category-assignment/{id}/";
+                        urlPath = "/api/production/v1/categories/{category_id}/assignments/{id}/";
+                        urlPath = urlPath.replace("{".concat("category_id", "}"), encodeURIComponent(String(requestParameters['categoryId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -557,13 +321,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentRetrieve = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryAssignmentRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesAssignmentsRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -573,23 +339,29 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentUpdateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['categoryId'] == null) {
+                            throw new runtime.RequiredError('categoryId', 'Required parameter "categoryId" was null or undefined when calling productionV1CategoriesAssignmentsUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdCategoryAssignmentUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1CategoriesAssignmentsUpdate().');
                         }
                         if (requestParameters['productionCategoryAssignment'] == null) {
-                            throw new runtime.RequiredError('productionCategoryAssignment', 'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1ProdCategoryAssignmentUpdate().');
+                            throw new runtime.RequiredError('productionCategoryAssignment', 'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1CategoriesAssignmentsUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-category-assignment/{id}/";
+                        urlPath = "/api/production/v1/categories/{category_id}/assignments/{id}/";
+                        urlPath = urlPath.replace("{".concat("category_id", "}"), encodeURIComponent(String(requestParameters['categoryId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -606,13 +378,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment
      */
-    ProductionApi.prototype.productionV1ProdCategoryAssignmentUpdate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesAssignmentsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryAssignmentUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesAssignmentsUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -622,20 +396,22 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new production category.
+     * Create a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryCreateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['productionCategory'] == null) {
-                            throw new runtime.RequiredError('productionCategory', 'Required parameter "productionCategory" was null or undefined when calling productionV1ProdCategoryCreate().');
+                            throw new runtime.RequiredError('productionCategory', 'Required parameter "productionCategory" was null or undefined when calling productionV1CategoriesCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-category/";
+                        urlPath = "/api/production/v1/categories/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -651,13 +427,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new production category.
+     * Create a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryCreate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -667,19 +445,21 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific production category.
+     * Delete a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryDestroyRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdCategoryDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1CategoriesDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/production/v1/prod-category/{id}/";
+                        urlPath = "/api/production/v1/categories/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -695,12 +475,14 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific production category.
+     * Delete a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryDestroy = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -709,8 +491,10 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all production categories.
+     * List Production Categories
      */
-    ProductionApi.prototype.productionV1ProdCategoryListRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
@@ -724,7 +508,7 @@ var ProductionApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/production/v1/prod-category/";
+                        urlPath = "/api/production/v1/categories/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -739,14 +523,16 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all production categories.
+     * List Production Categories
      */
-    ProductionApi.prototype.productionV1ProdCategoryList = function () {
+    ProductionApi.prototype.productionV1CategoriesList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
             var response;
             if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -756,20 +542,22 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing production category.
+     * Partially Update a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryPartialUpdateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdCategoryPartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1CategoriesPartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-category/{id}/";
+                        urlPath = "/api/production/v1/categories/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -786,13 +574,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing production category.
+     * Partially Update a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryPartialUpdate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesPartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -802,19 +592,21 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific production category.
+     * Retrieve a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryRetrieveRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdCategoryRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1CategoriesRetrieve().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/production/v1/prod-category/{id}/";
+                        urlPath = "/api/production/v1/categories/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -830,13 +622,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific production category.
+     * Retrieve a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryRetrieve = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -846,23 +640,25 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing production category.
+     * Update a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryUpdateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdCategoryUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1CategoriesUpdate().');
                         }
                         if (requestParameters['productionCategory'] == null) {
-                            throw new runtime.RequiredError('productionCategory', 'Required parameter "productionCategory" was null or undefined when calling productionV1ProdCategoryUpdate().');
+                            throw new runtime.RequiredError('productionCategory', 'Required parameter "productionCategory" was null or undefined when calling productionV1CategoriesUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-category/{id}/";
+                        urlPath = "/api/production/v1/categories/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -879,13 +675,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing production category.
+     * Update a Production Category
      */
-    ProductionApi.prototype.productionV1ProdCategoryUpdate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1CategoriesUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdCategoryUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1CategoriesUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -895,566 +693,22 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new production.
+     * Create a Production
      */
-    ProductionApi.prototype.productionV1ProdMembersCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['productionMember'] == null) {
-                            throw new runtime.RequiredError('productionMember', 'Required parameter "productionMember" was null or undefined when calling productionV1ProdMembersCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-members/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ProductionMemberToJSON)(requestParameters['productionMember']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersCreate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdMembersCreateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersDestroyRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdMembersDestroy().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/prod-members/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersDestroy = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdMembersDestroyRaw(requestParameters, initOverrides)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersListRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['page'] != null) {
-                            queryParameters['page'] = requestParameters['page'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['page_size'] = requestParameters['pageSize'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/prod-members/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionMemberListFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
-            var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdMembersListRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersPartialUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdMembersPartialUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-members/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PatchedProductionMemberToJSON)(requestParameters['patchedProductionMember']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersPartialUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdMembersPartialUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersRetrieveRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdMembersRetrieve().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/prod-members/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersRetrieve = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdMembersRetrieveRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdMembersUpdate().');
-                        }
-                        if (requestParameters['productionMember'] == null) {
-                            throw new runtime.RequiredError('productionMember', 'Required parameter "productionMember" was null or undefined when calling productionV1ProdMembersUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-members/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ProductionMemberToJSON)(requestParameters['productionMember']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdMembersUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdMembersUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['productionRoleAssignment'] == null) {
-                            throw new runtime.RequiredError('productionRoleAssignment', 'Required parameter "productionRoleAssignment" was null or undefined when calling productionV1ProdRolesCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-roles/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ProductionRoleAssignmentToJSON)(requestParameters['productionRoleAssignment']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesCreate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdRolesCreateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesDestroyRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdRolesDestroy().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/prod-roles/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesDestroy = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdRolesDestroyRaw(requestParameters, initOverrides)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesListRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['page'] != null) {
-                            queryParameters['page'] = requestParameters['page'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['page_size'] = requestParameters['pageSize'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/prod-roles/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionRoleAssignmentListFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
-            var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdRolesListRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesPartialUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdRolesPartialUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-roles/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PatchedProductionRoleAssignmentToJSON)(requestParameters['patchedProductionRoleAssignment']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesPartialUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdRolesPartialUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesRetrieveRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdRolesRetrieve().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/prod-roles/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesRetrieve = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdRolesRetrieveRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProdRolesUpdate().');
-                        }
-                        if (requestParameters['productionRoleAssignment'] == null) {
-                            throw new runtime.RequiredError('productionRoleAssignment', 'Required parameter "productionRoleAssignment" was null or undefined when calling productionV1ProdRolesUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/prod-roles/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ProductionRoleAssignmentToJSON)(requestParameters['productionRoleAssignment']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProdRolesUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProdRolesUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1ProductionCreateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['production'] == null) {
-                            throw new runtime.RequiredError('production', 'Required parameter "production" was null or undefined when calling productionV1ProductionCreate().');
+                            throw new runtime.RequiredError('production', 'Required parameter "production" was null or undefined when calling productionV1ProductionsCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/production/";
+                        urlPath = "/api/production/v1/productions/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -1470,13 +724,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new production.
+     * Create a Production
      */
-    ProductionApi.prototype.productionV1ProductionCreate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1486,19 +742,21 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific production.
+     * Delete a Production
      */
-    ProductionApi.prototype.productionV1ProductionDestroyRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/production/v1/production/{id}/";
+                        urlPath = "/api/production/v1/productions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1514,12 +772,14 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific production.
+     * Delete a Production
      */
-    ProductionApi.prototype.productionV1ProductionDestroy = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -1528,8 +788,10 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all productions.
+     * List Productions
      */
-    ProductionApi.prototype.productionV1ProductionListRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
@@ -1543,7 +805,7 @@ var ProductionApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/production/v1/production/";
+                        urlPath = "/api/production/v1/productions/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -1558,14 +820,16 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all productions.
+     * List Productions
      */
-    ProductionApi.prototype.productionV1ProductionList = function () {
+    ProductionApi.prototype.productionV1ProductionsList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
             var response;
             if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1575,20 +839,686 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new production member.
+     * Create a Production Member
      */
-    ProductionApi.prototype.productionV1ProductionPartialUpdateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsMembersCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersCreate().');
+                        }
+                        if (requestParameters['productionMember'] == null) {
+                            throw new runtime.RequiredError('productionMember', 'Required parameter "productionMember" was null or undefined when calling productionV1ProductionsMembersCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/members/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ProductionMemberToJSON)(requestParameters['productionMember']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new production member.
+     * Create a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific production member.
+     * Delete a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionPartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersDestroy().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific production member.
+     * Delete a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all members of a production.
+     * List Production Members
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/members/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionMemberListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all members of a production.
+     * List Production Members
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing production member.
+     * Partially Update a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersPartialUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersPartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/production/{id}/";
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedProductionMemberToJSON)(requestParameters['patchedProductionMember']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing production member.
+     * Partially Update a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific production member.
+     * Retrieve a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRetrieve().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific production member.
+     * Retrieve a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new production role assignment.
+     * Create a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['memberId'] == null) {
+                            throw new runtime.RequiredError('memberId', 'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesCreate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesCreate().');
+                        }
+                        if (requestParameters['productionRoleAssignment'] == null) {
+                            throw new runtime.RequiredError('productionRoleAssignment', 'Required parameter "productionRoleAssignment" was null or undefined when calling productionV1ProductionsMembersRolesCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{member_id}/roles/";
+                        urlPath = urlPath.replace("{".concat("member_id", "}"), encodeURIComponent(String(requestParameters['memberId'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ProductionRoleAssignmentToJSON)(requestParameters['productionRoleAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new production role assignment.
+     * Create a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersRolesCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific production role assignment.
+     * Delete a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRolesDestroy().');
+                        }
+                        if (requestParameters['memberId'] == null) {
+                            throw new runtime.RequiredError('memberId', 'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesDestroy().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{member_id}/roles/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("member_id", "}"), encodeURIComponent(String(requestParameters['memberId'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific production role assignment.
+     * Delete a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersRolesDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all role assignments for a production member.
+     * List Production Role Assignments
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['memberId'] == null) {
+                            throw new runtime.RequiredError('memberId', 'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesList().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{member_id}/roles/";
+                        urlPath = urlPath.replace("{".concat("member_id", "}"), encodeURIComponent(String(requestParameters['memberId'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionRoleAssignmentListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all role assignments for a production member.
+     * List Production Role Assignments
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersRolesListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing production role assignment.
+     * Partially Update a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRolesPartialUpdate().');
+                        }
+                        if (requestParameters['memberId'] == null) {
+                            throw new runtime.RequiredError('memberId', 'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesPartialUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{member_id}/roles/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("member_id", "}"), encodeURIComponent(String(requestParameters['memberId'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedProductionRoleAssignmentToJSON)(requestParameters['patchedProductionRoleAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing production role assignment.
+     * Partially Update a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersRolesPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific production role assignment.
+     * Retrieve a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRolesRetrieve().');
+                        }
+                        if (requestParameters['memberId'] == null) {
+                            throw new runtime.RequiredError('memberId', 'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesRetrieve().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{member_id}/roles/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("member_id", "}"), encodeURIComponent(String(requestParameters['memberId'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific production role assignment.
+     * Retrieve a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersRolesRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing production role assignment.
+     * Update a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersRolesUpdate().');
+                        }
+                        if (requestParameters['memberId'] == null) {
+                            throw new runtime.RequiredError('memberId', 'Required parameter "memberId" was null or undefined when calling productionV1ProductionsMembersRolesUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersRolesUpdate().');
+                        }
+                        if (requestParameters['productionRoleAssignment'] == null) {
+                            throw new runtime.RequiredError('productionRoleAssignment', 'Required parameter "productionRoleAssignment" was null or undefined when calling productionV1ProductionsMembersRolesUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{member_id}/roles/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("member_id", "}"), encodeURIComponent(String(requestParameters['memberId'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ProductionRoleAssignmentToJSON)(requestParameters['productionRoleAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionRoleAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing production role assignment.
+     * Update a Production Role Assignment
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersRolesUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersRolesUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing production member.
+     * Update a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsMembersUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsMembersUpdate().');
+                        }
+                        if (requestParameters['productionMember'] == null) {
+                            throw new runtime.RequiredError('productionMember', 'Required parameter "productionMember" was null or undefined when calling productionV1ProductionsMembersUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/members/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ProductionMemberToJSON)(requestParameters['productionMember']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionMemberFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing production member.
+     * Update a Production Member
+     */
+    ProductionApi.prototype.productionV1ProductionsMembersUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsMembersUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing production.
+     * Partially Update a Production
+     */
+    ProductionApi.prototype.productionV1ProductionsPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1605,13 +1535,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing production.
+     * Partially Update a Production
      */
-    ProductionApi.prototype.productionV1ProductionPartialUpdate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsPartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1621,19 +1553,1005 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new performance.
+     * Create a Performance
      */
-    ProductionApi.prototype.productionV1ProductionRetrieveRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsPerformancesCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesCreate().');
+                        }
+                        if (requestParameters['performance'] == null) {
+                            throw new runtime.RequiredError('performance', 'Required parameter "performance" was null or undefined when calling productionV1ProductionsPerformancesCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/performances/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PerformanceToJSON)(requestParameters['performance']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new performance.
+     * Create a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsPerformancesCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific performance.
+     * Delete a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsPerformancesDestroy().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/production/v1/production/{id}/";
+                        urlPath = "/api/production/v1/productions/{production_id}/performances/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific performance.
+     * Delete a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsPerformancesDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all performances for a production.
+     * List Performances
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/performances/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedPerformanceListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all performances for a production.
+     * List Performances
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsPerformancesListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing performance.
+     * Partially Update a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsPerformancesPartialUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/performances/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedPerformanceToJSON)(requestParameters['patchedPerformance']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing performance.
+     * Partially Update a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsPerformancesPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific performance.
+     * Retrieve a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsPerformancesRetrieve().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/performances/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific performance.
+     * Retrieve a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsPerformancesRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing performance.
+     * Update a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsPerformancesUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsPerformancesUpdate().');
+                        }
+                        if (requestParameters['performance'] == null) {
+                            throw new runtime.RequiredError('performance', 'Required parameter "performance" was null or undefined when calling productionV1ProductionsPerformancesUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/performances/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PerformanceToJSON)(requestParameters['performance']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PerformanceFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing performance.
+     * Update a Performance
+     */
+    ProductionApi.prototype.productionV1ProductionsPerformancesUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsPerformancesUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new rehearsal.
+     * Create a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsCreate().');
+                        }
+                        if (requestParameters['rehearsal'] == null) {
+                            throw new runtime.RequiredError('rehearsal', 'Required parameter "rehearsal" was null or undefined when calling productionV1ProductionsRehearsalsCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.RehearsalToJSON)(requestParameters['rehearsal']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new rehearsal.
+     * Create a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific rehearsal.
+     * Delete a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsDestroy().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific rehearsal.
+     * Delete a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all rehearsals for a production.
+     * List Rehearsals
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedRehearsalListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all rehearsals for a production.
+     * List Rehearsals
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing rehearsal.
+     * Partially Update a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsPartialUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedRehearsalToJSON)(requestParameters['patchedRehearsal']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing rehearsal.
+     * Partially Update a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new rehearsal participant.
+     * Create a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsCreate().');
+                        }
+                        if (requestParameters['rehearsalId'] == null) {
+                            throw new runtime.RequiredError('rehearsalId', 'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsCreate().');
+                        }
+                        if (requestParameters['rehearsalParticipant'] == null) {
+                            throw new runtime.RequiredError('rehearsalParticipant', 'Required parameter "rehearsalParticipant" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("rehearsal_id", "}"), encodeURIComponent(String(requestParameters['rehearsalId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.RehearsalParticipantToJSON)(requestParameters['rehearsalParticipant']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new rehearsal participant.
+     * Create a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsParticipantsCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific rehearsal participant.
+     * Delete a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsDestroy().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsDestroy().');
+                        }
+                        if (requestParameters['rehearsalId'] == null) {
+                            throw new runtime.RequiredError('rehearsalId', 'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("rehearsal_id", "}"), encodeURIComponent(String(requestParameters['rehearsalId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific rehearsal participant.
+     * Delete a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsParticipantsDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all participants for a rehearsal.
+     * List Rehearsal Participants
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsList().');
+                        }
+                        if (requestParameters['rehearsalId'] == null) {
+                            throw new runtime.RequiredError('rehearsalId', 'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("rehearsal_id", "}"), encodeURIComponent(String(requestParameters['rehearsalId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedRehearsalParticipantListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all participants for a rehearsal.
+     * List Rehearsal Participants
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsParticipantsListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing rehearsal participant.
+     * Partially Update a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsPartialUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsPartialUpdate().');
+                        }
+                        if (requestParameters['rehearsalId'] == null) {
+                            throw new runtime.RequiredError('rehearsalId', 'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("rehearsal_id", "}"), encodeURIComponent(String(requestParameters['rehearsalId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedRehearsalParticipantToJSON)(requestParameters['patchedRehearsalParticipant']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing rehearsal participant.
+     * Partially Update a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsParticipantsPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific rehearsal participant.
+     * Retrieve a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsRetrieve().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsRetrieve().');
+                        }
+                        if (requestParameters['rehearsalId'] == null) {
+                            throw new runtime.RequiredError('rehearsalId', 'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("rehearsal_id", "}"), encodeURIComponent(String(requestParameters['rehearsalId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific rehearsal participant.
+     * Retrieve a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsParticipantsRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing rehearsal participant.
+     * Update a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsUpdate().');
+                        }
+                        if (requestParameters['rehearsalId'] == null) {
+                            throw new runtime.RequiredError('rehearsalId', 'Required parameter "rehearsalId" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsUpdate().');
+                        }
+                        if (requestParameters['rehearsalParticipant'] == null) {
+                            throw new runtime.RequiredError('rehearsalParticipant', 'Required parameter "rehearsalParticipant" was null or undefined when calling productionV1ProductionsRehearsalsParticipantsUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{rehearsal_id}/participants/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("rehearsal_id", "}"), encodeURIComponent(String(requestParameters['rehearsalId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.RehearsalParticipantToJSON)(requestParameters['rehearsalParticipant']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing rehearsal participant.
+     * Update a Rehearsal Participant
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsParticipantsUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsParticipantsUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific rehearsal.
+     * Retrieve a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsRetrieve().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific rehearsal.
+     * Retrieve a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing rehearsal.
+     * Update a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRehearsalsUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsRehearsalsUpdate().');
+                        }
+                        if (requestParameters['rehearsal'] == null) {
+                            throw new runtime.RequiredError('rehearsal', 'Required parameter "rehearsal" was null or undefined when calling productionV1ProductionsRehearsalsUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/production/v1/productions/{production_id}/rehearsals/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.RehearsalToJSON)(requestParameters['rehearsal']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing rehearsal.
+     * Update a Rehearsal
+     */
+    ProductionApi.prototype.productionV1ProductionsRehearsalsUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRehearsalsUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific production.
+     * Retrieve a Production
+     */
+    ProductionApi.prototype.productionV1ProductionsRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/production/v1/productions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1649,13 +2567,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific production.
+     * Retrieve a Production
      */
-    ProductionApi.prototype.productionV1ProductionRetrieve = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1665,23 +2585,25 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing production.
+     * Update a Production
      */
-    ProductionApi.prototype.productionV1ProductionUpdateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsUpdate().');
                         }
                         if (requestParameters['production'] == null) {
-                            throw new runtime.RequiredError('production', 'Required parameter "production" was null or undefined when calling productionV1ProductionUpdate().');
+                            throw new runtime.RequiredError('production', 'Required parameter "production" was null or undefined when calling productionV1ProductionsUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/production/{id}/";
+                        urlPath = "/api/production/v1/productions/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1698,13 +2620,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing production.
+     * Update a Production
      */
-    ProductionApi.prototype.productionV1ProductionUpdate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1ProductionsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1714,20 +2638,22 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new production venue.
+     * Create a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenueCreateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['productionVenue'] == null) {
-                            throw new runtime.RequiredError('productionVenue', 'Required parameter "productionVenue" was null or undefined when calling productionV1ProductionVenueCreate().');
+                            throw new runtime.RequiredError('productionVenue', 'Required parameter "productionVenue" was null or undefined when calling productionV1VenuesCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/production-venue/";
+                        urlPath = "/api/production/v1/venues/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -1743,13 +2669,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new production venue.
+     * Create a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenueCreate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionVenueCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1VenuesCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1759,19 +2687,21 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific production venue.
+     * Delete a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenueDestroyRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionVenueDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1VenuesDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/production/v1/production-venue/{id}/";
+                        urlPath = "/api/production/v1/venues/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1787,12 +2717,14 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific production venue.
+     * Delete a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenueDestroy = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionVenueDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1VenuesDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -1801,8 +2733,10 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all production venues.
+     * List Production Venues
      */
-    ProductionApi.prototype.productionV1ProductionVenueListRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
@@ -1816,7 +2750,7 @@ var ProductionApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/production/v1/production-venue/";
+                        urlPath = "/api/production/v1/venues/";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -1831,14 +2765,16 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all production venues.
+     * List Production Venues
      */
-    ProductionApi.prototype.productionV1ProductionVenueList = function () {
+    ProductionApi.prototype.productionV1VenuesList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
             var response;
             if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionVenueListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1VenuesListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1848,20 +2784,22 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing production venue.
+     * Partially Update a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenuePartialUpdateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionVenuePartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1VenuesPartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/production-venue/{id}/";
+                        urlPath = "/api/production/v1/venues/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1878,13 +2816,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing production venue.
+     * Partially Update a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenuePartialUpdate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionVenuePartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1VenuesPartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1894,19 +2834,21 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific production venue.
+     * Retrieve a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenueRetrieveRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionVenueRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1VenuesRetrieve().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/production/v1/production-venue/{id}/";
+                        urlPath = "/api/production/v1/venues/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1922,13 +2864,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific production venue.
+     * Retrieve a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenueRetrieve = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionVenueRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1VenuesRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1938,23 +2882,25 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing production venue.
+     * Update a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenueUpdateRaw = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionVenueUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1VenuesUpdate().');
                         }
                         if (requestParameters['productionVenue'] == null) {
-                            throw new runtime.RequiredError('productionVenue', 'Required parameter "productionVenue" was null or undefined when calling productionV1ProductionVenueUpdate().');
+                            throw new runtime.RequiredError('productionVenue', 'Required parameter "productionVenue" was null or undefined when calling productionV1VenuesUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/production-venue/{id}/";
+                        urlPath = "/api/production/v1/venues/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -1971,559 +2917,15 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing production venue.
+     * Update a Production Venue
      */
-    ProductionApi.prototype.productionV1ProductionVenueUpdate = function (requestParameters, initOverrides) {
+    ProductionApi.prototype.productionV1VenuesUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1ProductionVenueUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['rehearsal'] == null) {
-                            throw new runtime.RequiredError('rehearsal', 'Required parameter "rehearsal" was null or undefined when calling productionV1RehearsalCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/rehearsal/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RehearsalToJSON)(requestParameters['rehearsal']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalCreate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalCreateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalDestroyRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1RehearsalDestroy().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/rehearsal/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalDestroy = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalDestroyRaw(requestParameters, initOverrides)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalListRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['page'] != null) {
-                            queryParameters['page'] = requestParameters['page'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['page_size'] = requestParameters['pageSize'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/rehearsal/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedRehearsalListFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
-            var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalListRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalPartialUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1RehearsalPartialUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/rehearsal/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PatchedRehearsalToJSON)(requestParameters['patchedRehearsal']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalPartialUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalPartialUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['rehearsalParticipant'] == null) {
-                            throw new runtime.RequiredError('rehearsalParticipant', 'Required parameter "rehearsalParticipant" was null or undefined when calling productionV1RehearsalParticipantCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/rehearsal-participant/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RehearsalParticipantToJSON)(requestParameters['rehearsalParticipant']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantCreate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalParticipantCreateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantDestroyRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1RehearsalParticipantDestroy().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/rehearsal-participant/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantDestroy = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalParticipantDestroyRaw(requestParameters, initOverrides)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantListRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['page'] != null) {
-                            queryParameters['page'] = requestParameters['page'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['page_size'] = requestParameters['pageSize'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/rehearsal-participant/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedRehearsalParticipantListFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
-            var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalParticipantListRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantPartialUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1RehearsalParticipantPartialUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/rehearsal-participant/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PatchedRehearsalParticipantToJSON)(requestParameters['patchedRehearsalParticipant']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantPartialUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalParticipantPartialUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantRetrieveRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1RehearsalParticipantRetrieve().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/rehearsal-participant/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantRetrieve = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalParticipantRetrieveRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1RehearsalParticipantUpdate().');
-                        }
-                        if (requestParameters['rehearsalParticipant'] == null) {
-                            throw new runtime.RequiredError('rehearsalParticipant', 'Required parameter "rehearsalParticipant" was null or undefined when calling productionV1RehearsalParticipantUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/rehearsal-participant/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RehearsalParticipantToJSON)(requestParameters['rehearsalParticipant']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalParticipantFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalParticipantUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalParticipantUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalRetrieveRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1RehearsalRetrieve().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/production/v1/rehearsal/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalRetrieve = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalRetrieveRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1RehearsalUpdate().');
-                        }
-                        if (requestParameters['rehearsal'] == null) {
-                            throw new runtime.RequiredError('rehearsal', 'Required parameter "rehearsal" was null or undefined when calling productionV1RehearsalUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/production/v1/rehearsal/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RehearsalToJSON)(requestParameters['rehearsal']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RehearsalFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    ProductionApi.prototype.productionV1RehearsalUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.productionV1RehearsalUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.productionV1VenuesUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
