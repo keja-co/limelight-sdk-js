@@ -76,20 +76,26 @@ var LocationApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Add a new address to a specific country.
+     * Create a new address in a country
      */
-    LocationApi.prototype.locationV1AddressesCreateRaw = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesCreate().');
+                        }
                         if (requestParameters['address'] == null) {
-                            throw new runtime.RequiredError('address', 'Required parameter "address" was null or undefined when calling locationV1AddressesCreate().');
+                            throw new runtime.RequiredError('address', 'Required parameter "address" was null or undefined when calling locationV1CountriesAddressesCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/addresses/";
+                        urlPath = "/api/location/v1/countries/{country_id}/addresses/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
@@ -105,13 +111,15 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new address to a specific country.
+     * Create a new address in a country
      */
-    LocationApi.prototype.locationV1AddressesCreate = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1AddressesCreateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.locationV1CountriesAddressesCreateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -121,19 +129,25 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove an address from the system by its ID.
+     * Delete an address
      */
-    LocationApi.prototype.locationV1AddressesDestroyRaw = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesDestroy().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1AddressesDestroy().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1CountriesAddressesDestroy().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/location/v1/addresses/{id}/";
+                        urlPath = "/api/location/v1/countries/{country_id}/addresses/{id}/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -149,12 +163,14 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove an address from the system by its ID.
+     * Delete an address
      */
-    LocationApi.prototype.locationV1AddressesDestroy = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1AddressesDestroyRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.locationV1CountriesAddressesDestroyRaw(requestParameters, initOverrides)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -163,13 +179,18 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all addresses within a specific country.
+     * List all addresses in a country
      */
-    LocationApi.prototype.locationV1AddressesListRaw = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesList().');
+                        }
                         queryParameters = {};
                         if (requestParameters['page'] != null) {
                             queryParameters['page'] = requestParameters['page'];
@@ -178,7 +199,8 @@ var LocationApi = /** @class */ (function (_super) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
                         headerParameters = {};
-                        urlPath = "/api/location/v1/addresses/";
+                        urlPath = "/api/location/v1/countries/{country_id}/addresses/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',
@@ -193,14 +215,15 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all addresses within a specific country.
+     * List all addresses in a country
      */
-    LocationApi.prototype.locationV1AddressesList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
             var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1AddressesListRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.locationV1CountriesAddressesListRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -210,20 +233,26 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing address without affecting others.
+     * Partially update an address
      */
-    LocationApi.prototype.locationV1AddressesPartialUpdateRaw = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesPartialUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1AddressesPartialUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1CountriesAddressesPartialUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/addresses/{id}/";
+                        urlPath = "/api/location/v1/countries/{country_id}/addresses/{id}/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -240,13 +269,15 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing address without affecting others.
+     * Partially update an address
      */
-    LocationApi.prototype.locationV1AddressesPartialUpdate = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1AddressesPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.locationV1CountriesAddressesPartialUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -256,19 +287,25 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific address by its ID.
+     * Retrieve a specific address
      */
-    LocationApi.prototype.locationV1AddressesRetrieveRaw = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesRetrieve().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1AddressesRetrieve().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1CountriesAddressesRetrieve().');
                         }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/api/location/v1/addresses/{id}/";
+                        urlPath = "/api/location/v1/countries/{country_id}/addresses/{id}/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -284,13 +321,15 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific address by its ID.
+     * Retrieve a specific address
      */
-    LocationApi.prototype.locationV1AddressesRetrieve = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1AddressesRetrieveRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.locationV1CountriesAddressesRetrieveRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -300,23 +339,29 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing address by its ID.
+     * Update an existing address
      */
-    LocationApi.prototype.locationV1AddressesUpdateRaw = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesUpdate().');
+                        }
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1AddressesUpdate().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1CountriesAddressesUpdate().');
                         }
                         if (requestParameters['address'] == null) {
-                            throw new runtime.RequiredError('address', 'Required parameter "address" was null or undefined when calling locationV1AddressesUpdate().');
+                            throw new runtime.RequiredError('address', 'Required parameter "address" was null or undefined when calling locationV1CountriesAddressesUpdate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/addresses/{id}/";
+                        urlPath = "/api/location/v1/countries/{country_id}/addresses/{id}/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
@@ -333,13 +378,15 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing address by its ID.
+     * Update an existing address
      */
-    LocationApi.prototype.locationV1AddressesUpdate = function (requestParameters, initOverrides) {
+    LocationApi.prototype.locationV1CountriesAddressesUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1AddressesUpdateRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.locationV1CountriesAddressesUpdateRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -349,6 +396,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new country to the system.
+     * Create a new country
      */
     LocationApi.prototype.locationV1CountriesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -378,6 +427,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new country to the system.
+     * Create a new country
      */
     LocationApi.prototype.locationV1CountriesCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -394,6 +445,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a country from the system by its ID.
+     * Delete a country
      */
     LocationApi.prototype.locationV1CountriesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -422,6 +475,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a country from the system by its ID.
+     * Delete a country
      */
     LocationApi.prototype.locationV1CountriesDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -436,6 +491,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all countries in the system.
+     * List all countries
      */
     LocationApi.prototype.locationV1CountriesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -466,6 +523,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all countries in the system.
+     * List all countries
      */
     LocationApi.prototype.locationV1CountriesList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
@@ -483,6 +542,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing country without affecting others.
+     * Partially update a country
      */
     LocationApi.prototype.locationV1CountriesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -513,6 +574,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing country without affecting others.
+     * Partially update a country
      */
     LocationApi.prototype.locationV1CountriesPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -529,6 +592,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific country by its ID.
+     * Retrieve a specific country
      */
     LocationApi.prototype.locationV1CountriesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -557,6 +622,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific country by its ID.
+     * Retrieve a specific country
      */
     LocationApi.prototype.locationV1CountriesRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -573,6 +640,328 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new state to a specific country.
+     * Create a new state in a country
+     */
+    LocationApi.prototype.locationV1CountriesStateCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateCreate().');
+                        }
+                        if (requestParameters['state'] == null) {
+                            throw new runtime.RequiredError('state', 'Required parameter "state" was null or undefined when calling locationV1CountriesStateCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/countries/{country_id}/state/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.StateToJSON)(requestParameters['state']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Add a new state to a specific country.
+     * Create a new state in a country
+     */
+    LocationApi.prototype.locationV1CountriesStateCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1CountriesStateCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Remove a state from the system by its ID.
+     * Delete a state
+     */
+    LocationApi.prototype.locationV1CountriesStateDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateDestroy().');
+                        }
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1CountriesStateDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/countries/{country_id}/state/{id}/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Remove a state from the system by its ID.
+     * Delete a state
+     */
+    LocationApi.prototype.locationV1CountriesStateDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1CountriesStateDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a list of all states within a specific country.
+     * List all states in a country
+     */
+    LocationApi.prototype.locationV1CountriesStateListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/countries/{country_id}/state/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedStateListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a list of all states within a specific country.
+     * List all states in a country
+     */
+    LocationApi.prototype.locationV1CountriesStateList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1CountriesStateListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update specific fields of an existing state without affecting others.
+     * Partially update a state
+     */
+    LocationApi.prototype.locationV1CountriesStatePartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesStatePartialUpdate().');
+                        }
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1CountriesStatePartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/countries/{country_id}/state/{id}/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedStateToJSON)(requestParameters['patchedState']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update specific fields of an existing state without affecting others.
+     * Partially update a state
+     */
+    LocationApi.prototype.locationV1CountriesStatePartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1CountriesStatePartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Get detailed information about a specific state by its ID.
+     * Retrieve a specific state
+     */
+    LocationApi.prototype.locationV1CountriesStateRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateRetrieve().');
+                        }
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1CountriesStateRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/countries/{country_id}/state/{id}/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Get detailed information about a specific state by its ID.
+     * Retrieve a specific state
+     */
+    LocationApi.prototype.locationV1CountriesStateRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1CountriesStateRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing state by its ID.
+     * Update an existing state
+     */
+    LocationApi.prototype.locationV1CountriesStateUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['countryId'] == null) {
+                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateUpdate().');
+                        }
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1CountriesStateUpdate().');
+                        }
+                        if (requestParameters['state'] == null) {
+                            throw new runtime.RequiredError('state', 'Required parameter "state" was null or undefined when calling locationV1CountriesStateUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/countries/{country_id}/state/{id}/";
+                        urlPath = urlPath.replace("{".concat("country_id", "}"), encodeURIComponent(String(requestParameters['countryId'])));
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.StateToJSON)(requestParameters['state']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing state by its ID.
+     * Update an existing state
+     */
+    LocationApi.prototype.locationV1CountriesStateUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1CountriesStateUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing country by its ID.
+     * Update an existing country
      */
     LocationApi.prototype.locationV1CountriesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -606,6 +995,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing country by its ID.
+     * Update an existing country
      */
     LocationApi.prototype.locationV1CountriesUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -622,825 +1013,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
-     */
-    LocationApi.prototype.locationV1StatesCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['state'] == null) {
-                            throw new runtime.RequiredError('state', 'Required parameter "state" was null or undefined when calling locationV1StatesCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/states/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.StateToJSON)(requestParameters['state']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesCreate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1StatesCreateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesDestroyRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1StatesDestroy().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/states/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesDestroy = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1StatesDestroyRaw(requestParameters, initOverrides)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesListRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['page'] != null) {
-                            queryParameters['page'] = requestParameters['page'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['page_size'] = requestParameters['pageSize'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/states/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedStateListFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
-            var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1StatesListRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesPartialUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1StatesPartialUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/states/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PatchedStateToJSON)(requestParameters['patchedState']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesPartialUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1StatesPartialUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesRetrieveRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1StatesRetrieve().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/states/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesRetrieve = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1StatesRetrieveRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1StatesUpdate().');
-                        }
-                        if (requestParameters['state'] == null) {
-                            throw new runtime.RequiredError('state', 'Required parameter "state" was null or undefined when calling locationV1StatesUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/states/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.StateToJSON)(requestParameters['state']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.StateFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1StatesUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1StatesUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['venueCapacity'] == null) {
-                            throw new runtime.RequiredError('venueCapacity', 'Required parameter "venueCapacity" was null or undefined when calling locationV1VenueCapacitiesCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/venue-capacities/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.VenueCapacityToJSON)(requestParameters['venueCapacity']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesCreate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueCapacitiesCreateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesDestroyRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenueCapacitiesDestroy().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/venue-capacities/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesDestroy = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueCapacitiesDestroyRaw(requestParameters, initOverrides)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesListRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['page'] != null) {
-                            queryParameters['page'] = requestParameters['page'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['page_size'] = requestParameters['pageSize'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/venue-capacities/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedVenueCapacityListFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
-            var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueCapacitiesListRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesPartialUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenueCapacitiesPartialUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/venue-capacities/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PatchedVenueCapacityToJSON)(requestParameters['patchedVenueCapacity']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesPartialUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueCapacitiesPartialUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesRetrieveRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenueCapacitiesRetrieve().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/venue-capacities/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesRetrieve = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueCapacitiesRetrieveRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenueCapacitiesUpdate().');
-                        }
-                        if (requestParameters['venueCapacity'] == null) {
-                            throw new runtime.RequiredError('venueCapacity', 'Required parameter "venueCapacity" was null or undefined when calling locationV1VenueCapacitiesUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/venue-capacities/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.VenueCapacityToJSON)(requestParameters['venueCapacity']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueCapacitiesUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueCapacitiesUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsCreateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['venueTagAssignment'] == null) {
-                            throw new runtime.RequiredError('venueTagAssignment', 'Required parameter "venueTagAssignment" was null or undefined when calling locationV1VenueTagAssignmentsCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/venue-tag-assignments/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.VenueTagAssignmentToJSON)(requestParameters['venueTagAssignment']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsCreate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueTagAssignmentsCreateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsDestroyRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenueTagAssignmentsDestroy().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/venue-tag-assignments/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsDestroy = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueTagAssignmentsDestroyRaw(requestParameters, initOverrides)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsListRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['page'] != null) {
-                            queryParameters['page'] = requestParameters['page'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['page_size'] = requestParameters['pageSize'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/venue-tag-assignments/";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedVenueTagAssignmentListFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsList = function () {
-        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
-            var response;
-            if (requestParameters === void 0) { requestParameters = {}; }
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueTagAssignmentsListRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsPartialUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenueTagAssignmentsPartialUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/venue-tag-assignments/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PatchedVenueTagAssignmentToJSON)(requestParameters['patchedVenueTagAssignment']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsPartialUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueTagAssignmentsPartialUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsRetrieveRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenueTagAssignmentsRetrieve().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/api/location/v1/venue-tag-assignments/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsRetrieve = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueTagAssignmentsRetrieveRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsUpdateRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenueTagAssignmentsUpdate().');
-                        }
-                        if (requestParameters['venueTagAssignment'] == null) {
-                            throw new runtime.RequiredError('venueTagAssignment', 'Required parameter "venueTagAssignment" was null or undefined when calling locationV1VenueTagAssignmentsUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/api/location/v1/venue-tag-assignments/{id}/";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.VenueTagAssignmentToJSON)(requestParameters['venueTagAssignment']),
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
-                }
-            });
-        });
-    };
-    /**
-     */
-    LocationApi.prototype.locationV1VenueTagAssignmentsUpdate = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationV1VenueTagAssignmentsUpdateRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
+     * Add a new tag to the venue system.
+     * Create a new venue tag
      */
     LocationApi.prototype.locationV1VenueTagsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1470,6 +1044,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new tag to the venue system.
+     * Create a new venue tag
      */
     LocationApi.prototype.locationV1VenueTagsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1486,6 +1062,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a venue tag from the system by its ID.
+     * Delete a venue tag
      */
     LocationApi.prototype.locationV1VenueTagsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1514,6 +1092,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a venue tag from the system by its ID.
+     * Delete a venue tag
      */
     LocationApi.prototype.locationV1VenueTagsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1528,6 +1108,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all tags associated with venues.
+     * List all venue tags
      */
     LocationApi.prototype.locationV1VenueTagsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1558,6 +1140,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all tags associated with venues.
+     * List all venue tags
      */
     LocationApi.prototype.locationV1VenueTagsList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
@@ -1575,6 +1159,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing venue tag without affecting others.
+     * Partially update a venue tag
      */
     LocationApi.prototype.locationV1VenueTagsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1605,6 +1191,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing venue tag without affecting others.
+     * Partially update a venue tag
      */
     LocationApi.prototype.locationV1VenueTagsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1621,6 +1209,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific venue tag by its ID.
+     * Retrieve a specific venue tag
      */
     LocationApi.prototype.locationV1VenueTagsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1649,6 +1239,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific venue tag by its ID.
+     * Retrieve a specific venue tag
      */
     LocationApi.prototype.locationV1VenueTagsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1665,6 +1257,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing venue tag by its ID.
+     * Update an existing venue tag
      */
     LocationApi.prototype.locationV1VenueTagsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1698,6 +1292,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing venue tag by its ID.
+     * Update an existing venue tag
      */
     LocationApi.prototype.locationV1VenueTagsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1714,6 +1310,328 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new seating capacity for a specific venue.
+     * Create a new venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesCreate().');
+                        }
+                        if (requestParameters['venueCapacity'] == null) {
+                            throw new runtime.RequiredError('venueCapacity', 'Required parameter "venueCapacity" was null or undefined when calling locationV1VenuesCapacitiesCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/venues/{venue_id}/capacities/";
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.VenueCapacityToJSON)(requestParameters['venueCapacity']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Add a new seating capacity for a specific venue.
+     * Create a new venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesCapacitiesCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Remove a venue capacity from the system by its ID.
+     * Delete a venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenuesCapacitiesDestroy().');
+                        }
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/venues/{venue_id}/capacities/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Remove a venue capacity from the system by its ID.
+     * Delete a venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesCapacitiesDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a list of all seating capacities for a venue.
+     * List all venue capacities
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/venues/{venue_id}/capacities/";
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedVenueCapacityListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a list of all seating capacities for a venue.
+     * List all venue capacities
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesCapacitiesListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update specific fields of an existing venue capacity without affecting others.
+     * Partially update a venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenuesCapacitiesPartialUpdate().');
+                        }
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/venues/{venue_id}/capacities/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedVenueCapacityToJSON)(requestParameters['patchedVenueCapacity']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update specific fields of an existing venue capacity without affecting others.
+     * Partially update a venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesCapacitiesPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Get detailed information about a specific venue capacity by its ID.
+     * Retrieve a specific venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenuesCapacitiesRetrieve().');
+                        }
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/venues/{venue_id}/capacities/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Get detailed information about a specific venue capacity by its ID.
+     * Retrieve a specific venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesCapacitiesRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing venue capacity by its ID.
+     * Update an existing venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenuesCapacitiesUpdate().');
+                        }
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesUpdate().');
+                        }
+                        if (requestParameters['venueCapacity'] == null) {
+                            throw new runtime.RequiredError('venueCapacity', 'Required parameter "venueCapacity" was null or undefined when calling locationV1VenuesCapacitiesUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/venues/{venue_id}/capacities/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.VenueCapacityToJSON)(requestParameters['venueCapacity']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueCapacityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing venue capacity by its ID.
+     * Update an existing venue capacity
+     */
+    LocationApi.prototype.locationV1VenuesCapacitiesUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesCapacitiesUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Add a new venue to the system.
+     * Create a new venue
      */
     LocationApi.prototype.locationV1VenuesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1743,6 +1661,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new venue to the system.
+     * Create a new venue
      */
     LocationApi.prototype.locationV1VenuesCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1759,6 +1679,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a venue from the system by its ID.
+     * Delete a venue
      */
     LocationApi.prototype.locationV1VenuesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1787,6 +1709,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a venue from the system by its ID.
+     * Delete a venue
      */
     LocationApi.prototype.locationV1VenuesDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1801,6 +1725,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all venues in the system.
+     * List all venues
      */
     LocationApi.prototype.locationV1VenuesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1831,6 +1757,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all venues in the system.
+     * List all venues
      */
     LocationApi.prototype.locationV1VenuesList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
@@ -1848,6 +1776,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing venue without affecting others.
+     * Partially update a venue
      */
     LocationApi.prototype.locationV1VenuesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1878,6 +1808,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing venue without affecting others.
+     * Partially update a venue
      */
     LocationApi.prototype.locationV1VenuesPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1894,6 +1826,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific venue by its ID.
+     * Retrieve a specific venue
      */
     LocationApi.prototype.locationV1VenuesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1922,6 +1856,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific venue by its ID.
+     * Retrieve a specific venue
      */
     LocationApi.prototype.locationV1VenuesRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1938,6 +1874,328 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Assign a new tag to a specific venue.
+     * Create a new tag assignment for a venue
+     */
+    LocationApi.prototype.locationV1VenuesTagsCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsCreate().');
+                        }
+                        if (requestParameters['venueTagAssignment'] == null) {
+                            throw new runtime.RequiredError('venueTagAssignment', 'Required parameter "venueTagAssignment" was null or undefined when calling locationV1VenuesTagsCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/venues/{venue_id}/tags/";
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.VenueTagAssignmentToJSON)(requestParameters['venueTagAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Assign a new tag to a specific venue.
+     * Create a new tag assignment for a venue
+     */
+    LocationApi.prototype.locationV1VenuesTagsCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesTagsCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Remove a tag assignment from the system by its ID.
+     * Delete a tag assignment
+     */
+    LocationApi.prototype.locationV1VenuesTagsDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenuesTagsDestroy().');
+                        }
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/venues/{venue_id}/tags/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Remove a tag assignment from the system by its ID.
+     * Delete a tag assignment
+     */
+    LocationApi.prototype.locationV1VenuesTagsDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesTagsDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a list of all tags assigned to a specific venue.
+     * List all tag assignments for a venue
+     */
+    LocationApi.prototype.locationV1VenuesTagsListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/venues/{venue_id}/tags/";
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedVenueTagAssignmentListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a list of all tags assigned to a specific venue.
+     * List all tag assignments for a venue
+     */
+    LocationApi.prototype.locationV1VenuesTagsList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesTagsListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update specific fields of an existing tag assignment without affecting others.
+     * Partially update a tag assignment
+     */
+    LocationApi.prototype.locationV1VenuesTagsPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenuesTagsPartialUpdate().');
+                        }
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/venues/{venue_id}/tags/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedVenueTagAssignmentToJSON)(requestParameters['patchedVenueTagAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update specific fields of an existing tag assignment without affecting others.
+     * Partially update a tag assignment
+     */
+    LocationApi.prototype.locationV1VenuesTagsPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesTagsPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Get detailed information about a specific tag assignment by its ID.
+     * Retrieve a specific tag assignment
+     */
+    LocationApi.prototype.locationV1VenuesTagsRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenuesTagsRetrieve().');
+                        }
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/location/v1/venues/{venue_id}/tags/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Get detailed information about a specific tag assignment by its ID.
+     * Retrieve a specific tag assignment
+     */
+    LocationApi.prototype.locationV1VenuesTagsRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesTagsRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing tag assignment by its ID.
+     * Update an existing tag assignment
+     */
+    LocationApi.prototype.locationV1VenuesTagsUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling locationV1VenuesTagsUpdate().');
+                        }
+                        if (requestParameters['venueId'] == null) {
+                            throw new runtime.RequiredError('venueId', 'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsUpdate().');
+                        }
+                        if (requestParameters['venueTagAssignment'] == null) {
+                            throw new runtime.RequiredError('venueTagAssignment', 'Required parameter "venueTagAssignment" was null or undefined when calling locationV1VenuesTagsUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/location/v1/venues/{venue_id}/tags/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("venue_id", "}"), encodeURIComponent(String(requestParameters['venueId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.VenueTagAssignmentToJSON)(requestParameters['venueTagAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.VenueTagAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing tag assignment by its ID.
+     * Update an existing tag assignment
+     */
+    LocationApi.prototype.locationV1VenuesTagsUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationV1VenuesTagsUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Modify the details of an existing venue by its ID.
+     * Update an existing venue
      */
     LocationApi.prototype.locationV1VenuesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1971,6 +2229,8 @@ var LocationApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing venue by its ID.
+     * Update an existing venue
      */
     LocationApi.prototype.locationV1VenuesUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {

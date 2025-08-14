@@ -82,29 +82,35 @@ import {
     VenueTagAssignmentToJSON,
 } from '../models/index';
 
-export interface LocationV1AddressesCreateRequest {
+export interface LocationV1CountriesAddressesCreateRequest {
+    countryId: number;
     address: Omit<Address, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface LocationV1AddressesDestroyRequest {
+export interface LocationV1CountriesAddressesDestroyRequest {
+    countryId: number;
     id: number;
 }
 
-export interface LocationV1AddressesListRequest {
+export interface LocationV1CountriesAddressesListRequest {
+    countryId: number;
     page?: number;
     pageSize?: number;
 }
 
-export interface LocationV1AddressesPartialUpdateRequest {
+export interface LocationV1CountriesAddressesPartialUpdateRequest {
+    countryId: number;
     id: number;
     patchedAddress?: Omit<PatchedAddress, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface LocationV1AddressesRetrieveRequest {
+export interface LocationV1CountriesAddressesRetrieveRequest {
+    countryId: number;
     id: number;
 }
 
-export interface LocationV1AddressesUpdateRequest {
+export interface LocationV1CountriesAddressesUpdateRequest {
+    countryId: number;
     id: number;
     address: Omit<Address, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
@@ -131,90 +137,42 @@ export interface LocationV1CountriesRetrieveRequest {
     id: number;
 }
 
-export interface LocationV1CountriesUpdateRequest {
-    id: number;
-    country: Omit<Country, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface LocationV1StatesCreateRequest {
+export interface LocationV1CountriesStateCreateRequest {
+    countryId: number;
     state: Omit<State, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface LocationV1StatesDestroyRequest {
+export interface LocationV1CountriesStateDestroyRequest {
+    countryId: number;
     id: number;
 }
 
-export interface LocationV1StatesListRequest {
+export interface LocationV1CountriesStateListRequest {
+    countryId: number;
     page?: number;
     pageSize?: number;
 }
 
-export interface LocationV1StatesPartialUpdateRequest {
+export interface LocationV1CountriesStatePartialUpdateRequest {
+    countryId: number;
     id: number;
     patchedState?: Omit<PatchedState, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface LocationV1StatesRetrieveRequest {
+export interface LocationV1CountriesStateRetrieveRequest {
+    countryId: number;
     id: number;
 }
 
-export interface LocationV1StatesUpdateRequest {
+export interface LocationV1CountriesStateUpdateRequest {
+    countryId: number;
     id: number;
     state: Omit<State, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
-export interface LocationV1VenueCapacitiesCreateRequest {
-    venueCapacity: Omit<VenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface LocationV1VenueCapacitiesDestroyRequest {
+export interface LocationV1CountriesUpdateRequest {
     id: number;
-}
-
-export interface LocationV1VenueCapacitiesListRequest {
-    page?: number;
-    pageSize?: number;
-}
-
-export interface LocationV1VenueCapacitiesPartialUpdateRequest {
-    id: number;
-    patchedVenueCapacity?: Omit<PatchedVenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface LocationV1VenueCapacitiesRetrieveRequest {
-    id: number;
-}
-
-export interface LocationV1VenueCapacitiesUpdateRequest {
-    id: number;
-    venueCapacity: Omit<VenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface LocationV1VenueTagAssignmentsCreateRequest {
-    venueTagAssignment: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface LocationV1VenueTagAssignmentsDestroyRequest {
-    id: number;
-}
-
-export interface LocationV1VenueTagAssignmentsListRequest {
-    page?: number;
-    pageSize?: number;
-}
-
-export interface LocationV1VenueTagAssignmentsPartialUpdateRequest {
-    id: number;
-    patchedVenueTagAssignment?: Omit<PatchedVenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
-}
-
-export interface LocationV1VenueTagAssignmentsRetrieveRequest {
-    id: number;
-}
-
-export interface LocationV1VenueTagAssignmentsUpdateRequest {
-    id: number;
-    venueTagAssignment: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    country: Omit<Country, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
 export interface LocationV1VenueTagsCreateRequest {
@@ -244,6 +202,39 @@ export interface LocationV1VenueTagsUpdateRequest {
     venueTag: Omit<VenueTag, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
+export interface LocationV1VenuesCapacitiesCreateRequest {
+    venueId: number;
+    venueCapacity: Omit<VenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface LocationV1VenuesCapacitiesDestroyRequest {
+    id: number;
+    venueId: number;
+}
+
+export interface LocationV1VenuesCapacitiesListRequest {
+    venueId: number;
+    page?: number;
+    pageSize?: number;
+}
+
+export interface LocationV1VenuesCapacitiesPartialUpdateRequest {
+    id: number;
+    venueId: number;
+    patchedVenueCapacity?: Omit<PatchedVenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface LocationV1VenuesCapacitiesRetrieveRequest {
+    id: number;
+    venueId: number;
+}
+
+export interface LocationV1VenuesCapacitiesUpdateRequest {
+    id: number;
+    venueId: number;
+    venueCapacity: Omit<VenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
 export interface LocationV1VenuesCreateRequest {
     venue: Omit<Venue, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
@@ -266,6 +257,39 @@ export interface LocationV1VenuesRetrieveRequest {
     id: number;
 }
 
+export interface LocationV1VenuesTagsCreateRequest {
+    venueId: number;
+    venueTagAssignment: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface LocationV1VenuesTagsDestroyRequest {
+    id: number;
+    venueId: number;
+}
+
+export interface LocationV1VenuesTagsListRequest {
+    venueId: number;
+    page?: number;
+    pageSize?: number;
+}
+
+export interface LocationV1VenuesTagsPartialUpdateRequest {
+    id: number;
+    venueId: number;
+    patchedVenueTagAssignment?: Omit<PatchedVenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface LocationV1VenuesTagsRetrieveRequest {
+    id: number;
+    venueId: number;
+}
+
+export interface LocationV1VenuesTagsUpdateRequest {
+    id: number;
+    venueId: number;
+    venueTagAssignment: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+}
+
 export interface LocationV1VenuesUpdateRequest {
     id: number;
     venue: Omit<Venue, 'id'|'created_at'|'updated_at'|'created_by'>;
@@ -277,12 +301,21 @@ export interface LocationV1VenuesUpdateRequest {
 export class LocationApi extends runtime.BaseAPI {
 
     /**
+     * Add a new address to a specific country.
+     * Create a new address in a country
      */
-    async locationV1AddressesCreateRaw(requestParameters: LocationV1AddressesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>> {
+    async locationV1CountriesAddressesCreateRaw(requestParameters: LocationV1CountriesAddressesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesCreate().'
+            );
+        }
+
         if (requestParameters['address'] == null) {
             throw new runtime.RequiredError(
                 'address',
-                'Required parameter "address" was null or undefined when calling locationV1AddressesCreate().'
+                'Required parameter "address" was null or undefined when calling locationV1CountriesAddressesCreate().'
             );
         }
 
@@ -293,7 +326,8 @@ export class LocationApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/location/v1/addresses/`;
+        let urlPath = `/api/location/v1/countries/{country_id}/addresses/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -307,19 +341,30 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new address to a specific country.
+     * Create a new address in a country
      */
-    async locationV1AddressesCreate(requestParameters: LocationV1AddressesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address> {
-        const response = await this.locationV1AddressesCreateRaw(requestParameters, initOverrides);
+    async locationV1CountriesAddressesCreate(requestParameters: LocationV1CountriesAddressesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address> {
+        const response = await this.locationV1CountriesAddressesCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Remove an address from the system by its ID.
+     * Delete an address
      */
-    async locationV1AddressesDestroyRaw(requestParameters: LocationV1AddressesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async locationV1CountriesAddressesDestroyRaw(requestParameters: LocationV1CountriesAddressesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesDestroy().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling locationV1AddressesDestroy().'
+                'Required parameter "id" was null or undefined when calling locationV1CountriesAddressesDestroy().'
             );
         }
 
@@ -328,7 +373,8 @@ export class LocationApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/location/v1/addresses/{id}/`;
+        let urlPath = `/api/location/v1/countries/{country_id}/addresses/{id}/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -342,14 +388,25 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove an address from the system by its ID.
+     * Delete an address
      */
-    async locationV1AddressesDestroy(requestParameters: LocationV1AddressesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.locationV1AddressesDestroyRaw(requestParameters, initOverrides);
+    async locationV1CountriesAddressesDestroy(requestParameters: LocationV1CountriesAddressesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.locationV1CountriesAddressesDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve a list of all addresses within a specific country.
+     * List all addresses in a country
      */
-    async locationV1AddressesListRaw(requestParameters: LocationV1AddressesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedAddressList>> {
+    async locationV1CountriesAddressesListRaw(requestParameters: LocationV1CountriesAddressesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedAddressList>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesList().'
+            );
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters['page'] != null) {
@@ -363,7 +420,8 @@ export class LocationApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/location/v1/addresses/`;
+        let urlPath = `/api/location/v1/countries/{country_id}/addresses/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
 
         const response = await this.request({
             path: urlPath,
@@ -376,19 +434,30 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a list of all addresses within a specific country.
+     * List all addresses in a country
      */
-    async locationV1AddressesList(requestParameters: LocationV1AddressesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedAddressList> {
-        const response = await this.locationV1AddressesListRaw(requestParameters, initOverrides);
+    async locationV1CountriesAddressesList(requestParameters: LocationV1CountriesAddressesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedAddressList> {
+        const response = await this.locationV1CountriesAddressesListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Update specific fields of an existing address without affecting others.
+     * Partially update an address
      */
-    async locationV1AddressesPartialUpdateRaw(requestParameters: LocationV1AddressesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>> {
+    async locationV1CountriesAddressesPartialUpdateRaw(requestParameters: LocationV1CountriesAddressesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesPartialUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling locationV1AddressesPartialUpdate().'
+                'Required parameter "id" was null or undefined when calling locationV1CountriesAddressesPartialUpdate().'
             );
         }
 
@@ -399,7 +468,8 @@ export class LocationApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/location/v1/addresses/{id}/`;
+        let urlPath = `/api/location/v1/countries/{country_id}/addresses/{id}/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -414,19 +484,30 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing address without affecting others.
+     * Partially update an address
      */
-    async locationV1AddressesPartialUpdate(requestParameters: LocationV1AddressesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address> {
-        const response = await this.locationV1AddressesPartialUpdateRaw(requestParameters, initOverrides);
+    async locationV1CountriesAddressesPartialUpdate(requestParameters: LocationV1CountriesAddressesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address> {
+        const response = await this.locationV1CountriesAddressesPartialUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Get detailed information about a specific address by its ID.
+     * Retrieve a specific address
      */
-    async locationV1AddressesRetrieveRaw(requestParameters: LocationV1AddressesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>> {
+    async locationV1CountriesAddressesRetrieveRaw(requestParameters: LocationV1CountriesAddressesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesRetrieve().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling locationV1AddressesRetrieve().'
+                'Required parameter "id" was null or undefined when calling locationV1CountriesAddressesRetrieve().'
             );
         }
 
@@ -435,7 +516,8 @@ export class LocationApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
 
-        let urlPath = `/api/location/v1/addresses/{id}/`;
+        let urlPath = `/api/location/v1/countries/{country_id}/addresses/{id}/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -449,26 +531,37 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific address by its ID.
+     * Retrieve a specific address
      */
-    async locationV1AddressesRetrieve(requestParameters: LocationV1AddressesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address> {
-        const response = await this.locationV1AddressesRetrieveRaw(requestParameters, initOverrides);
+    async locationV1CountriesAddressesRetrieve(requestParameters: LocationV1CountriesAddressesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address> {
+        const response = await this.locationV1CountriesAddressesRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Modify the details of an existing address by its ID.
+     * Update an existing address
      */
-    async locationV1AddressesUpdateRaw(requestParameters: LocationV1AddressesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>> {
+    async locationV1CountriesAddressesUpdateRaw(requestParameters: LocationV1CountriesAddressesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesAddressesUpdate().'
+            );
+        }
+
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling locationV1AddressesUpdate().'
+                'Required parameter "id" was null or undefined when calling locationV1CountriesAddressesUpdate().'
             );
         }
 
         if (requestParameters['address'] == null) {
             throw new runtime.RequiredError(
                 'address',
-                'Required parameter "address" was null or undefined when calling locationV1AddressesUpdate().'
+                'Required parameter "address" was null or undefined when calling locationV1CountriesAddressesUpdate().'
             );
         }
 
@@ -479,7 +572,8 @@ export class LocationApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
 
-        let urlPath = `/api/location/v1/addresses/{id}/`;
+        let urlPath = `/api/location/v1/countries/{country_id}/addresses/{id}/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
@@ -494,13 +588,17 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Modify the details of an existing address by its ID.
+     * Update an existing address
      */
-    async locationV1AddressesUpdate(requestParameters: LocationV1AddressesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address> {
-        const response = await this.locationV1AddressesUpdateRaw(requestParameters, initOverrides);
+    async locationV1CountriesAddressesUpdate(requestParameters: LocationV1CountriesAddressesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address> {
+        const response = await this.locationV1CountriesAddressesUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Add a new country to the system.
+     * Create a new country
      */
     async locationV1CountriesCreateRaw(requestParameters: LocationV1CountriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Country>> {
         if (requestParameters['country'] == null) {
@@ -531,6 +629,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new country to the system.
+     * Create a new country
      */
     async locationV1CountriesCreate(requestParameters: LocationV1CountriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Country> {
         const response = await this.locationV1CountriesCreateRaw(requestParameters, initOverrides);
@@ -538,6 +638,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a country from the system by its ID.
+     * Delete a country
      */
     async locationV1CountriesDestroyRaw(requestParameters: LocationV1CountriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -566,12 +668,16 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a country from the system by its ID.
+     * Delete a country
      */
     async locationV1CountriesDestroy(requestParameters: LocationV1CountriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.locationV1CountriesDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve a list of all countries in the system.
+     * List all countries
      */
     async locationV1CountriesListRaw(requestParameters: LocationV1CountriesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedCountryList>> {
         const queryParameters: any = {};
@@ -600,6 +706,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a list of all countries in the system.
+     * List all countries
      */
     async locationV1CountriesList(requestParameters: LocationV1CountriesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedCountryList> {
         const response = await this.locationV1CountriesListRaw(requestParameters, initOverrides);
@@ -607,6 +715,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing country without affecting others.
+     * Partially update a country
      */
     async locationV1CountriesPartialUpdateRaw(requestParameters: LocationV1CountriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Country>> {
         if (requestParameters['id'] == null) {
@@ -638,6 +748,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing country without affecting others.
+     * Partially update a country
      */
     async locationV1CountriesPartialUpdate(requestParameters: LocationV1CountriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Country> {
         const response = await this.locationV1CountriesPartialUpdateRaw(requestParameters, initOverrides);
@@ -645,6 +757,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific country by its ID.
+     * Retrieve a specific country
      */
     async locationV1CountriesRetrieveRaw(requestParameters: LocationV1CountriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Country>> {
         if (requestParameters['id'] == null) {
@@ -673,6 +787,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific country by its ID.
+     * Retrieve a specific country
      */
     async locationV1CountriesRetrieve(requestParameters: LocationV1CountriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Country> {
         const response = await this.locationV1CountriesRetrieveRaw(requestParameters, initOverrides);
@@ -680,6 +796,304 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new state to a specific country.
+     * Create a new state in a country
+     */
+    async locationV1CountriesStateCreateRaw(requestParameters: LocationV1CountriesStateCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateCreate().'
+            );
+        }
+
+        if (requestParameters['state'] == null) {
+            throw new runtime.RequiredError(
+                'state',
+                'Required parameter "state" was null or undefined when calling locationV1CountriesStateCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/countries/{country_id}/state/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: StateToJSON(requestParameters['state']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StateFromJSON(jsonValue));
+    }
+
+    /**
+     * Add a new state to a specific country.
+     * Create a new state in a country
+     */
+    async locationV1CountriesStateCreate(requestParameters: LocationV1CountriesStateCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
+        const response = await this.locationV1CountriesStateCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Remove a state from the system by its ID.
+     * Delete a state
+     */
+    async locationV1CountriesStateDestroyRaw(requestParameters: LocationV1CountriesStateDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateDestroy().'
+            );
+        }
+
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1CountriesStateDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/countries/{country_id}/state/{id}/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Remove a state from the system by its ID.
+     * Delete a state
+     */
+    async locationV1CountriesStateDestroy(requestParameters: LocationV1CountriesStateDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.locationV1CountriesStateDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve a list of all states within a specific country.
+     * List all states in a country
+     */
+    async locationV1CountriesStateListRaw(requestParameters: LocationV1CountriesStateListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedStateList>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/countries/{country_id}/state/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedStateListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a list of all states within a specific country.
+     * List all states in a country
+     */
+    async locationV1CountriesStateList(requestParameters: LocationV1CountriesStateListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedStateList> {
+        const response = await this.locationV1CountriesStateListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update specific fields of an existing state without affecting others.
+     * Partially update a state
+     */
+    async locationV1CountriesStatePartialUpdateRaw(requestParameters: LocationV1CountriesStatePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesStatePartialUpdate().'
+            );
+        }
+
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1CountriesStatePartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/countries/{country_id}/state/{id}/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedStateToJSON(requestParameters['patchedState']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StateFromJSON(jsonValue));
+    }
+
+    /**
+     * Update specific fields of an existing state without affecting others.
+     * Partially update a state
+     */
+    async locationV1CountriesStatePartialUpdate(requestParameters: LocationV1CountriesStatePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
+        const response = await this.locationV1CountriesStatePartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get detailed information about a specific state by its ID.
+     * Retrieve a specific state
+     */
+    async locationV1CountriesStateRetrieveRaw(requestParameters: LocationV1CountriesStateRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateRetrieve().'
+            );
+        }
+
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1CountriesStateRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/countries/{country_id}/state/{id}/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StateFromJSON(jsonValue));
+    }
+
+    /**
+     * Get detailed information about a specific state by its ID.
+     * Retrieve a specific state
+     */
+    async locationV1CountriesStateRetrieve(requestParameters: LocationV1CountriesStateRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
+        const response = await this.locationV1CountriesStateRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Modify the details of an existing state by its ID.
+     * Update an existing state
+     */
+    async locationV1CountriesStateUpdateRaw(requestParameters: LocationV1CountriesStateUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling locationV1CountriesStateUpdate().'
+            );
+        }
+
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1CountriesStateUpdate().'
+            );
+        }
+
+        if (requestParameters['state'] == null) {
+            throw new runtime.RequiredError(
+                'state',
+                'Required parameter "state" was null or undefined when calling locationV1CountriesStateUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/countries/{country_id}/state/{id}/`;
+        urlPath = urlPath.replace(`{${"country_id"}}`, encodeURIComponent(String(requestParameters['countryId'])));
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: StateToJSON(requestParameters['state']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StateFromJSON(jsonValue));
+    }
+
+    /**
+     * Modify the details of an existing state by its ID.
+     * Update an existing state
+     */
+    async locationV1CountriesStateUpdate(requestParameters: LocationV1CountriesStateUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
+        const response = await this.locationV1CountriesStateUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Modify the details of an existing country by its ID.
+     * Update an existing country
      */
     async locationV1CountriesUpdateRaw(requestParameters: LocationV1CountriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Country>> {
         if (requestParameters['id'] == null) {
@@ -718,6 +1132,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Modify the details of an existing country by its ID.
+     * Update an existing country
      */
     async locationV1CountriesUpdate(requestParameters: LocationV1CountriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Country> {
         const response = await this.locationV1CountriesUpdateRaw(requestParameters, initOverrides);
@@ -725,678 +1141,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
-     */
-    async locationV1StatesCreateRaw(requestParameters: LocationV1StatesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>> {
-        if (requestParameters['state'] == null) {
-            throw new runtime.RequiredError(
-                'state',
-                'Required parameter "state" was null or undefined when calling locationV1StatesCreate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/states/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: StateToJSON(requestParameters['state']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StateFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1StatesCreate(requestParameters: LocationV1StatesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
-        const response = await this.locationV1StatesCreateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1StatesDestroyRaw(requestParameters: LocationV1StatesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1StatesDestroy().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/states/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async locationV1StatesDestroy(requestParameters: LocationV1StatesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.locationV1StatesDestroyRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async locationV1StatesListRaw(requestParameters: LocationV1StatesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedStateList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/states/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedStateListFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1StatesList(requestParameters: LocationV1StatesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedStateList> {
-        const response = await this.locationV1StatesListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1StatesPartialUpdateRaw(requestParameters: LocationV1StatesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1StatesPartialUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/states/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PatchedStateToJSON(requestParameters['patchedState']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StateFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1StatesPartialUpdate(requestParameters: LocationV1StatesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
-        const response = await this.locationV1StatesPartialUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1StatesRetrieveRaw(requestParameters: LocationV1StatesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1StatesRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/states/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StateFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1StatesRetrieve(requestParameters: LocationV1StatesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
-        const response = await this.locationV1StatesRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1StatesUpdateRaw(requestParameters: LocationV1StatesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1StatesUpdate().'
-            );
-        }
-
-        if (requestParameters['state'] == null) {
-            throw new runtime.RequiredError(
-                'state',
-                'Required parameter "state" was null or undefined when calling locationV1StatesUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/states/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: StateToJSON(requestParameters['state']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StateFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1StatesUpdate(requestParameters: LocationV1StatesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State> {
-        const response = await this.locationV1StatesUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesCreateRaw(requestParameters: LocationV1VenueCapacitiesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>> {
-        if (requestParameters['venueCapacity'] == null) {
-            throw new runtime.RequiredError(
-                'venueCapacity',
-                'Required parameter "venueCapacity" was null or undefined when calling locationV1VenueCapacitiesCreate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/venue-capacities/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: VenueCapacityToJSON(requestParameters['venueCapacity']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueCapacityFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesCreate(requestParameters: LocationV1VenueCapacitiesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity> {
-        const response = await this.locationV1VenueCapacitiesCreateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesDestroyRaw(requestParameters: LocationV1VenueCapacitiesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1VenueCapacitiesDestroy().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/venue-capacities/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesDestroy(requestParameters: LocationV1VenueCapacitiesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.locationV1VenueCapacitiesDestroyRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesListRaw(requestParameters: LocationV1VenueCapacitiesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueCapacityList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/venue-capacities/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedVenueCapacityListFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesList(requestParameters: LocationV1VenueCapacitiesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueCapacityList> {
-        const response = await this.locationV1VenueCapacitiesListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesPartialUpdateRaw(requestParameters: LocationV1VenueCapacitiesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1VenueCapacitiesPartialUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/venue-capacities/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PatchedVenueCapacityToJSON(requestParameters['patchedVenueCapacity']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueCapacityFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesPartialUpdate(requestParameters: LocationV1VenueCapacitiesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity> {
-        const response = await this.locationV1VenueCapacitiesPartialUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesRetrieveRaw(requestParameters: LocationV1VenueCapacitiesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1VenueCapacitiesRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/venue-capacities/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueCapacityFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesRetrieve(requestParameters: LocationV1VenueCapacitiesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity> {
-        const response = await this.locationV1VenueCapacitiesRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesUpdateRaw(requestParameters: LocationV1VenueCapacitiesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1VenueCapacitiesUpdate().'
-            );
-        }
-
-        if (requestParameters['venueCapacity'] == null) {
-            throw new runtime.RequiredError(
-                'venueCapacity',
-                'Required parameter "venueCapacity" was null or undefined when calling locationV1VenueCapacitiesUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/venue-capacities/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: VenueCapacityToJSON(requestParameters['venueCapacity']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueCapacityFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueCapacitiesUpdate(requestParameters: LocationV1VenueCapacitiesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity> {
-        const response = await this.locationV1VenueCapacitiesUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsCreateRaw(requestParameters: LocationV1VenueTagAssignmentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>> {
-        if (requestParameters['venueTagAssignment'] == null) {
-            throw new runtime.RequiredError(
-                'venueTagAssignment',
-                'Required parameter "venueTagAssignment" was null or undefined when calling locationV1VenueTagAssignmentsCreate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/venue-tag-assignments/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: VenueTagAssignmentToJSON(requestParameters['venueTagAssignment']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueTagAssignmentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsCreate(requestParameters: LocationV1VenueTagAssignmentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment> {
-        const response = await this.locationV1VenueTagAssignmentsCreateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsDestroyRaw(requestParameters: LocationV1VenueTagAssignmentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1VenueTagAssignmentsDestroy().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/venue-tag-assignments/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsDestroy(requestParameters: LocationV1VenueTagAssignmentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.locationV1VenueTagAssignmentsDestroyRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsListRaw(requestParameters: LocationV1VenueTagAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueTagAssignmentList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
-        }
-
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/venue-tag-assignments/`;
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedVenueTagAssignmentListFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsList(requestParameters: LocationV1VenueTagAssignmentsListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueTagAssignmentList> {
-        const response = await this.locationV1VenueTagAssignmentsListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsPartialUpdateRaw(requestParameters: LocationV1VenueTagAssignmentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1VenueTagAssignmentsPartialUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/venue-tag-assignments/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PatchedVenueTagAssignmentToJSON(requestParameters['patchedVenueTagAssignment']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueTagAssignmentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsPartialUpdate(requestParameters: LocationV1VenueTagAssignmentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment> {
-        const response = await this.locationV1VenueTagAssignmentsPartialUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsRetrieveRaw(requestParameters: LocationV1VenueTagAssignmentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1VenueTagAssignmentsRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-
-        let urlPath = `/api/location/v1/venue-tag-assignments/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueTagAssignmentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsRetrieve(requestParameters: LocationV1VenueTagAssignmentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment> {
-        const response = await this.locationV1VenueTagAssignmentsRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsUpdateRaw(requestParameters: LocationV1VenueTagAssignmentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling locationV1VenueTagAssignmentsUpdate().'
-            );
-        }
-
-        if (requestParameters['venueTagAssignment'] == null) {
-            throw new runtime.RequiredError(
-                'venueTagAssignment',
-                'Required parameter "venueTagAssignment" was null or undefined when calling locationV1VenueTagAssignmentsUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-
-        let urlPath = `/api/location/v1/venue-tag-assignments/{id}/`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: VenueTagAssignmentToJSON(requestParameters['venueTagAssignment']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => VenueTagAssignmentFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async locationV1VenueTagAssignmentsUpdate(requestParameters: LocationV1VenueTagAssignmentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment> {
-        const response = await this.locationV1VenueTagAssignmentsUpdateRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
+     * Add a new tag to the venue system.
+     * Create a new venue tag
      */
     async locationV1VenueTagsCreateRaw(requestParameters: LocationV1VenueTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTag>> {
         if (requestParameters['venueTag'] == null) {
@@ -1427,6 +1173,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new tag to the venue system.
+     * Create a new venue tag
      */
     async locationV1VenueTagsCreate(requestParameters: LocationV1VenueTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTag> {
         const response = await this.locationV1VenueTagsCreateRaw(requestParameters, initOverrides);
@@ -1434,6 +1182,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a venue tag from the system by its ID.
+     * Delete a venue tag
      */
     async locationV1VenueTagsDestroyRaw(requestParameters: LocationV1VenueTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -1462,12 +1212,16 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a venue tag from the system by its ID.
+     * Delete a venue tag
      */
     async locationV1VenueTagsDestroy(requestParameters: LocationV1VenueTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.locationV1VenueTagsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve a list of all tags associated with venues.
+     * List all venue tags
      */
     async locationV1VenueTagsListRaw(requestParameters: LocationV1VenueTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueTagList>> {
         const queryParameters: any = {};
@@ -1496,6 +1250,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a list of all tags associated with venues.
+     * List all venue tags
      */
     async locationV1VenueTagsList(requestParameters: LocationV1VenueTagsListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueTagList> {
         const response = await this.locationV1VenueTagsListRaw(requestParameters, initOverrides);
@@ -1503,6 +1259,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing venue tag without affecting others.
+     * Partially update a venue tag
      */
     async locationV1VenueTagsPartialUpdateRaw(requestParameters: LocationV1VenueTagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTag>> {
         if (requestParameters['id'] == null) {
@@ -1534,6 +1292,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing venue tag without affecting others.
+     * Partially update a venue tag
      */
     async locationV1VenueTagsPartialUpdate(requestParameters: LocationV1VenueTagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTag> {
         const response = await this.locationV1VenueTagsPartialUpdateRaw(requestParameters, initOverrides);
@@ -1541,6 +1301,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific venue tag by its ID.
+     * Retrieve a specific venue tag
      */
     async locationV1VenueTagsRetrieveRaw(requestParameters: LocationV1VenueTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTag>> {
         if (requestParameters['id'] == null) {
@@ -1569,6 +1331,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific venue tag by its ID.
+     * Retrieve a specific venue tag
      */
     async locationV1VenueTagsRetrieve(requestParameters: LocationV1VenueTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTag> {
         const response = await this.locationV1VenueTagsRetrieveRaw(requestParameters, initOverrides);
@@ -1576,6 +1340,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Modify the details of an existing venue tag by its ID.
+     * Update an existing venue tag
      */
     async locationV1VenueTagsUpdateRaw(requestParameters: LocationV1VenueTagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTag>> {
         if (requestParameters['id'] == null) {
@@ -1614,6 +1380,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Modify the details of an existing venue tag by its ID.
+     * Update an existing venue tag
      */
     async locationV1VenueTagsUpdate(requestParameters: LocationV1VenueTagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTag> {
         const response = await this.locationV1VenueTagsUpdateRaw(requestParameters, initOverrides);
@@ -1621,6 +1389,304 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new seating capacity for a specific venue.
+     * Create a new venue capacity
+     */
+    async locationV1VenuesCapacitiesCreateRaw(requestParameters: LocationV1VenuesCapacitiesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>> {
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesCreate().'
+            );
+        }
+
+        if (requestParameters['venueCapacity'] == null) {
+            throw new runtime.RequiredError(
+                'venueCapacity',
+                'Required parameter "venueCapacity" was null or undefined when calling locationV1VenuesCapacitiesCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/capacities/`;
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VenueCapacityToJSON(requestParameters['venueCapacity']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VenueCapacityFromJSON(jsonValue));
+    }
+
+    /**
+     * Add a new seating capacity for a specific venue.
+     * Create a new venue capacity
+     */
+    async locationV1VenuesCapacitiesCreate(requestParameters: LocationV1VenuesCapacitiesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity> {
+        const response = await this.locationV1VenuesCapacitiesCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Remove a venue capacity from the system by its ID.
+     * Delete a venue capacity
+     */
+    async locationV1VenuesCapacitiesDestroyRaw(requestParameters: LocationV1VenuesCapacitiesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1VenuesCapacitiesDestroy().'
+            );
+        }
+
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/capacities/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Remove a venue capacity from the system by its ID.
+     * Delete a venue capacity
+     */
+    async locationV1VenuesCapacitiesDestroy(requestParameters: LocationV1VenuesCapacitiesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.locationV1VenuesCapacitiesDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve a list of all seating capacities for a venue.
+     * List all venue capacities
+     */
+    async locationV1VenuesCapacitiesListRaw(requestParameters: LocationV1VenuesCapacitiesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueCapacityList>> {
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/capacities/`;
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedVenueCapacityListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a list of all seating capacities for a venue.
+     * List all venue capacities
+     */
+    async locationV1VenuesCapacitiesList(requestParameters: LocationV1VenuesCapacitiesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueCapacityList> {
+        const response = await this.locationV1VenuesCapacitiesListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update specific fields of an existing venue capacity without affecting others.
+     * Partially update a venue capacity
+     */
+    async locationV1VenuesCapacitiesPartialUpdateRaw(requestParameters: LocationV1VenuesCapacitiesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1VenuesCapacitiesPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/capacities/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedVenueCapacityToJSON(requestParameters['patchedVenueCapacity']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VenueCapacityFromJSON(jsonValue));
+    }
+
+    /**
+     * Update specific fields of an existing venue capacity without affecting others.
+     * Partially update a venue capacity
+     */
+    async locationV1VenuesCapacitiesPartialUpdate(requestParameters: LocationV1VenuesCapacitiesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity> {
+        const response = await this.locationV1VenuesCapacitiesPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get detailed information about a specific venue capacity by its ID.
+     * Retrieve a specific venue capacity
+     */
+    async locationV1VenuesCapacitiesRetrieveRaw(requestParameters: LocationV1VenuesCapacitiesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1VenuesCapacitiesRetrieve().'
+            );
+        }
+
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/capacities/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VenueCapacityFromJSON(jsonValue));
+    }
+
+    /**
+     * Get detailed information about a specific venue capacity by its ID.
+     * Retrieve a specific venue capacity
+     */
+    async locationV1VenuesCapacitiesRetrieve(requestParameters: LocationV1VenuesCapacitiesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity> {
+        const response = await this.locationV1VenuesCapacitiesRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Modify the details of an existing venue capacity by its ID.
+     * Update an existing venue capacity
+     */
+    async locationV1VenuesCapacitiesUpdateRaw(requestParameters: LocationV1VenuesCapacitiesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1VenuesCapacitiesUpdate().'
+            );
+        }
+
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesCapacitiesUpdate().'
+            );
+        }
+
+        if (requestParameters['venueCapacity'] == null) {
+            throw new runtime.RequiredError(
+                'venueCapacity',
+                'Required parameter "venueCapacity" was null or undefined when calling locationV1VenuesCapacitiesUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/capacities/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VenueCapacityToJSON(requestParameters['venueCapacity']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VenueCapacityFromJSON(jsonValue));
+    }
+
+    /**
+     * Modify the details of an existing venue capacity by its ID.
+     * Update an existing venue capacity
+     */
+    async locationV1VenuesCapacitiesUpdate(requestParameters: LocationV1VenuesCapacitiesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity> {
+        const response = await this.locationV1VenuesCapacitiesUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Add a new venue to the system.
+     * Create a new venue
      */
     async locationV1VenuesCreateRaw(requestParameters: LocationV1VenuesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
         if (requestParameters['venue'] == null) {
@@ -1651,6 +1717,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Add a new venue to the system.
+     * Create a new venue
      */
     async locationV1VenuesCreate(requestParameters: LocationV1VenuesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
         const response = await this.locationV1VenuesCreateRaw(requestParameters, initOverrides);
@@ -1658,6 +1726,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a venue from the system by its ID.
+     * Delete a venue
      */
     async locationV1VenuesDestroyRaw(requestParameters: LocationV1VenuesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -1686,12 +1756,16 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a venue from the system by its ID.
+     * Delete a venue
      */
     async locationV1VenuesDestroy(requestParameters: LocationV1VenuesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.locationV1VenuesDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve a list of all venues in the system.
+     * List all venues
      */
     async locationV1VenuesListRaw(requestParameters: LocationV1VenuesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueList>> {
         const queryParameters: any = {};
@@ -1720,6 +1794,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a list of all venues in the system.
+     * List all venues
      */
     async locationV1VenuesList(requestParameters: LocationV1VenuesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueList> {
         const response = await this.locationV1VenuesListRaw(requestParameters, initOverrides);
@@ -1727,6 +1803,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing venue without affecting others.
+     * Partially update a venue
      */
     async locationV1VenuesPartialUpdateRaw(requestParameters: LocationV1VenuesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
         if (requestParameters['id'] == null) {
@@ -1758,6 +1836,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update specific fields of an existing venue without affecting others.
+     * Partially update a venue
      */
     async locationV1VenuesPartialUpdate(requestParameters: LocationV1VenuesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
         const response = await this.locationV1VenuesPartialUpdateRaw(requestParameters, initOverrides);
@@ -1765,6 +1845,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific venue by its ID.
+     * Retrieve a specific venue
      */
     async locationV1VenuesRetrieveRaw(requestParameters: LocationV1VenuesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
         if (requestParameters['id'] == null) {
@@ -1793,6 +1875,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get detailed information about a specific venue by its ID.
+     * Retrieve a specific venue
      */
     async locationV1VenuesRetrieve(requestParameters: LocationV1VenuesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
         const response = await this.locationV1VenuesRetrieveRaw(requestParameters, initOverrides);
@@ -1800,6 +1884,304 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Assign a new tag to a specific venue.
+     * Create a new tag assignment for a venue
+     */
+    async locationV1VenuesTagsCreateRaw(requestParameters: LocationV1VenuesTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>> {
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsCreate().'
+            );
+        }
+
+        if (requestParameters['venueTagAssignment'] == null) {
+            throw new runtime.RequiredError(
+                'venueTagAssignment',
+                'Required parameter "venueTagAssignment" was null or undefined when calling locationV1VenuesTagsCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/tags/`;
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VenueTagAssignmentToJSON(requestParameters['venueTagAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VenueTagAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Assign a new tag to a specific venue.
+     * Create a new tag assignment for a venue
+     */
+    async locationV1VenuesTagsCreate(requestParameters: LocationV1VenuesTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment> {
+        const response = await this.locationV1VenuesTagsCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Remove a tag assignment from the system by its ID.
+     * Delete a tag assignment
+     */
+    async locationV1VenuesTagsDestroyRaw(requestParameters: LocationV1VenuesTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1VenuesTagsDestroy().'
+            );
+        }
+
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/tags/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Remove a tag assignment from the system by its ID.
+     * Delete a tag assignment
+     */
+    async locationV1VenuesTagsDestroy(requestParameters: LocationV1VenuesTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.locationV1VenuesTagsDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve a list of all tags assigned to a specific venue.
+     * List all tag assignments for a venue
+     */
+    async locationV1VenuesTagsListRaw(requestParameters: LocationV1VenuesTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueTagAssignmentList>> {
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/tags/`;
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedVenueTagAssignmentListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a list of all tags assigned to a specific venue.
+     * List all tag assignments for a venue
+     */
+    async locationV1VenuesTagsList(requestParameters: LocationV1VenuesTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueTagAssignmentList> {
+        const response = await this.locationV1VenuesTagsListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update specific fields of an existing tag assignment without affecting others.
+     * Partially update a tag assignment
+     */
+    async locationV1VenuesTagsPartialUpdateRaw(requestParameters: LocationV1VenuesTagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1VenuesTagsPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/tags/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedVenueTagAssignmentToJSON(requestParameters['patchedVenueTagAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VenueTagAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Update specific fields of an existing tag assignment without affecting others.
+     * Partially update a tag assignment
+     */
+    async locationV1VenuesTagsPartialUpdate(requestParameters: LocationV1VenuesTagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment> {
+        const response = await this.locationV1VenuesTagsPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get detailed information about a specific tag assignment by its ID.
+     * Retrieve a specific tag assignment
+     */
+    async locationV1VenuesTagsRetrieveRaw(requestParameters: LocationV1VenuesTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1VenuesTagsRetrieve().'
+            );
+        }
+
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/tags/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VenueTagAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Get detailed information about a specific tag assignment by its ID.
+     * Retrieve a specific tag assignment
+     */
+    async locationV1VenuesTagsRetrieve(requestParameters: LocationV1VenuesTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment> {
+        const response = await this.locationV1VenuesTagsRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Modify the details of an existing tag assignment by its ID.
+     * Update an existing tag assignment
+     */
+    async locationV1VenuesTagsUpdateRaw(requestParameters: LocationV1VenuesTagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling locationV1VenuesTagsUpdate().'
+            );
+        }
+
+        if (requestParameters['venueId'] == null) {
+            throw new runtime.RequiredError(
+                'venueId',
+                'Required parameter "venueId" was null or undefined when calling locationV1VenuesTagsUpdate().'
+            );
+        }
+
+        if (requestParameters['venueTagAssignment'] == null) {
+            throw new runtime.RequiredError(
+                'venueTagAssignment',
+                'Required parameter "venueTagAssignment" was null or undefined when calling locationV1VenuesTagsUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/location/v1/venues/{venue_id}/tags/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"venue_id"}}`, encodeURIComponent(String(requestParameters['venueId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VenueTagAssignmentToJSON(requestParameters['venueTagAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VenueTagAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Modify the details of an existing tag assignment by its ID.
+     * Update an existing tag assignment
+     */
+    async locationV1VenuesTagsUpdate(requestParameters: LocationV1VenuesTagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment> {
+        const response = await this.locationV1VenuesTagsUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Modify the details of an existing venue by its ID.
+     * Update an existing venue
      */
     async locationV1VenuesUpdateRaw(requestParameters: LocationV1VenuesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>> {
         if (requestParameters['id'] == null) {
@@ -1838,6 +2220,8 @@ export class LocationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Modify the details of an existing venue by its ID.
+     * Update an existing venue
      */
     async locationV1VenuesUpdate(requestParameters: LocationV1VenuesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue> {
         const response = await this.locationV1VenuesUpdateRaw(requestParameters, initOverrides);

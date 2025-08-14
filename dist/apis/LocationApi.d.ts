@@ -11,24 +11,30 @@
  */
 import * as runtime from '../runtime';
 import type { Address, Country, PaginatedAddressList, PaginatedCountryList, PaginatedStateList, PaginatedVenueCapacityList, PaginatedVenueList, PaginatedVenueTagAssignmentList, PaginatedVenueTagList, PatchedAddress, PatchedCountry, PatchedState, PatchedVenue, PatchedVenueCapacity, PatchedVenueTag, PatchedVenueTagAssignment, State, Venue, VenueCapacity, VenueTag, VenueTagAssignment } from '../models/index';
-export interface LocationV1AddressesCreateRequest {
+export interface LocationV1CountriesAddressesCreateRequest {
+    countryId: number;
     address: Omit<Address, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface LocationV1AddressesDestroyRequest {
+export interface LocationV1CountriesAddressesDestroyRequest {
+    countryId: number;
     id: number;
 }
-export interface LocationV1AddressesListRequest {
+export interface LocationV1CountriesAddressesListRequest {
+    countryId: number;
     page?: number;
     pageSize?: number;
 }
-export interface LocationV1AddressesPartialUpdateRequest {
+export interface LocationV1CountriesAddressesPartialUpdateRequest {
+    countryId: number;
     id: number;
     patchedAddress?: Omit<PatchedAddress, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface LocationV1AddressesRetrieveRequest {
+export interface LocationV1CountriesAddressesRetrieveRequest {
+    countryId: number;
     id: number;
 }
-export interface LocationV1AddressesUpdateRequest {
+export interface LocationV1CountriesAddressesUpdateRequest {
+    countryId: number;
     id: number;
     address: Omit<Address, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
@@ -49,72 +55,36 @@ export interface LocationV1CountriesPartialUpdateRequest {
 export interface LocationV1CountriesRetrieveRequest {
     id: number;
 }
-export interface LocationV1CountriesUpdateRequest {
-    id: number;
-    country: Omit<Country, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface LocationV1StatesCreateRequest {
+export interface LocationV1CountriesStateCreateRequest {
+    countryId: number;
     state: Omit<State, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface LocationV1StatesDestroyRequest {
+export interface LocationV1CountriesStateDestroyRequest {
+    countryId: number;
     id: number;
 }
-export interface LocationV1StatesListRequest {
+export interface LocationV1CountriesStateListRequest {
+    countryId: number;
     page?: number;
     pageSize?: number;
 }
-export interface LocationV1StatesPartialUpdateRequest {
+export interface LocationV1CountriesStatePartialUpdateRequest {
+    countryId: number;
     id: number;
     patchedState?: Omit<PatchedState, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface LocationV1StatesRetrieveRequest {
+export interface LocationV1CountriesStateRetrieveRequest {
+    countryId: number;
     id: number;
 }
-export interface LocationV1StatesUpdateRequest {
+export interface LocationV1CountriesStateUpdateRequest {
+    countryId: number;
     id: number;
     state: Omit<State, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
-export interface LocationV1VenueCapacitiesCreateRequest {
-    venueCapacity: Omit<VenueCapacity, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface LocationV1VenueCapacitiesDestroyRequest {
+export interface LocationV1CountriesUpdateRequest {
     id: number;
-}
-export interface LocationV1VenueCapacitiesListRequest {
-    page?: number;
-    pageSize?: number;
-}
-export interface LocationV1VenueCapacitiesPartialUpdateRequest {
-    id: number;
-    patchedVenueCapacity?: Omit<PatchedVenueCapacity, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface LocationV1VenueCapacitiesRetrieveRequest {
-    id: number;
-}
-export interface LocationV1VenueCapacitiesUpdateRequest {
-    id: number;
-    venueCapacity: Omit<VenueCapacity, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface LocationV1VenueTagAssignmentsCreateRequest {
-    venueTagAssignment: Omit<VenueTagAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface LocationV1VenueTagAssignmentsDestroyRequest {
-    id: number;
-}
-export interface LocationV1VenueTagAssignmentsListRequest {
-    page?: number;
-    pageSize?: number;
-}
-export interface LocationV1VenueTagAssignmentsPartialUpdateRequest {
-    id: number;
-    patchedVenueTagAssignment?: Omit<PatchedVenueTagAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
-}
-export interface LocationV1VenueTagAssignmentsRetrieveRequest {
-    id: number;
-}
-export interface LocationV1VenueTagAssignmentsUpdateRequest {
-    id: number;
-    venueTagAssignment: Omit<VenueTagAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    country: Omit<Country, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 export interface LocationV1VenueTagsCreateRequest {
     venueTag: Omit<VenueTag, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
@@ -137,6 +107,33 @@ export interface LocationV1VenueTagsUpdateRequest {
     id: number;
     venueTag: Omit<VenueTag, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
+export interface LocationV1VenuesCapacitiesCreateRequest {
+    venueId: number;
+    venueCapacity: Omit<VenueCapacity, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface LocationV1VenuesCapacitiesDestroyRequest {
+    id: number;
+    venueId: number;
+}
+export interface LocationV1VenuesCapacitiesListRequest {
+    venueId: number;
+    page?: number;
+    pageSize?: number;
+}
+export interface LocationV1VenuesCapacitiesPartialUpdateRequest {
+    id: number;
+    venueId: number;
+    patchedVenueCapacity?: Omit<PatchedVenueCapacity, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface LocationV1VenuesCapacitiesRetrieveRequest {
+    id: number;
+    venueId: number;
+}
+export interface LocationV1VenuesCapacitiesUpdateRequest {
+    id: number;
+    venueId: number;
+    venueCapacity: Omit<VenueCapacity, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
 export interface LocationV1VenuesCreateRequest {
     venue: Omit<Venue, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
@@ -154,6 +151,33 @@ export interface LocationV1VenuesPartialUpdateRequest {
 export interface LocationV1VenuesRetrieveRequest {
     id: number;
 }
+export interface LocationV1VenuesTagsCreateRequest {
+    venueId: number;
+    venueTagAssignment: Omit<VenueTagAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface LocationV1VenuesTagsDestroyRequest {
+    id: number;
+    venueId: number;
+}
+export interface LocationV1VenuesTagsListRequest {
+    venueId: number;
+    page?: number;
+    pageSize?: number;
+}
+export interface LocationV1VenuesTagsPartialUpdateRequest {
+    id: number;
+    venueId: number;
+    patchedVenueTagAssignment?: Omit<PatchedVenueTagAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface LocationV1VenuesTagsRetrieveRequest {
+    id: number;
+    venueId: number;
+}
+export interface LocationV1VenuesTagsUpdateRequest {
+    id: number;
+    venueId: number;
+    venueTagAssignment: Omit<VenueTagAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+}
 export interface LocationV1VenuesUpdateRequest {
     id: number;
     venue: Omit<Venue, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
@@ -163,255 +187,423 @@ export interface LocationV1VenuesUpdateRequest {
  */
 export declare class LocationApi extends runtime.BaseAPI {
     /**
+     * Add a new address to a specific country.
+     * Create a new address in a country
      */
-    locationV1AddressesCreateRaw(requestParameters: LocationV1AddressesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>>;
+    locationV1CountriesAddressesCreateRaw(requestParameters: LocationV1CountriesAddressesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>>;
     /**
+     * Add a new address to a specific country.
+     * Create a new address in a country
      */
-    locationV1AddressesCreate(requestParameters: LocationV1AddressesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address>;
+    locationV1CountriesAddressesCreate(requestParameters: LocationV1CountriesAddressesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address>;
     /**
+     * Remove an address from the system by its ID.
+     * Delete an address
      */
-    locationV1AddressesDestroyRaw(requestParameters: LocationV1AddressesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    locationV1CountriesAddressesDestroyRaw(requestParameters: LocationV1CountriesAddressesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove an address from the system by its ID.
+     * Delete an address
      */
-    locationV1AddressesDestroy(requestParameters: LocationV1AddressesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    locationV1CountriesAddressesDestroy(requestParameters: LocationV1CountriesAddressesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all addresses within a specific country.
+     * List all addresses in a country
      */
-    locationV1AddressesListRaw(requestParameters: LocationV1AddressesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedAddressList>>;
+    locationV1CountriesAddressesListRaw(requestParameters: LocationV1CountriesAddressesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedAddressList>>;
     /**
+     * Retrieve a list of all addresses within a specific country.
+     * List all addresses in a country
      */
-    locationV1AddressesList(requestParameters?: LocationV1AddressesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedAddressList>;
+    locationV1CountriesAddressesList(requestParameters: LocationV1CountriesAddressesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedAddressList>;
     /**
+     * Update specific fields of an existing address without affecting others.
+     * Partially update an address
      */
-    locationV1AddressesPartialUpdateRaw(requestParameters: LocationV1AddressesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>>;
+    locationV1CountriesAddressesPartialUpdateRaw(requestParameters: LocationV1CountriesAddressesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>>;
     /**
+     * Update specific fields of an existing address without affecting others.
+     * Partially update an address
      */
-    locationV1AddressesPartialUpdate(requestParameters: LocationV1AddressesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address>;
+    locationV1CountriesAddressesPartialUpdate(requestParameters: LocationV1CountriesAddressesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address>;
     /**
+     * Get detailed information about a specific address by its ID.
+     * Retrieve a specific address
      */
-    locationV1AddressesRetrieveRaw(requestParameters: LocationV1AddressesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>>;
+    locationV1CountriesAddressesRetrieveRaw(requestParameters: LocationV1CountriesAddressesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>>;
     /**
+     * Get detailed information about a specific address by its ID.
+     * Retrieve a specific address
      */
-    locationV1AddressesRetrieve(requestParameters: LocationV1AddressesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address>;
+    locationV1CountriesAddressesRetrieve(requestParameters: LocationV1CountriesAddressesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address>;
     /**
+     * Modify the details of an existing address by its ID.
+     * Update an existing address
      */
-    locationV1AddressesUpdateRaw(requestParameters: LocationV1AddressesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>>;
+    locationV1CountriesAddressesUpdateRaw(requestParameters: LocationV1CountriesAddressesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Address>>;
     /**
+     * Modify the details of an existing address by its ID.
+     * Update an existing address
      */
-    locationV1AddressesUpdate(requestParameters: LocationV1AddressesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address>;
+    locationV1CountriesAddressesUpdate(requestParameters: LocationV1CountriesAddressesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Address>;
     /**
+     * Add a new country to the system.
+     * Create a new country
      */
     locationV1CountriesCreateRaw(requestParameters: LocationV1CountriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Country>>;
     /**
+     * Add a new country to the system.
+     * Create a new country
      */
     locationV1CountriesCreate(requestParameters: LocationV1CountriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Country>;
     /**
+     * Remove a country from the system by its ID.
+     * Delete a country
      */
     locationV1CountriesDestroyRaw(requestParameters: LocationV1CountriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a country from the system by its ID.
+     * Delete a country
      */
     locationV1CountriesDestroy(requestParameters: LocationV1CountriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all countries in the system.
+     * List all countries
      */
     locationV1CountriesListRaw(requestParameters: LocationV1CountriesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedCountryList>>;
     /**
+     * Retrieve a list of all countries in the system.
+     * List all countries
      */
     locationV1CountriesList(requestParameters?: LocationV1CountriesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedCountryList>;
     /**
+     * Update specific fields of an existing country without affecting others.
+     * Partially update a country
      */
     locationV1CountriesPartialUpdateRaw(requestParameters: LocationV1CountriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Country>>;
     /**
+     * Update specific fields of an existing country without affecting others.
+     * Partially update a country
      */
     locationV1CountriesPartialUpdate(requestParameters: LocationV1CountriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Country>;
     /**
+     * Get detailed information about a specific country by its ID.
+     * Retrieve a specific country
      */
     locationV1CountriesRetrieveRaw(requestParameters: LocationV1CountriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Country>>;
     /**
+     * Get detailed information about a specific country by its ID.
+     * Retrieve a specific country
      */
     locationV1CountriesRetrieve(requestParameters: LocationV1CountriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Country>;
     /**
+     * Add a new state to a specific country.
+     * Create a new state in a country
+     */
+    locationV1CountriesStateCreateRaw(requestParameters: LocationV1CountriesStateCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>>;
+    /**
+     * Add a new state to a specific country.
+     * Create a new state in a country
+     */
+    locationV1CountriesStateCreate(requestParameters: LocationV1CountriesStateCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
+    /**
+     * Remove a state from the system by its ID.
+     * Delete a state
+     */
+    locationV1CountriesStateDestroyRaw(requestParameters: LocationV1CountriesStateDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Remove a state from the system by its ID.
+     * Delete a state
+     */
+    locationV1CountriesStateDestroy(requestParameters: LocationV1CountriesStateDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Retrieve a list of all states within a specific country.
+     * List all states in a country
+     */
+    locationV1CountriesStateListRaw(requestParameters: LocationV1CountriesStateListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedStateList>>;
+    /**
+     * Retrieve a list of all states within a specific country.
+     * List all states in a country
+     */
+    locationV1CountriesStateList(requestParameters: LocationV1CountriesStateListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedStateList>;
+    /**
+     * Update specific fields of an existing state without affecting others.
+     * Partially update a state
+     */
+    locationV1CountriesStatePartialUpdateRaw(requestParameters: LocationV1CountriesStatePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>>;
+    /**
+     * Update specific fields of an existing state without affecting others.
+     * Partially update a state
+     */
+    locationV1CountriesStatePartialUpdate(requestParameters: LocationV1CountriesStatePartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
+    /**
+     * Get detailed information about a specific state by its ID.
+     * Retrieve a specific state
+     */
+    locationV1CountriesStateRetrieveRaw(requestParameters: LocationV1CountriesStateRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>>;
+    /**
+     * Get detailed information about a specific state by its ID.
+     * Retrieve a specific state
+     */
+    locationV1CountriesStateRetrieve(requestParameters: LocationV1CountriesStateRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
+    /**
+     * Modify the details of an existing state by its ID.
+     * Update an existing state
+     */
+    locationV1CountriesStateUpdateRaw(requestParameters: LocationV1CountriesStateUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>>;
+    /**
+     * Modify the details of an existing state by its ID.
+     * Update an existing state
+     */
+    locationV1CountriesStateUpdate(requestParameters: LocationV1CountriesStateUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
+    /**
+     * Modify the details of an existing country by its ID.
+     * Update an existing country
      */
     locationV1CountriesUpdateRaw(requestParameters: LocationV1CountriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Country>>;
     /**
+     * Modify the details of an existing country by its ID.
+     * Update an existing country
      */
     locationV1CountriesUpdate(requestParameters: LocationV1CountriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Country>;
     /**
-     */
-    locationV1StatesCreateRaw(requestParameters: LocationV1StatesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>>;
-    /**
-     */
-    locationV1StatesCreate(requestParameters: LocationV1StatesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
-    /**
-     */
-    locationV1StatesDestroyRaw(requestParameters: LocationV1StatesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
-    /**
-     */
-    locationV1StatesDestroy(requestParameters: LocationV1StatesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
-    /**
-     */
-    locationV1StatesListRaw(requestParameters: LocationV1StatesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedStateList>>;
-    /**
-     */
-    locationV1StatesList(requestParameters?: LocationV1StatesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedStateList>;
-    /**
-     */
-    locationV1StatesPartialUpdateRaw(requestParameters: LocationV1StatesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>>;
-    /**
-     */
-    locationV1StatesPartialUpdate(requestParameters: LocationV1StatesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
-    /**
-     */
-    locationV1StatesRetrieveRaw(requestParameters: LocationV1StatesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>>;
-    /**
-     */
-    locationV1StatesRetrieve(requestParameters: LocationV1StatesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
-    /**
-     */
-    locationV1StatesUpdateRaw(requestParameters: LocationV1StatesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<State>>;
-    /**
-     */
-    locationV1StatesUpdate(requestParameters: LocationV1StatesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<State>;
-    /**
-     */
-    locationV1VenueCapacitiesCreateRaw(requestParameters: LocationV1VenueCapacitiesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>>;
-    /**
-     */
-    locationV1VenueCapacitiesCreate(requestParameters: LocationV1VenueCapacitiesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity>;
-    /**
-     */
-    locationV1VenueCapacitiesDestroyRaw(requestParameters: LocationV1VenueCapacitiesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
-    /**
-     */
-    locationV1VenueCapacitiesDestroy(requestParameters: LocationV1VenueCapacitiesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
-    /**
-     */
-    locationV1VenueCapacitiesListRaw(requestParameters: LocationV1VenueCapacitiesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueCapacityList>>;
-    /**
-     */
-    locationV1VenueCapacitiesList(requestParameters?: LocationV1VenueCapacitiesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueCapacityList>;
-    /**
-     */
-    locationV1VenueCapacitiesPartialUpdateRaw(requestParameters: LocationV1VenueCapacitiesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>>;
-    /**
-     */
-    locationV1VenueCapacitiesPartialUpdate(requestParameters: LocationV1VenueCapacitiesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity>;
-    /**
-     */
-    locationV1VenueCapacitiesRetrieveRaw(requestParameters: LocationV1VenueCapacitiesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>>;
-    /**
-     */
-    locationV1VenueCapacitiesRetrieve(requestParameters: LocationV1VenueCapacitiesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity>;
-    /**
-     */
-    locationV1VenueCapacitiesUpdateRaw(requestParameters: LocationV1VenueCapacitiesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>>;
-    /**
-     */
-    locationV1VenueCapacitiesUpdate(requestParameters: LocationV1VenueCapacitiesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity>;
-    /**
-     */
-    locationV1VenueTagAssignmentsCreateRaw(requestParameters: LocationV1VenueTagAssignmentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>>;
-    /**
-     */
-    locationV1VenueTagAssignmentsCreate(requestParameters: LocationV1VenueTagAssignmentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment>;
-    /**
-     */
-    locationV1VenueTagAssignmentsDestroyRaw(requestParameters: LocationV1VenueTagAssignmentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
-    /**
-     */
-    locationV1VenueTagAssignmentsDestroy(requestParameters: LocationV1VenueTagAssignmentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
-    /**
-     */
-    locationV1VenueTagAssignmentsListRaw(requestParameters: LocationV1VenueTagAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueTagAssignmentList>>;
-    /**
-     */
-    locationV1VenueTagAssignmentsList(requestParameters?: LocationV1VenueTagAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueTagAssignmentList>;
-    /**
-     */
-    locationV1VenueTagAssignmentsPartialUpdateRaw(requestParameters: LocationV1VenueTagAssignmentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>>;
-    /**
-     */
-    locationV1VenueTagAssignmentsPartialUpdate(requestParameters: LocationV1VenueTagAssignmentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment>;
-    /**
-     */
-    locationV1VenueTagAssignmentsRetrieveRaw(requestParameters: LocationV1VenueTagAssignmentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>>;
-    /**
-     */
-    locationV1VenueTagAssignmentsRetrieve(requestParameters: LocationV1VenueTagAssignmentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment>;
-    /**
-     */
-    locationV1VenueTagAssignmentsUpdateRaw(requestParameters: LocationV1VenueTagAssignmentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>>;
-    /**
-     */
-    locationV1VenueTagAssignmentsUpdate(requestParameters: LocationV1VenueTagAssignmentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment>;
-    /**
+     * Add a new tag to the venue system.
+     * Create a new venue tag
      */
     locationV1VenueTagsCreateRaw(requestParameters: LocationV1VenueTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTag>>;
     /**
+     * Add a new tag to the venue system.
+     * Create a new venue tag
      */
     locationV1VenueTagsCreate(requestParameters: LocationV1VenueTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTag>;
     /**
+     * Remove a venue tag from the system by its ID.
+     * Delete a venue tag
      */
     locationV1VenueTagsDestroyRaw(requestParameters: LocationV1VenueTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a venue tag from the system by its ID.
+     * Delete a venue tag
      */
     locationV1VenueTagsDestroy(requestParameters: LocationV1VenueTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all tags associated with venues.
+     * List all venue tags
      */
     locationV1VenueTagsListRaw(requestParameters: LocationV1VenueTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueTagList>>;
     /**
+     * Retrieve a list of all tags associated with venues.
+     * List all venue tags
      */
     locationV1VenueTagsList(requestParameters?: LocationV1VenueTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueTagList>;
     /**
+     * Update specific fields of an existing venue tag without affecting others.
+     * Partially update a venue tag
      */
     locationV1VenueTagsPartialUpdateRaw(requestParameters: LocationV1VenueTagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTag>>;
     /**
+     * Update specific fields of an existing venue tag without affecting others.
+     * Partially update a venue tag
      */
     locationV1VenueTagsPartialUpdate(requestParameters: LocationV1VenueTagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTag>;
     /**
+     * Get detailed information about a specific venue tag by its ID.
+     * Retrieve a specific venue tag
      */
     locationV1VenueTagsRetrieveRaw(requestParameters: LocationV1VenueTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTag>>;
     /**
+     * Get detailed information about a specific venue tag by its ID.
+     * Retrieve a specific venue tag
      */
     locationV1VenueTagsRetrieve(requestParameters: LocationV1VenueTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTag>;
     /**
+     * Modify the details of an existing venue tag by its ID.
+     * Update an existing venue tag
      */
     locationV1VenueTagsUpdateRaw(requestParameters: LocationV1VenueTagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTag>>;
     /**
+     * Modify the details of an existing venue tag by its ID.
+     * Update an existing venue tag
      */
     locationV1VenueTagsUpdate(requestParameters: LocationV1VenueTagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTag>;
     /**
+     * Add a new seating capacity for a specific venue.
+     * Create a new venue capacity
+     */
+    locationV1VenuesCapacitiesCreateRaw(requestParameters: LocationV1VenuesCapacitiesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>>;
+    /**
+     * Add a new seating capacity for a specific venue.
+     * Create a new venue capacity
+     */
+    locationV1VenuesCapacitiesCreate(requestParameters: LocationV1VenuesCapacitiesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity>;
+    /**
+     * Remove a venue capacity from the system by its ID.
+     * Delete a venue capacity
+     */
+    locationV1VenuesCapacitiesDestroyRaw(requestParameters: LocationV1VenuesCapacitiesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Remove a venue capacity from the system by its ID.
+     * Delete a venue capacity
+     */
+    locationV1VenuesCapacitiesDestroy(requestParameters: LocationV1VenuesCapacitiesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Retrieve a list of all seating capacities for a venue.
+     * List all venue capacities
+     */
+    locationV1VenuesCapacitiesListRaw(requestParameters: LocationV1VenuesCapacitiesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueCapacityList>>;
+    /**
+     * Retrieve a list of all seating capacities for a venue.
+     * List all venue capacities
+     */
+    locationV1VenuesCapacitiesList(requestParameters: LocationV1VenuesCapacitiesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueCapacityList>;
+    /**
+     * Update specific fields of an existing venue capacity without affecting others.
+     * Partially update a venue capacity
+     */
+    locationV1VenuesCapacitiesPartialUpdateRaw(requestParameters: LocationV1VenuesCapacitiesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>>;
+    /**
+     * Update specific fields of an existing venue capacity without affecting others.
+     * Partially update a venue capacity
+     */
+    locationV1VenuesCapacitiesPartialUpdate(requestParameters: LocationV1VenuesCapacitiesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity>;
+    /**
+     * Get detailed information about a specific venue capacity by its ID.
+     * Retrieve a specific venue capacity
+     */
+    locationV1VenuesCapacitiesRetrieveRaw(requestParameters: LocationV1VenuesCapacitiesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>>;
+    /**
+     * Get detailed information about a specific venue capacity by its ID.
+     * Retrieve a specific venue capacity
+     */
+    locationV1VenuesCapacitiesRetrieve(requestParameters: LocationV1VenuesCapacitiesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity>;
+    /**
+     * Modify the details of an existing venue capacity by its ID.
+     * Update an existing venue capacity
+     */
+    locationV1VenuesCapacitiesUpdateRaw(requestParameters: LocationV1VenuesCapacitiesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueCapacity>>;
+    /**
+     * Modify the details of an existing venue capacity by its ID.
+     * Update an existing venue capacity
+     */
+    locationV1VenuesCapacitiesUpdate(requestParameters: LocationV1VenuesCapacitiesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueCapacity>;
+    /**
+     * Add a new venue to the system.
+     * Create a new venue
      */
     locationV1VenuesCreateRaw(requestParameters: LocationV1VenuesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
     /**
+     * Add a new venue to the system.
+     * Create a new venue
      */
     locationV1VenuesCreate(requestParameters: LocationV1VenuesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
     /**
+     * Remove a venue from the system by its ID.
+     * Delete a venue
      */
     locationV1VenuesDestroyRaw(requestParameters: LocationV1VenuesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a venue from the system by its ID.
+     * Delete a venue
      */
     locationV1VenuesDestroy(requestParameters: LocationV1VenuesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all venues in the system.
+     * List all venues
      */
     locationV1VenuesListRaw(requestParameters: LocationV1VenuesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueList>>;
     /**
+     * Retrieve a list of all venues in the system.
+     * List all venues
      */
     locationV1VenuesList(requestParameters?: LocationV1VenuesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueList>;
     /**
+     * Update specific fields of an existing venue without affecting others.
+     * Partially update a venue
      */
     locationV1VenuesPartialUpdateRaw(requestParameters: LocationV1VenuesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
     /**
+     * Update specific fields of an existing venue without affecting others.
+     * Partially update a venue
      */
     locationV1VenuesPartialUpdate(requestParameters: LocationV1VenuesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
     /**
+     * Get detailed information about a specific venue by its ID.
+     * Retrieve a specific venue
      */
     locationV1VenuesRetrieveRaw(requestParameters: LocationV1VenuesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
     /**
+     * Get detailed information about a specific venue by its ID.
+     * Retrieve a specific venue
      */
     locationV1VenuesRetrieve(requestParameters: LocationV1VenuesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
     /**
+     * Assign a new tag to a specific venue.
+     * Create a new tag assignment for a venue
+     */
+    locationV1VenuesTagsCreateRaw(requestParameters: LocationV1VenuesTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>>;
+    /**
+     * Assign a new tag to a specific venue.
+     * Create a new tag assignment for a venue
+     */
+    locationV1VenuesTagsCreate(requestParameters: LocationV1VenuesTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment>;
+    /**
+     * Remove a tag assignment from the system by its ID.
+     * Delete a tag assignment
+     */
+    locationV1VenuesTagsDestroyRaw(requestParameters: LocationV1VenuesTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Remove a tag assignment from the system by its ID.
+     * Delete a tag assignment
+     */
+    locationV1VenuesTagsDestroy(requestParameters: LocationV1VenuesTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Retrieve a list of all tags assigned to a specific venue.
+     * List all tag assignments for a venue
+     */
+    locationV1VenuesTagsListRaw(requestParameters: LocationV1VenuesTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedVenueTagAssignmentList>>;
+    /**
+     * Retrieve a list of all tags assigned to a specific venue.
+     * List all tag assignments for a venue
+     */
+    locationV1VenuesTagsList(requestParameters: LocationV1VenuesTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedVenueTagAssignmentList>;
+    /**
+     * Update specific fields of an existing tag assignment without affecting others.
+     * Partially update a tag assignment
+     */
+    locationV1VenuesTagsPartialUpdateRaw(requestParameters: LocationV1VenuesTagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>>;
+    /**
+     * Update specific fields of an existing tag assignment without affecting others.
+     * Partially update a tag assignment
+     */
+    locationV1VenuesTagsPartialUpdate(requestParameters: LocationV1VenuesTagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment>;
+    /**
+     * Get detailed information about a specific tag assignment by its ID.
+     * Retrieve a specific tag assignment
+     */
+    locationV1VenuesTagsRetrieveRaw(requestParameters: LocationV1VenuesTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>>;
+    /**
+     * Get detailed information about a specific tag assignment by its ID.
+     * Retrieve a specific tag assignment
+     */
+    locationV1VenuesTagsRetrieve(requestParameters: LocationV1VenuesTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment>;
+    /**
+     * Modify the details of an existing tag assignment by its ID.
+     * Update an existing tag assignment
+     */
+    locationV1VenuesTagsUpdateRaw(requestParameters: LocationV1VenuesTagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VenueTagAssignment>>;
+    /**
+     * Modify the details of an existing tag assignment by its ID.
+     * Update an existing tag assignment
+     */
+    locationV1VenuesTagsUpdate(requestParameters: LocationV1VenuesTagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VenueTagAssignment>;
+    /**
+     * Modify the details of an existing venue by its ID.
+     * Update an existing venue
      */
     locationV1VenuesUpdateRaw(requestParameters: LocationV1VenuesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Venue>>;
     /**
+     * Modify the details of an existing venue by its ID.
+     * Update an existing venue
      */
     locationV1VenuesUpdate(requestParameters: LocationV1VenuesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Venue>;
 }
