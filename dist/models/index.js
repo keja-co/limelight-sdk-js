@@ -246,6 +246,7 @@ __exportStar(require("./Slot"), exports);
 __exportStar(require("./StarRatingConfiguration"), exports);
 __exportStar(require("./State"), exports);
 __exportStar(require("./Step"), exports);
+__exportStar(require("./Subfolder"), exports);
 __exportStar(require("./Submission"), exports);
 __exportStar(require("./SubmissionFieldValue"), exports);
 __exportStar(require("./Tag"), exports);

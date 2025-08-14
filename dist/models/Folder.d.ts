@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { Subfolder } from './Subfolder';
 /**
  *
  * @export
@@ -21,6 +22,12 @@ export interface Folder {
      * @memberof Folder
      */
     readonly id: number;
+    /**
+     *
+     * @type {Array<Subfolder>}
+     * @memberof Folder
+     */
+    subfolders: Array<Subfolder>;
     /**
      *
      * @type {Date}

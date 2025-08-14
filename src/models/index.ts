@@ -230,6 +230,7 @@ export * from './Slot';
 export * from './StarRatingConfiguration';
 export * from './State';
 export * from './Step';
+export * from './Subfolder';
 export * from './Submission';
 export * from './SubmissionFieldValue';
 export * from './Tag';

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Subfolder } from './Subfolder';
+import {
+    SubfolderFromJSON,
+    SubfolderFromJSONTyped,
+    SubfolderToJSON,
+    SubfolderToJSONTyped,
+} from './Subfolder';
+
 /**
  * 
  * @export
@@ -25,6 +33,12 @@ export interface PatchedFolder {
      * @memberof PatchedFolder
      */
     readonly id?: number;
+    /**
+     * 
+     * @type {Array<Subfolder>}
+     * @memberof PatchedFolder
+     */
+    subfolders?: Array<Subfolder>;
     /**
      * 
      * @type {Date}
@@ -99,6 +113,7 @@ export function PatchedFolderFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
+        'subfolders': json['subfolders'] == null ? undefined : ((json['subfolders'] as Array<any>).map(SubfolderFromJSON)),
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
@@ -122,6 +137,7 @@ export function PatchedFolderToJSONTyped(value?: Omit<PatchedFolder, 'id'|'creat
 
     return {
         
+        'subfolders': value['subfolders'] == null ? undefined : ((value['subfolders'] as Array<any>).map(SubfolderToJSON)),
         'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'tenant': value['tenant'],

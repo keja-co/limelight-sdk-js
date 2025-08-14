@@ -18,11 +18,14 @@ exports.FolderFromJSON = FolderFromJSON;
 exports.FolderFromJSONTyped = FolderFromJSONTyped;
 exports.FolderToJSON = FolderToJSON;
 exports.FolderToJSONTyped = FolderToJSONTyped;
+var Subfolder_1 = require("./Subfolder");
 /**
  * Check if a given object implements the Folder interface.
  */
 function instanceOfFolder(value) {
     if (!('id' in value) || value['id'] === undefined)
+        return false;
+    if (!('subfolders' in value) || value['subfolders'] === undefined)
         return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
@@ -47,6 +50,7 @@ function FolderFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'],
+        'subfolders': (json['subfolders'].map(Subfolder_1.SubfolderFromJSON)),
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
@@ -68,6 +72,7 @@ function FolderToJSONTyped(value, ignoreDiscriminator) {
         return value;
     }
     return {
+        'subfolders': (value['subfolders'].map(Subfolder_1.SubfolderToJSON)),
         'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'tenant': value['tenant'],

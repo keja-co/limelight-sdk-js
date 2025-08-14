@@ -18,6 +18,7 @@ exports.PatchedFolderFromJSON = PatchedFolderFromJSON;
 exports.PatchedFolderFromJSONTyped = PatchedFolderFromJSONTyped;
 exports.PatchedFolderToJSON = PatchedFolderToJSON;
 exports.PatchedFolderToJSONTyped = PatchedFolderToJSONTyped;
+var Subfolder_1 = require("./Subfolder");
 /**
  * Check if a given object implements the PatchedFolder interface.
  */
@@ -33,6 +34,7 @@ function PatchedFolderFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'] == null ? undefined : json['id'],
+        'subfolders': json['subfolders'] == null ? undefined : (json['subfolders'].map(Subfolder_1.SubfolderFromJSON)),
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
@@ -54,6 +56,7 @@ function PatchedFolderToJSONTyped(value, ignoreDiscriminator) {
         return value;
     }
     return {
+        'subfolders': value['subfolders'] == null ? undefined : (value['subfolders'].map(Subfolder_1.SubfolderToJSON)),
         'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'tenant': value['tenant'],

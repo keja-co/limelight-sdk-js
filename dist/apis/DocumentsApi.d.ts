@@ -168,207 +168,343 @@ export interface DocumentsV1TagsUpdateRequest {
  */
 export declare class DocumentsApi extends runtime.BaseAPI {
     /**
+     * Add a new document repository to the system.
+     * Create a new document repository
      */
     documentsV1ReposCreateRaw(requestParameters: DocumentsV1ReposCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentRepo>>;
     /**
+     * Add a new document repository to the system.
+     * Create a new document repository
      */
     documentsV1ReposCreate(requestParameters: DocumentsV1ReposCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentRepo>;
     /**
+     * Remove a document repository from the system by its ID.
+     * Delete a document repository
      */
     documentsV1ReposDestroyRaw(requestParameters: DocumentsV1ReposDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a document repository from the system by its ID.
+     * Delete a document repository
      */
     documentsV1ReposDestroy(requestParameters: DocumentsV1ReposDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Add a new document to a specific document repository.
+     * Create a new document in a document repository
      */
     documentsV1ReposDocumentsCreateRaw(requestParameters: DocumentsV1ReposDocumentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Document>>;
     /**
+     * Add a new document to a specific document repository.
+     * Create a new document in a document repository
      */
     documentsV1ReposDocumentsCreate(requestParameters: DocumentsV1ReposDocumentsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Document>;
     /**
+     * Remove a document from a specific document repository by its ID.
+     * Delete a document in a document repository
      */
     documentsV1ReposDocumentsDestroyRaw(requestParameters: DocumentsV1ReposDocumentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a document from a specific document repository by its ID.
+     * Delete a document in a document repository
      */
     documentsV1ReposDocumentsDestroy(requestParameters: DocumentsV1ReposDocumentsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all documents within a specific document repository, optionally filtered by folder.
+     * List all documents in a document repository
      */
     documentsV1ReposDocumentsListRaw(requestParameters: DocumentsV1ReposDocumentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedDocumentList>>;
     /**
+     * Retrieve a list of all documents within a specific document repository, optionally filtered by folder.
+     * List all documents in a document repository
      */
     documentsV1ReposDocumentsList(requestParameters: DocumentsV1ReposDocumentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedDocumentList>;
     /**
+     * Update specific fields of an existing document in a document repository without affecting others.
+     * Partially update a document in a document repository
      */
     documentsV1ReposDocumentsPartialUpdateRaw(requestParameters: DocumentsV1ReposDocumentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Document>>;
     /**
+     * Update specific fields of an existing document in a document repository without affecting others.
+     * Partially update a document in a document repository
      */
     documentsV1ReposDocumentsPartialUpdate(requestParameters: DocumentsV1ReposDocumentsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Document>;
     /**
+     * Get detailed information about a specific document in a document repository by its ID.
+     * Retrieve a specific document in a document repository
      */
     documentsV1ReposDocumentsRetrieveRaw(requestParameters: DocumentsV1ReposDocumentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Document>>;
     /**
+     * Get detailed information about a specific document in a document repository by its ID.
+     * Retrieve a specific document in a document repository
      */
     documentsV1ReposDocumentsRetrieve(requestParameters: DocumentsV1ReposDocumentsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Document>;
     /**
+     * Add a new tag to a specific document within a document repository.
+     * Assign tag to a document
      */
     documentsV1ReposDocumentsTagsCreateRaw(requestParameters: DocumentsV1ReposDocumentsTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentTag>>;
     /**
+     * Add a new tag to a specific document within a document repository.
+     * Assign tag to a document
      */
     documentsV1ReposDocumentsTagsCreate(requestParameters: DocumentsV1ReposDocumentsTagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentTag>;
     /**
+     * Remove a specific tag from a document by its ID.
+     * Remove tag from a document
      */
     documentsV1ReposDocumentsTagsDestroyRaw(requestParameters: DocumentsV1ReposDocumentsTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a specific tag from a document by its ID.
+     * Remove tag from a document
      */
     documentsV1ReposDocumentsTagsDestroy(requestParameters: DocumentsV1ReposDocumentsTagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all tags associated with a specific document within a document repository.
+     * List all tags for a document
      */
     documentsV1ReposDocumentsTagsListRaw(requestParameters: DocumentsV1ReposDocumentsTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedDocumentTagList>>;
     /**
+     * Retrieve a list of all tags associated with a specific document within a document repository.
+     * List all tags for a document
      */
     documentsV1ReposDocumentsTagsList(requestParameters: DocumentsV1ReposDocumentsTagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedDocumentTagList>;
     /**
+     * Get detailed information about a specific tag associated with a document by its ID.
+     * Retrieve a specific tag for a document
      */
     documentsV1ReposDocumentsTagsRetrieveRaw(requestParameters: DocumentsV1ReposDocumentsTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentTag>>;
     /**
+     * Get detailed information about a specific tag associated with a document by its ID.
+     * Retrieve a specific tag for a document
      */
     documentsV1ReposDocumentsTagsRetrieve(requestParameters: DocumentsV1ReposDocumentsTagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentTag>;
     /**
+     * Modify the details of an existing document in a document repository by its ID.
+     * Update an existing document in a document repository
      */
     documentsV1ReposDocumentsUpdateRaw(requestParameters: DocumentsV1ReposDocumentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Document>>;
     /**
+     * Modify the details of an existing document in a document repository by its ID.
+     * Update an existing document in a document repository
      */
     documentsV1ReposDocumentsUpdate(requestParameters: DocumentsV1ReposDocumentsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Document>;
     /**
+     * Add a new version to a specific document within a document repository.
+     * Create a new version of a document
      */
     documentsV1ReposDocumentsVersionsCreateRaw(requestParameters: DocumentsV1ReposDocumentsVersionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentVersion>>;
     /**
+     * Add a new version to a specific document within a document repository.
+     * Create a new version of a document
      */
     documentsV1ReposDocumentsVersionsCreate(requestParameters: DocumentsV1ReposDocumentsVersionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentVersion>;
     /**
+     * Remove a specific version of a document from the system by its ID.
+     * Delete a version of a document
      */
     documentsV1ReposDocumentsVersionsDestroyRaw(requestParameters: DocumentsV1ReposDocumentsVersionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a specific version of a document from the system by its ID.
+     * Delete a version of a document
      */
     documentsV1ReposDocumentsVersionsDestroy(requestParameters: DocumentsV1ReposDocumentsVersionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all versions of a specific document within a document repository.
+     * List all versions of a document
      */
     documentsV1ReposDocumentsVersionsListRaw(requestParameters: DocumentsV1ReposDocumentsVersionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedDocumentVersionList>>;
     /**
+     * Retrieve a list of all versions of a specific document within a document repository.
+     * List all versions of a document
      */
     documentsV1ReposDocumentsVersionsList(requestParameters: DocumentsV1ReposDocumentsVersionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedDocumentVersionList>;
     /**
+     * Update specific fields of an existing version of a document without affecting others.
+     * Partially update a version of a document
      */
     documentsV1ReposDocumentsVersionsPartialUpdateRaw(requestParameters: DocumentsV1ReposDocumentsVersionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentVersion>>;
     /**
+     * Update specific fields of an existing version of a document without affecting others.
+     * Partially update a version of a document
      */
     documentsV1ReposDocumentsVersionsPartialUpdate(requestParameters: DocumentsV1ReposDocumentsVersionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentVersion>;
     /**
+     * Get detailed information about a specific version of a document by its ID.
+     * Retrieve a specific version of a document
      */
     documentsV1ReposDocumentsVersionsRetrieveRaw(requestParameters: DocumentsV1ReposDocumentsVersionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentVersion>>;
     /**
+     * Get detailed information about a specific version of a document by its ID.
+     * Retrieve a specific version of a document
      */
     documentsV1ReposDocumentsVersionsRetrieve(requestParameters: DocumentsV1ReposDocumentsVersionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentVersion>;
     /**
+     * Modify the details of an existing version of a document by its ID.
+     * Update an existing version of a document
      */
     documentsV1ReposDocumentsVersionsUpdateRaw(requestParameters: DocumentsV1ReposDocumentsVersionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentVersion>>;
     /**
+     * Modify the details of an existing version of a document by its ID.
+     * Update an existing version of a document
      */
     documentsV1ReposDocumentsVersionsUpdate(requestParameters: DocumentsV1ReposDocumentsVersionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentVersion>;
     /**
+     * Add a new folder to a specific document repository.
+     * Create a new folder in a document repository
      */
     documentsV1ReposFoldersCreateRaw(requestParameters: DocumentsV1ReposFoldersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Folder>>;
     /**
+     * Add a new folder to a specific document repository.
+     * Create a new folder in a document repository
      */
     documentsV1ReposFoldersCreate(requestParameters: DocumentsV1ReposFoldersCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Folder>;
     /**
+     * Remove a folder from a specific document repository by its ID.
+     * Delete a folder in a document repository
      */
     documentsV1ReposFoldersDestroyRaw(requestParameters: DocumentsV1ReposFoldersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a folder from a specific document repository by its ID.
+     * Delete a folder in a document repository
      */
     documentsV1ReposFoldersDestroy(requestParameters: DocumentsV1ReposFoldersDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all folders within a specific document repository, optionally filtered by parent folder.
+     * List all folders in a document repository
      */
     documentsV1ReposFoldersListRaw(requestParameters: DocumentsV1ReposFoldersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedFolderList>>;
     /**
+     * Retrieve a list of all folders within a specific document repository, optionally filtered by parent folder.
+     * List all folders in a document repository
      */
     documentsV1ReposFoldersList(requestParameters: DocumentsV1ReposFoldersListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedFolderList>;
     /**
+     * Update specific fields of an existing folder in a document repository without affecting others.
+     * Partially update a folder in a document repository
      */
     documentsV1ReposFoldersPartialUpdateRaw(requestParameters: DocumentsV1ReposFoldersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Folder>>;
     /**
+     * Update specific fields of an existing folder in a document repository without affecting others.
+     * Partially update a folder in a document repository
      */
     documentsV1ReposFoldersPartialUpdate(requestParameters: DocumentsV1ReposFoldersPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Folder>;
     /**
+     * Get detailed information about a specific folder in a document repository by its ID.
+     * Retrieve a specific folder in a document repository
      */
     documentsV1ReposFoldersRetrieveRaw(requestParameters: DocumentsV1ReposFoldersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Folder>>;
     /**
+     * Get detailed information about a specific folder in a document repository by its ID.
+     * Retrieve a specific folder in a document repository
      */
     documentsV1ReposFoldersRetrieve(requestParameters: DocumentsV1ReposFoldersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Folder>;
     /**
+     * Modify the details of an existing folder in a document repository by its ID.
+     * Update an existing folder in a document repository
      */
     documentsV1ReposFoldersUpdateRaw(requestParameters: DocumentsV1ReposFoldersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Folder>>;
     /**
+     * Modify the details of an existing folder in a document repository by its ID.
+     * Update an existing folder in a document repository
      */
     documentsV1ReposFoldersUpdate(requestParameters: DocumentsV1ReposFoldersUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Folder>;
     /**
+     * Retrieve a list of all document repositories in the system.
+     * List all document repositories
      */
     documentsV1ReposListRaw(requestParameters: DocumentsV1ReposListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedDocumentRepoList>>;
     /**
+     * Retrieve a list of all document repositories in the system.
+     * List all document repositories
      */
     documentsV1ReposList(requestParameters?: DocumentsV1ReposListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedDocumentRepoList>;
     /**
+     * Update specific fields of an existing document repository without affecting others.
+     * Partially update a document repository
      */
     documentsV1ReposPartialUpdateRaw(requestParameters: DocumentsV1ReposPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentRepo>>;
     /**
+     * Update specific fields of an existing document repository without affecting others.
+     * Partially update a document repository
      */
     documentsV1ReposPartialUpdate(requestParameters: DocumentsV1ReposPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentRepo>;
     /**
+     * Get detailed information about a specific document repository by its ID.
+     * Retrieve a specific document repository
      */
     documentsV1ReposRetrieveRaw(requestParameters: DocumentsV1ReposRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentRepo>>;
     /**
+     * Get detailed information about a specific document repository by its ID.
+     * Retrieve a specific document repository
      */
     documentsV1ReposRetrieve(requestParameters: DocumentsV1ReposRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentRepo>;
     /**
+     * Modify the details of an existing document repository by its ID.
+     * Update an existing document repository
      */
     documentsV1ReposUpdateRaw(requestParameters: DocumentsV1ReposUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DocumentRepo>>;
     /**
+     * Modify the details of an existing document repository by its ID.
+     * Update an existing document repository
      */
     documentsV1ReposUpdate(requestParameters: DocumentsV1ReposUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DocumentRepo>;
     /**
+     * Add a new tag to the system.
+     * Create a new tag
      */
     documentsV1TagsCreateRaw(requestParameters: DocumentsV1TagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Tag>>;
     /**
+     * Add a new tag to the system.
+     * Create a new tag
      */
     documentsV1TagsCreate(requestParameters: DocumentsV1TagsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Tag>;
     /**
+     * Remove a tag from the system by its ID.
+     * Delete a tag
      */
     documentsV1TagsDestroyRaw(requestParameters: DocumentsV1TagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove a tag from the system by its ID.
+     * Delete a tag
      */
     documentsV1TagsDestroy(requestParameters: DocumentsV1TagsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve a list of all tags in the system.
+     * List all tags
      */
     documentsV1TagsListRaw(requestParameters: DocumentsV1TagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedTagList>>;
     /**
+     * Retrieve a list of all tags in the system.
+     * List all tags
      */
     documentsV1TagsList(requestParameters?: DocumentsV1TagsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedTagList>;
     /**
+     * Update specific fields of an existing tag without affecting others.
+     * Partially update a tag
      */
     documentsV1TagsPartialUpdateRaw(requestParameters: DocumentsV1TagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Tag>>;
     /**
+     * Update specific fields of an existing tag without affecting others.
+     * Partially update a tag
      */
     documentsV1TagsPartialUpdate(requestParameters: DocumentsV1TagsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Tag>;
     /**
+     * Get detailed information about a specific tag by its ID.
+     * Retrieve a specific tag
      */
     documentsV1TagsRetrieveRaw(requestParameters: DocumentsV1TagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Tag>>;
     /**
+     * Get detailed information about a specific tag by its ID.
+     * Retrieve a specific tag
      */
     documentsV1TagsRetrieve(requestParameters: DocumentsV1TagsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Tag>;
     /**
+     * Modify the details of an existing tag by its ID.
+     * Update an existing tag
      */
     documentsV1TagsUpdateRaw(requestParameters: DocumentsV1TagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Tag>>;
     /**
+     * Modify the details of an existing tag by its ID.
+     * Update an existing tag
      */
     documentsV1TagsUpdate(requestParameters: DocumentsV1TagsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Tag>;
 }

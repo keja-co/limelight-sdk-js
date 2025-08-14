@@ -76,6 +76,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Add a new document repository to the system.
+     * Create a new document repository
      */
     DocumentsApi.prototype.documentsV1ReposCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -105,6 +107,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new document repository to the system.
+     * Create a new document repository
      */
     DocumentsApi.prototype.documentsV1ReposCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -121,6 +125,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a document repository from the system by its ID.
+     * Delete a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -149,6 +155,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a document repository from the system by its ID.
+     * Delete a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -163,6 +171,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new document to a specific document repository.
+     * Create a new document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -196,6 +206,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new document to a specific document repository.
+     * Create a new document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -212,6 +224,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a document from a specific document repository by its ID.
+     * Delete a document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -244,6 +258,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a document from a specific document repository by its ID.
+     * Delete a document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -258,6 +274,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all documents within a specific document repository, optionally filtered by folder.
+     * List all documents in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -295,6 +313,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all documents within a specific document repository, optionally filtered by folder.
+     * List all documents in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -311,6 +331,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing document in a document repository without affecting others.
+     * Partially update a document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -345,6 +367,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing document in a document repository without affecting others.
+     * Partially update a document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -361,6 +385,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific document in a document repository by its ID.
+     * Retrieve a specific document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -393,6 +419,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific document in a document repository by its ID.
+     * Retrieve a specific document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -409,6 +437,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new tag to a specific document within a document repository.
+     * Assign tag to a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsTagsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -446,6 +476,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new tag to a specific document within a document repository.
+     * Assign tag to a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsTagsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -462,6 +494,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a specific tag from a document by its ID.
+     * Remove tag from a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsTagsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -498,6 +532,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a specific tag from a document by its ID.
+     * Remove tag from a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsTagsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -512,6 +548,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all tags associated with a specific document within a document repository.
+     * List all tags for a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsTagsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -550,6 +588,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all tags associated with a specific document within a document repository.
+     * List all tags for a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsTagsList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -566,6 +606,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific tag associated with a document by its ID.
+     * Retrieve a specific tag for a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsTagsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -602,6 +644,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific tag associated with a document by its ID.
+     * Retrieve a specific tag for a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsTagsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -618,6 +662,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing document in a document repository by its ID.
+     * Update an existing document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -655,6 +701,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing document in a document repository by its ID.
+     * Update an existing document in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -671,6 +719,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new version to a specific document within a document repository.
+     * Create a new version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -708,6 +758,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new version to a specific document within a document repository.
+     * Create a new version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -724,6 +776,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a specific version of a document from the system by its ID.
+     * Delete a version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -760,6 +814,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a specific version of a document from the system by its ID.
+     * Delete a version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -774,6 +830,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all versions of a specific document within a document repository.
+     * List all versions of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -812,6 +870,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all versions of a specific document within a document repository.
+     * List all versions of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -828,6 +888,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing version of a document without affecting others.
+     * Partially update a version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -866,6 +928,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing version of a document without affecting others.
+     * Partially update a version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -882,6 +946,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific version of a document by its ID.
+     * Retrieve a specific version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -918,6 +984,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific version of a document by its ID.
+     * Retrieve a specific version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -934,6 +1002,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing version of a document by its ID.
+     * Update an existing version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -975,6 +1045,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing version of a document by its ID.
+     * Update an existing version of a document
      */
     DocumentsApi.prototype.documentsV1ReposDocumentsVersionsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -991,6 +1063,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new folder to a specific document repository.
+     * Create a new folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1024,6 +1098,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new folder to a specific document repository.
+     * Create a new folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1040,6 +1116,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a folder from a specific document repository by its ID.
+     * Delete a folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1072,6 +1150,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a folder from a specific document repository by its ID.
+     * Delete a folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1086,6 +1166,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all folders within a specific document repository, optionally filtered by parent folder.
+     * List all folders in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1123,6 +1205,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all folders within a specific document repository, optionally filtered by parent folder.
+     * List all folders in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1139,6 +1223,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing folder in a document repository without affecting others.
+     * Partially update a folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1173,6 +1259,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing folder in a document repository without affecting others.
+     * Partially update a folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1189,6 +1277,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific folder in a document repository by its ID.
+     * Retrieve a specific folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1221,6 +1311,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific folder in a document repository by its ID.
+     * Retrieve a specific folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1237,6 +1329,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing folder in a document repository by its ID.
+     * Update an existing folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1274,6 +1368,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing folder in a document repository by its ID.
+     * Update an existing folder in a document repository
      */
     DocumentsApi.prototype.documentsV1ReposFoldersUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1290,6 +1386,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all document repositories in the system.
+     * List all document repositories
      */
     DocumentsApi.prototype.documentsV1ReposListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1320,6 +1418,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all document repositories in the system.
+     * List all document repositories
      */
     DocumentsApi.prototype.documentsV1ReposList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
@@ -1337,6 +1437,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing document repository without affecting others.
+     * Partially update a document repository
      */
     DocumentsApi.prototype.documentsV1ReposPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1367,6 +1469,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing document repository without affecting others.
+     * Partially update a document repository
      */
     DocumentsApi.prototype.documentsV1ReposPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1383,6 +1487,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific document repository by its ID.
+     * Retrieve a specific document repository
      */
     DocumentsApi.prototype.documentsV1ReposRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1411,6 +1517,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific document repository by its ID.
+     * Retrieve a specific document repository
      */
     DocumentsApi.prototype.documentsV1ReposRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1427,6 +1535,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing document repository by its ID.
+     * Update an existing document repository
      */
     DocumentsApi.prototype.documentsV1ReposUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1460,6 +1570,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing document repository by its ID.
+     * Update an existing document repository
      */
     DocumentsApi.prototype.documentsV1ReposUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1476,6 +1588,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new tag to the system.
+     * Create a new tag
      */
     DocumentsApi.prototype.documentsV1TagsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1505,6 +1619,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Add a new tag to the system.
+     * Create a new tag
      */
     DocumentsApi.prototype.documentsV1TagsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1521,6 +1637,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a tag from the system by its ID.
+     * Delete a tag
      */
     DocumentsApi.prototype.documentsV1TagsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1549,6 +1667,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove a tag from the system by its ID.
+     * Delete a tag
      */
     DocumentsApi.prototype.documentsV1TagsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1563,6 +1683,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all tags in the system.
+     * List all tags
      */
     DocumentsApi.prototype.documentsV1TagsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1593,6 +1715,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a list of all tags in the system.
+     * List all tags
      */
     DocumentsApi.prototype.documentsV1TagsList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
@@ -1610,6 +1734,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing tag without affecting others.
+     * Partially update a tag
      */
     DocumentsApi.prototype.documentsV1TagsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1640,6 +1766,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update specific fields of an existing tag without affecting others.
+     * Partially update a tag
      */
     DocumentsApi.prototype.documentsV1TagsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1656,6 +1784,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific tag by its ID.
+     * Retrieve a specific tag
      */
     DocumentsApi.prototype.documentsV1TagsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1684,6 +1814,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Get detailed information about a specific tag by its ID.
+     * Retrieve a specific tag
      */
     DocumentsApi.prototype.documentsV1TagsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1700,6 +1832,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing tag by its ID.
+     * Update an existing tag
      */
     DocumentsApi.prototype.documentsV1TagsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1733,6 +1867,8 @@ var DocumentsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Modify the details of an existing tag by its ID.
+     * Update an existing tag
      */
     DocumentsApi.prototype.documentsV1TagsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
