@@ -81,29 +81,39 @@ import {
 
 export interface TicketingV1DiscountsCreateRequest {
     discount: Omit<Discount, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionVenueId?: number;
 }
 
 export interface TicketingV1DiscountsDestroyRequest {
     id: number;
+    productionVenueId?: number;
 }
 
 export interface TicketingV1DiscountsListRequest {
     page?: number;
     pageSize?: number;
+    productionVenueId?: number;
 }
 
 export interface TicketingV1DiscountsPartialUpdateRequest {
     id: number;
+    productionVenueId?: number;
     patchedDiscount?: Omit<PatchedDiscount, 'id'|'created_at'|'updated_at'|'created_by'>;
 }
 
 export interface TicketingV1DiscountsRetrieveRequest {
     id: number;
+    productionVenueId?: number;
 }
 
 export interface TicketingV1DiscountsTicketTypesCreateRequest {
     discountId: number;
     discountTicketType: Omit<DiscountTicketType, 'id'|'discount'|'ticket_type'|'created_at'|'updated_at'|'created_by'>;
+}
+
+export interface TicketingV1DiscountsTicketTypesDestroyRequest {
+    discountId: number;
+    id: number;
 }
 
 export interface TicketingV1DiscountsTicketTypesListRequest {
@@ -120,6 +130,7 @@ export interface TicketingV1DiscountsTicketTypesRetrieveRequest {
 export interface TicketingV1DiscountsUpdateRequest {
     id: number;
     discount: Omit<Discount, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionVenueId?: number;
 }
 
 export interface TicketingV1ProdVenueSectionsCreateRequest {
@@ -150,41 +161,41 @@ export interface TicketingV1ProdVenueSectionsRetrieveRequest {
 }
 
 export interface TicketingV1ProdVenueSectionsSeatsCreateRequest {
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
     sectionSeat: Omit<SectionSeat, 'id'|'section'|'created_at'|'updated_at'|'created_by'>;
 }
 
 export interface TicketingV1ProdVenueSectionsSeatsDestroyRequest {
     id: number;
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
 }
 
 export interface TicketingV1ProdVenueSectionsSeatsListRequest {
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
     page?: number;
     pageSize?: number;
 }
 
 export interface TicketingV1ProdVenueSectionsSeatsPartialUpdateRequest {
     id: number;
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
     patchedSectionSeat?: Omit<PatchedSectionSeat, 'id'|'section'|'created_at'|'updated_at'|'created_by'>;
 }
 
 export interface TicketingV1ProdVenueSectionsSeatsRetrieveRequest {
     id: number;
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
 }
 
 export interface TicketingV1ProdVenueSectionsSeatsUpdateRequest {
     id: number;
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
     sectionSeat: Omit<SectionSeat, 'id'|'section'|'created_at'|'updated_at'|'created_by'>;
 }
 
@@ -293,6 +304,8 @@ export interface TicketingV1PurchasesUpdateRequest {
 export class TicketingApi extends runtime.BaseAPI {
 
     /**
+     * Create a new discount.
+     * Create a Discount
      */
     async ticketingV1DiscountsCreateRaw(requestParameters: TicketingV1DiscountsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Discount>> {
         if (requestParameters['discount'] == null) {
@@ -303,6 +316,10 @@ export class TicketingApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['productionVenueId'] != null) {
+            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -323,6 +340,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new discount.
+     * Create a Discount
      */
     async ticketingV1DiscountsCreate(requestParameters: TicketingV1DiscountsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Discount> {
         const response = await this.ticketingV1DiscountsCreateRaw(requestParameters, initOverrides);
@@ -330,6 +349,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific discount.
+     * Delete a Discount
      */
     async ticketingV1DiscountsDestroyRaw(requestParameters: TicketingV1DiscountsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -340,6 +361,10 @@ export class TicketingApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['productionVenueId'] != null) {
+            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -358,12 +383,16 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific discount.
+     * Delete a Discount
      */
     async ticketingV1DiscountsDestroy(requestParameters: TicketingV1DiscountsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.ticketingV1DiscountsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all discounts. Optionally filter by production venue.
+     * List Discounts
      */
     async ticketingV1DiscountsListRaw(requestParameters: TicketingV1DiscountsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedDiscountList>> {
         const queryParameters: any = {};
@@ -374,6 +403,10 @@ export class TicketingApi extends runtime.BaseAPI {
 
         if (requestParameters['pageSize'] != null) {
             queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['productionVenueId'] != null) {
+            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -392,6 +425,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all discounts. Optionally filter by production venue.
+     * List Discounts
      */
     async ticketingV1DiscountsList(requestParameters: TicketingV1DiscountsListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedDiscountList> {
         const response = await this.ticketingV1DiscountsListRaw(requestParameters, initOverrides);
@@ -399,6 +434,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing discount.
+     * Partially Update a Discount
      */
     async ticketingV1DiscountsPartialUpdateRaw(requestParameters: TicketingV1DiscountsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Discount>> {
         if (requestParameters['id'] == null) {
@@ -409,6 +446,10 @@ export class TicketingApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['productionVenueId'] != null) {
+            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -430,6 +471,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing discount.
+     * Partially Update a Discount
      */
     async ticketingV1DiscountsPartialUpdate(requestParameters: TicketingV1DiscountsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Discount> {
         const response = await this.ticketingV1DiscountsPartialUpdateRaw(requestParameters, initOverrides);
@@ -437,6 +480,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific discount.
+     * Retrieve a Discount
      */
     async ticketingV1DiscountsRetrieveRaw(requestParameters: TicketingV1DiscountsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Discount>> {
         if (requestParameters['id'] == null) {
@@ -447,6 +492,10 @@ export class TicketingApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['productionVenueId'] != null) {
+            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -465,6 +514,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific discount.
+     * Retrieve a Discount
      */
     async ticketingV1DiscountsRetrieve(requestParameters: TicketingV1DiscountsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Discount> {
         const response = await this.ticketingV1DiscountsRetrieveRaw(requestParameters, initOverrides);
@@ -472,6 +523,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new ticket type assigned to a discount.
+     * Create a Ticket Type assigned to a Discount
      */
     async ticketingV1DiscountsTicketTypesCreateRaw(requestParameters: TicketingV1DiscountsTicketTypesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DiscountTicketType>> {
         if (requestParameters['discountId'] == null) {
@@ -510,6 +563,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new ticket type assigned to a discount.
+     * Create a Ticket Type assigned to a Discount
      */
     async ticketingV1DiscountsTicketTypesCreate(requestParameters: TicketingV1DiscountsTicketTypesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DiscountTicketType> {
         const response = await this.ticketingV1DiscountsTicketTypesCreateRaw(requestParameters, initOverrides);
@@ -517,6 +572,54 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific ticket type assigned to a discount.
+     * Delete a Ticket Type assigned to a Discount
+     */
+    async ticketingV1DiscountsTicketTypesDestroyRaw(requestParameters: TicketingV1DiscountsTicketTypesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['discountId'] == null) {
+            throw new runtime.RequiredError(
+                'discountId',
+                'Required parameter "discountId" was null or undefined when calling ticketingV1DiscountsTicketTypesDestroy().'
+            );
+        }
+
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling ticketingV1DiscountsTicketTypesDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/ticketing/v1/discounts/{discount_id}/ticket-types/{id}/`;
+        urlPath = urlPath.replace(`{${"discount_id"}}`, encodeURIComponent(String(requestParameters['discountId'])));
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a specific ticket type assigned to a discount.
+     * Delete a Ticket Type assigned to a Discount
+     */
+    async ticketingV1DiscountsTicketTypesDestroy(requestParameters: TicketingV1DiscountsTicketTypesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.ticketingV1DiscountsTicketTypesDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Retrieve all ticket types assigned to a discount.
+     * List Ticket Types assigned to a Discount
      */
     async ticketingV1DiscountsTicketTypesListRaw(requestParameters: TicketingV1DiscountsTicketTypesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedDiscountTicketTypeList>> {
         if (requestParameters['discountId'] == null) {
@@ -553,6 +656,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all ticket types assigned to a discount.
+     * List Ticket Types assigned to a Discount
      */
     async ticketingV1DiscountsTicketTypesList(requestParameters: TicketingV1DiscountsTicketTypesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedDiscountTicketTypeList> {
         const response = await this.ticketingV1DiscountsTicketTypesListRaw(requestParameters, initOverrides);
@@ -560,6 +665,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific ticket type assigned to a discount.
+     * Retrieve a Ticket Type assigned to a Discount
      */
     async ticketingV1DiscountsTicketTypesRetrieveRaw(requestParameters: TicketingV1DiscountsTicketTypesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DiscountTicketType>> {
         if (requestParameters['discountId'] == null) {
@@ -596,6 +703,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific ticket type assigned to a discount.
+     * Retrieve a Ticket Type assigned to a Discount
      */
     async ticketingV1DiscountsTicketTypesRetrieve(requestParameters: TicketingV1DiscountsTicketTypesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DiscountTicketType> {
         const response = await this.ticketingV1DiscountsTicketTypesRetrieveRaw(requestParameters, initOverrides);
@@ -603,6 +712,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing discount.
+     * Update a Discount
      */
     async ticketingV1DiscountsUpdateRaw(requestParameters: TicketingV1DiscountsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Discount>> {
         if (requestParameters['id'] == null) {
@@ -620,6 +731,10 @@ export class TicketingApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['productionVenueId'] != null) {
+            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -641,6 +756,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing discount.
+     * Update a Discount
      */
     async ticketingV1DiscountsUpdate(requestParameters: TicketingV1DiscountsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Discount> {
         const response = await this.ticketingV1DiscountsUpdateRaw(requestParameters, initOverrides);
@@ -648,6 +765,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new section for a production venue.
+     * Create a Section
      */
     async ticketingV1ProdVenueSectionsCreateRaw(requestParameters: TicketingV1ProdVenueSectionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Section>> {
         if (requestParameters['productionVenueId'] == null) {
@@ -686,6 +805,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new section for a production venue.
+     * Create a Section
      */
     async ticketingV1ProdVenueSectionsCreate(requestParameters: TicketingV1ProdVenueSectionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Section> {
         const response = await this.ticketingV1ProdVenueSectionsCreateRaw(requestParameters, initOverrides);
@@ -693,6 +814,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific section for a production venue.
+     * Delete a Section
      */
     async ticketingV1ProdVenueSectionsDestroyRaw(requestParameters: TicketingV1ProdVenueSectionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -729,12 +852,16 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific section for a production venue.
+     * Delete a Section
      */
     async ticketingV1ProdVenueSectionsDestroy(requestParameters: TicketingV1ProdVenueSectionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.ticketingV1ProdVenueSectionsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all sections for a production venue.
+     * List Sections
      */
     async ticketingV1ProdVenueSectionsListRaw(requestParameters: TicketingV1ProdVenueSectionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSectionList>> {
         if (requestParameters['productionVenueId'] == null) {
@@ -771,6 +898,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all sections for a production venue.
+     * List Sections
      */
     async ticketingV1ProdVenueSectionsList(requestParameters: TicketingV1ProdVenueSectionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSectionList> {
         const response = await this.ticketingV1ProdVenueSectionsListRaw(requestParameters, initOverrides);
@@ -778,6 +907,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing section for a production venue.
+     * Partially Update a Section
      */
     async ticketingV1ProdVenueSectionsPartialUpdateRaw(requestParameters: TicketingV1ProdVenueSectionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Section>> {
         if (requestParameters['id'] == null) {
@@ -817,6 +948,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing section for a production venue.
+     * Partially Update a Section
      */
     async ticketingV1ProdVenueSectionsPartialUpdate(requestParameters: TicketingV1ProdVenueSectionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Section> {
         const response = await this.ticketingV1ProdVenueSectionsPartialUpdateRaw(requestParameters, initOverrides);
@@ -824,6 +957,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific section for a production venue.
+     * Retrieve a Section
      */
     async ticketingV1ProdVenueSectionsRetrieveRaw(requestParameters: TicketingV1ProdVenueSectionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Section>> {
         if (requestParameters['id'] == null) {
@@ -860,6 +995,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific section for a production venue.
+     * Retrieve a Section
      */
     async ticketingV1ProdVenueSectionsRetrieve(requestParameters: TicketingV1ProdVenueSectionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Section> {
         const response = await this.ticketingV1ProdVenueSectionsRetrieveRaw(requestParameters, initOverrides);
@@ -867,6 +1004,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new section seat for a section.
+     * Create a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsCreateRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionSeat>> {
         if (requestParameters['productionVenueId'] == null) {
@@ -913,6 +1052,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new section seat for a section.
+     * Create a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsCreate(requestParameters: TicketingV1ProdVenueSectionsSeatsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionSeat> {
         const response = await this.ticketingV1ProdVenueSectionsSeatsCreateRaw(requestParameters, initOverrides);
@@ -920,6 +1061,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific section seat for a section.
+     * Delete a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsDestroyRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -964,12 +1107,16 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific section seat for a section.
+     * Delete a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsDestroy(requestParameters: TicketingV1ProdVenueSectionsSeatsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.ticketingV1ProdVenueSectionsSeatsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all section seats for a section.
+     * List Section Seats
      */
     async ticketingV1ProdVenueSectionsSeatsListRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSectionSeatList>> {
         if (requestParameters['productionVenueId'] == null) {
@@ -1014,6 +1161,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all section seats for a section.
+     * List Section Seats
      */
     async ticketingV1ProdVenueSectionsSeatsList(requestParameters: TicketingV1ProdVenueSectionsSeatsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSectionSeatList> {
         const response = await this.ticketingV1ProdVenueSectionsSeatsListRaw(requestParameters, initOverrides);
@@ -1021,6 +1170,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing section seat for a section.
+     * Partially Update a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsPartialUpdateRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionSeat>> {
         if (requestParameters['id'] == null) {
@@ -1068,6 +1219,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing section seat for a section.
+     * Partially Update a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsPartialUpdate(requestParameters: TicketingV1ProdVenueSectionsSeatsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionSeat> {
         const response = await this.ticketingV1ProdVenueSectionsSeatsPartialUpdateRaw(requestParameters, initOverrides);
@@ -1075,6 +1228,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific section seat for a section.
+     * Retrieve a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsRetrieveRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionSeat>> {
         if (requestParameters['id'] == null) {
@@ -1119,6 +1274,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific section seat for a section.
+     * Retrieve a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsRetrieve(requestParameters: TicketingV1ProdVenueSectionsSeatsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionSeat> {
         const response = await this.ticketingV1ProdVenueSectionsSeatsRetrieveRaw(requestParameters, initOverrides);
@@ -1126,6 +1283,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing section seat for a section.
+     * Update a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsUpdateRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionSeat>> {
         if (requestParameters['id'] == null) {
@@ -1180,6 +1339,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing section seat for a section.
+     * Update a Section Seat
      */
     async ticketingV1ProdVenueSectionsSeatsUpdate(requestParameters: TicketingV1ProdVenueSectionsSeatsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionSeat> {
         const response = await this.ticketingV1ProdVenueSectionsSeatsUpdateRaw(requestParameters, initOverrides);
@@ -1187,6 +1348,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing section for a production venue.
+     * Update a Section
      */
     async ticketingV1ProdVenueSectionsUpdateRaw(requestParameters: TicketingV1ProdVenueSectionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Section>> {
         if (requestParameters['id'] == null) {
@@ -1233,6 +1396,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing section for a production venue.
+     * Update a Section
      */
     async ticketingV1ProdVenueSectionsUpdate(requestParameters: TicketingV1ProdVenueSectionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Section> {
         const response = await this.ticketingV1ProdVenueSectionsUpdateRaw(requestParameters, initOverrides);
@@ -1240,6 +1405,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new ticket type for a production venue.
+     * Create a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesCreateRaw(requestParameters: TicketingV1ProdVenueTicketTypesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketType>> {
         if (requestParameters['productionVenueId'] == null) {
@@ -1278,6 +1445,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new ticket type for a production venue.
+     * Create a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesCreate(requestParameters: TicketingV1ProdVenueTicketTypesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketType> {
         const response = await this.ticketingV1ProdVenueTicketTypesCreateRaw(requestParameters, initOverrides);
@@ -1285,6 +1454,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific ticket type for a production venue.
+     * Delete a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesDestroyRaw(requestParameters: TicketingV1ProdVenueTicketTypesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -1321,12 +1492,16 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific ticket type for a production venue.
+     * Delete a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesDestroy(requestParameters: TicketingV1ProdVenueTicketTypesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.ticketingV1ProdVenueTicketTypesDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all ticket types for a production venue.
+     * List Ticket Types
      */
     async ticketingV1ProdVenueTicketTypesListRaw(requestParameters: TicketingV1ProdVenueTicketTypesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedTicketTypeList>> {
         if (requestParameters['productionVenueId'] == null) {
@@ -1363,6 +1538,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all ticket types for a production venue.
+     * List Ticket Types
      */
     async ticketingV1ProdVenueTicketTypesList(requestParameters: TicketingV1ProdVenueTicketTypesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedTicketTypeList> {
         const response = await this.ticketingV1ProdVenueTicketTypesListRaw(requestParameters, initOverrides);
@@ -1370,6 +1547,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing ticket type for a production venue.
+     * Partially Update a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesPartialUpdateRaw(requestParameters: TicketingV1ProdVenueTicketTypesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketType>> {
         if (requestParameters['id'] == null) {
@@ -1409,6 +1588,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing ticket type for a production venue.
+     * Partially Update a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesPartialUpdate(requestParameters: TicketingV1ProdVenueTicketTypesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketType> {
         const response = await this.ticketingV1ProdVenueTicketTypesPartialUpdateRaw(requestParameters, initOverrides);
@@ -1416,6 +1597,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific ticket type for a production venue.
+     * Retrieve a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesRetrieveRaw(requestParameters: TicketingV1ProdVenueTicketTypesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketType>> {
         if (requestParameters['id'] == null) {
@@ -1452,6 +1635,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific ticket type for a production venue.
+     * Retrieve a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesRetrieve(requestParameters: TicketingV1ProdVenueTicketTypesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketType> {
         const response = await this.ticketingV1ProdVenueTicketTypesRetrieveRaw(requestParameters, initOverrides);
@@ -1459,6 +1644,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing ticket type for a production venue.
+     * Update a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesUpdateRaw(requestParameters: TicketingV1ProdVenueTicketTypesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketType>> {
         if (requestParameters['id'] == null) {
@@ -1505,6 +1692,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing ticket type for a production venue.
+     * Update a Ticket Type
      */
     async ticketingV1ProdVenueTicketTypesUpdate(requestParameters: TicketingV1ProdVenueTicketTypesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketType> {
         const response = await this.ticketingV1ProdVenueTicketTypesUpdateRaw(requestParameters, initOverrides);
@@ -1512,6 +1701,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new purchase.
+     * Create a Purchase
      */
     async ticketingV1PurchasesCreateRaw(requestParameters: TicketingV1PurchasesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Purchase>> {
         if (requestParameters['purchase'] == null) {
@@ -1542,6 +1733,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new purchase.
+     * Create a Purchase
      */
     async ticketingV1PurchasesCreate(requestParameters: TicketingV1PurchasesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Purchase> {
         const response = await this.ticketingV1PurchasesCreateRaw(requestParameters, initOverrides);
@@ -1549,6 +1742,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific purchase.
+     * Delete a Purchase
      */
     async ticketingV1PurchasesDestroyRaw(requestParameters: TicketingV1PurchasesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -1577,12 +1772,16 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific purchase.
+     * Delete a Purchase
      */
     async ticketingV1PurchasesDestroy(requestParameters: TicketingV1PurchasesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.ticketingV1PurchasesDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all purchases.
+     * List Purchases
      */
     async ticketingV1PurchasesListRaw(requestParameters: TicketingV1PurchasesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPurchaseList>> {
         const queryParameters: any = {};
@@ -1611,6 +1810,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all purchases.
+     * List Purchases
      */
     async ticketingV1PurchasesList(requestParameters: TicketingV1PurchasesListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedPurchaseList> {
         const response = await this.ticketingV1PurchasesListRaw(requestParameters, initOverrides);
@@ -1618,6 +1819,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing purchase.
+     * Partially Update a Purchase
      */
     async ticketingV1PurchasesPartialUpdateRaw(requestParameters: TicketingV1PurchasesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Purchase>> {
         if (requestParameters['id'] == null) {
@@ -1649,6 +1852,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing purchase.
+     * Partially Update a Purchase
      */
     async ticketingV1PurchasesPartialUpdate(requestParameters: TicketingV1PurchasesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Purchase> {
         const response = await this.ticketingV1PurchasesPartialUpdateRaw(requestParameters, initOverrides);
@@ -1656,6 +1861,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific purchase.
+     * Retrieve a Purchase
      */
     async ticketingV1PurchasesRetrieveRaw(requestParameters: TicketingV1PurchasesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Purchase>> {
         if (requestParameters['id'] == null) {
@@ -1684,6 +1891,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific purchase.
+     * Retrieve a Purchase
      */
     async ticketingV1PurchasesRetrieve(requestParameters: TicketingV1PurchasesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Purchase> {
         const response = await this.ticketingV1PurchasesRetrieveRaw(requestParameters, initOverrides);
@@ -1691,6 +1900,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new ticket for a purchase.
+     * Create a Ticket
      */
     async ticketingV1PurchasesTicketsCreateRaw(requestParameters: TicketingV1PurchasesTicketsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>> {
         if (requestParameters['purchaseId'] == null) {
@@ -1729,6 +1940,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create a new ticket for a purchase.
+     * Create a Ticket
      */
     async ticketingV1PurchasesTicketsCreate(requestParameters: TicketingV1PurchasesTicketsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket> {
         const response = await this.ticketingV1PurchasesTicketsCreateRaw(requestParameters, initOverrides);
@@ -1736,6 +1949,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific ticket for a purchase.
+     * Delete a Ticket
      */
     async ticketingV1PurchasesTicketsDestroyRaw(requestParameters: TicketingV1PurchasesTicketsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
@@ -1772,12 +1987,16 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete a specific ticket for a purchase.
+     * Delete a Ticket
      */
     async ticketingV1PurchasesTicketsDestroy(requestParameters: TicketingV1PurchasesTicketsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.ticketingV1PurchasesTicketsDestroyRaw(requestParameters, initOverrides);
     }
 
     /**
+     * Retrieve all tickets for a purchase.
+     * List Tickets
      */
     async ticketingV1PurchasesTicketsListRaw(requestParameters: TicketingV1PurchasesTicketsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedTicketList>> {
         if (requestParameters['purchaseId'] == null) {
@@ -1814,6 +2033,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve all tickets for a purchase.
+     * List Tickets
      */
     async ticketingV1PurchasesTicketsList(requestParameters: TicketingV1PurchasesTicketsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedTicketList> {
         const response = await this.ticketingV1PurchasesTicketsListRaw(requestParameters, initOverrides);
@@ -1821,6 +2042,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing ticket for a purchase.
+     * Partially Update a Ticket
      */
     async ticketingV1PurchasesTicketsPartialUpdateRaw(requestParameters: TicketingV1PurchasesTicketsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>> {
         if (requestParameters['id'] == null) {
@@ -1860,6 +2083,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Partially update an existing ticket for a purchase.
+     * Partially Update a Ticket
      */
     async ticketingV1PurchasesTicketsPartialUpdate(requestParameters: TicketingV1PurchasesTicketsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket> {
         const response = await this.ticketingV1PurchasesTicketsPartialUpdateRaw(requestParameters, initOverrides);
@@ -1867,6 +2092,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific ticket for a purchase.
+     * Retrieve a Ticket
      */
     async ticketingV1PurchasesTicketsRetrieveRaw(requestParameters: TicketingV1PurchasesTicketsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>> {
         if (requestParameters['id'] == null) {
@@ -1903,6 +2130,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Retrieve a specific ticket for a purchase.
+     * Retrieve a Ticket
      */
     async ticketingV1PurchasesTicketsRetrieve(requestParameters: TicketingV1PurchasesTicketsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket> {
         const response = await this.ticketingV1PurchasesTicketsRetrieveRaw(requestParameters, initOverrides);
@@ -1910,6 +2139,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing ticket for a purchase.
+     * Update a Ticket
      */
     async ticketingV1PurchasesTicketsUpdateRaw(requestParameters: TicketingV1PurchasesTicketsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>> {
         if (requestParameters['id'] == null) {
@@ -1956,6 +2187,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing ticket for a purchase.
+     * Update a Ticket
      */
     async ticketingV1PurchasesTicketsUpdate(requestParameters: TicketingV1PurchasesTicketsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket> {
         const response = await this.ticketingV1PurchasesTicketsUpdateRaw(requestParameters, initOverrides);
@@ -1963,6 +2196,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing purchase.
+     * Update a Purchase
      */
     async ticketingV1PurchasesUpdateRaw(requestParameters: TicketingV1PurchasesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Purchase>> {
         if (requestParameters['id'] == null) {
@@ -2001,6 +2236,8 @@ export class TicketingApi extends runtime.BaseAPI {
     }
 
     /**
+     * Update an existing purchase.
+     * Update a Purchase
      */
     async ticketingV1PurchasesUpdate(requestParameters: TicketingV1PurchasesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Purchase> {
         const response = await this.ticketingV1PurchasesUpdateRaw(requestParameters, initOverrides);

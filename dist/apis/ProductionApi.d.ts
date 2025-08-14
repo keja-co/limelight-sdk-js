@@ -184,7 +184,7 @@ export interface ProductionV1ProductionsRehearsalsParticipantsCreateRequest {
     rehearsalParticipant: Omit<RehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 export interface ProductionV1ProductionsRehearsalsParticipantsDestroyRequest {
-    id: string;
+    id: number;
     productionId: number;
     rehearsalId: number;
 }
@@ -195,18 +195,18 @@ export interface ProductionV1ProductionsRehearsalsParticipantsListRequest {
     pageSize?: number;
 }
 export interface ProductionV1ProductionsRehearsalsParticipantsPartialUpdateRequest {
-    id: string;
+    id: number;
     productionId: number;
     rehearsalId: number;
     patchedRehearsalParticipant?: Omit<PatchedRehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 export interface ProductionV1ProductionsRehearsalsParticipantsRetrieveRequest {
-    id: string;
+    id: number;
     productionId: number;
     rehearsalId: number;
 }
 export interface ProductionV1ProductionsRehearsalsParticipantsUpdateRequest {
-    id: string;
+    id: number;
     productionId: number;
     rehearsalId: number;
     rehearsalParticipant: Omit<RehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'>;

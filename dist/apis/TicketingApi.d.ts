@@ -13,24 +13,33 @@ import * as runtime from '../runtime';
 import type { Discount, DiscountTicketType, PaginatedDiscountList, PaginatedDiscountTicketTypeList, PaginatedPurchaseList, PaginatedSectionList, PaginatedSectionSeatList, PaginatedTicketList, PaginatedTicketTypeList, PatchedDiscount, PatchedPurchase, PatchedSection, PatchedSectionSeat, PatchedTicket, PatchedTicketType, Purchase, Section, SectionSeat, Ticket, TicketType } from '../models/index';
 export interface TicketingV1DiscountsCreateRequest {
     discount: Omit<Discount, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    productionVenueId?: number;
 }
 export interface TicketingV1DiscountsDestroyRequest {
     id: number;
+    productionVenueId?: number;
 }
 export interface TicketingV1DiscountsListRequest {
     page?: number;
     pageSize?: number;
+    productionVenueId?: number;
 }
 export interface TicketingV1DiscountsPartialUpdateRequest {
     id: number;
+    productionVenueId?: number;
     patchedDiscount?: Omit<PatchedDiscount, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 export interface TicketingV1DiscountsRetrieveRequest {
     id: number;
+    productionVenueId?: number;
 }
 export interface TicketingV1DiscountsTicketTypesCreateRequest {
     discountId: number;
     discountTicketType: Omit<DiscountTicketType, 'id' | 'discount' | 'ticket_type' | 'created_at' | 'updated_at' | 'created_by'>;
+}
+export interface TicketingV1DiscountsTicketTypesDestroyRequest {
+    discountId: number;
+    id: number;
 }
 export interface TicketingV1DiscountsTicketTypesListRequest {
     discountId: number;
@@ -44,6 +53,7 @@ export interface TicketingV1DiscountsTicketTypesRetrieveRequest {
 export interface TicketingV1DiscountsUpdateRequest {
     id: number;
     discount: Omit<Discount, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    productionVenueId?: number;
 }
 export interface TicketingV1ProdVenueSectionsCreateRequest {
     productionVenueId: number;
@@ -68,36 +78,36 @@ export interface TicketingV1ProdVenueSectionsRetrieveRequest {
     productionVenueId: number;
 }
 export interface TicketingV1ProdVenueSectionsSeatsCreateRequest {
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
     sectionSeat: Omit<SectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 export interface TicketingV1ProdVenueSectionsSeatsDestroyRequest {
     id: number;
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
 }
 export interface TicketingV1ProdVenueSectionsSeatsListRequest {
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
     page?: number;
     pageSize?: number;
 }
 export interface TicketingV1ProdVenueSectionsSeatsPartialUpdateRequest {
     id: number;
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
     patchedSectionSeat?: Omit<PatchedSectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 export interface TicketingV1ProdVenueSectionsSeatsRetrieveRequest {
     id: number;
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
 }
 export interface TicketingV1ProdVenueSectionsSeatsUpdateRequest {
     id: number;
-    productionVenueId: string;
-    sectionId: string;
+    productionVenueId: number;
+    sectionId: number;
     sectionSeat: Omit<SectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'created_by'>;
 }
 export interface TicketingV1ProdVenueSectionsUpdateRequest {
@@ -185,237 +195,403 @@ export interface TicketingV1PurchasesUpdateRequest {
  */
 export declare class TicketingApi extends runtime.BaseAPI {
     /**
+     * Create a new discount.
+     * Create a Discount
      */
     ticketingV1DiscountsCreateRaw(requestParameters: TicketingV1DiscountsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Discount>>;
     /**
+     * Create a new discount.
+     * Create a Discount
      */
     ticketingV1DiscountsCreate(requestParameters: TicketingV1DiscountsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Discount>;
     /**
+     * Delete a specific discount.
+     * Delete a Discount
      */
     ticketingV1DiscountsDestroyRaw(requestParameters: TicketingV1DiscountsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific discount.
+     * Delete a Discount
      */
     ticketingV1DiscountsDestroy(requestParameters: TicketingV1DiscountsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all discounts. Optionally filter by production venue.
+     * List Discounts
      */
     ticketingV1DiscountsListRaw(requestParameters: TicketingV1DiscountsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedDiscountList>>;
     /**
+     * Retrieve all discounts. Optionally filter by production venue.
+     * List Discounts
      */
     ticketingV1DiscountsList(requestParameters?: TicketingV1DiscountsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedDiscountList>;
     /**
+     * Partially update an existing discount.
+     * Partially Update a Discount
      */
     ticketingV1DiscountsPartialUpdateRaw(requestParameters: TicketingV1DiscountsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Discount>>;
     /**
+     * Partially update an existing discount.
+     * Partially Update a Discount
      */
     ticketingV1DiscountsPartialUpdate(requestParameters: TicketingV1DiscountsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Discount>;
     /**
+     * Retrieve a specific discount.
+     * Retrieve a Discount
      */
     ticketingV1DiscountsRetrieveRaw(requestParameters: TicketingV1DiscountsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Discount>>;
     /**
+     * Retrieve a specific discount.
+     * Retrieve a Discount
      */
     ticketingV1DiscountsRetrieve(requestParameters: TicketingV1DiscountsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Discount>;
     /**
+     * Create a new ticket type assigned to a discount.
+     * Create a Ticket Type assigned to a Discount
      */
     ticketingV1DiscountsTicketTypesCreateRaw(requestParameters: TicketingV1DiscountsTicketTypesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DiscountTicketType>>;
     /**
+     * Create a new ticket type assigned to a discount.
+     * Create a Ticket Type assigned to a Discount
      */
     ticketingV1DiscountsTicketTypesCreate(requestParameters: TicketingV1DiscountsTicketTypesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DiscountTicketType>;
     /**
+     * Delete a specific ticket type assigned to a discount.
+     * Delete a Ticket Type assigned to a Discount
+     */
+    ticketingV1DiscountsTicketTypesDestroyRaw(requestParameters: TicketingV1DiscountsTicketTypesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Delete a specific ticket type assigned to a discount.
+     * Delete a Ticket Type assigned to a Discount
+     */
+    ticketingV1DiscountsTicketTypesDestroy(requestParameters: TicketingV1DiscountsTicketTypesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Retrieve all ticket types assigned to a discount.
+     * List Ticket Types assigned to a Discount
      */
     ticketingV1DiscountsTicketTypesListRaw(requestParameters: TicketingV1DiscountsTicketTypesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedDiscountTicketTypeList>>;
     /**
+     * Retrieve all ticket types assigned to a discount.
+     * List Ticket Types assigned to a Discount
      */
     ticketingV1DiscountsTicketTypesList(requestParameters: TicketingV1DiscountsTicketTypesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedDiscountTicketTypeList>;
     /**
+     * Retrieve a specific ticket type assigned to a discount.
+     * Retrieve a Ticket Type assigned to a Discount
      */
     ticketingV1DiscountsTicketTypesRetrieveRaw(requestParameters: TicketingV1DiscountsTicketTypesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DiscountTicketType>>;
     /**
+     * Retrieve a specific ticket type assigned to a discount.
+     * Retrieve a Ticket Type assigned to a Discount
      */
     ticketingV1DiscountsTicketTypesRetrieve(requestParameters: TicketingV1DiscountsTicketTypesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DiscountTicketType>;
     /**
+     * Update an existing discount.
+     * Update a Discount
      */
     ticketingV1DiscountsUpdateRaw(requestParameters: TicketingV1DiscountsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Discount>>;
     /**
+     * Update an existing discount.
+     * Update a Discount
      */
     ticketingV1DiscountsUpdate(requestParameters: TicketingV1DiscountsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Discount>;
     /**
+     * Create a new section for a production venue.
+     * Create a Section
      */
     ticketingV1ProdVenueSectionsCreateRaw(requestParameters: TicketingV1ProdVenueSectionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Section>>;
     /**
+     * Create a new section for a production venue.
+     * Create a Section
      */
     ticketingV1ProdVenueSectionsCreate(requestParameters: TicketingV1ProdVenueSectionsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Section>;
     /**
+     * Delete a specific section for a production venue.
+     * Delete a Section
      */
     ticketingV1ProdVenueSectionsDestroyRaw(requestParameters: TicketingV1ProdVenueSectionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific section for a production venue.
+     * Delete a Section
      */
     ticketingV1ProdVenueSectionsDestroy(requestParameters: TicketingV1ProdVenueSectionsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all sections for a production venue.
+     * List Sections
      */
     ticketingV1ProdVenueSectionsListRaw(requestParameters: TicketingV1ProdVenueSectionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSectionList>>;
     /**
+     * Retrieve all sections for a production venue.
+     * List Sections
      */
     ticketingV1ProdVenueSectionsList(requestParameters: TicketingV1ProdVenueSectionsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSectionList>;
     /**
+     * Partially update an existing section for a production venue.
+     * Partially Update a Section
      */
     ticketingV1ProdVenueSectionsPartialUpdateRaw(requestParameters: TicketingV1ProdVenueSectionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Section>>;
     /**
+     * Partially update an existing section for a production venue.
+     * Partially Update a Section
      */
     ticketingV1ProdVenueSectionsPartialUpdate(requestParameters: TicketingV1ProdVenueSectionsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Section>;
     /**
+     * Retrieve a specific section for a production venue.
+     * Retrieve a Section
      */
     ticketingV1ProdVenueSectionsRetrieveRaw(requestParameters: TicketingV1ProdVenueSectionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Section>>;
     /**
+     * Retrieve a specific section for a production venue.
+     * Retrieve a Section
      */
     ticketingV1ProdVenueSectionsRetrieve(requestParameters: TicketingV1ProdVenueSectionsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Section>;
     /**
+     * Create a new section seat for a section.
+     * Create a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsCreateRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionSeat>>;
     /**
+     * Create a new section seat for a section.
+     * Create a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsCreate(requestParameters: TicketingV1ProdVenueSectionsSeatsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionSeat>;
     /**
+     * Delete a specific section seat for a section.
+     * Delete a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsDestroyRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific section seat for a section.
+     * Delete a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsDestroy(requestParameters: TicketingV1ProdVenueSectionsSeatsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all section seats for a section.
+     * List Section Seats
      */
     ticketingV1ProdVenueSectionsSeatsListRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedSectionSeatList>>;
     /**
+     * Retrieve all section seats for a section.
+     * List Section Seats
      */
     ticketingV1ProdVenueSectionsSeatsList(requestParameters: TicketingV1ProdVenueSectionsSeatsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedSectionSeatList>;
     /**
+     * Partially update an existing section seat for a section.
+     * Partially Update a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsPartialUpdateRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionSeat>>;
     /**
+     * Partially update an existing section seat for a section.
+     * Partially Update a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsPartialUpdate(requestParameters: TicketingV1ProdVenueSectionsSeatsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionSeat>;
     /**
+     * Retrieve a specific section seat for a section.
+     * Retrieve a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsRetrieveRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionSeat>>;
     /**
+     * Retrieve a specific section seat for a section.
+     * Retrieve a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsRetrieve(requestParameters: TicketingV1ProdVenueSectionsSeatsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionSeat>;
     /**
+     * Update an existing section seat for a section.
+     * Update a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsUpdateRaw(requestParameters: TicketingV1ProdVenueSectionsSeatsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SectionSeat>>;
     /**
+     * Update an existing section seat for a section.
+     * Update a Section Seat
      */
     ticketingV1ProdVenueSectionsSeatsUpdate(requestParameters: TicketingV1ProdVenueSectionsSeatsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SectionSeat>;
     /**
+     * Update an existing section for a production venue.
+     * Update a Section
      */
     ticketingV1ProdVenueSectionsUpdateRaw(requestParameters: TicketingV1ProdVenueSectionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Section>>;
     /**
+     * Update an existing section for a production venue.
+     * Update a Section
      */
     ticketingV1ProdVenueSectionsUpdate(requestParameters: TicketingV1ProdVenueSectionsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Section>;
     /**
+     * Create a new ticket type for a production venue.
+     * Create a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesCreateRaw(requestParameters: TicketingV1ProdVenueTicketTypesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketType>>;
     /**
+     * Create a new ticket type for a production venue.
+     * Create a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesCreate(requestParameters: TicketingV1ProdVenueTicketTypesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketType>;
     /**
+     * Delete a specific ticket type for a production venue.
+     * Delete a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesDestroyRaw(requestParameters: TicketingV1ProdVenueTicketTypesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific ticket type for a production venue.
+     * Delete a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesDestroy(requestParameters: TicketingV1ProdVenueTicketTypesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all ticket types for a production venue.
+     * List Ticket Types
      */
     ticketingV1ProdVenueTicketTypesListRaw(requestParameters: TicketingV1ProdVenueTicketTypesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedTicketTypeList>>;
     /**
+     * Retrieve all ticket types for a production venue.
+     * List Ticket Types
      */
     ticketingV1ProdVenueTicketTypesList(requestParameters: TicketingV1ProdVenueTicketTypesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedTicketTypeList>;
     /**
+     * Partially update an existing ticket type for a production venue.
+     * Partially Update a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesPartialUpdateRaw(requestParameters: TicketingV1ProdVenueTicketTypesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketType>>;
     /**
+     * Partially update an existing ticket type for a production venue.
+     * Partially Update a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesPartialUpdate(requestParameters: TicketingV1ProdVenueTicketTypesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketType>;
     /**
+     * Retrieve a specific ticket type for a production venue.
+     * Retrieve a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesRetrieveRaw(requestParameters: TicketingV1ProdVenueTicketTypesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketType>>;
     /**
+     * Retrieve a specific ticket type for a production venue.
+     * Retrieve a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesRetrieve(requestParameters: TicketingV1ProdVenueTicketTypesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketType>;
     /**
+     * Update an existing ticket type for a production venue.
+     * Update a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesUpdateRaw(requestParameters: TicketingV1ProdVenueTicketTypesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TicketType>>;
     /**
+     * Update an existing ticket type for a production venue.
+     * Update a Ticket Type
      */
     ticketingV1ProdVenueTicketTypesUpdate(requestParameters: TicketingV1ProdVenueTicketTypesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TicketType>;
     /**
+     * Create a new purchase.
+     * Create a Purchase
      */
     ticketingV1PurchasesCreateRaw(requestParameters: TicketingV1PurchasesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Purchase>>;
     /**
+     * Create a new purchase.
+     * Create a Purchase
      */
     ticketingV1PurchasesCreate(requestParameters: TicketingV1PurchasesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Purchase>;
     /**
+     * Delete a specific purchase.
+     * Delete a Purchase
      */
     ticketingV1PurchasesDestroyRaw(requestParameters: TicketingV1PurchasesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific purchase.
+     * Delete a Purchase
      */
     ticketingV1PurchasesDestroy(requestParameters: TicketingV1PurchasesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all purchases.
+     * List Purchases
      */
     ticketingV1PurchasesListRaw(requestParameters: TicketingV1PurchasesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedPurchaseList>>;
     /**
+     * Retrieve all purchases.
+     * List Purchases
      */
     ticketingV1PurchasesList(requestParameters?: TicketingV1PurchasesListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedPurchaseList>;
     /**
+     * Partially update an existing purchase.
+     * Partially Update a Purchase
      */
     ticketingV1PurchasesPartialUpdateRaw(requestParameters: TicketingV1PurchasesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Purchase>>;
     /**
+     * Partially update an existing purchase.
+     * Partially Update a Purchase
      */
     ticketingV1PurchasesPartialUpdate(requestParameters: TicketingV1PurchasesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Purchase>;
     /**
+     * Retrieve a specific purchase.
+     * Retrieve a Purchase
      */
     ticketingV1PurchasesRetrieveRaw(requestParameters: TicketingV1PurchasesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Purchase>>;
     /**
+     * Retrieve a specific purchase.
+     * Retrieve a Purchase
      */
     ticketingV1PurchasesRetrieve(requestParameters: TicketingV1PurchasesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Purchase>;
     /**
+     * Create a new ticket for a purchase.
+     * Create a Ticket
      */
     ticketingV1PurchasesTicketsCreateRaw(requestParameters: TicketingV1PurchasesTicketsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>>;
     /**
+     * Create a new ticket for a purchase.
+     * Create a Ticket
      */
     ticketingV1PurchasesTicketsCreate(requestParameters: TicketingV1PurchasesTicketsCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket>;
     /**
+     * Delete a specific ticket for a purchase.
+     * Delete a Ticket
      */
     ticketingV1PurchasesTicketsDestroyRaw(requestParameters: TicketingV1PurchasesTicketsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Delete a specific ticket for a purchase.
+     * Delete a Ticket
      */
     ticketingV1PurchasesTicketsDestroy(requestParameters: TicketingV1PurchasesTicketsDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Retrieve all tickets for a purchase.
+     * List Tickets
      */
     ticketingV1PurchasesTicketsListRaw(requestParameters: TicketingV1PurchasesTicketsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedTicketList>>;
     /**
+     * Retrieve all tickets for a purchase.
+     * List Tickets
      */
     ticketingV1PurchasesTicketsList(requestParameters: TicketingV1PurchasesTicketsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedTicketList>;
     /**
+     * Partially update an existing ticket for a purchase.
+     * Partially Update a Ticket
      */
     ticketingV1PurchasesTicketsPartialUpdateRaw(requestParameters: TicketingV1PurchasesTicketsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>>;
     /**
+     * Partially update an existing ticket for a purchase.
+     * Partially Update a Ticket
      */
     ticketingV1PurchasesTicketsPartialUpdate(requestParameters: TicketingV1PurchasesTicketsPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket>;
     /**
+     * Retrieve a specific ticket for a purchase.
+     * Retrieve a Ticket
      */
     ticketingV1PurchasesTicketsRetrieveRaw(requestParameters: TicketingV1PurchasesTicketsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>>;
     /**
+     * Retrieve a specific ticket for a purchase.
+     * Retrieve a Ticket
      */
     ticketingV1PurchasesTicketsRetrieve(requestParameters: TicketingV1PurchasesTicketsRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket>;
     /**
+     * Update an existing ticket for a purchase.
+     * Update a Ticket
      */
     ticketingV1PurchasesTicketsUpdateRaw(requestParameters: TicketingV1PurchasesTicketsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Ticket>>;
     /**
+     * Update an existing ticket for a purchase.
+     * Update a Ticket
      */
     ticketingV1PurchasesTicketsUpdate(requestParameters: TicketingV1PurchasesTicketsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Ticket>;
     /**
+     * Update an existing purchase.
+     * Update a Purchase
      */
     ticketingV1PurchasesUpdateRaw(requestParameters: TicketingV1PurchasesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Purchase>>;
     /**
+     * Update an existing purchase.
+     * Update a Purchase
      */
     ticketingV1PurchasesUpdate(requestParameters: TicketingV1PurchasesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Purchase>;
 }

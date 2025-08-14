@@ -76,6 +76,8 @@ var TicketingApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Create a new discount.
+     * Create a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -87,6 +89,9 @@ var TicketingApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('discount', 'Required parameter "discount" was null or undefined when calling ticketingV1DiscountsCreate().');
                         }
                         queryParameters = {};
+                        if (requestParameters['productionVenueId'] != null) {
+                            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+                        }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
                         urlPath = "/api/ticketing/v1/discounts/";
@@ -105,6 +110,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new discount.
+     * Create a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -121,6 +128,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific discount.
+     * Delete a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -132,6 +141,9 @@ var TicketingApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling ticketingV1DiscountsDestroy().');
                         }
                         queryParameters = {};
+                        if (requestParameters['productionVenueId'] != null) {
+                            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+                        }
                         headerParameters = {};
                         urlPath = "/api/ticketing/v1/discounts/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
@@ -149,6 +161,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific discount.
+     * Delete a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -163,6 +177,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all discounts. Optionally filter by production venue.
+     * List Discounts
      */
     TicketingApi.prototype.ticketingV1DiscountsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -176,6 +192,9 @@ var TicketingApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['pageSize'] != null) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['productionVenueId'] != null) {
+                            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
                         }
                         headerParameters = {};
                         urlPath = "/api/ticketing/v1/discounts/";
@@ -193,6 +212,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all discounts. Optionally filter by production venue.
+     * List Discounts
      */
     TicketingApi.prototype.ticketingV1DiscountsList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
@@ -210,6 +231,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing discount.
+     * Partially Update a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -221,6 +244,9 @@ var TicketingApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling ticketingV1DiscountsPartialUpdate().');
                         }
                         queryParameters = {};
+                        if (requestParameters['productionVenueId'] != null) {
+                            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+                        }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
                         urlPath = "/api/ticketing/v1/discounts/{id}/";
@@ -240,6 +266,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing discount.
+     * Partially Update a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -256,6 +284,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific discount.
+     * Retrieve a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -267,6 +297,9 @@ var TicketingApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling ticketingV1DiscountsRetrieve().');
                         }
                         queryParameters = {};
+                        if (requestParameters['productionVenueId'] != null) {
+                            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+                        }
                         headerParameters = {};
                         urlPath = "/api/ticketing/v1/discounts/{id}/";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
@@ -284,6 +317,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific discount.
+     * Retrieve a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -300,6 +335,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new ticket type assigned to a discount.
+     * Create a Ticket Type assigned to a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsTicketTypesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -333,6 +370,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new ticket type assigned to a discount.
+     * Create a Ticket Type assigned to a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsTicketTypesCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -349,6 +388,58 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific ticket type assigned to a discount.
+     * Delete a Ticket Type assigned to a Discount
+     */
+    TicketingApi.prototype.ticketingV1DiscountsTicketTypesDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['discountId'] == null) {
+                            throw new runtime.RequiredError('discountId', 'Required parameter "discountId" was null or undefined when calling ticketingV1DiscountsTicketTypesDestroy().');
+                        }
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling ticketingV1DiscountsTicketTypesDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/ticketing/v1/discounts/{discount_id}/ticket-types/{id}/";
+                        urlPath = urlPath.replace("{".concat("discount_id", "}"), encodeURIComponent(String(requestParameters['discountId'])));
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific ticket type assigned to a discount.
+     * Delete a Ticket Type assigned to a Discount
+     */
+    TicketingApi.prototype.ticketingV1DiscountsTicketTypesDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.ticketingV1DiscountsTicketTypesDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all ticket types assigned to a discount.
+     * List Ticket Types assigned to a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsTicketTypesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -383,6 +474,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all ticket types assigned to a discount.
+     * List Ticket Types assigned to a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsTicketTypesList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -399,6 +492,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific ticket type assigned to a discount.
+     * Retrieve a Ticket Type assigned to a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsTicketTypesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -431,6 +526,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific ticket type assigned to a discount.
+     * Retrieve a Ticket Type assigned to a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsTicketTypesRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -447,6 +544,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing discount.
+     * Update a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -461,6 +560,9 @@ var TicketingApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('discount', 'Required parameter "discount" was null or undefined when calling ticketingV1DiscountsUpdate().');
                         }
                         queryParameters = {};
+                        if (requestParameters['productionVenueId'] != null) {
+                            queryParameters['production_venue_id'] = requestParameters['productionVenueId'];
+                        }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
                         urlPath = "/api/ticketing/v1/discounts/{id}/";
@@ -480,6 +582,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing discount.
+     * Update a Discount
      */
     TicketingApi.prototype.ticketingV1DiscountsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -496,6 +600,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new section for a production venue.
+     * Create a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -529,6 +635,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new section for a production venue.
+     * Create a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -545,6 +653,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific section for a production venue.
+     * Delete a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -577,6 +687,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific section for a production venue.
+     * Delete a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -591,6 +703,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all sections for a production venue.
+     * List Sections
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -625,6 +739,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all sections for a production venue.
+     * List Sections
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -641,6 +757,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing section for a production venue.
+     * Partially Update a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -675,6 +793,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing section for a production venue.
+     * Partially Update a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -691,6 +811,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific section for a production venue.
+     * Retrieve a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -723,6 +845,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific section for a production venue.
+     * Retrieve a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -739,6 +863,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new section seat for a section.
+     * Create a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -776,6 +902,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new section seat for a section.
+     * Create a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -792,6 +920,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific section seat for a section.
+     * Delete a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -828,6 +958,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific section seat for a section.
+     * Delete a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -842,6 +974,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all section seats for a section.
+     * List Section Seats
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -880,6 +1014,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all section seats for a section.
+     * List Section Seats
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -896,6 +1032,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing section seat for a section.
+     * Partially Update a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -934,6 +1072,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing section seat for a section.
+     * Partially Update a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -950,6 +1090,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific section seat for a section.
+     * Retrieve a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -986,6 +1128,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific section seat for a section.
+     * Retrieve a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1002,6 +1146,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing section seat for a section.
+     * Update a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1043,6 +1189,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing section seat for a section.
+     * Update a Section Seat
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsSeatsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1059,6 +1207,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing section for a production venue.
+     * Update a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1096,6 +1246,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing section for a production venue.
+     * Update a Section
      */
     TicketingApi.prototype.ticketingV1ProdVenueSectionsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1112,6 +1264,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new ticket type for a production venue.
+     * Create a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1145,6 +1299,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new ticket type for a production venue.
+     * Create a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1161,6 +1317,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific ticket type for a production venue.
+     * Delete a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1193,6 +1351,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific ticket type for a production venue.
+     * Delete a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1207,6 +1367,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all ticket types for a production venue.
+     * List Ticket Types
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1241,6 +1403,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all ticket types for a production venue.
+     * List Ticket Types
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1257,6 +1421,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing ticket type for a production venue.
+     * Partially Update a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1291,6 +1457,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing ticket type for a production venue.
+     * Partially Update a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1307,6 +1475,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific ticket type for a production venue.
+     * Retrieve a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1339,6 +1509,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific ticket type for a production venue.
+     * Retrieve a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1355,6 +1527,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing ticket type for a production venue.
+     * Update a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1392,6 +1566,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing ticket type for a production venue.
+     * Update a Ticket Type
      */
     TicketingApi.prototype.ticketingV1ProdVenueTicketTypesUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1408,6 +1584,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new purchase.
+     * Create a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1437,6 +1615,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new purchase.
+     * Create a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1453,6 +1633,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific purchase.
+     * Delete a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1481,6 +1663,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific purchase.
+     * Delete a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1495,6 +1679,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all purchases.
+     * List Purchases
      */
     TicketingApi.prototype.ticketingV1PurchasesListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1525,6 +1711,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all purchases.
+     * List Purchases
      */
     TicketingApi.prototype.ticketingV1PurchasesList = function () {
         return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
@@ -1542,6 +1730,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing purchase.
+     * Partially Update a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1572,6 +1762,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing purchase.
+     * Partially Update a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1588,6 +1780,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific purchase.
+     * Retrieve a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1616,6 +1810,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific purchase.
+     * Retrieve a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1632,6 +1828,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new ticket for a purchase.
+     * Create a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1665,6 +1863,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Create a new ticket for a purchase.
+     * Create a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsCreate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1681,6 +1881,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific ticket for a purchase.
+     * Delete a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsDestroyRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1713,6 +1915,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Delete a specific ticket for a purchase.
+     * Delete a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsDestroy = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1727,6 +1931,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all tickets for a purchase.
+     * List Tickets
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsListRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1761,6 +1967,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all tickets for a purchase.
+     * List Tickets
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsList = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1777,6 +1985,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing ticket for a purchase.
+     * Partially Update a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsPartialUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1811,6 +2021,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Partially update an existing ticket for a purchase.
+     * Partially Update a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsPartialUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1827,6 +2039,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific ticket for a purchase.
+     * Retrieve a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsRetrieveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1859,6 +2073,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve a specific ticket for a purchase.
+     * Retrieve a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsRetrieve = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1875,6 +2091,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing ticket for a purchase.
+     * Update a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1912,6 +2130,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing ticket for a purchase.
+     * Update a Ticket
      */
     TicketingApi.prototype.ticketingV1PurchasesTicketsUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1928,6 +2148,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing purchase.
+     * Update a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -1961,6 +2183,8 @@ var TicketingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update an existing purchase.
+     * Update a Purchase
      */
     TicketingApi.prototype.ticketingV1PurchasesUpdate = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
