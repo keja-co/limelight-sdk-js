@@ -16,5 +16,14 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable */
 /* eslint-disable */
-__exportStar(require("./ApiApi"), exports);
+__exportStar(require("./AssetsApi"), exports);
+__exportStar(require("./AuditionsApi"), exports);
+__exportStar(require("./ComplianceApi"), exports);
 __exportStar(require("./DefaultApi"), exports);
+__exportStar(require("./DocumentsApi"), exports);
+__exportStar(require("./FormsApi"), exports);
+__exportStar(require("./HrApi"), exports);
+__exportStar(require("./IdentityApi"), exports);
+__exportStar(require("./LocationApi"), exports);
+__exportStar(require("./ProductionApi"), exports);
+__exportStar(require("./SchemaApi"), exports);
