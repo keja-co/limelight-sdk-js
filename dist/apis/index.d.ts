@@ -1,3 +1,4 @@
+export * from './ApiApi';
 export * from './AssetsApi';
 export * from './AuditionsApi';
 export * from './BudgetingApi';
@@ -9,5 +10,5 @@ export * from './HrApi';
 export * from './IdentityApi';
 export * from './LocationApi';
 export * from './ProductionApi';
-export * from './SchemaApi';
+export * from './TenantApi';
 export * from './TicketingApi';
