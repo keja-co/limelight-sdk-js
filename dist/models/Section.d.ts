@@ -39,7 +39,7 @@ export interface Section {
      * @type {Date}
      * @memberof Section
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Section Code, example: L-MEZ, ORCH, R-BALC, etc.
      * @type {string}
@@ -90,7 +90,7 @@ export interface Section {
      * @type {number}
      * @memberof Section
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -102,7 +102,7 @@ export interface Section {
      * @type {number}
      * @memberof Section
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The production & venue this section belongs to
      * @type {number}
@@ -117,4 +117,4 @@ export declare function instanceOfSection(value: object): value is Section;
 export declare function SectionFromJSON(json: any): Section;
 export declare function SectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): Section;
 export declare function SectionToJSON(json: any): Section;
-export declare function SectionToJSONTyped(value?: Omit<Section, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function SectionToJSONTyped(value?: Omit<Section, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

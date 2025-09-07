@@ -57,7 +57,7 @@ export interface PatchedAsset {
      * @type {Date}
      * @memberof PatchedAsset
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the asset
      * @type {string}
@@ -109,7 +109,7 @@ export interface PatchedAsset {
      * @type {number}
      * @memberof PatchedAsset
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -121,7 +121,7 @@ export interface PatchedAsset {
      * @type {number}
      * @memberof PatchedAsset
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * User who owns the asset
      * @type {number}
@@ -170,22 +170,19 @@ export function PatchedAssetToJSON(json: any): PatchedAsset {
     return PatchedAssetToJSONTyped(json, false);
 }
 
-export function PatchedAssetToJSONTyped(value?: Omit<PatchedAsset, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedAssetToJSONTyped(value?: Omit<PatchedAsset, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'type': AssetTypeEnumToJSON(value['type']),
         'description': value['description'],
         'notes': value['notes'],
         'value': value['value'],
         'condition': ConditionEnumToJSON(value['condition']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'owning_user': value['owningUser'],
     };
 }

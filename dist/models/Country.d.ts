@@ -38,7 +38,7 @@ export interface Country {
      * @type {Date}
      * @memberof Country
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface Country {
      * @type {number}
      * @memberof Country
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface Country {
      * @type {number}
      * @memberof Country
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the Country interface.
@@ -77,4 +77,4 @@ export declare function instanceOfCountry(value: object): value is Country;
 export declare function CountryFromJSON(json: any): Country;
 export declare function CountryFromJSONTyped(json: any, ignoreDiscriminator: boolean): Country;
 export declare function CountryToJSON(json: any): Country;
-export declare function CountryToJSONTyped(value?: Omit<Country, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function CountryToJSONTyped(value?: Omit<Country, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

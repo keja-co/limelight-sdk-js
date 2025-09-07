@@ -28,11 +28,15 @@ function instanceOfVendor(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     return true;
 }
@@ -47,7 +51,7 @@ function VendorFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'address': json['address'] == null ? undefined : json['address'],
         'notes': json['notes'] == null ? undefined : json['notes'],
@@ -59,20 +63,18 @@ function VendorFromJSONTyped(json, ignoreDiscriminator) {
         'paymentTerms': json['payment_terms'] == null ? undefined : json['payment_terms'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
     };
 }
 function VendorToJSON(json) {
     return VendorToJSONTyped(json, false);
 }
 function VendorToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'address': value['address'],
         'notes': value['notes'],
@@ -82,7 +84,5 @@ function VendorToJSONTyped(value, ignoreDiscriminator) {
         'website': value['website'],
         'abn': value['abn'],
         'payment_terms': value['paymentTerms'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }

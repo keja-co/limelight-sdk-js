@@ -57,7 +57,7 @@ export interface PatchedExpense {
      * @type {Date}
      * @memberof PatchedExpense
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {Date}
@@ -117,7 +117,7 @@ export interface PatchedExpense {
      * @type {number}
      * @memberof PatchedExpense
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -129,7 +129,7 @@ export interface PatchedExpense {
      * @type {number}
      * @memberof PatchedExpense
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -209,14 +209,13 @@ export function PatchedExpenseToJSON(json: any): PatchedExpense {
     return PatchedExpenseToJSONTyped(json, false);
 }
 
-export function PatchedExpenseToJSONTyped(value?: Omit<PatchedExpense, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedExpenseToJSONTyped(value?: Omit<PatchedExpense, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'approved_date_time': value['approvedDateTime'] === null ? null : ((value['approvedDateTime'] as any)?.toISOString()),
         'status': ExpenseStatusEnumToJSON(value['status']),
         'title': value['title'],
@@ -226,8 +225,6 @@ export function PatchedExpenseToJSONTyped(value?: Omit<PatchedExpense, 'id'|'cre
         'payment_method': ExpensePaymentMethodEnumToJSON(value['paymentMethod']),
         'notes': value['notes'],
         'receipt_number': value['receiptNumber'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'purchaser': value['purchaser'],
         'approver': value['approver'],
         'category': value['category'],

@@ -52,13 +52,13 @@ export interface DiscountTicketType {
      * @type {Date}
      * @memberof DiscountTicketType
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {number}
      * @memberof DiscountTicketType
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -70,7 +70,7 @@ export interface DiscountTicketType {
      * @type {number}
      * @memberof DiscountTicketType
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the DiscountTicketType interface.
@@ -79,4 +79,4 @@ export declare function instanceOfDiscountTicketType(value: object): value is Di
 export declare function DiscountTicketTypeFromJSON(json: any): DiscountTicketType;
 export declare function DiscountTicketTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): DiscountTicketType;
 export declare function DiscountTicketTypeToJSON(json: any): DiscountTicketType;
-export declare function DiscountTicketTypeToJSONTyped(value?: Omit<DiscountTicketType, 'id' | 'discount' | 'ticket_type' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function DiscountTicketTypeToJSONTyped(value?: Omit<DiscountTicketType, 'id' | 'discount' | 'ticket_type' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -42,7 +42,7 @@ export interface Submission {
      * @type {Date}
      * @memberof Submission
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {Date}
@@ -54,7 +54,7 @@ export interface Submission {
      * @type {number}
      * @memberof Submission
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -66,7 +66,7 @@ export interface Submission {
      * @type {number}
      * @memberof Submission
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -88,9 +88,11 @@ export function instanceOfSubmission(value: object): value is Submission {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('submittedDateTime' in value) || value['submittedDateTime'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('form' in value) || value['form'] === undefined) return false;
     return true;
 }
@@ -108,11 +110,11 @@ export function SubmissionFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'submittedDateTime': (new Date(json['submitted_date_time'])),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'form': json['form'],
         'member': json['member'] == null ? undefined : json['member'],
     };
@@ -122,16 +124,13 @@ export function SubmissionToJSON(json: any): Submission {
     return SubmissionToJSONTyped(json, false);
 }
 
-export function SubmissionToJSONTyped(value?: Omit<Submission, 'id'|'created_at'|'updated_at'|'submitted_date_time'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function SubmissionToJSONTyped(value?: Omit<Submission, 'id'|'created_at'|'updated_at'|'archive_at'|'submitted_date_time'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'form': value['form'],
         'member': value['member'],
     };

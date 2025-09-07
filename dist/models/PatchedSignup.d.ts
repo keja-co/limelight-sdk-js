@@ -38,7 +38,7 @@ export interface PatchedSignup {
      * @type {Date}
      * @memberof PatchedSignup
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * First name of the user signing up
      * @type {string}
@@ -74,7 +74,7 @@ export interface PatchedSignup {
      * @type {number}
      * @memberof PatchedSignup
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -86,7 +86,7 @@ export interface PatchedSignup {
      * @type {number}
      * @memberof PatchedSignup
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -107,4 +107,4 @@ export declare function instanceOfPatchedSignup(value: object): value is Patched
 export declare function PatchedSignupFromJSON(json: any): PatchedSignup;
 export declare function PatchedSignupFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedSignup;
 export declare function PatchedSignupToJSON(json: any): PatchedSignup;
-export declare function PatchedSignupToJSONTyped(value?: Omit<PatchedSignup, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedSignupToJSONTyped(value?: Omit<PatchedSignup, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -38,7 +38,7 @@ export interface Address {
      * @type {Date}
      * @memberof Address
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Street address or PO Box
      * @type {string}
@@ -74,7 +74,7 @@ export interface Address {
      * @type {number}
      * @memberof Address
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -86,7 +86,7 @@ export interface Address {
      * @type {number}
      * @memberof Address
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -107,4 +107,4 @@ export declare function instanceOfAddress(value: object): value is Address;
 export declare function AddressFromJSON(json: any): Address;
 export declare function AddressFromJSONTyped(json: any, ignoreDiscriminator: boolean): Address;
 export declare function AddressToJSON(json: any): Address;
-export declare function AddressToJSONTyped(value?: Omit<Address, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function AddressToJSONTyped(value?: Omit<Address, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

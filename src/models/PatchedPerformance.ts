@@ -50,7 +50,7 @@ export interface PatchedPerformance {
      * @type {Date}
      * @memberof PatchedPerformance
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {Date}
@@ -74,7 +74,7 @@ export interface PatchedPerformance {
      * @type {number}
      * @memberof PatchedPerformance
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -86,7 +86,7 @@ export interface PatchedPerformance {
      * @type {number}
      * @memberof PatchedPerformance
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -139,19 +139,16 @@ export function PatchedPerformanceToJSON(json: any): PatchedPerformance {
     return PatchedPerformanceToJSONTyped(json, false);
 }
 
-export function PatchedPerformanceToJSONTyped(value?: Omit<PatchedPerformance, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedPerformanceToJSONTyped(value?: Omit<PatchedPerformance, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'date': value['date'] == null ? undefined : ((value['date']).toISOString()),
         'notes': value['notes'],
         'status': PerformanceStatusEnumToJSON(value['status']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'venue': value['venue'],
     };

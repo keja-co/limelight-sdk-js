@@ -42,7 +42,7 @@ export interface PatchedFeedback {
      * @type {Date}
      * @memberof PatchedFeedback
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Feedback notes. Supports markdown.
      * @type {string}
@@ -60,7 +60,7 @@ export interface PatchedFeedback {
      * @type {number}
      * @memberof PatchedFeedback
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedFeedback {
      * @type {number}
      * @memberof PatchedFeedback
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -122,18 +122,15 @@ export function PatchedFeedbackToJSON(json: any): PatchedFeedback {
     return PatchedFeedbackToJSONTyped(json, false);
 }
 
-export function PatchedFeedbackToJSONTyped(value?: Omit<PatchedFeedback, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedFeedbackToJSONTyped(value?: Omit<PatchedFeedback, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'notes': value['notes'],
         'score': value['score'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'signup': value['signup'],
         'reviewer': value['reviewer'],
     };

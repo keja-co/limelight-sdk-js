@@ -38,7 +38,7 @@ export interface Vendor {
      * @type {Date}
      * @memberof Vendor
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -98,7 +98,7 @@ export interface Vendor {
      * @type {number}
      * @memberof Vendor
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -110,7 +110,7 @@ export interface Vendor {
      * @type {number}
      * @memberof Vendor
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the Vendor interface.
@@ -119,4 +119,4 @@ export declare function instanceOfVendor(value: object): value is Vendor;
 export declare function VendorFromJSON(json: any): Vendor;
 export declare function VendorFromJSONTyped(json: any, ignoreDiscriminator: boolean): Vendor;
 export declare function VendorToJSON(json: any): Vendor;
-export declare function VendorToJSONTyped(value?: Omit<Vendor, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function VendorToJSONTyped(value?: Omit<Vendor, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

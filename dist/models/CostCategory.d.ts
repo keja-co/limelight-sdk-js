@@ -38,7 +38,7 @@ export interface CostCategory {
      * @type {Date}
      * @memberof CostCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -62,7 +62,7 @@ export interface CostCategory {
      * @type {number}
      * @memberof CostCategory
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface CostCategory {
      * @type {number}
      * @memberof CostCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfCostCategory(value: object): value is CostCate
 export declare function CostCategoryFromJSON(json: any): CostCategory;
 export declare function CostCategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): CostCategory;
 export declare function CostCategoryToJSON(json: any): CostCategory;
-export declare function CostCategoryToJSONTyped(value?: Omit<CostCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function CostCategoryToJSONTyped(value?: Omit<CostCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

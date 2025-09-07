@@ -30,6 +30,8 @@ function instanceOfExpense(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('title' in value) || value['title'] === undefined)
         return false;
     if (!('cost' in value) || value['cost'] === undefined)
@@ -41,6 +43,8 @@ function instanceOfExpense(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('purchaser' in value) || value['purchaser'] === undefined)
         return false;
@@ -57,7 +61,7 @@ function ExpenseFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'approvedDateTime': json['approved_date_time'] == null ? undefined : (new Date(json['approved_date_time'])),
         'status': json['status'] == null ? undefined : (0, ExpenseStatusEnum_1.ExpenseStatusEnumFromJSON)(json['status']),
         'title': json['title'],
@@ -69,7 +73,7 @@ function ExpenseFromJSONTyped(json, ignoreDiscriminator) {
         'receiptNumber': json['receipt_number'] == null ? undefined : json['receipt_number'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'purchaser': json['purchaser'],
         'approver': json['approver'] == null ? undefined : json['approver'],
         'category': json['category'] == null ? undefined : json['category'],
@@ -81,14 +85,13 @@ function ExpenseToJSON(json) {
     return ExpenseToJSONTyped(json, false);
 }
 function ExpenseToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b;
+    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
-        'approved_date_time': value['approvedDateTime'] === null ? null : ((_b = value['approvedDateTime']) === null || _b === void 0 ? void 0 : _b.toISOString()),
+        'approved_date_time': value['approvedDateTime'] === null ? null : ((_a = value['approvedDateTime']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'status': (0, ExpenseStatusEnum_1.ExpenseStatusEnumToJSON)(value['status']),
         'title': value['title'],
         'description': value['description'],
@@ -97,8 +100,6 @@ function ExpenseToJSONTyped(value, ignoreDiscriminator) {
         'payment_method': (0, ExpensePaymentMethodEnum_1.ExpensePaymentMethodEnumToJSON)(value['paymentMethod']),
         'notes': value['notes'],
         'receipt_number': value['receiptNumber'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'purchaser': value['purchaser'],
         'approver': value['approver'],
         'category': value['category'],

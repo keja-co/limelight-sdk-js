@@ -38,7 +38,7 @@ export interface PatchedFeedback {
      * @type {Date}
      * @memberof PatchedFeedback
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Feedback notes. Supports markdown.
      * @type {string}
@@ -56,7 +56,7 @@ export interface PatchedFeedback {
      * @type {number}
      * @memberof PatchedFeedback
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedFeedback {
      * @type {number}
      * @memberof PatchedFeedback
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfPatchedFeedback(value: object): value is Patch
 export declare function PatchedFeedbackFromJSON(json: any): PatchedFeedback;
 export declare function PatchedFeedbackFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedFeedback;
 export declare function PatchedFeedbackToJSON(json: any): PatchedFeedback;
-export declare function PatchedFeedbackToJSONTyped(value?: Omit<PatchedFeedback, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedFeedbackToJSONTyped(value?: Omit<PatchedFeedback, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

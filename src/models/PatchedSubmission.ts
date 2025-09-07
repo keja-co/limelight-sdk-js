@@ -42,7 +42,7 @@ export interface PatchedSubmission {
      * @type {Date}
      * @memberof PatchedSubmission
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {Date}
@@ -54,7 +54,7 @@ export interface PatchedSubmission {
      * @type {number}
      * @memberof PatchedSubmission
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -66,7 +66,7 @@ export interface PatchedSubmission {
      * @type {number}
      * @memberof PatchedSubmission
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -115,16 +115,13 @@ export function PatchedSubmissionToJSON(json: any): PatchedSubmission {
     return PatchedSubmissionToJSONTyped(json, false);
 }
 
-export function PatchedSubmissionToJSONTyped(value?: Omit<PatchedSubmission, 'id'|'created_at'|'updated_at'|'submitted_date_time'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedSubmissionToJSONTyped(value?: Omit<PatchedSubmission, 'id'|'created_at'|'updated_at'|'archive_at'|'submitted_date_time'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'form': value['form'],
         'member': value['member'],
     };

@@ -50,7 +50,7 @@ export interface PatchedReimbursement {
      * @type {Date}
      * @memberof PatchedReimbursement
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {Date}
@@ -98,7 +98,7 @@ export interface PatchedReimbursement {
      * @type {number}
      * @memberof PatchedReimbursement
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -110,7 +110,7 @@ export interface PatchedReimbursement {
      * @type {number}
      * @memberof PatchedReimbursement
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -174,14 +174,13 @@ export function PatchedReimbursementToJSON(json: any): PatchedReimbursement {
     return PatchedReimbursementToJSONTyped(json, false);
 }
 
-export function PatchedReimbursementToJSONTyped(value?: Omit<PatchedReimbursement, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedReimbursementToJSONTyped(value?: Omit<PatchedReimbursement, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'approved_date_time': value['approvedDateTime'] == null ? undefined : ((value['approvedDateTime']).toISOString()),
         'amount': value['amount'],
         'scheduled_date': value['scheduledDate'] === null ? null : ((value['scheduledDate'] as any)?.toISOString().substring(0,10)),
@@ -189,8 +188,6 @@ export function PatchedReimbursementToJSONTyped(value?: Omit<PatchedReimbursemen
         'status': ReimbursementStatusEnumToJSON(value['status']),
         'payment_reference': value['paymentReference'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'payee': value['payee'],
         'approver': value['approver'],
         'expense': value['expense'],

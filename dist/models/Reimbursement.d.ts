@@ -39,7 +39,7 @@ export interface Reimbursement {
      * @type {Date}
      * @memberof Reimbursement
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {Date}
@@ -87,7 +87,7 @@ export interface Reimbursement {
      * @type {number}
      * @memberof Reimbursement
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -99,7 +99,7 @@ export interface Reimbursement {
      * @type {number}
      * @memberof Reimbursement
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -126,4 +126,4 @@ export declare function instanceOfReimbursement(value: object): value is Reimbur
 export declare function ReimbursementFromJSON(json: any): Reimbursement;
 export declare function ReimbursementFromJSONTyped(json: any, ignoreDiscriminator: boolean): Reimbursement;
 export declare function ReimbursementToJSON(json: any): Reimbursement;
-export declare function ReimbursementToJSONTyped(value?: Omit<Reimbursement, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ReimbursementToJSONTyped(value?: Omit<Reimbursement, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

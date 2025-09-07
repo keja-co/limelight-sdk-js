@@ -38,7 +38,7 @@ export interface PatchedDocumentVersion {
      * @type {Date}
      * @memberof PatchedDocumentVersion
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * The version of the document
      * @type {number}
@@ -62,7 +62,7 @@ export interface PatchedDocumentVersion {
      * @type {number}
      * @memberof PatchedDocumentVersion
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface PatchedDocumentVersion {
      * @type {number}
      * @memberof PatchedDocumentVersion
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfPatchedDocumentVersion(value: object): value i
 export declare function PatchedDocumentVersionFromJSON(json: any): PatchedDocumentVersion;
 export declare function PatchedDocumentVersionFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedDocumentVersion;
 export declare function PatchedDocumentVersionToJSON(json: any): PatchedDocumentVersion;
-export declare function PatchedDocumentVersionToJSONTyped(value?: Omit<PatchedDocumentVersion, 'id' | 'created_at' | 'updated_at' | 'version' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedDocumentVersionToJSONTyped(value?: Omit<PatchedDocumentVersion, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'version' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

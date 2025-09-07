@@ -38,7 +38,7 @@ export interface PatchedRehearsalParticipant {
      * @type {Date}
      * @memberof PatchedRehearsalParticipant
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Indicates if the participant is required for this rehearsal (as some members may be added to a rehearsal but not be required to attend).
      * @type {boolean}
@@ -56,7 +56,7 @@ export interface PatchedRehearsalParticipant {
      * @type {number}
      * @memberof PatchedRehearsalParticipant
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedRehearsalParticipant {
      * @type {number}
      * @memberof PatchedRehearsalParticipant
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfPatchedRehearsalParticipant(value: object): va
 export declare function PatchedRehearsalParticipantFromJSON(json: any): PatchedRehearsalParticipant;
 export declare function PatchedRehearsalParticipantFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedRehearsalParticipant;
 export declare function PatchedRehearsalParticipantToJSON(json: any): PatchedRehearsalParticipant;
-export declare function PatchedRehearsalParticipantToJSONTyped(value?: Omit<PatchedRehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedRehearsalParticipantToJSONTyped(value?: Omit<PatchedRehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

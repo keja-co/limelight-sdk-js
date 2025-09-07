@@ -40,7 +40,7 @@ export interface PatchedExpense {
      * @type {Date}
      * @memberof PatchedExpense
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {Date}
@@ -100,7 +100,7 @@ export interface PatchedExpense {
      * @type {number}
      * @memberof PatchedExpense
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -112,7 +112,7 @@ export interface PatchedExpense {
      * @type {number}
      * @memberof PatchedExpense
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -151,4 +151,4 @@ export declare function instanceOfPatchedExpense(value: object): value is Patche
 export declare function PatchedExpenseFromJSON(json: any): PatchedExpense;
 export declare function PatchedExpenseFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedExpense;
 export declare function PatchedExpenseToJSON(json: any): PatchedExpense;
-export declare function PatchedExpenseToJSONTyped(value?: Omit<PatchedExpense, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedExpenseToJSONTyped(value?: Omit<PatchedExpense, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

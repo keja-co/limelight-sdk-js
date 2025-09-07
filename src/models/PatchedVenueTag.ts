@@ -42,7 +42,7 @@ export interface PatchedVenueTag {
      * @type {Date}
      * @memberof PatchedVenueTag
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the tag
      * @type {string}
@@ -60,7 +60,7 @@ export interface PatchedVenueTag {
      * @type {number}
      * @memberof PatchedVenueTag
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedVenueTag {
      * @type {number}
      * @memberof PatchedVenueTag
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 
 /**
@@ -108,18 +108,15 @@ export function PatchedVenueTagToJSON(json: any): PatchedVenueTag {
     return PatchedVenueTagToJSONTyped(json, false);
 }
 
-export function PatchedVenueTagToJSONTyped(value?: Omit<PatchedVenueTag, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedVenueTagToJSONTyped(value?: Omit<PatchedVenueTag, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'description': value['description'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }
 

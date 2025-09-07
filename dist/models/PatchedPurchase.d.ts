@@ -40,7 +40,7 @@ export interface PatchedPurchase {
      * @type {Date}
      * @memberof PatchedPurchase
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Title for the purchase, e.g., 'VIP Tickets for Opening Night'.
      * @type {string}
@@ -138,7 +138,7 @@ export interface PatchedPurchase {
      * @type {number}
      * @memberof PatchedPurchase
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -150,7 +150,7 @@ export interface PatchedPurchase {
      * @type {number}
      * @memberof PatchedPurchase
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Discount applied to this purchase.
      * @type {number}
@@ -165,4 +165,4 @@ export declare function instanceOfPatchedPurchase(value: object): value is Patch
 export declare function PatchedPurchaseFromJSON(json: any): PatchedPurchase;
 export declare function PatchedPurchaseFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedPurchase;
 export declare function PatchedPurchaseToJSON(json: any): PatchedPurchase;
-export declare function PatchedPurchaseToJSONTyped(value?: Omit<PatchedPurchase, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedPurchaseToJSONTyped(value?: Omit<PatchedPurchase, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -39,7 +39,7 @@ export interface PatchedPerformance {
      * @type {Date}
      * @memberof PatchedPerformance
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {Date}
@@ -63,7 +63,7 @@ export interface PatchedPerformance {
      * @type {number}
      * @memberof PatchedPerformance
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -75,7 +75,7 @@ export interface PatchedPerformance {
      * @type {number}
      * @memberof PatchedPerformance
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -96,4 +96,4 @@ export declare function instanceOfPatchedPerformance(value: object): value is Pa
 export declare function PatchedPerformanceFromJSON(json: any): PatchedPerformance;
 export declare function PatchedPerformanceFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedPerformance;
 export declare function PatchedPerformanceToJSON(json: any): PatchedPerformance;
-export declare function PatchedPerformanceToJSONTyped(value?: Omit<PatchedPerformance, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedPerformanceToJSONTyped(value?: Omit<PatchedPerformance, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

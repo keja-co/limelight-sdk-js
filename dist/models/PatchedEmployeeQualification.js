@@ -49,17 +49,13 @@ function PatchedEmployeeQualificationToJSON(json) {
     return PatchedEmployeeQualificationToJSONTyped(json, false);
 }
 function PatchedEmployeeQualificationToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'issue_date': value['issueDate'] == null ? undefined : ((value['issueDate']).toISOString().substring(0, 10)),
         'expiry_date': value['expiryDate'] == null ? undefined : ((value['expiryDate']).toISOString().substring(0, 10)),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'employee': value['employee'],
         'qualification': value['qualification'],
     };

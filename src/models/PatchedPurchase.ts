@@ -57,7 +57,7 @@ export interface PatchedPurchase {
      * @type {Date}
      * @memberof PatchedPurchase
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Title for the purchase, e.g., 'VIP Tickets for Opening Night'.
      * @type {string}
@@ -155,7 +155,7 @@ export interface PatchedPurchase {
      * @type {number}
      * @memberof PatchedPurchase
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -167,7 +167,7 @@ export interface PatchedPurchase {
      * @type {number}
      * @memberof PatchedPurchase
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Discount applied to this purchase.
      * @type {number}
@@ -223,14 +223,13 @@ export function PatchedPurchaseToJSON(json: any): PatchedPurchase {
     return PatchedPurchaseToJSONTyped(json, false);
 }
 
-export function PatchedPurchaseToJSONTyped(value?: Omit<PatchedPurchase, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedPurchaseToJSONTyped(value?: Omit<PatchedPurchase, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'title': value['title'],
         'customer_first_name': value['customerFirstName'],
         'customer_last_name': value['customerLastName'],
@@ -244,8 +243,6 @@ export function PatchedPurchaseToJSONTyped(value?: Omit<PatchedPurchase, 'id'|'c
         'booking_fee': value['bookingFee'],
         'total_amount': value['totalAmount'],
         'payment_reference': value['paymentReference'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'discount_applied': value['discountApplied'],
     };
 }

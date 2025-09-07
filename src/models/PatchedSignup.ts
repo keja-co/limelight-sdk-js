@@ -42,7 +42,7 @@ export interface PatchedSignup {
      * @type {Date}
      * @memberof PatchedSignup
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * First name of the user signing up
      * @type {string}
@@ -78,7 +78,7 @@ export interface PatchedSignup {
      * @type {number}
      * @memberof PatchedSignup
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -90,7 +90,7 @@ export interface PatchedSignup {
      * @type {number}
      * @memberof PatchedSignup
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -143,21 +143,18 @@ export function PatchedSignupToJSON(json: any): PatchedSignup {
     return PatchedSignupToJSONTyped(json, false);
 }
 
-export function PatchedSignupToJSONTyped(value?: Omit<PatchedSignup, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedSignupToJSONTyped(value?: Omit<PatchedSignup, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'first_name': value['firstName'],
         'last_name': value['lastName'],
         'email': value['email'],
         'phone': value['phone'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'slot': value['slot'],
         'user': value['user'],
     };

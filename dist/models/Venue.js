@@ -31,11 +31,15 @@ function instanceOfVenue(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('tags' in value) || value['tags'] === undefined)
         return false;
@@ -53,7 +57,7 @@ function VenueFromJSONTyped(json, ignoreDiscriminator) {
         'address': (0, Address_1.AddressFromJSON)(json['address']),
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'notes': json['notes'] == null ? undefined : json['notes'],
         'contactName': json['contact_name'] == null ? undefined : json['contact_name'],
@@ -62,7 +66,7 @@ function VenueFromJSONTyped(json, ignoreDiscriminator) {
         'isActive': json['is_active'] == null ? undefined : json['is_active'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'tags': json['tags'],
     };
 }
@@ -70,22 +74,18 @@ function VenueToJSON(json) {
     return VenueToJSONTyped(json, false);
 }
 function VenueToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
         'address': (0, Address_1.AddressToJSON)(value['address']),
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'notes': value['notes'],
         'contact_name': value['contactName'],
         'contact_email': value['contactEmail'],
         'contact_phone': value['contactPhone'],
         'is_active': value['isActive'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'tags': value['tags'],
     };
 }

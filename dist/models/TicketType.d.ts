@@ -39,7 +39,7 @@ export interface TicketType {
      * @type {Date}
      * @memberof TicketType
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the ticket type, e.g., General Admission, VIP, etc.
      * @type {string}
@@ -95,7 +95,7 @@ export interface TicketType {
      * @type {number}
      * @memberof TicketType
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -107,7 +107,7 @@ export interface TicketType {
      * @type {number}
      * @memberof TicketType
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The production venue this ticket type belongs to.
      * @type {number}
@@ -122,4 +122,4 @@ export declare function instanceOfTicketType(value: object): value is TicketType
 export declare function TicketTypeFromJSON(json: any): TicketType;
 export declare function TicketTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): TicketType;
 export declare function TicketTypeToJSON(json: any): TicketType;
-export declare function TicketTypeToJSONTyped(value?: Omit<TicketType, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function TicketTypeToJSONTyped(value?: Omit<TicketType, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

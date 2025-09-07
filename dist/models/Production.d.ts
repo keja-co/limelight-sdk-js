@@ -39,7 +39,7 @@ export interface Production {
      * @type {Date}
      * @memberof Production
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -75,7 +75,7 @@ export interface Production {
      * @type {number}
      * @memberof Production
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -87,7 +87,7 @@ export interface Production {
      * @type {number}
      * @memberof Production
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The primary venue for the production, not necessarily where all performances will take place.
      * @type {number}
@@ -108,4 +108,4 @@ export declare function instanceOfProduction(value: object): value is Production
 export declare function ProductionFromJSON(json: any): Production;
 export declare function ProductionFromJSONTyped(json: any, ignoreDiscriminator: boolean): Production;
 export declare function ProductionToJSON(json: any): Production;
-export declare function ProductionToJSONTyped(value?: Omit<Production, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionToJSONTyped(value?: Omit<Production, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -50,7 +50,7 @@ export interface PatchedProductionRoleAssignment {
      * @type {Date}
      * @memberof PatchedProductionRoleAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {RoleEnum}
@@ -62,7 +62,7 @@ export interface PatchedProductionRoleAssignment {
      * @type {number}
      * @memberof PatchedProductionRoleAssignment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -74,7 +74,7 @@ export interface PatchedProductionRoleAssignment {
      * @type {number}
      * @memberof PatchedProductionRoleAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -125,17 +125,14 @@ export function PatchedProductionRoleAssignmentToJSON(json: any): PatchedProduct
     return PatchedProductionRoleAssignmentToJSONTyped(json, false);
 }
 
-export function PatchedProductionRoleAssignmentToJSONTyped(value?: Omit<PatchedProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedProductionRoleAssignmentToJSONTyped(value?: Omit<PatchedProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'role': RoleEnumToJSON(value['role']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'member': value['member'],
     };

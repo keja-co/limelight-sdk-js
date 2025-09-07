@@ -56,7 +56,7 @@ export interface PatchedSectionSeat {
      * @type {Date}
      * @memberof PatchedSectionSeat
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Seat Code, example: 1, 2, 3 etc. This should be unique within the row.
      * @type {string}
@@ -104,7 +104,7 @@ export interface PatchedSectionSeat {
      * @type {number}
      * @memberof PatchedSectionSeat
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -116,7 +116,7 @@ export interface PatchedSectionSeat {
      * @type {number}
      * @memberof PatchedSectionSeat
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 
 /**
@@ -158,14 +158,13 @@ export function PatchedSectionSeatToJSON(json: any): PatchedSectionSeat {
     return PatchedSectionSeatToJSONTyped(json, false);
 }
 
-export function PatchedSectionSeatToJSONTyped(value?: Omit<PatchedSectionSeat, 'id'|'section'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedSectionSeatToJSONTyped(value?: Omit<PatchedSectionSeat, 'id'|'section'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'seat_code': value['seatCode'],
         'row': value['row'],
         'notes': value['notes'],
@@ -173,8 +172,6 @@ export function PatchedSectionSeatToJSONTyped(value?: Omit<PatchedSectionSeat, '
         'display_x_position': value['displayXPosition'],
         'display_y_position': value['displayYPosition'],
         'accessible': value['accessible'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }
 

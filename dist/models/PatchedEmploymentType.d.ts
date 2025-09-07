@@ -38,7 +38,7 @@ export interface PatchedEmploymentType {
      * @type {Date}
      * @memberof PatchedEmploymentType
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface PatchedEmploymentType {
      * @type {number}
      * @memberof PatchedEmploymentType
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedEmploymentType {
      * @type {number}
      * @memberof PatchedEmploymentType
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 /**
  * Check if a given object implements the PatchedEmploymentType interface.
@@ -77,4 +77,4 @@ export declare function instanceOfPatchedEmploymentType(value: object): value is
 export declare function PatchedEmploymentTypeFromJSON(json: any): PatchedEmploymentType;
 export declare function PatchedEmploymentTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedEmploymentType;
 export declare function PatchedEmploymentTypeToJSON(json: any): PatchedEmploymentType;
-export declare function PatchedEmploymentTypeToJSONTyped(value?: Omit<PatchedEmploymentType, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedEmploymentTypeToJSONTyped(value?: Omit<PatchedEmploymentType, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

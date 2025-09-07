@@ -13,7 +13,7 @@ import * as runtime from '../runtime';
 import type { CostCategory, Expense, ExpenseAttachment, Income, IncomeCategory, PaginatedCostCategoryList, PaginatedExpenseAttachmentList, PaginatedExpenseList, PaginatedIncomeCategoryList, PaginatedIncomeList, PaginatedProductionCostCategoryList, PaginatedProductionIncomeCategoryList, PaginatedReimbursementList, PaginatedVendorList, PatchedCostCategory, PatchedExpense, PatchedExpenseAttachment, PatchedIncome, PatchedIncomeCategory, PatchedProductionCostCategory, PatchedProductionIncomeCategory, PatchedReimbursement, PatchedVendor, ProductionCostCategory, ProductionIncomeCategory, Reimbursement, Vendor } from '../models/index';
 export interface BudgetingV1CostCategoriesCreateRequest {
     tenantRef: string;
-    costCategory: Omit<CostCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    costCategory: Omit<CostCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1CostCategoriesDestroyRequest {
     id: number;
@@ -27,7 +27,7 @@ export interface BudgetingV1CostCategoriesListRequest {
 export interface BudgetingV1CostCategoriesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedCostCategory?: Omit<PatchedCostCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedCostCategory?: Omit<PatchedCostCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1CostCategoriesRetrieveRequest {
     id: number;
@@ -36,12 +36,12 @@ export interface BudgetingV1CostCategoriesRetrieveRequest {
 export interface BudgetingV1CostCategoriesUpdateRequest {
     id: number;
     tenantRef: string;
-    costCategory: Omit<CostCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    costCategory: Omit<CostCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ExpensesAttachmentsCreateRequest {
     expenseId: number;
     tenantRef: string;
-    expenseAttachment: Omit<ExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    expenseAttachment: Omit<ExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ExpensesAttachmentsDestroyRequest {
     expenseId: number;
@@ -58,7 +58,7 @@ export interface BudgetingV1ExpensesAttachmentsPartialUpdateRequest {
     expenseId: number;
     id: number;
     tenantRef: string;
-    patchedExpenseAttachment?: Omit<PatchedExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedExpenseAttachment?: Omit<PatchedExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ExpensesAttachmentsRetrieveRequest {
     expenseId: number;
@@ -69,11 +69,11 @@ export interface BudgetingV1ExpensesAttachmentsUpdateRequest {
     expenseId: number;
     id: number;
     tenantRef: string;
-    expenseAttachment: Omit<ExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    expenseAttachment: Omit<ExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ExpensesCreateRequest {
     tenantRef: string;
-    expense: Omit<Expense, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    expense: Omit<Expense, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ExpensesDestroyRequest {
     id: number;
@@ -87,7 +87,7 @@ export interface BudgetingV1ExpensesListRequest {
 export interface BudgetingV1ExpensesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedExpense?: Omit<PatchedExpense, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedExpense?: Omit<PatchedExpense, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ExpensesRetrieveRequest {
     id: number;
@@ -96,11 +96,11 @@ export interface BudgetingV1ExpensesRetrieveRequest {
 export interface BudgetingV1ExpensesUpdateRequest {
     id: number;
     tenantRef: string;
-    expense: Omit<Expense, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    expense: Omit<Expense, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1IncomeCategoriesCreateRequest {
     tenantRef: string;
-    incomeCategory: Omit<IncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    incomeCategory: Omit<IncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1IncomeCategoriesDestroyRequest {
     id: number;
@@ -114,7 +114,7 @@ export interface BudgetingV1IncomeCategoriesListRequest {
 export interface BudgetingV1IncomeCategoriesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedIncomeCategory?: Omit<PatchedIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedIncomeCategory?: Omit<PatchedIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1IncomeCategoriesRetrieveRequest {
     id: number;
@@ -123,11 +123,11 @@ export interface BudgetingV1IncomeCategoriesRetrieveRequest {
 export interface BudgetingV1IncomeCategoriesUpdateRequest {
     id: number;
     tenantRef: string;
-    incomeCategory: Omit<IncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    incomeCategory: Omit<IncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1IncomesCreateRequest {
     tenantRef: string;
-    income: Omit<Income, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    income: Omit<Income, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1IncomesDestroyRequest {
     id: number;
@@ -142,7 +142,7 @@ export interface BudgetingV1IncomesListRequest {
 export interface BudgetingV1IncomesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedIncome?: Omit<PatchedIncome, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedIncome?: Omit<PatchedIncome, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1IncomesRetrieveRequest {
     id: number;
@@ -151,12 +151,12 @@ export interface BudgetingV1IncomesRetrieveRequest {
 export interface BudgetingV1IncomesUpdateRequest {
     id: number;
     tenantRef: string;
-    income: Omit<Income, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    income: Omit<Income, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ProductionsCostCategoriesCreateRequest {
     productionId: number;
     tenantRef: string;
-    productionCostCategory: Omit<ProductionCostCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    productionCostCategory: Omit<ProductionCostCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ProductionsCostCategoriesDestroyRequest {
     id: number;
@@ -173,7 +173,7 @@ export interface BudgetingV1ProductionsCostCategoriesPartialUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    patchedProductionCostCategory?: Omit<PatchedProductionCostCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedProductionCostCategory?: Omit<PatchedProductionCostCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ProductionsCostCategoriesRetrieveRequest {
     id: number;
@@ -184,12 +184,12 @@ export interface BudgetingV1ProductionsCostCategoriesUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    productionCostCategory: Omit<ProductionCostCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    productionCostCategory: Omit<ProductionCostCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ProductionsIncomeCategoriesCreateRequest {
     productionId: number;
     tenantRef: string;
-    productionIncomeCategory: Omit<ProductionIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    productionIncomeCategory: Omit<ProductionIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ProductionsIncomeCategoriesDestroyRequest {
     id: number;
@@ -206,7 +206,7 @@ export interface BudgetingV1ProductionsIncomeCategoriesPartialUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    patchedProductionIncomeCategory?: Omit<PatchedProductionIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedProductionIncomeCategory?: Omit<PatchedProductionIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ProductionsIncomeCategoriesRetrieveRequest {
     id: number;
@@ -217,11 +217,11 @@ export interface BudgetingV1ProductionsIncomeCategoriesUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    productionIncomeCategory: Omit<ProductionIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    productionIncomeCategory: Omit<ProductionIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ReimbursementsCreateRequest {
     tenantRef: string;
-    reimbursement: Omit<Reimbursement, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    reimbursement: Omit<Reimbursement, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ReimbursementsDestroyRequest {
     id: number;
@@ -235,7 +235,7 @@ export interface BudgetingV1ReimbursementsListRequest {
 export interface BudgetingV1ReimbursementsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedReimbursement?: Omit<PatchedReimbursement, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedReimbursement?: Omit<PatchedReimbursement, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1ReimbursementsRetrieveRequest {
     id: number;
@@ -244,11 +244,11 @@ export interface BudgetingV1ReimbursementsRetrieveRequest {
 export interface BudgetingV1ReimbursementsUpdateRequest {
     id: number;
     tenantRef: string;
-    reimbursement: Omit<Reimbursement, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    reimbursement: Omit<Reimbursement, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1VendorsCreateRequest {
     tenantRef: string;
-    vendor: Omit<Vendor, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    vendor: Omit<Vendor, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1VendorsDestroyRequest {
     id: number;
@@ -262,7 +262,7 @@ export interface BudgetingV1VendorsListRequest {
 export interface BudgetingV1VendorsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedVendor?: Omit<PatchedVendor, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedVendor?: Omit<PatchedVendor, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface BudgetingV1VendorsRetrieveRequest {
     id: number;
@@ -271,7 +271,7 @@ export interface BudgetingV1VendorsRetrieveRequest {
 export interface BudgetingV1VendorsUpdateRequest {
     id: number;
     tenantRef: string;
-    vendor: Omit<Vendor, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    vendor: Omit<Vendor, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 /**
  *

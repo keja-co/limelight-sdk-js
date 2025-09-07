@@ -42,7 +42,7 @@ export interface Rehearsal {
      * @type {Date}
      * @memberof Rehearsal
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {Date}
@@ -66,7 +66,7 @@ export interface Rehearsal {
      * @type {number}
      * @memberof Rehearsal
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -78,7 +78,7 @@ export interface Rehearsal {
      * @type {number}
      * @memberof Rehearsal
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -100,10 +100,12 @@ export function instanceOfRehearsal(value: object): value is Rehearsal {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('startDatetime' in value) || value['startDatetime'] === undefined) return false;
     if (!('endDatetime' in value) || value['endDatetime'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('production' in value) || value['production'] === undefined) return false;
     return true;
 }
@@ -121,13 +123,13 @@ export function RehearsalFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'startDatetime': (new Date(json['start_datetime'])),
         'endDatetime': (new Date(json['end_datetime'])),
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'],
         'venue': json['venue'] == null ? undefined : json['venue'],
     };
@@ -137,19 +139,16 @@ export function RehearsalToJSON(json: any): Rehearsal {
     return RehearsalToJSONTyped(json, false);
 }
 
-export function RehearsalToJSONTyped(value?: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function RehearsalToJSONTyped(value?: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'start_datetime': ((value['startDatetime']).toISOString()),
         'end_datetime': ((value['endDatetime']).toISOString()),
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'venue': value['venue'],
     };

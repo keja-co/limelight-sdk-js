@@ -42,7 +42,7 @@ export interface PatchedForm {
      * @type {Date}
      * @memberof PatchedForm
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -102,7 +102,7 @@ export interface PatchedForm {
      * @type {number}
      * @memberof PatchedForm
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -114,7 +114,7 @@ export interface PatchedForm {
      * @type {number}
      * @memberof PatchedForm
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * If this form is associated with a production, select it here.
      * @type {number}
@@ -164,14 +164,13 @@ export function PatchedFormToJSON(json: any): PatchedForm {
     return PatchedFormToJSONTyped(json, false);
 }
 
-export function PatchedFormToJSONTyped(value?: Omit<PatchedForm, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedFormToJSONTyped(value?: Omit<PatchedForm, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'open_date_time': value['openDateTime'] === null ? null : ((value['openDateTime'] as any)?.toISOString()),
@@ -181,8 +180,6 @@ export function PatchedFormToJSONTyped(value?: Omit<PatchedForm, 'id'|'created_a
         'success_message': value['successMessage'],
         'is_template': value['isTemplate'],
         'is_active': value['isActive'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
     };
 }

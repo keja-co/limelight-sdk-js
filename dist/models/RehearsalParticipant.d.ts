@@ -38,7 +38,7 @@ export interface RehearsalParticipant {
      * @type {Date}
      * @memberof RehearsalParticipant
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Indicates if the participant is required for this rehearsal (as some members may be added to a rehearsal but not be required to attend).
      * @type {boolean}
@@ -56,7 +56,7 @@ export interface RehearsalParticipant {
      * @type {number}
      * @memberof RehearsalParticipant
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface RehearsalParticipant {
      * @type {number}
      * @memberof RehearsalParticipant
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfRehearsalParticipant(value: object): value is 
 export declare function RehearsalParticipantFromJSON(json: any): RehearsalParticipant;
 export declare function RehearsalParticipantFromJSONTyped(json: any, ignoreDiscriminator: boolean): RehearsalParticipant;
 export declare function RehearsalParticipantToJSON(json: any): RehearsalParticipant;
-export declare function RehearsalParticipantToJSONTyped(value?: Omit<RehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function RehearsalParticipantToJSONTyped(value?: Omit<RehearsalParticipant, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

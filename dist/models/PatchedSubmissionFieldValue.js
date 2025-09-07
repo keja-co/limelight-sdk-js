@@ -58,17 +58,16 @@ function PatchedSubmissionFieldValueToJSON(json) {
     return PatchedSubmissionFieldValueToJSONTyped(json, false);
 }
 function PatchedSubmissionFieldValueToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'text_data': value['textData'],
         'number_data': value['numberData'],
-        'date_data': value['dateData'] === null ? null : ((_b = value['dateData']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
-        'datetime_data': value['datetimeData'] === null ? null : ((_c = value['datetimeData']) === null || _c === void 0 ? void 0 : _c.toISOString()),
+        'date_data': value['dateData'] === null ? null : ((_a = value['dateData']) === null || _a === void 0 ? void 0 : _a.toISOString().substring(0, 10)),
+        'datetime_data': value['datetimeData'] === null ? null : ((_b = value['datetimeData']) === null || _b === void 0 ? void 0 : _b.toISOString()),
         'time_data': value['timeData'],
         'choice_data': value['choiceData'],
         'phone_data': value['phoneData'],
@@ -76,8 +75,6 @@ function PatchedSubmissionFieldValueToJSONTyped(value, ignoreDiscriminator) {
         'email_data': value['emailData'],
         'file_uri': value['fileUri'],
         'boolean_data': value['booleanData'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'submission': value['submission'],
         'form_field': value['formField'],
     };

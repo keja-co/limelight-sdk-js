@@ -38,7 +38,7 @@ export interface Qualification {
      * @type {Date}
      * @memberof Qualification
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface Qualification {
      * @type {number}
      * @memberof Qualification
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface Qualification {
      * @type {number}
      * @memberof Qualification
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the Qualification interface.
@@ -77,4 +77,4 @@ export declare function instanceOfQualification(value: object): value is Qualifi
 export declare function QualificationFromJSON(json: any): Qualification;
 export declare function QualificationFromJSONTyped(json: any, ignoreDiscriminator: boolean): Qualification;
 export declare function QualificationToJSON(json: any): Qualification;
-export declare function QualificationToJSONTyped(value?: Omit<Qualification, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function QualificationToJSONTyped(value?: Omit<Qualification, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

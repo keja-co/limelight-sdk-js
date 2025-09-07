@@ -54,22 +54,18 @@ function PatchedVenueToJSON(json) {
     return PatchedVenueToJSONTyped(json, false);
 }
 function PatchedVenueToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
         'address': (0, Address_1.AddressToJSON)(value['address']),
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'notes': value['notes'],
         'contact_name': value['contactName'],
         'contact_email': value['contactEmail'],
         'contact_phone': value['contactPhone'],
         'is_active': value['isActive'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'tags': value['tags'],
     };
 }

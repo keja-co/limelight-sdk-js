@@ -42,13 +42,13 @@ export interface ProductionVenue {
      * @type {Date}
      * @memberof ProductionVenue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {number}
      * @memberof ProductionVenue
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -60,7 +60,7 @@ export interface ProductionVenue {
      * @type {number}
      * @memberof ProductionVenue
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -82,8 +82,10 @@ export function instanceOfProductionVenue(value: object): value is ProductionVen
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('production' in value) || value['production'] === undefined) return false;
     if (!('venue' in value) || value['venue'] === undefined) return false;
     return true;
@@ -102,10 +104,10 @@ export function ProductionVenueFromJSONTyped(json: any, ignoreDiscriminator: boo
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'],
         'venue': json['venue'],
     };
@@ -115,16 +117,13 @@ export function ProductionVenueToJSON(json: any): ProductionVenue {
     return ProductionVenueToJSONTyped(json, false);
 }
 
-export function ProductionVenueToJSONTyped(value?: Omit<ProductionVenue, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function ProductionVenueToJSONTyped(value?: Omit<ProductionVenue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'venue': value['venue'],
     };

@@ -50,7 +50,7 @@ export interface Reimbursement {
      * @type {Date}
      * @memberof Reimbursement
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {Date}
@@ -98,7 +98,7 @@ export interface Reimbursement {
      * @type {number}
      * @memberof Reimbursement
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -110,7 +110,7 @@ export interface Reimbursement {
      * @type {number}
      * @memberof Reimbursement
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -140,9 +140,11 @@ export function instanceOfReimbursement(value: object): value is Reimbursement {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('amount' in value) || value['amount'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     return true;
 }
 
@@ -159,7 +161,7 @@ export function ReimbursementFromJSONTyped(json: any, ignoreDiscriminator: boole
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'approvedDateTime': json['approved_date_time'] == null ? undefined : (new Date(json['approved_date_time'])),
         'amount': json['amount'],
         'scheduledDate': json['scheduled_date'] == null ? undefined : (new Date(json['scheduled_date'])),
@@ -169,7 +171,7 @@ export function ReimbursementFromJSONTyped(json: any, ignoreDiscriminator: boole
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'payee': json['payee'] == null ? undefined : json['payee'],
         'approver': json['approver'] == null ? undefined : json['approver'],
         'expense': json['expense'] == null ? undefined : json['expense'],
@@ -180,14 +182,13 @@ export function ReimbursementToJSON(json: any): Reimbursement {
     return ReimbursementToJSONTyped(json, false);
 }
 
-export function ReimbursementToJSONTyped(value?: Omit<Reimbursement, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function ReimbursementToJSONTyped(value?: Omit<Reimbursement, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'approved_date_time': value['approvedDateTime'] == null ? undefined : ((value['approvedDateTime']).toISOString()),
         'amount': value['amount'],
         'scheduled_date': value['scheduledDate'] === null ? null : ((value['scheduledDate'] as any)?.toISOString().substring(0,10)),
@@ -195,8 +196,6 @@ export function ReimbursementToJSONTyped(value?: Omit<Reimbursement, 'id'|'creat
         'status': ReimbursementStatusEnumToJSON(value['status']),
         'payment_reference': value['paymentReference'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'payee': value['payee'],
         'approver': value['approver'],
         'expense': value['expense'],

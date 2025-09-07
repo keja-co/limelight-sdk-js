@@ -42,7 +42,7 @@ export interface Employee {
      * @type {Date}
      * @memberof Employee
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {string}
@@ -162,7 +162,7 @@ export interface Employee {
      * @type {number}
      * @memberof Employee
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -174,7 +174,7 @@ export interface Employee {
      * @type {number}
      * @memberof Employee
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -226,9 +226,11 @@ export function instanceOfEmployee(value: object): value is Employee {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('firstName' in value) || value['firstName'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('user' in value) || value['user'] === undefined) return false;
     if (!('qualifications' in value) || value['qualifications'] === undefined) return false;
     return true;
@@ -247,7 +249,7 @@ export function EmployeeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'firstName': json['first_name'],
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'email': json['email'] == null ? undefined : json['email'],
@@ -269,7 +271,7 @@ export function EmployeeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'user': json['user'],
         'employeeAddress': json['employee_address'] == null ? undefined : json['employee_address'],
         'state': json['state'] == null ? undefined : json['state'],
@@ -284,14 +286,13 @@ export function EmployeeToJSON(json: any): Employee {
     return EmployeeToJSONTyped(json, false);
 }
 
-export function EmployeeToJSONTyped(value?: Omit<Employee, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function EmployeeToJSONTyped(value?: Omit<Employee, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'first_name': value['firstName'],
         'last_name': value['lastName'],
         'email': value['email'],
@@ -311,8 +312,6 @@ export function EmployeeToJSONTyped(value?: Omit<Employee, 'id'|'created_at'|'up
         'is_active': value['isActive'],
         'probation_end_date': value['probationEndDate'] === null ? null : ((value['probationEndDate'] as any)?.toISOString().substring(0,10)),
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'user': value['user'],
         'employee_address': value['employeeAddress'],
         'state': value['state'],

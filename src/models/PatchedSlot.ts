@@ -42,7 +42,7 @@ export interface PatchedSlot {
      * @type {Date}
      * @memberof PatchedSlot
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the slot
      * @type {string}
@@ -78,7 +78,7 @@ export interface PatchedSlot {
      * @type {number}
      * @memberof PatchedSlot
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -90,7 +90,7 @@ export interface PatchedSlot {
      * @type {number}
      * @memberof PatchedSlot
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -136,21 +136,18 @@ export function PatchedSlotToJSON(json: any): PatchedSlot {
     return PatchedSlotToJSONTyped(json, false);
 }
 
-export function PatchedSlotToJSONTyped(value?: Omit<PatchedSlot, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedSlotToJSONTyped(value?: Omit<PatchedSlot, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'start_time': value['startTime'] == null ? undefined : ((value['startTime']).toISOString()),
         'end_time': value['endTime'] == null ? undefined : ((value['endTime']).toISOString()),
         'limit': value['limit'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'audition': value['audition'],
     };
 }

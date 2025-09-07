@@ -42,7 +42,7 @@ export interface State {
      * @type {Date}
      * @memberof State
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {string}
@@ -60,7 +60,7 @@ export interface State {
      * @type {number}
      * @memberof State
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface State {
      * @type {number}
      * @memberof State
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -88,9 +88,11 @@ export function instanceOfState(value: object): value is State {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('country' in value) || value['country'] === undefined) return false;
     return true;
 }
@@ -108,12 +110,12 @@ export function StateFromJSONTyped(json: any, ignoreDiscriminator: boolean): Sta
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'code': json['code'] == null ? undefined : json['code'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'country': json['country'],
     };
 }
@@ -122,18 +124,15 @@ export function StateToJSON(json: any): State {
     return StateToJSONTyped(json, false);
 }
 
-export function StateToJSONTyped(value?: Omit<State, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function StateToJSONTyped(value?: Omit<State, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'code': value['code'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'country': value['country'],
     };
 }

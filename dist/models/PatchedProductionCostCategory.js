@@ -51,19 +51,15 @@ function PatchedProductionCostCategoryToJSON(json) {
     return PatchedProductionCostCategoryToJSONTyped(json, false);
 }
 function PatchedProductionCostCategoryToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'description': value['description'],
         'line_code': value['lineCode'],
         'budget': value['budget'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'company_cost_category': value['companyCostCategory'],
     };

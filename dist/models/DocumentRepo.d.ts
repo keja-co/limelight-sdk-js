@@ -38,7 +38,7 @@ export interface DocumentRepo {
      * @type {Date}
      * @memberof DocumentRepo
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -62,7 +62,7 @@ export interface DocumentRepo {
      * @type {number}
      * @memberof DocumentRepo
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface DocumentRepo {
      * @type {number}
      * @memberof DocumentRepo
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the DocumentRepo interface.
@@ -83,4 +83,4 @@ export declare function instanceOfDocumentRepo(value: object): value is Document
 export declare function DocumentRepoFromJSON(json: any): DocumentRepo;
 export declare function DocumentRepoFromJSONTyped(json: any, ignoreDiscriminator: boolean): DocumentRepo;
 export declare function DocumentRepoToJSON(json: any): DocumentRepo;
-export declare function DocumentRepoToJSONTyped(value?: Omit<DocumentRepo, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function DocumentRepoToJSONTyped(value?: Omit<DocumentRepo, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

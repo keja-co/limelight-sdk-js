@@ -42,13 +42,13 @@ export interface VenueTagAssignment {
      * @type {Date}
      * @memberof VenueTagAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {number}
      * @memberof VenueTagAssignment
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -60,7 +60,7 @@ export interface VenueTagAssignment {
      * @type {number}
      * @memberof VenueTagAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * Venue to which the tag is assigned
      * @type {number}
@@ -82,8 +82,10 @@ export function instanceOfVenueTagAssignment(value: object): value is VenueTagAs
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('venue' in value) || value['venue'] === undefined) return false;
     if (!('tag' in value) || value['tag'] === undefined) return false;
     return true;
@@ -102,10 +104,10 @@ export function VenueTagAssignmentFromJSONTyped(json: any, ignoreDiscriminator: 
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'venue': json['venue'],
         'tag': json['tag'],
     };
@@ -115,16 +117,13 @@ export function VenueTagAssignmentToJSON(json: any): VenueTagAssignment {
     return VenueTagAssignmentToJSONTyped(json, false);
 }
 
-export function VenueTagAssignmentToJSONTyped(value?: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function VenueTagAssignmentToJSONTyped(value?: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'venue': value['venue'],
         'tag': value['tag'],
     };

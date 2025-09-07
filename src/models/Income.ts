@@ -64,7 +64,7 @@ export interface Income {
      * @type {Date}
      * @memberof Income
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {string}
@@ -154,7 +154,7 @@ export interface Income {
      * @type {number}
      * @memberof Income
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -166,7 +166,7 @@ export interface Income {
      * @type {number}
      * @memberof Income
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The Income Category this income belongs to. Either this or `prod_category` must be set (but not both).
      * @type {number}
@@ -190,11 +190,13 @@ export function instanceOfIncome(value: object): value is Income {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('amount' in value) || value['amount'] === undefined) return false;
     if (!('paymentMethod' in value) || value['paymentMethod'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     return true;
 }
 
@@ -211,7 +213,7 @@ export function IncomeFromJSONTyped(json: any, ignoreDiscriminator: boolean): In
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'amount': json['amount'],
@@ -228,7 +230,7 @@ export function IncomeFromJSONTyped(json: any, ignoreDiscriminator: boolean): In
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'category': json['category'] == null ? undefined : json['category'],
         'prodCategory': json['prod_category'] == null ? undefined : json['prod_category'],
     };
@@ -238,14 +240,13 @@ export function IncomeToJSON(json: any): Income {
     return IncomeToJSONTyped(json, false);
 }
 
-export function IncomeToJSONTyped(value?: Omit<Income, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function IncomeToJSONTyped(value?: Omit<Income, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'amount': value['amount'],
@@ -260,8 +261,6 @@ export function IncomeToJSONTyped(value?: Omit<Income, 'id'|'created_at'|'update
         'tax_amount': value['taxAmount'],
         'reference_number': value['referenceNumber'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'category': value['category'],
         'prod_category': value['prodCategory'],
     };

@@ -61,14 +61,13 @@ function PatchedExpenseToJSON(json) {
     return PatchedExpenseToJSONTyped(json, false);
 }
 function PatchedExpenseToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b;
+    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
-        'approved_date_time': value['approvedDateTime'] === null ? null : ((_b = value['approvedDateTime']) === null || _b === void 0 ? void 0 : _b.toISOString()),
+        'approved_date_time': value['approvedDateTime'] === null ? null : ((_a = value['approvedDateTime']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'status': (0, ExpenseStatusEnum_1.ExpenseStatusEnumToJSON)(value['status']),
         'title': value['title'],
         'description': value['description'],
@@ -77,8 +76,6 @@ function PatchedExpenseToJSONTyped(value, ignoreDiscriminator) {
         'payment_method': (0, ExpensePaymentMethodEnum_1.ExpensePaymentMethodEnumToJSON)(value['paymentMethod']),
         'notes': value['notes'],
         'receipt_number': value['receiptNumber'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'purchaser': value['purchaser'],
         'approver': value['approver'],
         'category': value['category'],

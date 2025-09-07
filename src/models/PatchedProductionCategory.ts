@@ -42,7 +42,7 @@ export interface PatchedProductionCategory {
      * @type {Date}
      * @memberof PatchedProductionCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -72,7 +72,7 @@ export interface PatchedProductionCategory {
      * @type {number}
      * @memberof PatchedProductionCategory
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -84,7 +84,7 @@ export interface PatchedProductionCategory {
      * @type {number}
      * @memberof PatchedProductionCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Parent category for hierarchical categorisation.
      * @type {number}
@@ -129,20 +129,17 @@ export function PatchedProductionCategoryToJSON(json: any): PatchedProductionCat
     return PatchedProductionCategoryToJSONTyped(json, false);
 }
 
-export function PatchedProductionCategoryToJSONTyped(value?: Omit<PatchedProductionCategory, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedProductionCategoryToJSONTyped(value?: Omit<PatchedProductionCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'description': value['description'],
         'slug': value['slug'],
         'is_active': value['isActive'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'parent': value['parent'],
     };
 }

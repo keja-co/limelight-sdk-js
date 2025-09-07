@@ -38,7 +38,7 @@ export interface Assignment {
      * @type {Date}
      * @memberof Assignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Date and time when the asset was assigned
      * @type {Date}
@@ -56,7 +56,7 @@ export interface Assignment {
      * @type {number}
      * @memberof Assignment
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface Assignment {
      * @type {number}
      * @memberof Assignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The asset being assigned
      * @type {number}
@@ -95,4 +95,4 @@ export declare function instanceOfAssignment(value: object): value is Assignment
 export declare function AssignmentFromJSON(json: any): Assignment;
 export declare function AssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): Assignment;
 export declare function AssignmentToJSON(json: any): Assignment;
-export declare function AssignmentToJSONTyped(value?: Omit<Assignment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function AssignmentToJSONTyped(value?: Omit<Assignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

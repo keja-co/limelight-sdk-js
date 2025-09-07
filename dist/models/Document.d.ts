@@ -39,7 +39,7 @@ export interface Document {
      * @type {Date}
      * @memberof Document
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -63,7 +63,7 @@ export interface Document {
      * @type {number}
      * @memberof Document
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -75,7 +75,7 @@ export interface Document {
      * @type {number}
      * @memberof Document
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -120,4 +120,4 @@ export declare function instanceOfDocument(value: object): value is Document;
 export declare function DocumentFromJSON(json: any): Document;
 export declare function DocumentFromJSONTyped(json: any, ignoreDiscriminator: boolean): Document;
 export declare function DocumentToJSON(json: any): Document;
-export declare function DocumentToJSONTyped(value?: Omit<Document, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function DocumentToJSONTyped(value?: Omit<Document, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

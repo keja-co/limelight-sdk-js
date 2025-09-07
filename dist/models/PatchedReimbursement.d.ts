@@ -39,7 +39,7 @@ export interface PatchedReimbursement {
      * @type {Date}
      * @memberof PatchedReimbursement
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {Date}
@@ -87,7 +87,7 @@ export interface PatchedReimbursement {
      * @type {number}
      * @memberof PatchedReimbursement
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -99,7 +99,7 @@ export interface PatchedReimbursement {
      * @type {number}
      * @memberof PatchedReimbursement
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -126,4 +126,4 @@ export declare function instanceOfPatchedReimbursement(value: object): value is 
 export declare function PatchedReimbursementFromJSON(json: any): PatchedReimbursement;
 export declare function PatchedReimbursementFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedReimbursement;
 export declare function PatchedReimbursementToJSON(json: any): PatchedReimbursement;
-export declare function PatchedReimbursementToJSONTyped(value?: Omit<PatchedReimbursement, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedReimbursementToJSONTyped(value?: Omit<PatchedReimbursement, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

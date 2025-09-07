@@ -28,9 +28,13 @@ function instanceOfSubmissionFieldValue(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('submission' in value) || value['submission'] === undefined)
         return false;
@@ -49,7 +53,7 @@ function SubmissionFieldValueFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'textData': json['text_data'] == null ? undefined : json['text_data'],
         'numberData': json['number_data'] == null ? undefined : json['number_data'],
         'dateData': json['date_data'] == null ? undefined : (new Date(json['date_data'])),
@@ -63,7 +67,7 @@ function SubmissionFieldValueFromJSONTyped(json, ignoreDiscriminator) {
         'booleanData': json['boolean_data'] == null ? undefined : json['boolean_data'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'submission': json['submission'],
         'formField': json['form_field'],
     };
@@ -72,17 +76,16 @@ function SubmissionFieldValueToJSON(json) {
     return SubmissionFieldValueToJSONTyped(json, false);
 }
 function SubmissionFieldValueToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'text_data': value['textData'],
         'number_data': value['numberData'],
-        'date_data': value['dateData'] === null ? null : ((_b = value['dateData']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
-        'datetime_data': value['datetimeData'] === null ? null : ((_c = value['datetimeData']) === null || _c === void 0 ? void 0 : _c.toISOString()),
+        'date_data': value['dateData'] === null ? null : ((_a = value['dateData']) === null || _a === void 0 ? void 0 : _a.toISOString().substring(0, 10)),
+        'datetime_data': value['datetimeData'] === null ? null : ((_b = value['datetimeData']) === null || _b === void 0 ? void 0 : _b.toISOString()),
         'time_data': value['timeData'],
         'choice_data': value['choiceData'],
         'phone_data': value['phoneData'],
@@ -90,8 +93,6 @@ function SubmissionFieldValueToJSONTyped(value, ignoreDiscriminator) {
         'email_data': value['emailData'],
         'file_uri': value['fileUri'],
         'boolean_data': value['booleanData'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'submission': value['submission'],
         'form_field': value['formField'],
     };

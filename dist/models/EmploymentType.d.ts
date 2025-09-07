@@ -38,7 +38,7 @@ export interface EmploymentType {
      * @type {Date}
      * @memberof EmploymentType
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface EmploymentType {
      * @type {number}
      * @memberof EmploymentType
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface EmploymentType {
      * @type {number}
      * @memberof EmploymentType
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the EmploymentType interface.
@@ -77,4 +77,4 @@ export declare function instanceOfEmploymentType(value: object): value is Employ
 export declare function EmploymentTypeFromJSON(json: any): EmploymentType;
 export declare function EmploymentTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): EmploymentType;
 export declare function EmploymentTypeToJSON(json: any): EmploymentType;
-export declare function EmploymentTypeToJSONTyped(value?: Omit<EmploymentType, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function EmploymentTypeToJSONTyped(value?: Omit<EmploymentType, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

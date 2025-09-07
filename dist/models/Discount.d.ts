@@ -39,7 +39,7 @@ export interface Discount {
      * @type {Date}
      * @memberof Discount
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the discount, e.g., Early Bird, Student Discount, etc.
      * @type {string}
@@ -115,7 +115,7 @@ export interface Discount {
      * @type {number}
      * @memberof Discount
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -127,7 +127,7 @@ export interface Discount {
      * @type {number}
      * @memberof Discount
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The production this discount applies to.
      * @type {number}
@@ -154,4 +154,4 @@ export declare function instanceOfDiscount(value: object): value is Discount;
 export declare function DiscountFromJSON(json: any): Discount;
 export declare function DiscountFromJSONTyped(json: any, ignoreDiscriminator: boolean): Discount;
 export declare function DiscountToJSON(json: any): Discount;
-export declare function DiscountToJSONTyped(value?: Omit<Discount, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function DiscountToJSONTyped(value?: Omit<Discount, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

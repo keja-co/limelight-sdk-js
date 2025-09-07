@@ -38,7 +38,7 @@ export interface Submission {
      * @type {Date}
      * @memberof Submission
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {Date}
@@ -50,7 +50,7 @@ export interface Submission {
      * @type {number}
      * @memberof Submission
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -62,7 +62,7 @@ export interface Submission {
      * @type {number}
      * @memberof Submission
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -83,4 +83,4 @@ export declare function instanceOfSubmission(value: object): value is Submission
 export declare function SubmissionFromJSON(json: any): Submission;
 export declare function SubmissionFromJSONTyped(json: any, ignoreDiscriminator: boolean): Submission;
 export declare function SubmissionToJSON(json: any): Submission;
-export declare function SubmissionToJSONTyped(value?: Omit<Submission, 'id' | 'created_at' | 'updated_at' | 'submitted_date_time' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function SubmissionToJSONTyped(value?: Omit<Submission, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'submitted_date_time' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

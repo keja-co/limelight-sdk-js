@@ -42,7 +42,7 @@ export interface PatchedProductionCategoryAssignment {
      * @type {Date}
      * @memberof PatchedProductionCategoryAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Indicates if this is the primary category for the production.
      * @type {boolean}
@@ -54,7 +54,7 @@ export interface PatchedProductionCategoryAssignment {
      * @type {number}
      * @memberof PatchedProductionCategoryAssignment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -66,7 +66,7 @@ export interface PatchedProductionCategoryAssignment {
      * @type {number}
      * @memberof PatchedProductionCategoryAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -115,17 +115,14 @@ export function PatchedProductionCategoryAssignmentToJSON(json: any): PatchedPro
     return PatchedProductionCategoryAssignmentToJSONTyped(json, false);
 }
 
-export function PatchedProductionCategoryAssignmentToJSONTyped(value?: Omit<PatchedProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedProductionCategoryAssignmentToJSONTyped(value?: Omit<PatchedProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'is_primary': value['isPrimary'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'category': value['category'],
     };

@@ -38,7 +38,7 @@ export interface EmployeeQualification {
      * @type {Date}
      * @memberof EmployeeQualification
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {Date}
@@ -56,7 +56,7 @@ export interface EmployeeQualification {
      * @type {number}
      * @memberof EmployeeQualification
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface EmployeeQualification {
      * @type {number}
      * @memberof EmployeeQualification
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfEmployeeQualification(value: object): value is
 export declare function EmployeeQualificationFromJSON(json: any): EmployeeQualification;
 export declare function EmployeeQualificationFromJSONTyped(json: any, ignoreDiscriminator: boolean): EmployeeQualification;
 export declare function EmployeeQualificationToJSON(json: any): EmployeeQualification;
-export declare function EmployeeQualificationToJSONTyped(value?: Omit<EmployeeQualification, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function EmployeeQualificationToJSONTyped(value?: Omit<EmployeeQualification, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

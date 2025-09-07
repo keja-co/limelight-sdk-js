@@ -38,7 +38,7 @@ export interface PatchedState {
      * @type {Date}
      * @memberof PatchedState
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface PatchedState {
      * @type {number}
      * @memberof PatchedState
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedState {
      * @type {number}
      * @memberof PatchedState
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -83,4 +83,4 @@ export declare function instanceOfPatchedState(value: object): value is PatchedS
 export declare function PatchedStateFromJSON(json: any): PatchedState;
 export declare function PatchedStateFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedState;
 export declare function PatchedStateToJSON(json: any): PatchedState;
-export declare function PatchedStateToJSONTyped(value?: Omit<PatchedState, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedStateToJSONTyped(value?: Omit<PatchedState, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

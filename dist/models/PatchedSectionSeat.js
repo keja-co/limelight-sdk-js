@@ -54,13 +54,11 @@ function PatchedSectionSeatToJSON(json) {
     return PatchedSectionSeatToJSONTyped(json, false);
 }
 function PatchedSectionSeatToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'seat_code': value['seatCode'],
         'row': value['row'],
         'notes': value['notes'],
@@ -68,7 +66,5 @@ function PatchedSectionSeatToJSONTyped(value, ignoreDiscriminator) {
         'display_x_position': value['displayXPosition'],
         'display_y_position': value['displayYPosition'],
         'accessible': value['accessible'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }

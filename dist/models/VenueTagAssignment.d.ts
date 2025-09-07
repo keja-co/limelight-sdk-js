@@ -38,13 +38,13 @@ export interface VenueTagAssignment {
      * @type {Date}
      * @memberof VenueTagAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {number}
      * @memberof VenueTagAssignment
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -56,7 +56,7 @@ export interface VenueTagAssignment {
      * @type {number}
      * @memberof VenueTagAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * Venue to which the tag is assigned
      * @type {number}
@@ -77,4 +77,4 @@ export declare function instanceOfVenueTagAssignment(value: object): value is Ve
 export declare function VenueTagAssignmentFromJSON(json: any): VenueTagAssignment;
 export declare function VenueTagAssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): VenueTagAssignment;
 export declare function VenueTagAssignmentToJSON(json: any): VenueTagAssignment;
-export declare function VenueTagAssignmentToJSONTyped(value?: Omit<VenueTagAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function VenueTagAssignmentToJSONTyped(value?: Omit<VenueTagAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

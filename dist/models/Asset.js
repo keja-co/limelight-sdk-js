@@ -30,11 +30,15 @@ function instanceOfAsset(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     return true;
 }
@@ -49,7 +53,7 @@ function AssetFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'type': json['type'] == null ? undefined : (0, AssetTypeEnum_1.AssetTypeEnumFromJSON)(json['type']),
         'description': json['description'] == null ? undefined : json['description'],
@@ -58,7 +62,7 @@ function AssetFromJSONTyped(json, ignoreDiscriminator) {
         'condition': json['condition'] == null ? undefined : (0, ConditionEnum_1.ConditionEnumFromJSON)(json['condition']),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'owningUser': json['owning_user'] == null ? undefined : json['owning_user'],
     };
 }
@@ -66,21 +70,17 @@ function AssetToJSON(json) {
     return AssetToJSONTyped(json, false);
 }
 function AssetToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'type': (0, AssetTypeEnum_1.AssetTypeEnumToJSON)(value['type']),
         'description': value['description'],
         'notes': value['notes'],
         'value': value['value'],
         'condition': (0, ConditionEnum_1.ConditionEnumToJSON)(value['condition']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'owning_user': value['owningUser'],
     };
 }

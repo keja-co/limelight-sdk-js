@@ -38,7 +38,7 @@ export interface PatchedSubmission {
      * @type {Date}
      * @memberof PatchedSubmission
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {Date}
@@ -50,7 +50,7 @@ export interface PatchedSubmission {
      * @type {number}
      * @memberof PatchedSubmission
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -62,7 +62,7 @@ export interface PatchedSubmission {
      * @type {number}
      * @memberof PatchedSubmission
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -83,4 +83,4 @@ export declare function instanceOfPatchedSubmission(value: object): value is Pat
 export declare function PatchedSubmissionFromJSON(json: any): PatchedSubmission;
 export declare function PatchedSubmissionFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedSubmission;
 export declare function PatchedSubmissionToJSON(json: any): PatchedSubmission;
-export declare function PatchedSubmissionToJSONTyped(value?: Omit<PatchedSubmission, 'id' | 'created_at' | 'updated_at' | 'submitted_date_time' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedSubmissionToJSONTyped(value?: Omit<PatchedSubmission, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'submitted_date_time' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

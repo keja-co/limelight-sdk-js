@@ -72,7 +72,7 @@ import {
 
 export interface DocumentsV1ReposCreateRequest {
     tenantRef: string;
-    documentRepo: Omit<DocumentRepo, 'id'|'created_at'|'updated_at'|'created_by'>;
+    documentRepo: Omit<DocumentRepo, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposDestroyRequest {
@@ -83,7 +83,7 @@ export interface DocumentsV1ReposDestroyRequest {
 export interface DocumentsV1ReposDocumentsCreateRequest {
     repoId: string;
     tenantRef: string;
-    document: Omit<Document, 'id'|'created_at'|'updated_at'|'created_by'>;
+    document: Omit<Document, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposDocumentsDestroyRequest {
@@ -104,7 +104,7 @@ export interface DocumentsV1ReposDocumentsPartialUpdateRequest {
     id: number;
     repoId: string;
     tenantRef: string;
-    patchedDocument?: Omit<PatchedDocument, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedDocument?: Omit<PatchedDocument, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposDocumentsRetrieveRequest {
@@ -117,7 +117,7 @@ export interface DocumentsV1ReposDocumentsTagsCreateRequest {
     documentId: string;
     repoId: string;
     tenantRef: string;
-    documentTag: Omit<DocumentTag, 'id'|'tag'|'document'|'created_at'|'updated_at'|'created_by'>;
+    documentTag?: Omit<DocumentTag, 'id'|'tag'|'document'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposDocumentsTagsDestroyRequest {
@@ -146,14 +146,14 @@ export interface DocumentsV1ReposDocumentsUpdateRequest {
     id: number;
     repoId: string;
     tenantRef: string;
-    document: Omit<Document, 'id'|'created_at'|'updated_at'|'created_by'>;
+    document: Omit<Document, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposDocumentsVersionsCreateRequest {
     documentId: string;
     repoId: string;
     tenantRef: string;
-    documentVersion: Omit<DocumentVersion, 'id'|'created_at'|'updated_at'|'version'|'created_by'>;
+    documentVersion: Omit<DocumentVersion, 'id'|'created_at'|'updated_at'|'archive_at'|'version'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposDocumentsVersionsDestroyRequest {
@@ -176,7 +176,7 @@ export interface DocumentsV1ReposDocumentsVersionsPartialUpdateRequest {
     id: number;
     repoId: string;
     tenantRef: string;
-    patchedDocumentVersion?: Omit<PatchedDocumentVersion, 'id'|'created_at'|'updated_at'|'version'|'created_by'>;
+    patchedDocumentVersion?: Omit<PatchedDocumentVersion, 'id'|'created_at'|'updated_at'|'archive_at'|'version'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposDocumentsVersionsRetrieveRequest {
@@ -191,13 +191,13 @@ export interface DocumentsV1ReposDocumentsVersionsUpdateRequest {
     id: number;
     repoId: string;
     tenantRef: string;
-    documentVersion: Omit<DocumentVersion, 'id'|'created_at'|'updated_at'|'version'|'created_by'>;
+    documentVersion: Omit<DocumentVersion, 'id'|'created_at'|'updated_at'|'archive_at'|'version'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposFoldersCreateRequest {
     repoId: string;
     tenantRef: string;
-    folder: Omit<Folder, 'id'|'created_at'|'updated_at'|'created_by'>;
+    folder: Omit<Folder, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposFoldersDestroyRequest {
@@ -218,7 +218,7 @@ export interface DocumentsV1ReposFoldersPartialUpdateRequest {
     id: number;
     repoId: string;
     tenantRef: string;
-    patchedFolder?: Omit<PatchedFolder, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedFolder?: Omit<PatchedFolder, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposFoldersRetrieveRequest {
@@ -231,7 +231,7 @@ export interface DocumentsV1ReposFoldersUpdateRequest {
     id: number;
     repoId: string;
     tenantRef: string;
-    folder: Omit<Folder, 'id'|'created_at'|'updated_at'|'created_by'>;
+    folder: Omit<Folder, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposListRequest {
@@ -243,7 +243,7 @@ export interface DocumentsV1ReposListRequest {
 export interface DocumentsV1ReposPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedDocumentRepo?: Omit<PatchedDocumentRepo, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedDocumentRepo?: Omit<PatchedDocumentRepo, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1ReposRetrieveRequest {
@@ -254,12 +254,12 @@ export interface DocumentsV1ReposRetrieveRequest {
 export interface DocumentsV1ReposUpdateRequest {
     id: number;
     tenantRef: string;
-    documentRepo: Omit<DocumentRepo, 'id'|'created_at'|'updated_at'|'created_by'>;
+    documentRepo: Omit<DocumentRepo, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1TagsCreateRequest {
     tenantRef: string;
-    tag: Omit<Tag, 'id'|'created_at'|'updated_at'|'created_by'>;
+    tag: Omit<Tag, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1TagsDestroyRequest {
@@ -276,7 +276,7 @@ export interface DocumentsV1TagsListRequest {
 export interface DocumentsV1TagsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedTag?: Omit<PatchedTag, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedTag?: Omit<PatchedTag, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface DocumentsV1TagsRetrieveRequest {
@@ -287,7 +287,7 @@ export interface DocumentsV1TagsRetrieveRequest {
 export interface DocumentsV1TagsUpdateRequest {
     id: number;
     tenantRef: string;
-    tag: Omit<Tag, 'id'|'created_at'|'updated_at'|'created_by'>;
+    tag: Omit<Tag, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 /**
@@ -696,13 +696,6 @@ export class DocumentsApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'tenantRef',
                 'Required parameter "tenantRef" was null or undefined when calling documentsV1ReposDocumentsTagsCreate().'
-            );
-        }
-
-        if (requestParameters['documentTag'] == null) {
-            throw new runtime.RequiredError(
-                'documentTag',
-                'Required parameter "documentTag" was null or undefined when calling documentsV1ReposDocumentsTagsCreate().'
             );
         }
 

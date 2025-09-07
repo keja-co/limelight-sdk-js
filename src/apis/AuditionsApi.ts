@@ -57,7 +57,7 @@ import {
 
 export interface AuditionsV1AuditionsCreateRequest {
     tenantRef: string;
-    audition: Omit<Audition, 'id'|'created_at'|'updated_at'|'created_by'>;
+    audition: Omit<Audition, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsDestroyRequest {
@@ -76,7 +76,7 @@ export interface AuditionsV1AuditionsPartialUpdateRequest {
     id: number;
     pk: number;
     tenantRef: string;
-    patchedAudition?: Omit<PatchedAudition, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedAudition?: Omit<PatchedAudition, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsRetrieveRequest {
@@ -88,7 +88,7 @@ export interface AuditionsV1AuditionsRetrieveRequest {
 export interface AuditionsV1AuditionsSlotsCreateRequest {
     auditionId: number;
     tenantRef: string;
-    slot: Omit<Slot, 'id'|'created_at'|'updated_at'|'created_by'>;
+    slot: Omit<Slot, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsSlotsDestroyRequest {
@@ -110,7 +110,7 @@ export interface AuditionsV1AuditionsSlotsPartialUpdateRequest {
     id: string;
     slotId: number;
     tenantRef: string;
-    patchedSlot?: Omit<PatchedSlot, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedSlot?: Omit<PatchedSlot, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsSlotsRetrieveRequest {
@@ -124,7 +124,7 @@ export interface AuditionsV1AuditionsSlotsSignupsCreateRequest {
     auditionId: number;
     slotId: number;
     tenantRef: string;
-    signup: Omit<Signup, 'id'|'created_at'|'updated_at'|'created_by'>;
+    signup: Omit<Signup, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsSlotsSignupsDestroyRequest {
@@ -140,7 +140,7 @@ export interface AuditionsV1AuditionsSlotsSignupsFeedbackCreateRequest {
     signupId: number;
     slotId: number;
     tenantRef: string;
-    feedback: Omit<Feedback, 'id'|'created_at'|'updated_at'|'created_by'>;
+    feedback: Omit<Feedback, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsSlotsSignupsFeedbackDestroyRequest {
@@ -166,7 +166,7 @@ export interface AuditionsV1AuditionsSlotsSignupsFeedbackPartialUpdateRequest {
     signupId: number;
     slotId: number;
     tenantRef: string;
-    patchedFeedback?: Omit<PatchedFeedback, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedFeedback?: Omit<PatchedFeedback, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsSlotsSignupsFeedbackRetrieveRequest {
@@ -183,7 +183,7 @@ export interface AuditionsV1AuditionsSlotsSignupsFeedbackUpdateRequest {
     signupId: number;
     slotId: number;
     tenantRef: string;
-    feedback: Omit<Feedback, 'id'|'created_at'|'updated_at'|'created_by'>;
+    feedback: Omit<Feedback, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsSlotsSignupsListRequest {
@@ -200,7 +200,7 @@ export interface AuditionsV1AuditionsSlotsSignupsPartialUpdateRequest {
     signupId: number;
     slotId: number;
     tenantRef: string;
-    patchedSignup?: Omit<PatchedSignup, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedSignup?: Omit<PatchedSignup, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsSlotsSignupsRetrieveRequest {
@@ -217,7 +217,7 @@ export interface AuditionsV1AuditionsSlotsSignupsUpdateRequest {
     signupId: number;
     slotId: number;
     tenantRef: string;
-    signup: Omit<Signup, 'id'|'created_at'|'updated_at'|'created_by'>;
+    signup: Omit<Signup, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsSlotsUpdateRequest {
@@ -225,14 +225,14 @@ export interface AuditionsV1AuditionsSlotsUpdateRequest {
     id: string;
     slotId: number;
     tenantRef: string;
-    slot: Omit<Slot, 'id'|'created_at'|'updated_at'|'created_by'>;
+    slot: Omit<Slot, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface AuditionsV1AuditionsUpdateRequest {
     id: number;
     pk: number;
     tenantRef: string;
-    audition: Omit<Audition, 'id'|'created_at'|'updated_at'|'created_by'>;
+    audition: Omit<Audition, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 /**

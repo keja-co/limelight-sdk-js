@@ -39,7 +39,7 @@ export interface PatchedTicketType {
      * @type {Date}
      * @memberof PatchedTicketType
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the ticket type, e.g., General Admission, VIP, etc.
      * @type {string}
@@ -95,7 +95,7 @@ export interface PatchedTicketType {
      * @type {number}
      * @memberof PatchedTicketType
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -107,7 +107,7 @@ export interface PatchedTicketType {
      * @type {number}
      * @memberof PatchedTicketType
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The production venue this ticket type belongs to.
      * @type {number}
@@ -122,4 +122,4 @@ export declare function instanceOfPatchedTicketType(value: object): value is Pat
 export declare function PatchedTicketTypeFromJSON(json: any): PatchedTicketType;
 export declare function PatchedTicketTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedTicketType;
 export declare function PatchedTicketTypeToJSON(json: any): PatchedTicketType;
-export declare function PatchedTicketTypeToJSONTyped(value?: Omit<PatchedTicketType, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedTicketTypeToJSONTyped(value?: Omit<PatchedTicketType, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

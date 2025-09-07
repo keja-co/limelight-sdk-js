@@ -42,7 +42,7 @@ export interface PatchedCountry {
      * @type {Date}
      * @memberof PatchedCountry
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -60,7 +60,7 @@ export interface PatchedCountry {
      * @type {number}
      * @memberof PatchedCountry
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedCountry {
      * @type {number}
      * @memberof PatchedCountry
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 
 /**
@@ -108,18 +108,15 @@ export function PatchedCountryToJSON(json: any): PatchedCountry {
     return PatchedCountryToJSONTyped(json, false);
 }
 
-export function PatchedCountryToJSONTyped(value?: Omit<PatchedCountry, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedCountryToJSONTyped(value?: Omit<PatchedCountry, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'iso_code': value['isoCode'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }
 

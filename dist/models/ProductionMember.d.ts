@@ -38,13 +38,13 @@ export interface ProductionMember {
      * @type {Date}
      * @memberof ProductionMember
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {number}
      * @memberof ProductionMember
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -56,7 +56,7 @@ export interface ProductionMember {
      * @type {number}
      * @memberof ProductionMember
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -77,4 +77,4 @@ export declare function instanceOfProductionMember(value: object): value is Prod
 export declare function ProductionMemberFromJSON(json: any): ProductionMember;
 export declare function ProductionMemberFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductionMember;
 export declare function ProductionMemberToJSON(json: any): ProductionMember;
-export declare function ProductionMemberToJSONTyped(value?: Omit<ProductionMember, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionMemberToJSONTyped(value?: Omit<ProductionMember, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

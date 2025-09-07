@@ -62,20 +62,17 @@ function PatchedTicketToJSON(json) {
     return PatchedTicketToJSONTyped(json, false);
 }
 function PatchedTicketToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b;
+    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'status': (0, TicketStatusEnum_1.TicketStatusEnumToJSON)(value['status']),
         'price': value['price'],
-        'checked_in_at': value['checkedInAt'] === null ? null : ((_b = value['checkedInAt']) === null || _b === void 0 ? void 0 : _b.toISOString()),
+        'checked_in_at': value['checkedInAt'] === null ? null : ((_a = value['checkedInAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'checked_in_by_alias': value['checkedInByAlias'],
         'checked_in_location': value['checkedInLocation'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'performance': value['performance'],
         'section': value['section'],
         'seat': value['seat'],

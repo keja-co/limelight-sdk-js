@@ -89,7 +89,7 @@ export interface Ticket {
      * @type {Date}
      * @memberof Ticket
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Unique identifier for the ticket, used for tracking and validation.
      * @type {string}
@@ -137,7 +137,7 @@ export interface Ticket {
      * @type {number}
      * @memberof Ticket
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -149,7 +149,7 @@ export interface Ticket {
      * @type {number}
      * @memberof Ticket
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The performance for which this ticket is valid.
      * @type {number}
@@ -188,10 +188,12 @@ export function instanceOfTicket(value: object): value is Ticket {
     if (!('purchase' in value) || value['purchase'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('ticketUuid' in value) || value['ticketUuid'] === undefined) return false;
     if (!('price' in value) || value['price'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('performance' in value) || value['performance'] === undefined) return false;
     if (!('section' in value) || value['section'] === undefined) return false;
     return true;
@@ -213,7 +215,7 @@ export function TicketFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ti
         'purchase': PurchaseFromJSON(json['purchase']),
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'ticketUuid': json['ticket_uuid'],
         'status': json['status'] == null ? undefined : TicketStatusEnumFromJSON(json['status']),
         'price': json['price'],
@@ -222,7 +224,7 @@ export function TicketFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ti
         'checkedInLocation': json['checked_in_location'] == null ? undefined : json['checked_in_location'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'performance': json['performance'],
         'section': json['section'],
         'seat': json['seat'] == null ? undefined : json['seat'],
@@ -234,21 +236,18 @@ export function TicketToJSON(json: any): Ticket {
     return TicketToJSONTyped(json, false);
 }
 
-export function TicketToJSONTyped(value?: Omit<Ticket, 'id'|'section_seat'|'ticket_type'|'purchase'|'created_at'|'updated_at'|'ticket_uuid'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function TicketToJSONTyped(value?: Omit<Ticket, 'id'|'section_seat'|'ticket_type'|'purchase'|'created_at'|'updated_at'|'archive_at'|'ticket_uuid'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'status': TicketStatusEnumToJSON(value['status']),
         'price': value['price'],
         'checked_in_at': value['checkedInAt'] === null ? null : ((value['checkedInAt'] as any)?.toISOString()),
         'checked_in_by_alias': value['checkedInByAlias'],
         'checked_in_location': value['checkedInLocation'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'performance': value['performance'],
         'section': value['section'],
         'seat': value['seat'],

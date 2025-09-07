@@ -38,7 +38,7 @@ export interface PatchedSlot {
      * @type {Date}
      * @memberof PatchedSlot
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the slot
      * @type {string}
@@ -74,7 +74,7 @@ export interface PatchedSlot {
      * @type {number}
      * @memberof PatchedSlot
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -86,7 +86,7 @@ export interface PatchedSlot {
      * @type {number}
      * @memberof PatchedSlot
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -101,4 +101,4 @@ export declare function instanceOfPatchedSlot(value: object): value is PatchedSl
 export declare function PatchedSlotFromJSON(json: any): PatchedSlot;
 export declare function PatchedSlotFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedSlot;
 export declare function PatchedSlotToJSON(json: any): PatchedSlot;
-export declare function PatchedSlotToJSONTyped(value?: Omit<PatchedSlot, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedSlotToJSONTyped(value?: Omit<PatchedSlot, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -50,7 +50,7 @@ export interface Discount {
      * @type {Date}
      * @memberof Discount
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the discount, e.g., Early Bird, Student Discount, etc.
      * @type {string}
@@ -126,7 +126,7 @@ export interface Discount {
      * @type {number}
      * @memberof Discount
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -138,7 +138,7 @@ export interface Discount {
      * @type {number}
      * @memberof Discount
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The production this discount applies to.
      * @type {number}
@@ -168,11 +168,13 @@ export function instanceOfDiscount(value: object): value is Discount {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('code' in value) || value['code'] === undefined) return false;
     if (!('value' in value) || value['value'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('production' in value) || value['production'] === undefined) return false;
     if (!('applicableTicketTypes' in value) || value['applicableTicketTypes'] === undefined) return false;
     return true;
@@ -191,7 +193,7 @@ export function DiscountFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'code': json['code'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -205,7 +207,7 @@ export function DiscountFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'validUntil': json['valid_until'] == null ? undefined : (new Date(json['valid_until'])),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'],
         'productionVenue': json['production_venue'] == null ? undefined : json['production_venue'],
         'applicableTicketTypes': json['applicable_ticket_types'],
@@ -216,14 +218,13 @@ export function DiscountToJSON(json: any): Discount {
     return DiscountToJSONTyped(json, false);
 }
 
-export function DiscountToJSONTyped(value?: Omit<Discount, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function DiscountToJSONTyped(value?: Omit<Discount, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'code': value['code'],
         'description': value['description'],
@@ -235,8 +236,6 @@ export function DiscountToJSONTyped(value?: Omit<Discount, 'id'|'created_at'|'up
         'customer_limit': value['customerLimit'],
         'valid_from': value['validFrom'] === null ? null : ((value['validFrom'] as any)?.toISOString()),
         'valid_until': value['validUntil'] === null ? null : ((value['validUntil'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'production_venue': value['productionVenue'],
         'applicable_ticket_types': value['applicableTicketTypes'],

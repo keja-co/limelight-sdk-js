@@ -38,7 +38,7 @@ export interface Feedback {
      * @type {Date}
      * @memberof Feedback
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Feedback notes. Supports markdown.
      * @type {string}
@@ -56,7 +56,7 @@ export interface Feedback {
      * @type {number}
      * @memberof Feedback
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface Feedback {
      * @type {number}
      * @memberof Feedback
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfFeedback(value: object): value is Feedback;
 export declare function FeedbackFromJSON(json: any): Feedback;
 export declare function FeedbackFromJSONTyped(json: any, ignoreDiscriminator: boolean): Feedback;
 export declare function FeedbackToJSON(json: any): Feedback;
-export declare function FeedbackToJSONTyped(value?: Omit<Feedback, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function FeedbackToJSONTyped(value?: Omit<Feedback, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

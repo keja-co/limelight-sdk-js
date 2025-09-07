@@ -38,7 +38,7 @@ export interface PatchedSubmissionFieldValue {
      * @type {Date}
      * @memberof PatchedSubmissionFieldValue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -110,7 +110,7 @@ export interface PatchedSubmissionFieldValue {
      * @type {number}
      * @memberof PatchedSubmissionFieldValue
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -122,7 +122,7 @@ export interface PatchedSubmissionFieldValue {
      * @type {number}
      * @memberof PatchedSubmissionFieldValue
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -143,4 +143,4 @@ export declare function instanceOfPatchedSubmissionFieldValue(value: object): va
 export declare function PatchedSubmissionFieldValueFromJSON(json: any): PatchedSubmissionFieldValue;
 export declare function PatchedSubmissionFieldValueFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedSubmissionFieldValue;
 export declare function PatchedSubmissionFieldValueToJSON(json: any): PatchedSubmissionFieldValue;
-export declare function PatchedSubmissionFieldValueToJSONTyped(value?: Omit<PatchedSubmissionFieldValue, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedSubmissionFieldValueToJSONTyped(value?: Omit<PatchedSubmissionFieldValue, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -45,7 +45,7 @@ export interface PatchedFolder {
      * @type {Date}
      * @memberof PatchedFolder
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -57,7 +57,7 @@ export interface PatchedFolder {
      * @type {number}
      * @memberof PatchedFolder
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -69,7 +69,7 @@ export interface PatchedFolder {
      * @type {number}
      * @memberof PatchedFolder
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -90,4 +90,4 @@ export declare function instanceOfPatchedFolder(value: object): value is Patched
 export declare function PatchedFolderFromJSON(json: any): PatchedFolder;
 export declare function PatchedFolderFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedFolder;
 export declare function PatchedFolderToJSON(json: any): PatchedFolder;
-export declare function PatchedFolderToJSONTyped(value?: Omit<PatchedFolder, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedFolderToJSONTyped(value?: Omit<PatchedFolder, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

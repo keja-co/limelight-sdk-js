@@ -29,11 +29,15 @@ function instanceOfDocument(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('title' in value) || value['title'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('repo' in value) || value['repo'] === undefined)
         return false;
@@ -52,13 +56,13 @@ function DocumentFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'status': json['status'] == null ? undefined : (0, DocumentStatusEnum_1.DocumentStatusEnumFromJSON)(json['status']),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'] == null ? undefined : json['production'],
         'author': json['author'] == null ? undefined : json['author'],
         'repo': json['repo'],
@@ -71,18 +75,14 @@ function DocumentToJSON(json) {
     return DocumentToJSONTyped(json, false);
 }
 function DocumentToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'status': (0, DocumentStatusEnum_1.DocumentStatusEnumToJSON)(value['status']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'author': value['author'],
         'repo': value['repo'],

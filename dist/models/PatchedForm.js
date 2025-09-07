@@ -55,24 +55,21 @@ function PatchedFormToJSON(json) {
     return PatchedFormToJSONTyped(json, false);
 }
 function PatchedFormToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'title': value['title'],
         'description': value['description'],
-        'open_date_time': value['openDateTime'] === null ? null : ((_b = value['openDateTime']) === null || _b === void 0 ? void 0 : _b.toISOString()),
-        'close_date_time': value['closeDateTime'] === null ? null : ((_c = value['closeDateTime']) === null || _c === void 0 ? void 0 : _c.toISOString()),
+        'open_date_time': value['openDateTime'] === null ? null : ((_a = value['openDateTime']) === null || _a === void 0 ? void 0 : _a.toISOString()),
+        'close_date_time': value['closeDateTime'] === null ? null : ((_b = value['closeDateTime']) === null || _b === void 0 ? void 0 : _b.toISOString()),
         'max_submissions': value['maxSubmissions'],
         'max_individual_submissions': value['maxIndividualSubmissions'],
         'success_message': value['successMessage'],
         'is_template': value['isTemplate'],
         'is_active': value['isActive'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
     };
 }

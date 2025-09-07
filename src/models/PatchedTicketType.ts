@@ -50,7 +50,7 @@ export interface PatchedTicketType {
      * @type {Date}
      * @memberof PatchedTicketType
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the ticket type, e.g., General Admission, VIP, etc.
      * @type {string}
@@ -106,7 +106,7 @@ export interface PatchedTicketType {
      * @type {number}
      * @memberof PatchedTicketType
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -118,7 +118,7 @@ export interface PatchedTicketType {
      * @type {number}
      * @memberof PatchedTicketType
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The production venue this ticket type belongs to.
      * @type {number}
@@ -168,14 +168,13 @@ export function PatchedTicketTypeToJSON(json: any): PatchedTicketType {
     return PatchedTicketTypeToJSONTyped(json, false);
 }
 
-export function PatchedTicketTypeToJSONTyped(value?: Omit<PatchedTicketType, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedTicketTypeToJSONTyped(value?: Omit<PatchedTicketType, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'external_name': value['externalName'],
         'internal_name': value['internalName'],
         'description': value['description'],
@@ -183,8 +182,6 @@ export function PatchedTicketTypeToJSONTyped(value?: Omit<PatchedTicketType, 'id
         'currency': CurrencyEnumToJSON(value['currency']),
         'limit': value['limit'],
         'sort_order': value['sortOrder'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production_venue': value['productionVenue'],
     };
 }

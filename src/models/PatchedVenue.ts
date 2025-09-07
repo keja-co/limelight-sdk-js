@@ -56,7 +56,7 @@ export interface PatchedVenue {
      * @type {Date}
      * @memberof PatchedVenue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the venue
      * @type {string}
@@ -98,7 +98,7 @@ export interface PatchedVenue {
      * @type {number}
      * @memberof PatchedVenue
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -110,7 +110,7 @@ export interface PatchedVenue {
      * @type {number}
      * @memberof PatchedVenue
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Tags associated with the venue
      * @type {Array<number>}
@@ -158,7 +158,7 @@ export function PatchedVenueToJSON(json: any): PatchedVenue {
     return PatchedVenueToJSONTyped(json, false);
 }
 
-export function PatchedVenueToJSONTyped(value?: Omit<PatchedVenue, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedVenueToJSONTyped(value?: Omit<PatchedVenue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -166,15 +166,12 @@ export function PatchedVenueToJSONTyped(value?: Omit<PatchedVenue, 'id'|'created
     return {
         
         'address': AddressToJSON(value['address']),
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'notes': value['notes'],
         'contact_name': value['contactName'],
         'contact_email': value['contactEmail'],
         'contact_phone': value['contactPhone'],
         'is_active': value['isActive'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'tags': value['tags'],
     };
 }

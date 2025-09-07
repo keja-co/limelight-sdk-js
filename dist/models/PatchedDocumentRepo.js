@@ -48,17 +48,13 @@ function PatchedDocumentRepoToJSON(json) {
     return PatchedDocumentRepoToJSONTyped(json, false);
 }
 function PatchedDocumentRepoToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'code': value['code'],
         'description': value['description'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }

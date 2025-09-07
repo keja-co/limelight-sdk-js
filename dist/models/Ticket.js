@@ -38,6 +38,8 @@ function instanceOfTicket(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('ticketUuid' in value) || value['ticketUuid'] === undefined)
         return false;
     if (!('price' in value) || value['price'] === undefined)
@@ -45,6 +47,8 @@ function instanceOfTicket(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('performance' in value) || value['performance'] === undefined)
         return false;
@@ -66,7 +70,7 @@ function TicketFromJSONTyped(json, ignoreDiscriminator) {
         'purchase': (0, Purchase_1.PurchaseFromJSON)(json['purchase']),
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'ticketUuid': json['ticket_uuid'],
         'status': json['status'] == null ? undefined : (0, TicketStatusEnum_1.TicketStatusEnumFromJSON)(json['status']),
         'price': json['price'],
@@ -75,7 +79,7 @@ function TicketFromJSONTyped(json, ignoreDiscriminator) {
         'checkedInLocation': json['checked_in_location'] == null ? undefined : json['checked_in_location'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'performance': json['performance'],
         'section': json['section'],
         'seat': json['seat'] == null ? undefined : json['seat'],
@@ -86,20 +90,17 @@ function TicketToJSON(json) {
     return TicketToJSONTyped(json, false);
 }
 function TicketToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b;
+    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'status': (0, TicketStatusEnum_1.TicketStatusEnumToJSON)(value['status']),
         'price': value['price'],
-        'checked_in_at': value['checkedInAt'] === null ? null : ((_b = value['checkedInAt']) === null || _b === void 0 ? void 0 : _b.toISOString()),
+        'checked_in_at': value['checkedInAt'] === null ? null : ((_a = value['checkedInAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'checked_in_by_alias': value['checkedInByAlias'],
         'checked_in_location': value['checkedInLocation'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'performance': value['performance'],
         'section': value['section'],
         'seat': value['seat'],

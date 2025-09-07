@@ -38,13 +38,13 @@ export interface PatchedProductionMember {
      * @type {Date}
      * @memberof PatchedProductionMember
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {number}
      * @memberof PatchedProductionMember
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -56,7 +56,7 @@ export interface PatchedProductionMember {
      * @type {number}
      * @memberof PatchedProductionMember
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -77,4 +77,4 @@ export declare function instanceOfPatchedProductionMember(value: object): value 
 export declare function PatchedProductionMemberFromJSON(json: any): PatchedProductionMember;
 export declare function PatchedProductionMemberFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedProductionMember;
 export declare function PatchedProductionMemberToJSON(json: any): PatchedProductionMember;
-export declare function PatchedProductionMemberToJSONTyped(value?: Omit<PatchedProductionMember, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedProductionMemberToJSONTyped(value?: Omit<PatchedProductionMember, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

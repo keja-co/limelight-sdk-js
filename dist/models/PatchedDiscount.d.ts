@@ -39,7 +39,7 @@ export interface PatchedDiscount {
      * @type {Date}
      * @memberof PatchedDiscount
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the discount, e.g., Early Bird, Student Discount, etc.
      * @type {string}
@@ -115,7 +115,7 @@ export interface PatchedDiscount {
      * @type {number}
      * @memberof PatchedDiscount
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -127,7 +127,7 @@ export interface PatchedDiscount {
      * @type {number}
      * @memberof PatchedDiscount
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The production this discount applies to.
      * @type {number}
@@ -154,4 +154,4 @@ export declare function instanceOfPatchedDiscount(value: object): value is Patch
 export declare function PatchedDiscountFromJSON(json: any): PatchedDiscount;
 export declare function PatchedDiscountFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedDiscount;
 export declare function PatchedDiscountToJSON(json: any): PatchedDiscount;
-export declare function PatchedDiscountToJSONTyped(value?: Omit<PatchedDiscount, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedDiscountToJSONTyped(value?: Omit<PatchedDiscount, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

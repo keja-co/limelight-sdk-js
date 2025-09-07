@@ -38,7 +38,7 @@ export interface PatchedExpenseAttachment {
      * @type {Date}
      * @memberof PatchedExpenseAttachment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface PatchedExpenseAttachment {
      * @type {number}
      * @memberof PatchedExpenseAttachment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedExpenseAttachment {
      * @type {number}
      * @memberof PatchedExpenseAttachment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfPatchedExpenseAttachment(value: object): value
 export declare function PatchedExpenseAttachmentFromJSON(json: any): PatchedExpenseAttachment;
 export declare function PatchedExpenseAttachmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedExpenseAttachment;
 export declare function PatchedExpenseAttachmentToJSON(json: any): PatchedExpenseAttachment;
-export declare function PatchedExpenseAttachmentToJSONTyped(value?: Omit<PatchedExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedExpenseAttachmentToJSONTyped(value?: Omit<PatchedExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

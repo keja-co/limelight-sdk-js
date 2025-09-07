@@ -31,6 +31,8 @@ function instanceOfIncome(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('title' in value) || value['title'] === undefined)
         return false;
     if (!('amount' in value) || value['amount'] === undefined)
@@ -40,6 +42,8 @@ function instanceOfIncome(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     return true;
 }
@@ -54,7 +58,7 @@ function IncomeFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'amount': json['amount'],
@@ -71,7 +75,7 @@ function IncomeFromJSONTyped(json, ignoreDiscriminator) {
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'category': json['category'] == null ? undefined : json['category'],
         'prodCategory': json['prod_category'] == null ? undefined : json['prod_category'],
     };
@@ -80,13 +84,11 @@ function IncomeToJSON(json) {
     return IncomeToJSONTyped(json, false);
 }
 function IncomeToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'amount': value['amount'],
@@ -101,8 +103,6 @@ function IncomeToJSONTyped(value, ignoreDiscriminator) {
         'tax_amount': value['taxAmount'],
         'reference_number': value['referenceNumber'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'category': value['category'],
         'prod_category': value['prodCategory'],
     };

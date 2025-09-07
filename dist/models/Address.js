@@ -28,11 +28,15 @@ function instanceOfAddress(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('line1' in value) || value['line1'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('country' in value) || value['country'] === undefined)
         return false;
@@ -49,7 +53,7 @@ function AddressFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'line1': json['line_1'],
         'line2': json['line_2'] == null ? undefined : json['line_2'],
         'city': json['city'] == null ? undefined : json['city'],
@@ -57,7 +61,7 @@ function AddressFromJSONTyped(json, ignoreDiscriminator) {
         'postalCode': json['postal_code'] == null ? undefined : json['postal_code'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'state': json['state'] == null ? undefined : json['state'],
         'country': json['country'],
     };
@@ -66,20 +70,16 @@ function AddressToJSON(json) {
     return AddressToJSONTyped(json, false);
 }
 function AddressToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'line_1': value['line1'],
         'line_2': value['line2'],
         'city': value['city'],
         'suburb': value['suburb'],
         'postal_code': value['postalCode'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'state': value['state'],
         'country': value['country'],
     };

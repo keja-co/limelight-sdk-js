@@ -28,6 +28,8 @@ function instanceOfDocumentVersion(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('version' in value) || value['version'] === undefined)
         return false;
     if (!('fileUrl' in value) || value['fileUrl'] === undefined)
@@ -35,6 +37,8 @@ function instanceOfDocumentVersion(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('document' in value) || value['document'] === undefined)
         return false;
@@ -51,13 +55,13 @@ function DocumentVersionFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'version': json['version'],
         'fileUrl': json['file_url'],
         'versionNotes': json['version_notes'] == null ? undefined : json['version_notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'document': json['document'],
     };
 }
@@ -65,17 +69,13 @@ function DocumentVersionToJSON(json) {
     return DocumentVersionToJSONTyped(json, false);
 }
 function DocumentVersionToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'file_url': value['fileUrl'],
         'version_notes': value['versionNotes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'document': value['document'],
     };
 }

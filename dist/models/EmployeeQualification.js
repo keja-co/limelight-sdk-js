@@ -28,9 +28,13 @@ function instanceOfEmployeeQualification(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('employee' in value) || value['employee'] === undefined)
         return false;
@@ -49,12 +53,12 @@ function EmployeeQualificationFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'issueDate': json['issue_date'] == null ? undefined : (new Date(json['issue_date'])),
         'expiryDate': json['expiry_date'] == null ? undefined : (new Date(json['expiry_date'])),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'employee': json['employee'],
         'qualification': json['qualification'],
     };
@@ -63,17 +67,13 @@ function EmployeeQualificationToJSON(json) {
     return EmployeeQualificationToJSONTyped(json, false);
 }
 function EmployeeQualificationToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'issue_date': value['issueDate'] == null ? undefined : ((value['issueDate']).toISOString().substring(0, 10)),
         'expiry_date': value['expiryDate'] == null ? undefined : ((value['expiryDate']).toISOString().substring(0, 10)),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'employee': value['employee'],
         'qualification': value['qualification'],
     };

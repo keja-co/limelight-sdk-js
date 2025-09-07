@@ -38,7 +38,7 @@ export interface PatchedEmployee {
      * @type {Date}
      * @memberof PatchedEmployee
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -158,7 +158,7 @@ export interface PatchedEmployee {
      * @type {number}
      * @memberof PatchedEmployee
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -170,7 +170,7 @@ export interface PatchedEmployee {
      * @type {number}
      * @memberof PatchedEmployee
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -221,4 +221,4 @@ export declare function instanceOfPatchedEmployee(value: object): value is Patch
 export declare function PatchedEmployeeFromJSON(json: any): PatchedEmployee;
 export declare function PatchedEmployeeFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedEmployee;
 export declare function PatchedEmployeeToJSON(json: any): PatchedEmployee;
-export declare function PatchedEmployeeToJSONTyped(value?: Omit<PatchedEmployee, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedEmployeeToJSONTyped(value?: Omit<PatchedEmployee, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

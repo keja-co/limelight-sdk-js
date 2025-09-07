@@ -55,18 +55,14 @@ function PatchedDocumentToJSON(json) {
     return PatchedDocumentToJSONTyped(json, false);
 }
 function PatchedDocumentToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'status': (0, DocumentStatusEnum_1.DocumentStatusEnumToJSON)(value['status']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'author': value['author'],
         'repo': value['repo'],

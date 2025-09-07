@@ -31,6 +31,8 @@ function instanceOfSectionSeat(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('seatCode' in value) || value['seatCode'] === undefined)
         return false;
     if (!('row' in value) || value['row'] === undefined)
@@ -38,6 +40,8 @@ function instanceOfSectionSeat(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     return true;
 }
@@ -53,7 +57,7 @@ function SectionSeatFromJSONTyped(json, ignoreDiscriminator) {
         'section': (0, Section_1.SectionFromJSON)(json['section']),
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'seatCode': json['seat_code'],
         'row': json['row'],
         'notes': json['notes'] == null ? undefined : json['notes'],
@@ -63,20 +67,18 @@ function SectionSeatFromJSONTyped(json, ignoreDiscriminator) {
         'accessible': json['accessible'] == null ? undefined : json['accessible'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
     };
 }
 function SectionSeatToJSON(json) {
     return SectionSeatToJSONTyped(json, false);
 }
 function SectionSeatToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'seat_code': value['seatCode'],
         'row': value['row'],
         'notes': value['notes'],
@@ -84,7 +86,5 @@ function SectionSeatToJSONTyped(value, ignoreDiscriminator) {
         'display_x_position': value['displayXPosition'],
         'display_y_position': value['displayYPosition'],
         'accessible': value['accessible'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }

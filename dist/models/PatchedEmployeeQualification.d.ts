@@ -38,7 +38,7 @@ export interface PatchedEmployeeQualification {
      * @type {Date}
      * @memberof PatchedEmployeeQualification
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {Date}
@@ -56,7 +56,7 @@ export interface PatchedEmployeeQualification {
      * @type {number}
      * @memberof PatchedEmployeeQualification
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedEmployeeQualification {
      * @type {number}
      * @memberof PatchedEmployeeQualification
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfPatchedEmployeeQualification(value: object): v
 export declare function PatchedEmployeeQualificationFromJSON(json: any): PatchedEmployeeQualification;
 export declare function PatchedEmployeeQualificationFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedEmployeeQualification;
 export declare function PatchedEmployeeQualificationToJSON(json: any): PatchedEmployeeQualification;
-export declare function PatchedEmployeeQualificationToJSONTyped(value?: Omit<PatchedEmployeeQualification, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedEmployeeQualificationToJSONTyped(value?: Omit<PatchedEmployeeQualification, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

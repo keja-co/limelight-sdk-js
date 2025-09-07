@@ -42,7 +42,7 @@ export interface PatchedVenueCapacity {
      * @type {Date}
      * @memberof PatchedVenueCapacity
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Seating mode of the venue
      * @type {string}
@@ -66,7 +66,7 @@ export interface PatchedVenueCapacity {
      * @type {number}
      * @memberof PatchedVenueCapacity
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -78,7 +78,7 @@ export interface PatchedVenueCapacity {
      * @type {number}
      * @memberof PatchedVenueCapacity
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Venue for which the capacity is defined
      * @type {number}
@@ -122,19 +122,16 @@ export function PatchedVenueCapacityToJSON(json: any): PatchedVenueCapacity {
     return PatchedVenueCapacityToJSONTyped(json, false);
 }
 
-export function PatchedVenueCapacityToJSONTyped(value?: Omit<PatchedVenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedVenueCapacityToJSONTyped(value?: Omit<PatchedVenueCapacity, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'seating_mode': value['seatingMode'],
         'capacity': value['capacity'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'venue': value['venue'],
     };
 }

@@ -42,7 +42,7 @@ export interface PatchedSubmissionFieldValue {
      * @type {Date}
      * @memberof PatchedSubmissionFieldValue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -114,7 +114,7 @@ export interface PatchedSubmissionFieldValue {
      * @type {number}
      * @memberof PatchedSubmissionFieldValue
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -126,7 +126,7 @@ export interface PatchedSubmissionFieldValue {
      * @type {number}
      * @memberof PatchedSubmissionFieldValue
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -185,14 +185,13 @@ export function PatchedSubmissionFieldValueToJSON(json: any): PatchedSubmissionF
     return PatchedSubmissionFieldValueToJSONTyped(json, false);
 }
 
-export function PatchedSubmissionFieldValueToJSONTyped(value?: Omit<PatchedSubmissionFieldValue, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedSubmissionFieldValueToJSONTyped(value?: Omit<PatchedSubmissionFieldValue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'text_data': value['textData'],
         'number_data': value['numberData'],
         'date_data': value['dateData'] === null ? null : ((value['dateData'] as any)?.toISOString().substring(0,10)),
@@ -204,8 +203,6 @@ export function PatchedSubmissionFieldValueToJSONTyped(value?: Omit<PatchedSubmi
         'email_data': value['emailData'],
         'file_uri': value['fileUri'],
         'boolean_data': value['booleanData'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'submission': value['submission'],
         'form_field': value['formField'],
     };

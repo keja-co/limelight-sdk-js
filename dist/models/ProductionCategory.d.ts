@@ -38,7 +38,7 @@ export interface ProductionCategory {
      * @type {Date}
      * @memberof ProductionCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -68,7 +68,7 @@ export interface ProductionCategory {
      * @type {number}
      * @memberof ProductionCategory
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -80,7 +80,7 @@ export interface ProductionCategory {
      * @type {number}
      * @memberof ProductionCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * Parent category for hierarchical categorisation.
      * @type {number}
@@ -95,4 +95,4 @@ export declare function instanceOfProductionCategory(value: object): value is Pr
 export declare function ProductionCategoryFromJSON(json: any): ProductionCategory;
 export declare function ProductionCategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductionCategory;
 export declare function ProductionCategoryToJSON(json: any): ProductionCategory;
-export declare function ProductionCategoryToJSONTyped(value?: Omit<ProductionCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionCategoryToJSONTyped(value?: Omit<ProductionCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

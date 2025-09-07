@@ -483,9 +483,6 @@ var DocumentsApi = /** @class */ (function (_super) {
                         if (requestParameters['tenantRef'] == null) {
                             throw new runtime.RequiredError('tenantRef', 'Required parameter "tenantRef" was null or undefined when calling documentsV1ReposDocumentsTagsCreate().');
                         }
-                        if (requestParameters['documentTag'] == null) {
-                            throw new runtime.RequiredError('documentTag', 'Required parameter "documentTag" was null or undefined when calling documentsV1ReposDocumentsTagsCreate().');
-                        }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';

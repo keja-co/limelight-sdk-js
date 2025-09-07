@@ -38,7 +38,7 @@ export interface PatchedVendor {
      * @type {Date}
      * @memberof PatchedVendor
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -98,7 +98,7 @@ export interface PatchedVendor {
      * @type {number}
      * @memberof PatchedVendor
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -110,7 +110,7 @@ export interface PatchedVendor {
      * @type {number}
      * @memberof PatchedVendor
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 /**
  * Check if a given object implements the PatchedVendor interface.
@@ -119,4 +119,4 @@ export declare function instanceOfPatchedVendor(value: object): value is Patched
 export declare function PatchedVendorFromJSON(json: any): PatchedVendor;
 export declare function PatchedVendorFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedVendor;
 export declare function PatchedVendorToJSON(json: any): PatchedVendor;
-export declare function PatchedVendorToJSONTyped(value?: Omit<PatchedVendor, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedVendorToJSONTyped(value?: Omit<PatchedVendor, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

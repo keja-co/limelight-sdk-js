@@ -38,7 +38,7 @@ export interface PatchedForm {
      * @type {Date}
      * @memberof PatchedForm
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -98,7 +98,7 @@ export interface PatchedForm {
      * @type {number}
      * @memberof PatchedForm
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -110,7 +110,7 @@ export interface PatchedForm {
      * @type {number}
      * @memberof PatchedForm
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * If this form is associated with a production, select it here.
      * @type {number}
@@ -125,4 +125,4 @@ export declare function instanceOfPatchedForm(value: object): value is PatchedFo
 export declare function PatchedFormFromJSON(json: any): PatchedForm;
 export declare function PatchedFormFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedForm;
 export declare function PatchedFormToJSON(json: any): PatchedForm;
-export declare function PatchedFormToJSONTyped(value?: Omit<PatchedForm, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedFormToJSONTyped(value?: Omit<PatchedForm, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

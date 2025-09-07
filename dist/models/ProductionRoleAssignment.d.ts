@@ -39,7 +39,7 @@ export interface ProductionRoleAssignment {
      * @type {Date}
      * @memberof ProductionRoleAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {RoleEnum}
@@ -51,7 +51,7 @@ export interface ProductionRoleAssignment {
      * @type {number}
      * @memberof ProductionRoleAssignment
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -63,7 +63,7 @@ export interface ProductionRoleAssignment {
      * @type {number}
      * @memberof ProductionRoleAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -84,4 +84,4 @@ export declare function instanceOfProductionRoleAssignment(value: object): value
 export declare function ProductionRoleAssignmentFromJSON(json: any): ProductionRoleAssignment;
 export declare function ProductionRoleAssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductionRoleAssignment;
 export declare function ProductionRoleAssignmentToJSON(json: any): ProductionRoleAssignment;
-export declare function ProductionRoleAssignmentToJSONTyped(value?: Omit<ProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionRoleAssignmentToJSONTyped(value?: Omit<ProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

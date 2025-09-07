@@ -54,21 +54,17 @@ function PatchedAssetToJSON(json) {
     return PatchedAssetToJSONTyped(json, false);
 }
 function PatchedAssetToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'type': (0, AssetTypeEnum_1.AssetTypeEnumToJSON)(value['type']),
         'description': value['description'],
         'notes': value['notes'],
         'value': value['value'],
         'condition': (0, ConditionEnum_1.ConditionEnumToJSON)(value['condition']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'owning_user': value['owningUser'],
     };
 }

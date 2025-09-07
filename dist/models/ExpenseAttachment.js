@@ -28,9 +28,13 @@ function instanceOfExpenseAttachment(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('expense' in value) || value['expense'] === undefined)
         return false;
@@ -47,12 +51,12 @@ function ExpenseAttachmentFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'description': json['description'] == null ? undefined : json['description'],
         'fileUri': json['file_uri'] == null ? undefined : json['file_uri'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'expense': json['expense'],
         'uploadedBy': json['uploaded_by'] == null ? undefined : json['uploaded_by'],
     };
@@ -61,17 +65,13 @@ function ExpenseAttachmentToJSON(json) {
     return ExpenseAttachmentToJSONTyped(json, false);
 }
 function ExpenseAttachmentToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'description': value['description'],
         'file_uri': value['fileUri'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'expense': value['expense'],
         'uploaded_by': value['uploadedBy'],
     };

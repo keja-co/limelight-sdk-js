@@ -50,7 +50,7 @@ export interface PatchedDiscount {
      * @type {Date}
      * @memberof PatchedDiscount
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the discount, e.g., Early Bird, Student Discount, etc.
      * @type {string}
@@ -126,7 +126,7 @@ export interface PatchedDiscount {
      * @type {number}
      * @memberof PatchedDiscount
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -138,7 +138,7 @@ export interface PatchedDiscount {
      * @type {number}
      * @memberof PatchedDiscount
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The production this discount applies to.
      * @type {number}
@@ -206,14 +206,13 @@ export function PatchedDiscountToJSON(json: any): PatchedDiscount {
     return PatchedDiscountToJSONTyped(json, false);
 }
 
-export function PatchedDiscountToJSONTyped(value?: Omit<PatchedDiscount, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedDiscountToJSONTyped(value?: Omit<PatchedDiscount, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'code': value['code'],
         'description': value['description'],
@@ -225,8 +224,6 @@ export function PatchedDiscountToJSONTyped(value?: Omit<PatchedDiscount, 'id'|'c
         'customer_limit': value['customerLimit'],
         'valid_from': value['validFrom'] === null ? null : ((value['validFrom'] as any)?.toISOString()),
         'valid_until': value['validUntil'] === null ? null : ((value['validUntil'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'production_venue': value['productionVenue'],
         'applicable_ticket_types': value['applicableTicketTypes'],

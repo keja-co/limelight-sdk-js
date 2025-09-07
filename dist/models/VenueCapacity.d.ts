@@ -38,7 +38,7 @@ export interface VenueCapacity {
      * @type {Date}
      * @memberof VenueCapacity
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Seating mode of the venue
      * @type {string}
@@ -62,7 +62,7 @@ export interface VenueCapacity {
      * @type {number}
      * @memberof VenueCapacity
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface VenueCapacity {
      * @type {number}
      * @memberof VenueCapacity
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * Venue for which the capacity is defined
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfVenueCapacity(value: object): value is VenueCa
 export declare function VenueCapacityFromJSON(json: any): VenueCapacity;
 export declare function VenueCapacityFromJSONTyped(json: any, ignoreDiscriminator: boolean): VenueCapacity;
 export declare function VenueCapacityToJSON(json: any): VenueCapacity;
-export declare function VenueCapacityToJSONTyped(value?: Omit<VenueCapacity, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function VenueCapacityToJSONTyped(value?: Omit<VenueCapacity, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

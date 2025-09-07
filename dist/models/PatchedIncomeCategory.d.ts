@@ -39,7 +39,7 @@ export interface PatchedIncomeCategory {
      * @type {Date}
      * @memberof PatchedIncomeCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {IncomeCategoryTypeEnum}
@@ -69,7 +69,7 @@ export interface PatchedIncomeCategory {
      * @type {number}
      * @memberof PatchedIncomeCategory
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -81,7 +81,7 @@ export interface PatchedIncomeCategory {
      * @type {number}
      * @memberof PatchedIncomeCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -96,4 +96,4 @@ export declare function instanceOfPatchedIncomeCategory(value: object): value is
 export declare function PatchedIncomeCategoryFromJSON(json: any): PatchedIncomeCategory;
 export declare function PatchedIncomeCategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedIncomeCategory;
 export declare function PatchedIncomeCategoryToJSON(json: any): PatchedIncomeCategory;
-export declare function PatchedIncomeCategoryToJSONTyped(value?: Omit<PatchedIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedIncomeCategoryToJSONTyped(value?: Omit<PatchedIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

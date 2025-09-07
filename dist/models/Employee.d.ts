@@ -38,7 +38,7 @@ export interface Employee {
      * @type {Date}
      * @memberof Employee
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -158,7 +158,7 @@ export interface Employee {
      * @type {number}
      * @memberof Employee
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -170,7 +170,7 @@ export interface Employee {
      * @type {number}
      * @memberof Employee
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -221,4 +221,4 @@ export declare function instanceOfEmployee(value: object): value is Employee;
 export declare function EmployeeFromJSON(json: any): Employee;
 export declare function EmployeeFromJSONTyped(json: any, ignoreDiscriminator: boolean): Employee;
 export declare function EmployeeToJSON(json: any): Employee;
-export declare function EmployeeToJSONTyped(value?: Omit<Employee, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function EmployeeToJSONTyped(value?: Omit<Employee, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

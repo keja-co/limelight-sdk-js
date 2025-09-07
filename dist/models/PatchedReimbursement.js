@@ -56,22 +56,19 @@ function PatchedReimbursementToJSON(json) {
     return PatchedReimbursementToJSONTyped(json, false);
 }
 function PatchedReimbursementToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'approved_date_time': value['approvedDateTime'] == null ? undefined : ((value['approvedDateTime']).toISOString()),
         'amount': value['amount'],
-        'scheduled_date': value['scheduledDate'] === null ? null : ((_b = value['scheduledDate']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
-        'processed_date': value['processedDate'] === null ? null : ((_c = value['processedDate']) === null || _c === void 0 ? void 0 : _c.toISOString().substring(0, 10)),
+        'scheduled_date': value['scheduledDate'] === null ? null : ((_a = value['scheduledDate']) === null || _a === void 0 ? void 0 : _a.toISOString().substring(0, 10)),
+        'processed_date': value['processedDate'] === null ? null : ((_b = value['processedDate']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
         'status': (0, ReimbursementStatusEnum_1.ReimbursementStatusEnumToJSON)(value['status']),
         'payment_reference': value['paymentReference'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'payee': value['payee'],
         'approver': value['approver'],
         'expense': value['expense'],

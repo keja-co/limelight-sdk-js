@@ -52,13 +52,13 @@ export interface DocumentTag {
      * @type {Date}
      * @memberof DocumentTag
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {number}
      * @memberof DocumentTag
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -70,7 +70,7 @@ export interface DocumentTag {
      * @type {number}
      * @memberof DocumentTag
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the DocumentTag interface.
@@ -79,4 +79,4 @@ export declare function instanceOfDocumentTag(value: object): value is DocumentT
 export declare function DocumentTagFromJSON(json: any): DocumentTag;
 export declare function DocumentTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): DocumentTag;
 export declare function DocumentTagToJSON(json: any): DocumentTag;
-export declare function DocumentTagToJSONTyped(value?: Omit<DocumentTag, 'id' | 'tag' | 'document' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function DocumentTagToJSONTyped(value?: Omit<DocumentTag, 'id' | 'tag' | 'document' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

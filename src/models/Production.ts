@@ -50,7 +50,7 @@ export interface Production {
      * @type {Date}
      * @memberof Production
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {string}
@@ -86,7 +86,7 @@ export interface Production {
      * @type {number}
      * @memberof Production
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -98,7 +98,7 @@ export interface Production {
      * @type {number}
      * @memberof Production
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The primary venue for the production, not necessarily where all performances will take place.
      * @type {number}
@@ -122,9 +122,11 @@ export function instanceOfProduction(value: object): value is Production {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     return true;
 }
 
@@ -141,7 +143,7 @@ export function ProductionFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
         'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
@@ -149,7 +151,7 @@ export function ProductionFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'status': json['status'] == null ? undefined : ProductionStatusEnumFromJSON(json['status']),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'venue': json['venue'] == null ? undefined : json['venue'],
         'director': json['director'] == null ? undefined : json['director'],
     };
@@ -159,21 +161,18 @@ export function ProductionToJSON(json: any): Production {
     return ProductionToJSONTyped(json, false);
 }
 
-export function ProductionToJSONTyped(value?: Omit<Production, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function ProductionToJSONTyped(value?: Omit<Production, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'description': value['description'],
         'start_date': value['startDate'] === null ? null : ((value['startDate'] as any)?.toISOString()),
         'end_date': value['endDate'] === null ? null : ((value['endDate'] as any)?.toISOString()),
         'status': ProductionStatusEnumToJSON(value['status']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'venue': value['venue'],
         'director': value['director'],
     };

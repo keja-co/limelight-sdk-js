@@ -42,7 +42,7 @@ export interface PatchedAudition {
      * @type {Date}
      * @memberof PatchedAudition
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the audition
      * @type {string}
@@ -60,7 +60,7 @@ export interface PatchedAudition {
      * @type {number}
      * @memberof PatchedAudition
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedAudition {
      * @type {number}
      * @memberof PatchedAudition
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -122,18 +122,15 @@ export function PatchedAuditionToJSON(json: any): PatchedAudition {
     return PatchedAuditionToJSONTyped(json, false);
 }
 
-export function PatchedAuditionToJSONTyped(value?: Omit<PatchedAudition, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedAuditionToJSONTyped(value?: Omit<PatchedAudition, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'description': value['description'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'venue': value['venue'],
     };

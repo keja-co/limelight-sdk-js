@@ -38,7 +38,7 @@ export interface PatchedTag {
      * @type {Date}
      * @memberof PatchedTag
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -62,7 +62,7 @@ export interface PatchedTag {
      * @type {number}
      * @memberof PatchedTag
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface PatchedTag {
      * @type {number}
      * @memberof PatchedTag
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 /**
  * Check if a given object implements the PatchedTag interface.
@@ -83,4 +83,4 @@ export declare function instanceOfPatchedTag(value: object): value is PatchedTag
 export declare function PatchedTagFromJSON(json: any): PatchedTag;
 export declare function PatchedTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedTag;
 export declare function PatchedTagToJSON(json: any): PatchedTag;
-export declare function PatchedTagToJSONTyped(value?: Omit<PatchedTag, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedTagToJSONTyped(value?: Omit<PatchedTag, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -39,7 +39,7 @@ export interface Performance {
      * @type {Date}
      * @memberof Performance
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {Date}
@@ -63,7 +63,7 @@ export interface Performance {
      * @type {number}
      * @memberof Performance
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -75,7 +75,7 @@ export interface Performance {
      * @type {number}
      * @memberof Performance
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -96,4 +96,4 @@ export declare function instanceOfPerformance(value: object): value is Performan
 export declare function PerformanceFromJSON(json: any): Performance;
 export declare function PerformanceFromJSONTyped(json: any, ignoreDiscriminator: boolean): Performance;
 export declare function PerformanceToJSON(json: any): Performance;
-export declare function PerformanceToJSONTyped(value?: Omit<Performance, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PerformanceToJSONTyped(value?: Omit<Performance, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

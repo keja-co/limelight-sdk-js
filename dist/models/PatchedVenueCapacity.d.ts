@@ -38,7 +38,7 @@ export interface PatchedVenueCapacity {
      * @type {Date}
      * @memberof PatchedVenueCapacity
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Seating mode of the venue
      * @type {string}
@@ -62,7 +62,7 @@ export interface PatchedVenueCapacity {
      * @type {number}
      * @memberof PatchedVenueCapacity
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface PatchedVenueCapacity {
      * @type {number}
      * @memberof PatchedVenueCapacity
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Venue for which the capacity is defined
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfPatchedVenueCapacity(value: object): value is 
 export declare function PatchedVenueCapacityFromJSON(json: any): PatchedVenueCapacity;
 export declare function PatchedVenueCapacityFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedVenueCapacity;
 export declare function PatchedVenueCapacityToJSON(json: any): PatchedVenueCapacity;
-export declare function PatchedVenueCapacityToJSONTyped(value?: Omit<PatchedVenueCapacity, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedVenueCapacityToJSONTyped(value?: Omit<PatchedVenueCapacity, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

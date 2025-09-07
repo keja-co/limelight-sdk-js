@@ -14,7 +14,7 @@ import type { Asset, Assignment, PaginatedAssetList, PaginatedAssignmentList, Pa
 export interface AssetsV1AssetsAssignmentsCreateRequest {
     assetId: number;
     tenantRef: string;
-    assignment: Omit<Assignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    assignment: Omit<Assignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface AssetsV1AssetsAssignmentsDestroyRequest {
     assetId: number;
@@ -31,7 +31,7 @@ export interface AssetsV1AssetsAssignmentsPartialUpdateRequest {
     assetId: number;
     id: number;
     tenantRef: string;
-    patchedAssignment?: Omit<PatchedAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedAssignment?: Omit<PatchedAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface AssetsV1AssetsAssignmentsRetrieveRequest {
     assetId: number;
@@ -42,11 +42,11 @@ export interface AssetsV1AssetsAssignmentsUpdateRequest {
     assetId: number;
     id: number;
     tenantRef: string;
-    assignment: Omit<Assignment, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    assignment: Omit<Assignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface AssetsV1AssetsCreateRequest {
     tenantRef: string;
-    asset: Omit<Asset, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    asset: Omit<Asset, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface AssetsV1AssetsDestroyRequest {
     id: number;
@@ -60,7 +60,7 @@ export interface AssetsV1AssetsListRequest {
 export interface AssetsV1AssetsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedAsset?: Omit<PatchedAsset, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedAsset?: Omit<PatchedAsset, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface AssetsV1AssetsRetrieveRequest {
     id: number;
@@ -69,7 +69,7 @@ export interface AssetsV1AssetsRetrieveRequest {
 export interface AssetsV1AssetsUpdateRequest {
     id: number;
     tenantRef: string;
-    asset: Omit<Asset, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    asset: Omit<Asset, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 /**
  *

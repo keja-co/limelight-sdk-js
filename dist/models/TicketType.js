@@ -29,6 +29,8 @@ function instanceOfTicketType(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('externalName' in value) || value['externalName'] === undefined)
         return false;
     if (!('internalName' in value) || value['internalName'] === undefined)
@@ -38,6 +40,8 @@ function instanceOfTicketType(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('productionVenue' in value) || value['productionVenue'] === undefined)
         return false;
@@ -54,7 +58,7 @@ function TicketTypeFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'externalName': json['external_name'],
         'internalName': json['internal_name'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -64,7 +68,7 @@ function TicketTypeFromJSONTyped(json, ignoreDiscriminator) {
         'sortOrder': json['sort_order'] == null ? undefined : json['sort_order'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'productionVenue': json['production_venue'],
     };
 }
@@ -72,13 +76,11 @@ function TicketTypeToJSON(json) {
     return TicketTypeToJSONTyped(json, false);
 }
 function TicketTypeToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'external_name': value['externalName'],
         'internal_name': value['internalName'],
         'description': value['description'],
@@ -86,8 +88,6 @@ function TicketTypeToJSONTyped(value, ignoreDiscriminator) {
         'currency': (0, CurrencyEnum_1.CurrencyEnumToJSON)(value['currency']),
         'limit': value['limit'],
         'sort_order': value['sortOrder'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production_venue': value['productionVenue'],
     };
 }

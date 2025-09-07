@@ -42,7 +42,7 @@ export interface Slot {
      * @type {Date}
      * @memberof Slot
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the slot
      * @type {string}
@@ -78,7 +78,7 @@ export interface Slot {
      * @type {number}
      * @memberof Slot
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -90,7 +90,7 @@ export interface Slot {
      * @type {number}
      * @memberof Slot
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -106,10 +106,12 @@ export function instanceOfSlot(value: object): value is Slot {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('startTime' in value) || value['startTime'] === undefined) return false;
     if (!('endTime' in value) || value['endTime'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('audition' in value) || value['audition'] === undefined) return false;
     return true;
 }
@@ -127,7 +129,7 @@ export function SlotFromJSONTyped(json: any, ignoreDiscriminator: boolean): Slot
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'] == null ? undefined : json['name'],
         'startTime': (new Date(json['start_time'])),
         'endTime': (new Date(json['end_time'])),
@@ -135,7 +137,7 @@ export function SlotFromJSONTyped(json: any, ignoreDiscriminator: boolean): Slot
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'audition': json['audition'],
     };
 }
@@ -144,21 +146,18 @@ export function SlotToJSON(json: any): Slot {
     return SlotToJSONTyped(json, false);
 }
 
-export function SlotToJSONTyped(value?: Omit<Slot, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function SlotToJSONTyped(value?: Omit<Slot, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'start_time': ((value['startTime']).toISOString()),
         'end_time': ((value['endTime']).toISOString()),
         'limit': value['limit'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'audition': value['audition'],
     };
 }

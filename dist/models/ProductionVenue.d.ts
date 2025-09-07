@@ -38,13 +38,13 @@ export interface ProductionVenue {
      * @type {Date}
      * @memberof ProductionVenue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {number}
      * @memberof ProductionVenue
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -56,7 +56,7 @@ export interface ProductionVenue {
      * @type {number}
      * @memberof ProductionVenue
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -77,4 +77,4 @@ export declare function instanceOfProductionVenue(value: object): value is Produ
 export declare function ProductionVenueFromJSON(json: any): ProductionVenue;
 export declare function ProductionVenueFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductionVenue;
 export declare function ProductionVenueToJSON(json: any): ProductionVenue;
-export declare function ProductionVenueToJSONTyped(value?: Omit<ProductionVenue, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionVenueToJSONTyped(value?: Omit<ProductionVenue, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

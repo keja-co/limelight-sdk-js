@@ -42,7 +42,7 @@ export interface PatchedCostCategory {
      * @type {Date}
      * @memberof PatchedCostCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -66,7 +66,7 @@ export interface PatchedCostCategory {
      * @type {number}
      * @memberof PatchedCostCategory
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -78,7 +78,7 @@ export interface PatchedCostCategory {
      * @type {number}
      * @memberof PatchedCostCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -122,19 +122,16 @@ export function PatchedCostCategoryToJSON(json: any): PatchedCostCategory {
     return PatchedCostCategoryToJSONTyped(json, false);
 }
 
-export function PatchedCostCategoryToJSONTyped(value?: Omit<PatchedCostCategory, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedCostCategoryToJSONTyped(value?: Omit<PatchedCostCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'description': value['description'],
         'line_code': value['lineCode'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'parent': value['parent'],
     };
 }

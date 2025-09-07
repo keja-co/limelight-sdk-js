@@ -42,7 +42,7 @@ export interface PatchedRehearsalParticipant {
      * @type {Date}
      * @memberof PatchedRehearsalParticipant
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Indicates if the participant is required for this rehearsal (as some members may be added to a rehearsal but not be required to attend).
      * @type {boolean}
@@ -60,7 +60,7 @@ export interface PatchedRehearsalParticipant {
      * @type {number}
      * @memberof PatchedRehearsalParticipant
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedRehearsalParticipant {
      * @type {number}
      * @memberof PatchedRehearsalParticipant
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -122,18 +122,15 @@ export function PatchedRehearsalParticipantToJSON(json: any): PatchedRehearsalPa
     return PatchedRehearsalParticipantToJSONTyped(json, false);
 }
 
-export function PatchedRehearsalParticipantToJSONTyped(value?: Omit<PatchedRehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedRehearsalParticipantToJSONTyped(value?: Omit<PatchedRehearsalParticipant, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'is_required': value['isRequired'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'rehearsal': value['rehearsal'],
         'member': value['member'],
     };

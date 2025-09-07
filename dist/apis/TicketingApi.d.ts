@@ -13,7 +13,7 @@ import * as runtime from '../runtime';
 import type { Discount, DiscountTicketType, PaginatedDiscountList, PaginatedDiscountTicketTypeList, PaginatedPurchaseList, PaginatedSectionList, PaginatedSectionSeatList, PaginatedTicketList, PaginatedTicketTypeList, PatchedDiscount, PatchedPurchase, PatchedSection, PatchedSectionSeat, PatchedTicket, PatchedTicketType, Purchase, Section, SectionSeat, Ticket, TicketType } from '../models/index';
 export interface TicketingV1DiscountsCreateRequest {
     tenantRef: string;
-    discount: Omit<Discount, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    discount: Omit<Discount, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
     productionVenueId?: number;
 }
 export interface TicketingV1DiscountsDestroyRequest {
@@ -31,7 +31,7 @@ export interface TicketingV1DiscountsPartialUpdateRequest {
     id: number;
     tenantRef: string;
     productionVenueId?: number;
-    patchedDiscount?: Omit<PatchedDiscount, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedDiscount?: Omit<PatchedDiscount, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1DiscountsRetrieveRequest {
     id: number;
@@ -41,7 +41,7 @@ export interface TicketingV1DiscountsRetrieveRequest {
 export interface TicketingV1DiscountsTicketTypesCreateRequest {
     discountId: number;
     tenantRef: string;
-    discountTicketType: Omit<DiscountTicketType, 'id' | 'discount' | 'ticket_type' | 'created_at' | 'updated_at' | 'created_by'>;
+    discountTicketType?: Omit<DiscountTicketType, 'id' | 'discount' | 'ticket_type' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1DiscountsTicketTypesDestroyRequest {
     discountId: number;
@@ -62,13 +62,13 @@ export interface TicketingV1DiscountsTicketTypesRetrieveRequest {
 export interface TicketingV1DiscountsUpdateRequest {
     id: number;
     tenantRef: string;
-    discount: Omit<Discount, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    discount: Omit<Discount, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
     productionVenueId?: number;
 }
 export interface TicketingV1ProdVenueSectionsCreateRequest {
     productionVenueId: number;
     tenantRef: string;
-    section: Omit<Section, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    section: Omit<Section, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1ProdVenueSectionsDestroyRequest {
     id: number;
@@ -85,7 +85,7 @@ export interface TicketingV1ProdVenueSectionsPartialUpdateRequest {
     id: number;
     productionVenueId: number;
     tenantRef: string;
-    patchedSection?: Omit<PatchedSection, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedSection?: Omit<PatchedSection, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1ProdVenueSectionsRetrieveRequest {
     id: number;
@@ -96,7 +96,7 @@ export interface TicketingV1ProdVenueSectionsSeatsCreateRequest {
     productionVenueId: number;
     sectionId: number;
     tenantRef: string;
-    sectionSeat: Omit<SectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'created_by'>;
+    sectionSeat: Omit<SectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1ProdVenueSectionsSeatsDestroyRequest {
     id: number;
@@ -116,7 +116,7 @@ export interface TicketingV1ProdVenueSectionsSeatsPartialUpdateRequest {
     productionVenueId: number;
     sectionId: number;
     tenantRef: string;
-    patchedSectionSeat?: Omit<PatchedSectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedSectionSeat?: Omit<PatchedSectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1ProdVenueSectionsSeatsRetrieveRequest {
     id: number;
@@ -129,18 +129,18 @@ export interface TicketingV1ProdVenueSectionsSeatsUpdateRequest {
     productionVenueId: number;
     sectionId: number;
     tenantRef: string;
-    sectionSeat: Omit<SectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'created_by'>;
+    sectionSeat: Omit<SectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1ProdVenueSectionsUpdateRequest {
     id: number;
     productionVenueId: number;
     tenantRef: string;
-    section: Omit<Section, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    section: Omit<Section, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1ProdVenueTicketTypesCreateRequest {
     productionVenueId: number;
     tenantRef: string;
-    ticketType: Omit<TicketType, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    ticketType: Omit<TicketType, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1ProdVenueTicketTypesDestroyRequest {
     id: number;
@@ -157,7 +157,7 @@ export interface TicketingV1ProdVenueTicketTypesPartialUpdateRequest {
     id: number;
     productionVenueId: number;
     tenantRef: string;
-    patchedTicketType?: Omit<PatchedTicketType, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedTicketType?: Omit<PatchedTicketType, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1ProdVenueTicketTypesRetrieveRequest {
     id: number;
@@ -168,11 +168,11 @@ export interface TicketingV1ProdVenueTicketTypesUpdateRequest {
     id: number;
     productionVenueId: number;
     tenantRef: string;
-    ticketType: Omit<TicketType, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    ticketType: Omit<TicketType, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1PurchasesCreateRequest {
     tenantRef: string;
-    purchase: Omit<Purchase, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    purchase: Omit<Purchase, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1PurchasesDestroyRequest {
     id: number;
@@ -186,7 +186,7 @@ export interface TicketingV1PurchasesListRequest {
 export interface TicketingV1PurchasesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedPurchase?: Omit<PatchedPurchase, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    patchedPurchase?: Omit<PatchedPurchase, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1PurchasesRetrieveRequest {
     id: number;
@@ -195,7 +195,7 @@ export interface TicketingV1PurchasesRetrieveRequest {
 export interface TicketingV1PurchasesTicketsCreateRequest {
     purchaseId: number;
     tenantRef: string;
-    ticket: Omit<Ticket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'ticket_uuid' | 'created_by'>;
+    ticket: Omit<Ticket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'archive_at' | 'ticket_uuid' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1PurchasesTicketsDestroyRequest {
     id: number;
@@ -212,7 +212,7 @@ export interface TicketingV1PurchasesTicketsPartialUpdateRequest {
     id: number;
     purchaseId: number;
     tenantRef: string;
-    patchedTicket?: Omit<PatchedTicket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'ticket_uuid' | 'created_by'>;
+    patchedTicket?: Omit<PatchedTicket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'archive_at' | 'ticket_uuid' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1PurchasesTicketsRetrieveRequest {
     id: number;
@@ -223,12 +223,12 @@ export interface TicketingV1PurchasesTicketsUpdateRequest {
     id: number;
     purchaseId: number;
     tenantRef: string;
-    ticket: Omit<Ticket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'ticket_uuid' | 'created_by'>;
+    ticket: Omit<Ticket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'archive_at' | 'ticket_uuid' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface TicketingV1PurchasesUpdateRequest {
     id: number;
     tenantRef: string;
-    purchase: Omit<Purchase, 'id' | 'created_at' | 'updated_at' | 'created_by'>;
+    purchase: Omit<Purchase, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 /**
  *

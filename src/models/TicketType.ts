@@ -50,7 +50,7 @@ export interface TicketType {
      * @type {Date}
      * @memberof TicketType
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the ticket type, e.g., General Admission, VIP, etc.
      * @type {string}
@@ -106,7 +106,7 @@ export interface TicketType {
      * @type {number}
      * @memberof TicketType
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -118,7 +118,7 @@ export interface TicketType {
      * @type {number}
      * @memberof TicketType
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The production venue this ticket type belongs to.
      * @type {number}
@@ -136,11 +136,13 @@ export function instanceOfTicketType(value: object): value is TicketType {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('externalName' in value) || value['externalName'] === undefined) return false;
     if (!('internalName' in value) || value['internalName'] === undefined) return false;
     if (!('price' in value) || value['price'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('productionVenue' in value) || value['productionVenue'] === undefined) return false;
     return true;
 }
@@ -158,7 +160,7 @@ export function TicketTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'externalName': json['external_name'],
         'internalName': json['internal_name'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -168,7 +170,7 @@ export function TicketTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'sortOrder': json['sort_order'] == null ? undefined : json['sort_order'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'productionVenue': json['production_venue'],
     };
 }
@@ -177,14 +179,13 @@ export function TicketTypeToJSON(json: any): TicketType {
     return TicketTypeToJSONTyped(json, false);
 }
 
-export function TicketTypeToJSONTyped(value?: Omit<TicketType, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function TicketTypeToJSONTyped(value?: Omit<TicketType, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'external_name': value['externalName'],
         'internal_name': value['internalName'],
         'description': value['description'],
@@ -192,8 +193,6 @@ export function TicketTypeToJSONTyped(value?: Omit<TicketType, 'id'|'created_at'
         'currency': CurrencyEnumToJSON(value['currency']),
         'limit': value['limit'],
         'sort_order': value['sortOrder'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production_venue': value['productionVenue'],
     };
 }

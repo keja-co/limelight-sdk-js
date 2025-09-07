@@ -50,7 +50,7 @@ export interface ProductionRoleAssignment {
      * @type {Date}
      * @memberof ProductionRoleAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {RoleEnum}
@@ -62,7 +62,7 @@ export interface ProductionRoleAssignment {
      * @type {number}
      * @memberof ProductionRoleAssignment
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -74,7 +74,7 @@ export interface ProductionRoleAssignment {
      * @type {number}
      * @memberof ProductionRoleAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -98,9 +98,11 @@ export function instanceOfProductionRoleAssignment(value: object): value is Prod
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('role' in value) || value['role'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('production' in value) || value['production'] === undefined) return false;
     if (!('member' in value) || value['member'] === undefined) return false;
     return true;
@@ -119,11 +121,11 @@ export function ProductionRoleAssignmentFromJSONTyped(json: any, ignoreDiscrimin
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'role': RoleEnumFromJSON(json['role']),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'],
         'member': json['member'],
     };
@@ -133,17 +135,14 @@ export function ProductionRoleAssignmentToJSON(json: any): ProductionRoleAssignm
     return ProductionRoleAssignmentToJSONTyped(json, false);
 }
 
-export function ProductionRoleAssignmentToJSONTyped(value?: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function ProductionRoleAssignmentToJSONTyped(value?: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'role': RoleEnumToJSON(value['role']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'member': value['member'],
     };

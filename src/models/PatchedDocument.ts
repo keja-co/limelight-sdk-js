@@ -50,7 +50,7 @@ export interface PatchedDocument {
      * @type {Date}
      * @memberof PatchedDocument
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -74,7 +74,7 @@ export interface PatchedDocument {
      * @type {number}
      * @memberof PatchedDocument
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -86,7 +86,7 @@ export interface PatchedDocument {
      * @type {number}
      * @memberof PatchedDocument
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -167,19 +167,16 @@ export function PatchedDocumentToJSON(json: any): PatchedDocument {
     return PatchedDocumentToJSONTyped(json, false);
 }
 
-export function PatchedDocumentToJSONTyped(value?: Omit<PatchedDocument, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedDocumentToJSONTyped(value?: Omit<PatchedDocument, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'status': DocumentStatusEnumToJSON(value['status']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'author': value['author'],
         'repo': value['repo'],

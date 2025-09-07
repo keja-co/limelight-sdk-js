@@ -39,7 +39,7 @@ export interface PatchedSection {
      * @type {Date}
      * @memberof PatchedSection
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Section Code, example: L-MEZ, ORCH, R-BALC, etc.
      * @type {string}
@@ -90,7 +90,7 @@ export interface PatchedSection {
      * @type {number}
      * @memberof PatchedSection
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -102,7 +102,7 @@ export interface PatchedSection {
      * @type {number}
      * @memberof PatchedSection
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The production & venue this section belongs to
      * @type {number}
@@ -117,4 +117,4 @@ export declare function instanceOfPatchedSection(value: object): value is Patche
 export declare function PatchedSectionFromJSON(json: any): PatchedSection;
 export declare function PatchedSectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedSection;
 export declare function PatchedSectionToJSON(json: any): PatchedSection;
-export declare function PatchedSectionToJSONTyped(value?: Omit<PatchedSection, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedSectionToJSONTyped(value?: Omit<PatchedSection, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

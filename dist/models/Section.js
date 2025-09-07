@@ -29,6 +29,8 @@ function instanceOfSection(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('sectionCode' in value) || value['sectionCode'] === undefined)
         return false;
     if (!('name' in value) || value['name'] === undefined)
@@ -36,6 +38,8 @@ function instanceOfSection(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('productionVenue' in value) || value['productionVenue'] === undefined)
         return false;
@@ -52,7 +56,7 @@ function SectionFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'sectionCode': json['section_code'],
         'name': json['name'],
         'floor': json['floor'] == null ? undefined : json['floor'],
@@ -62,7 +66,7 @@ function SectionFromJSONTyped(json, ignoreDiscriminator) {
         'limit': json['limit'] == null ? undefined : json['limit'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'productionVenue': json['production_venue'],
     };
 }
@@ -70,13 +74,11 @@ function SectionToJSON(json) {
     return SectionToJSONTyped(json, false);
 }
 function SectionToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'section_code': value['sectionCode'],
         'name': value['name'],
         'floor': value['floor'],
@@ -84,8 +86,6 @@ function SectionToJSONTyped(value, ignoreDiscriminator) {
         'sort_order': value['sortOrder'],
         'seating_system': (0, SeatingSystemEnum_1.SeatingSystemEnumToJSON)(value['seatingSystem']),
         'limit': value['limit'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production_venue': value['productionVenue'],
     };
 }

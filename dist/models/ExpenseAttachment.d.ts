@@ -38,7 +38,7 @@ export interface ExpenseAttachment {
      * @type {Date}
      * @memberof ExpenseAttachment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface ExpenseAttachment {
      * @type {number}
      * @memberof ExpenseAttachment
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface ExpenseAttachment {
      * @type {number}
      * @memberof ExpenseAttachment
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfExpenseAttachment(value: object): value is Exp
 export declare function ExpenseAttachmentFromJSON(json: any): ExpenseAttachment;
 export declare function ExpenseAttachmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExpenseAttachment;
 export declare function ExpenseAttachmentToJSON(json: any): ExpenseAttachment;
-export declare function ExpenseAttachmentToJSONTyped(value?: Omit<ExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ExpenseAttachmentToJSONTyped(value?: Omit<ExpenseAttachment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

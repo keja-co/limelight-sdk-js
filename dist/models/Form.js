@@ -28,11 +28,15 @@ function instanceOfForm(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('title' in value) || value['title'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     return true;
 }
@@ -47,7 +51,7 @@ function FormFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'openDateTime': json['open_date_time'] == null ? undefined : (new Date(json['open_date_time'])),
@@ -59,7 +63,7 @@ function FormFromJSONTyped(json, ignoreDiscriminator) {
         'isActive': json['is_active'] == null ? undefined : json['is_active'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'] == null ? undefined : json['production'],
     };
 }
@@ -67,24 +71,21 @@ function FormToJSON(json) {
     return FormToJSONTyped(json, false);
 }
 function FormToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'title': value['title'],
         'description': value['description'],
-        'open_date_time': value['openDateTime'] === null ? null : ((_b = value['openDateTime']) === null || _b === void 0 ? void 0 : _b.toISOString()),
-        'close_date_time': value['closeDateTime'] === null ? null : ((_c = value['closeDateTime']) === null || _c === void 0 ? void 0 : _c.toISOString()),
+        'open_date_time': value['openDateTime'] === null ? null : ((_a = value['openDateTime']) === null || _a === void 0 ? void 0 : _a.toISOString()),
+        'close_date_time': value['closeDateTime'] === null ? null : ((_b = value['closeDateTime']) === null || _b === void 0 ? void 0 : _b.toISOString()),
         'max_submissions': value['maxSubmissions'],
         'max_individual_submissions': value['maxIndividualSubmissions'],
         'success_message': value['successMessage'],
         'is_template': value['isTemplate'],
         'is_active': value['isActive'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
     };
 }

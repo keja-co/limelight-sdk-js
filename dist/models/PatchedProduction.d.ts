@@ -39,7 +39,7 @@ export interface PatchedProduction {
      * @type {Date}
      * @memberof PatchedProduction
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -75,7 +75,7 @@ export interface PatchedProduction {
      * @type {number}
      * @memberof PatchedProduction
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -87,7 +87,7 @@ export interface PatchedProduction {
      * @type {number}
      * @memberof PatchedProduction
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The primary venue for the production, not necessarily where all performances will take place.
      * @type {number}
@@ -108,4 +108,4 @@ export declare function instanceOfPatchedProduction(value: object): value is Pat
 export declare function PatchedProductionFromJSON(json: any): PatchedProduction;
 export declare function PatchedProductionFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedProduction;
 export declare function PatchedProductionToJSON(json: any): PatchedProduction;
-export declare function PatchedProductionToJSONTyped(value?: Omit<PatchedProduction, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedProductionToJSONTyped(value?: Omit<PatchedProduction, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

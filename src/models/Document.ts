@@ -50,7 +50,7 @@ export interface Document {
      * @type {Date}
      * @memberof Document
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {string}
@@ -74,7 +74,7 @@ export interface Document {
      * @type {number}
      * @memberof Document
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -86,7 +86,7 @@ export interface Document {
      * @type {number}
      * @memberof Document
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -134,9 +134,11 @@ export function instanceOfDocument(value: object): value is Document {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('repo' in value) || value['repo'] === undefined) return false;
     if (!('tags' in value) || value['tags'] === undefined) return false;
     return true;
@@ -155,13 +157,13 @@ export function DocumentFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'status': json['status'] == null ? undefined : DocumentStatusEnumFromJSON(json['status']),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'] == null ? undefined : json['production'],
         'author': json['author'] == null ? undefined : json['author'],
         'repo': json['repo'],
@@ -175,19 +177,16 @@ export function DocumentToJSON(json: any): Document {
     return DocumentToJSONTyped(json, false);
 }
 
-export function DocumentToJSONTyped(value?: Omit<Document, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function DocumentToJSONTyped(value?: Omit<Document, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'status': DocumentStatusEnumToJSON(value['status']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'author': value['author'],
         'repo': value['repo'],

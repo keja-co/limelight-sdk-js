@@ -38,7 +38,7 @@ export interface State {
      * @type {Date}
      * @memberof State
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface State {
      * @type {number}
      * @memberof State
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface State {
      * @type {number}
      * @memberof State
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -83,4 +83,4 @@ export declare function instanceOfState(value: object): value is State;
 export declare function StateFromJSON(json: any): State;
 export declare function StateFromJSONTyped(json: any, ignoreDiscriminator: boolean): State;
 export declare function StateToJSON(json: any): State;
-export declare function StateToJSONTyped(value?: Omit<State, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function StateToJSONTyped(value?: Omit<State, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

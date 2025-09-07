@@ -369,9 +369,6 @@ var TicketingApi = /** @class */ (function (_super) {
                         if (requestParameters['tenantRef'] == null) {
                             throw new runtime.RequiredError('tenantRef', 'Required parameter "tenantRef" was null or undefined when calling ticketingV1DiscountsTicketTypesCreate().');
                         }
-                        if (requestParameters['discountTicketType'] == null) {
-                            throw new runtime.RequiredError('discountTicketType', 'Required parameter "discountTicketType" was null or undefined when calling ticketingV1DiscountsTicketTypesCreate().');
-                        }
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';

@@ -28,11 +28,15 @@ function instanceOfEmployee(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('firstName' in value) || value['firstName'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('user' in value) || value['user'] === undefined)
         return false;
@@ -51,7 +55,7 @@ function EmployeeFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'firstName': json['first_name'],
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'email': json['email'] == null ? undefined : json['email'],
@@ -73,7 +77,7 @@ function EmployeeFromJSONTyped(json, ignoreDiscriminator) {
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'user': json['user'],
         'employeeAddress': json['employee_address'] == null ? undefined : json['employee_address'],
         'state': json['state'] == null ? undefined : json['state'],
@@ -87,13 +91,12 @@ function EmployeeToJSON(json) {
     return EmployeeToJSONTyped(json, false);
 }
 function EmployeeToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'first_name': value['firstName'],
         'last_name': value['lastName'],
         'email': value['email'],
@@ -101,8 +104,8 @@ function EmployeeToJSONTyped(value, ignoreDiscriminator) {
         'postal_address': value['postalAddress'],
         'city': value['city'],
         'postcode': value['postcode'],
-        'date_of_birth': value['dateOfBirth'] === null ? null : ((_b = value['dateOfBirth']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
-        'hire_date': value['hireDate'] === null ? null : ((_c = value['hireDate']) === null || _c === void 0 ? void 0 : _c.toISOString().substring(0, 10)),
+        'date_of_birth': value['dateOfBirth'] === null ? null : ((_a = value['dateOfBirth']) === null || _a === void 0 ? void 0 : _a.toISOString().substring(0, 10)),
+        'hire_date': value['hireDate'] === null ? null : ((_b = value['hireDate']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
         'position': value['position'],
         'hourly_rate': value['hourlyRate'],
         'salary': value['salary'],
@@ -111,10 +114,8 @@ function EmployeeToJSONTyped(value, ignoreDiscriminator) {
         'emergency_contact_relationship': value['emergencyContactRelationship'],
         'emergency_contact_phone': value['emergencyContactPhone'],
         'is_active': value['isActive'],
-        'probation_end_date': value['probationEndDate'] === null ? null : ((_d = value['probationEndDate']) === null || _d === void 0 ? void 0 : _d.toISOString().substring(0, 10)),
+        'probation_end_date': value['probationEndDate'] === null ? null : ((_c = value['probationEndDate']) === null || _c === void 0 ? void 0 : _c.toISOString().substring(0, 10)),
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'user': value['user'],
         'employee_address': value['employeeAddress'],
         'state': value['state'],

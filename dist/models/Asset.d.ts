@@ -40,7 +40,7 @@ export interface Asset {
      * @type {Date}
      * @memberof Asset
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the asset
      * @type {string}
@@ -92,7 +92,7 @@ export interface Asset {
      * @type {number}
      * @memberof Asset
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -104,7 +104,7 @@ export interface Asset {
      * @type {number}
      * @memberof Asset
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * User who owns the asset
      * @type {number}
@@ -119,4 +119,4 @@ export declare function instanceOfAsset(value: object): value is Asset;
 export declare function AssetFromJSON(json: any): Asset;
 export declare function AssetFromJSONTyped(json: any, ignoreDiscriminator: boolean): Asset;
 export declare function AssetToJSON(json: any): Asset;
-export declare function AssetToJSONTyped(value?: Omit<Asset, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function AssetToJSONTyped(value?: Omit<Asset, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -42,7 +42,7 @@ export interface PatchedRehearsal {
      * @type {Date}
      * @memberof PatchedRehearsal
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {Date}
@@ -66,7 +66,7 @@ export interface PatchedRehearsal {
      * @type {number}
      * @memberof PatchedRehearsal
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -78,7 +78,7 @@ export interface PatchedRehearsal {
      * @type {number}
      * @memberof PatchedRehearsal
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -129,19 +129,16 @@ export function PatchedRehearsalToJSON(json: any): PatchedRehearsal {
     return PatchedRehearsalToJSONTyped(json, false);
 }
 
-export function PatchedRehearsalToJSONTyped(value?: Omit<PatchedRehearsal, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedRehearsalToJSONTyped(value?: Omit<PatchedRehearsal, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'start_datetime': value['startDatetime'] == null ? undefined : ((value['startDatetime']).toISOString()),
         'end_datetime': value['endDatetime'] == null ? undefined : ((value['endDatetime']).toISOString()),
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'venue': value['venue'],
     };

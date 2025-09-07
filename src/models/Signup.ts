@@ -42,7 +42,7 @@ export interface Signup {
      * @type {Date}
      * @memberof Signup
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * First name of the user signing up
      * @type {string}
@@ -78,7 +78,7 @@ export interface Signup {
      * @type {number}
      * @memberof Signup
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -90,7 +90,7 @@ export interface Signup {
      * @type {number}
      * @memberof Signup
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -112,8 +112,10 @@ export function instanceOfSignup(value: object): value is Signup {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('slot' in value) || value['slot'] === undefined) return false;
     return true;
 }
@@ -131,7 +133,7 @@ export function SignupFromJSONTyped(json: any, ignoreDiscriminator: boolean): Si
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'firstName': json['first_name'] == null ? undefined : json['first_name'],
         'lastName': json['last_name'] == null ? undefined : json['last_name'],
         'email': json['email'] == null ? undefined : json['email'],
@@ -139,7 +141,7 @@ export function SignupFromJSONTyped(json: any, ignoreDiscriminator: boolean): Si
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'slot': json['slot'],
         'user': json['user'] == null ? undefined : json['user'],
     };
@@ -149,21 +151,18 @@ export function SignupToJSON(json: any): Signup {
     return SignupToJSONTyped(json, false);
 }
 
-export function SignupToJSONTyped(value?: Omit<Signup, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function SignupToJSONTyped(value?: Omit<Signup, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'first_name': value['firstName'],
         'last_name': value['lastName'],
         'email': value['email'],
         'phone': value['phone'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'slot': value['slot'],
         'user': value['user'],
     };

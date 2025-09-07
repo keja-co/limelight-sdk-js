@@ -66,7 +66,7 @@ import {
 
 export interface HrEmployeeQualificationsCreateRequest {
     tenantRef: string;
-    employeeQualification: Omit<EmployeeQualification, 'id'|'created_at'|'updated_at'|'created_by'>;
+    employeeQualification: Omit<EmployeeQualification, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrEmployeeQualificationsDestroyRequest {
@@ -83,7 +83,7 @@ export interface HrEmployeeQualificationsListRequest {
 export interface HrEmployeeQualificationsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedEmployeeQualification?: Omit<PatchedEmployeeQualification, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedEmployeeQualification?: Omit<PatchedEmployeeQualification, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrEmployeeQualificationsRetrieveRequest {
@@ -94,12 +94,12 @@ export interface HrEmployeeQualificationsRetrieveRequest {
 export interface HrEmployeeQualificationsUpdateRequest {
     id: number;
     tenantRef: string;
-    employeeQualification: Omit<EmployeeQualification, 'id'|'created_at'|'updated_at'|'created_by'>;
+    employeeQualification: Omit<EmployeeQualification, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrEmployeesCreateRequest {
     tenantRef: string;
-    employee: Omit<Employee, 'id'|'created_at'|'updated_at'|'created_by'>;
+    employee: Omit<Employee, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrEmployeesDestroyRequest {
@@ -116,7 +116,7 @@ export interface HrEmployeesListRequest {
 export interface HrEmployeesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedEmployee?: Omit<PatchedEmployee, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedEmployee?: Omit<PatchedEmployee, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrEmployeesRetrieveRequest {
@@ -127,12 +127,12 @@ export interface HrEmployeesRetrieveRequest {
 export interface HrEmployeesUpdateRequest {
     id: number;
     tenantRef: string;
-    employee: Omit<Employee, 'id'|'created_at'|'updated_at'|'created_by'>;
+    employee: Omit<Employee, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrEmploymentTypesCreateRequest {
     tenantRef: string;
-    employmentType: Omit<EmploymentType, 'id'|'created_at'|'updated_at'|'created_by'>;
+    employmentType: Omit<EmploymentType, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrEmploymentTypesDestroyRequest {
@@ -149,7 +149,7 @@ export interface HrEmploymentTypesListRequest {
 export interface HrEmploymentTypesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedEmploymentType?: Omit<PatchedEmploymentType, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedEmploymentType?: Omit<PatchedEmploymentType, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrEmploymentTypesRetrieveRequest {
@@ -160,12 +160,12 @@ export interface HrEmploymentTypesRetrieveRequest {
 export interface HrEmploymentTypesUpdateRequest {
     id: number;
     tenantRef: string;
-    employmentType: Omit<EmploymentType, 'id'|'created_at'|'updated_at'|'created_by'>;
+    employmentType: Omit<EmploymentType, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrQualificationsCreateRequest {
     tenantRef: string;
-    qualification: Omit<Qualification, 'id'|'created_at'|'updated_at'|'created_by'>;
+    qualification: Omit<Qualification, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrQualificationsDestroyRequest {
@@ -182,7 +182,7 @@ export interface HrQualificationsListRequest {
 export interface HrQualificationsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedQualification?: Omit<PatchedQualification, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedQualification?: Omit<PatchedQualification, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrQualificationsRetrieveRequest {
@@ -193,12 +193,12 @@ export interface HrQualificationsRetrieveRequest {
 export interface HrQualificationsUpdateRequest {
     id: number;
     tenantRef: string;
-    qualification: Omit<Qualification, 'id'|'created_at'|'updated_at'|'created_by'>;
+    qualification: Omit<Qualification, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrWorkLocationsCreateRequest {
     tenantRef: string;
-    workLocation: Omit<WorkLocation, 'id'|'created_at'|'updated_at'|'created_by'>;
+    workLocation: Omit<WorkLocation, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrWorkLocationsDestroyRequest {
@@ -215,7 +215,7 @@ export interface HrWorkLocationsListRequest {
 export interface HrWorkLocationsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedWorkLocation?: Omit<PatchedWorkLocation, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedWorkLocation?: Omit<PatchedWorkLocation, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface HrWorkLocationsRetrieveRequest {
@@ -226,7 +226,7 @@ export interface HrWorkLocationsRetrieveRequest {
 export interface HrWorkLocationsUpdateRequest {
     id: number;
     tenantRef: string;
-    workLocation: Omit<WorkLocation, 'id'|'created_at'|'updated_at'|'created_by'>;
+    workLocation: Omit<WorkLocation, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 /**

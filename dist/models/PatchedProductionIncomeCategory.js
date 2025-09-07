@@ -51,19 +51,15 @@ function PatchedProductionIncomeCategoryToJSON(json) {
     return PatchedProductionIncomeCategoryToJSONTyped(json, false);
 }
 function PatchedProductionIncomeCategoryToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'line_code': value['lineCode'],
         'budget': value['budget'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'income_category': value['incomeCategory'],
     };

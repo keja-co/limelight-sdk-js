@@ -50,17 +50,14 @@ function PatchedAssignmentToJSON(json) {
     return PatchedAssignmentToJSONTyped(json, false);
 }
 function PatchedAssignmentToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b;
+    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'start_date': value['startDate'] == null ? undefined : ((value['startDate']).toISOString()),
-        'end_date': value['endDate'] === null ? null : ((_b = value['endDate']) === null || _b === void 0 ? void 0 : _b.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
+        'end_date': value['endDate'] === null ? null : ((_a = value['endDate']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'asset': value['asset'],
         'user': value['user'],
         'production': value['production'],

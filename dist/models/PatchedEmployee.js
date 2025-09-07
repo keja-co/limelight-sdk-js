@@ -71,13 +71,12 @@ function PatchedEmployeeToJSON(json) {
     return PatchedEmployeeToJSONTyped(json, false);
 }
 function PatchedEmployeeToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'first_name': value['firstName'],
         'last_name': value['lastName'],
         'email': value['email'],
@@ -85,8 +84,8 @@ function PatchedEmployeeToJSONTyped(value, ignoreDiscriminator) {
         'postal_address': value['postalAddress'],
         'city': value['city'],
         'postcode': value['postcode'],
-        'date_of_birth': value['dateOfBirth'] === null ? null : ((_b = value['dateOfBirth']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
-        'hire_date': value['hireDate'] === null ? null : ((_c = value['hireDate']) === null || _c === void 0 ? void 0 : _c.toISOString().substring(0, 10)),
+        'date_of_birth': value['dateOfBirth'] === null ? null : ((_a = value['dateOfBirth']) === null || _a === void 0 ? void 0 : _a.toISOString().substring(0, 10)),
+        'hire_date': value['hireDate'] === null ? null : ((_b = value['hireDate']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
         'position': value['position'],
         'hourly_rate': value['hourlyRate'],
         'salary': value['salary'],
@@ -95,10 +94,8 @@ function PatchedEmployeeToJSONTyped(value, ignoreDiscriminator) {
         'emergency_contact_relationship': value['emergencyContactRelationship'],
         'emergency_contact_phone': value['emergencyContactPhone'],
         'is_active': value['isActive'],
-        'probation_end_date': value['probationEndDate'] === null ? null : ((_d = value['probationEndDate']) === null || _d === void 0 ? void 0 : _d.toISOString().substring(0, 10)),
+        'probation_end_date': value['probationEndDate'] === null ? null : ((_c = value['probationEndDate']) === null || _c === void 0 ? void 0 : _c.toISOString().substring(0, 10)),
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'user': value['user'],
         'employee_address': value['employeeAddress'],
         'state': value['state'],

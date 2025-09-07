@@ -38,7 +38,7 @@ export interface Slot {
      * @type {Date}
      * @memberof Slot
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the slot
      * @type {string}
@@ -74,7 +74,7 @@ export interface Slot {
      * @type {number}
      * @memberof Slot
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -86,7 +86,7 @@ export interface Slot {
      * @type {number}
      * @memberof Slot
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -101,4 +101,4 @@ export declare function instanceOfSlot(value: object): value is Slot;
 export declare function SlotFromJSON(json: any): Slot;
 export declare function SlotFromJSONTyped(json: any, ignoreDiscriminator: boolean): Slot;
 export declare function SlotToJSON(json: any): Slot;
-export declare function SlotToJSONTyped(value?: Omit<Slot, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function SlotToJSONTyped(value?: Omit<Slot, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -45,7 +45,7 @@ export interface Venue {
      * @type {Date}
      * @memberof Venue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the venue
      * @type {string}
@@ -87,7 +87,7 @@ export interface Venue {
      * @type {number}
      * @memberof Venue
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -99,7 +99,7 @@ export interface Venue {
      * @type {number}
      * @memberof Venue
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * Tags associated with the venue
      * @type {Array<number>}
@@ -114,4 +114,4 @@ export declare function instanceOfVenue(value: object): value is Venue;
 export declare function VenueFromJSON(json: any): Venue;
 export declare function VenueFromJSONTyped(json: any, ignoreDiscriminator: boolean): Venue;
 export declare function VenueToJSON(json: any): Venue;
-export declare function VenueToJSONTyped(value?: Omit<Venue, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function VenueToJSONTyped(value?: Omit<Venue, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

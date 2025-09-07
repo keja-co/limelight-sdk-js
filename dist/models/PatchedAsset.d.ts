@@ -40,7 +40,7 @@ export interface PatchedAsset {
      * @type {Date}
      * @memberof PatchedAsset
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the asset
      * @type {string}
@@ -92,7 +92,7 @@ export interface PatchedAsset {
      * @type {number}
      * @memberof PatchedAsset
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -104,7 +104,7 @@ export interface PatchedAsset {
      * @type {number}
      * @memberof PatchedAsset
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * User who owns the asset
      * @type {number}
@@ -119,4 +119,4 @@ export declare function instanceOfPatchedAsset(value: object): value is PatchedA
 export declare function PatchedAssetFromJSON(json: any): PatchedAsset;
 export declare function PatchedAssetFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedAsset;
 export declare function PatchedAssetToJSON(json: any): PatchedAsset;
-export declare function PatchedAssetToJSONTyped(value?: Omit<PatchedAsset, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedAssetToJSONTyped(value?: Omit<PatchedAsset, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

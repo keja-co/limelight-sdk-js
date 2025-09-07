@@ -38,7 +38,7 @@ export interface Rehearsal {
      * @type {Date}
      * @memberof Rehearsal
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {Date}
@@ -62,7 +62,7 @@ export interface Rehearsal {
      * @type {number}
      * @memberof Rehearsal
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface Rehearsal {
      * @type {number}
      * @memberof Rehearsal
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -95,4 +95,4 @@ export declare function instanceOfRehearsal(value: object): value is Rehearsal;
 export declare function RehearsalFromJSON(json: any): Rehearsal;
 export declare function RehearsalFromJSONTyped(json: any, ignoreDiscriminator: boolean): Rehearsal;
 export declare function RehearsalToJSON(json: any): Rehearsal;
-export declare function RehearsalToJSONTyped(value?: Omit<Rehearsal, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function RehearsalToJSONTyped(value?: Omit<Rehearsal, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

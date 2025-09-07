@@ -60,13 +60,12 @@ function PatchedDiscountToJSON(json) {
     return PatchedDiscountToJSONTyped(json, false);
 }
 function PatchedDiscountToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'code': value['code'],
         'description': value['description'],
@@ -76,10 +75,8 @@ function PatchedDiscountToJSONTyped(value, ignoreDiscriminator) {
         'minimum_tickets': value['minimumTickets'],
         'global_limit': value['globalLimit'],
         'customer_limit': value['customerLimit'],
-        'valid_from': value['validFrom'] === null ? null : ((_b = value['validFrom']) === null || _b === void 0 ? void 0 : _b.toISOString()),
-        'valid_until': value['validUntil'] === null ? null : ((_c = value['validUntil']) === null || _c === void 0 ? void 0 : _c.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
+        'valid_from': value['validFrom'] === null ? null : ((_a = value['validFrom']) === null || _a === void 0 ? void 0 : _a.toISOString()),
+        'valid_until': value['validUntil'] === null ? null : ((_b = value['validUntil']) === null || _b === void 0 ? void 0 : _b.toISOString()),
         'production': value['production'],
         'production_venue': value['productionVenue'],
         'applicable_ticket_types': value['applicableTicketTypes'],

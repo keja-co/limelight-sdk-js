@@ -38,7 +38,7 @@ export interface DocumentVersion {
      * @type {Date}
      * @memberof DocumentVersion
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * The version of the document
      * @type {number}
@@ -62,7 +62,7 @@ export interface DocumentVersion {
      * @type {number}
      * @memberof DocumentVersion
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface DocumentVersion {
      * @type {number}
      * @memberof DocumentVersion
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfDocumentVersion(value: object): value is Docum
 export declare function DocumentVersionFromJSON(json: any): DocumentVersion;
 export declare function DocumentVersionFromJSONTyped(json: any, ignoreDiscriminator: boolean): DocumentVersion;
 export declare function DocumentVersionToJSON(json: any): DocumentVersion;
-export declare function DocumentVersionToJSONTyped(value?: Omit<DocumentVersion, 'id' | 'created_at' | 'updated_at' | 'version' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function DocumentVersionToJSONTyped(value?: Omit<DocumentVersion, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'version' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

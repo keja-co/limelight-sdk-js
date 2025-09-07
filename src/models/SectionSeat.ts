@@ -56,7 +56,7 @@ export interface SectionSeat {
      * @type {Date}
      * @memberof SectionSeat
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Seat Code, example: 1, 2, 3 etc. This should be unique within the row.
      * @type {string}
@@ -104,7 +104,7 @@ export interface SectionSeat {
      * @type {number}
      * @memberof SectionSeat
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -116,7 +116,7 @@ export interface SectionSeat {
      * @type {number}
      * @memberof SectionSeat
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 
 /**
@@ -127,10 +127,12 @@ export function instanceOfSectionSeat(value: object): value is SectionSeat {
     if (!('section' in value) || value['section'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('seatCode' in value) || value['seatCode'] === undefined) return false;
     if (!('row' in value) || value['row'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     return true;
 }
 
@@ -148,7 +150,7 @@ export function SectionSeatFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'section': SectionFromJSON(json['section']),
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'seatCode': json['seat_code'],
         'row': json['row'],
         'notes': json['notes'] == null ? undefined : json['notes'],
@@ -158,7 +160,7 @@ export function SectionSeatFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'accessible': json['accessible'] == null ? undefined : json['accessible'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
     };
 }
 
@@ -166,14 +168,13 @@ export function SectionSeatToJSON(json: any): SectionSeat {
     return SectionSeatToJSONTyped(json, false);
 }
 
-export function SectionSeatToJSONTyped(value?: Omit<SectionSeat, 'id'|'section'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function SectionSeatToJSONTyped(value?: Omit<SectionSeat, 'id'|'section'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'seat_code': value['seatCode'],
         'row': value['row'],
         'notes': value['notes'],
@@ -181,8 +182,6 @@ export function SectionSeatToJSONTyped(value?: Omit<SectionSeat, 'id'|'section'|
         'display_x_position': value['displayXPosition'],
         'display_y_position': value['displayYPosition'],
         'accessible': value['accessible'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }
 

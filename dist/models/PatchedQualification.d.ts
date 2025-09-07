@@ -38,7 +38,7 @@ export interface PatchedQualification {
      * @type {Date}
      * @memberof PatchedQualification
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface PatchedQualification {
      * @type {number}
      * @memberof PatchedQualification
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedQualification {
      * @type {number}
      * @memberof PatchedQualification
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 /**
  * Check if a given object implements the PatchedQualification interface.
@@ -77,4 +77,4 @@ export declare function instanceOfPatchedQualification(value: object): value is 
 export declare function PatchedQualificationFromJSON(json: any): PatchedQualification;
 export declare function PatchedQualificationFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedQualification;
 export declare function PatchedQualificationToJSON(json: any): PatchedQualification;
-export declare function PatchedQualificationToJSONTyped(value?: Omit<PatchedQualification, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedQualificationToJSONTyped(value?: Omit<PatchedQualification, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

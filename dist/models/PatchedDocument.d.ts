@@ -39,7 +39,7 @@ export interface PatchedDocument {
      * @type {Date}
      * @memberof PatchedDocument
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -63,7 +63,7 @@ export interface PatchedDocument {
      * @type {number}
      * @memberof PatchedDocument
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -75,7 +75,7 @@ export interface PatchedDocument {
      * @type {number}
      * @memberof PatchedDocument
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -120,4 +120,4 @@ export declare function instanceOfPatchedDocument(value: object): value is Patch
 export declare function PatchedDocumentFromJSON(json: any): PatchedDocument;
 export declare function PatchedDocumentFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedDocument;
 export declare function PatchedDocumentToJSON(json: any): PatchedDocument;
-export declare function PatchedDocumentToJSONTyped(value?: Omit<PatchedDocument, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedDocumentToJSONTyped(value?: Omit<PatchedDocument, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -42,7 +42,7 @@ export interface PatchedDocumentVersion {
      * @type {Date}
      * @memberof PatchedDocumentVersion
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * The version of the document
      * @type {number}
@@ -66,7 +66,7 @@ export interface PatchedDocumentVersion {
      * @type {number}
      * @memberof PatchedDocumentVersion
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -78,7 +78,7 @@ export interface PatchedDocumentVersion {
      * @type {number}
      * @memberof PatchedDocumentVersion
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -122,18 +122,15 @@ export function PatchedDocumentVersionToJSON(json: any): PatchedDocumentVersion 
     return PatchedDocumentVersionToJSONTyped(json, false);
 }
 
-export function PatchedDocumentVersionToJSONTyped(value?: Omit<PatchedDocumentVersion, 'id'|'created_at'|'updated_at'|'version'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedDocumentVersionToJSONTyped(value?: Omit<PatchedDocumentVersion, 'id'|'created_at'|'updated_at'|'archive_at'|'version'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'file_url': value['fileUrl'],
         'version_notes': value['versionNotes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'document': value['document'],
     };
 }

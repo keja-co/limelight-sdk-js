@@ -38,7 +38,7 @@ export interface PatchedCostCategory {
      * @type {Date}
      * @memberof PatchedCostCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -62,7 +62,7 @@ export interface PatchedCostCategory {
      * @type {number}
      * @memberof PatchedCostCategory
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface PatchedCostCategory {
      * @type {number}
      * @memberof PatchedCostCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfPatchedCostCategory(value: object): value is P
 export declare function PatchedCostCategoryFromJSON(json: any): PatchedCostCategory;
 export declare function PatchedCostCategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedCostCategory;
 export declare function PatchedCostCategoryToJSON(json: any): PatchedCostCategory;
-export declare function PatchedCostCategoryToJSONTyped(value?: Omit<PatchedCostCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedCostCategoryToJSONTyped(value?: Omit<PatchedCostCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

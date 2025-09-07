@@ -38,7 +38,7 @@ export interface Audition {
      * @type {Date}
      * @memberof Audition
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the audition
      * @type {string}
@@ -56,7 +56,7 @@ export interface Audition {
      * @type {number}
      * @memberof Audition
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface Audition {
      * @type {number}
      * @memberof Audition
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfAudition(value: object): value is Audition;
 export declare function AuditionFromJSON(json: any): Audition;
 export declare function AuditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): Audition;
 export declare function AuditionToJSON(json: any): Audition;
-export declare function AuditionToJSONTyped(value?: Omit<Audition, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function AuditionToJSONTyped(value?: Omit<Audition, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

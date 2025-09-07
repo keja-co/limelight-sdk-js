@@ -42,7 +42,7 @@ export interface PatchedQualification {
      * @type {Date}
      * @memberof PatchedQualification
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -60,7 +60,7 @@ export interface PatchedQualification {
      * @type {number}
      * @memberof PatchedQualification
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedQualification {
      * @type {number}
      * @memberof PatchedQualification
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 
 /**
@@ -108,18 +108,15 @@ export function PatchedQualificationToJSON(json: any): PatchedQualification {
     return PatchedQualificationToJSONTyped(json, false);
 }
 
-export function PatchedQualificationToJSONTyped(value?: Omit<PatchedQualification, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedQualificationToJSONTyped(value?: Omit<PatchedQualification, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'description': value['description'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
     };
 }
 

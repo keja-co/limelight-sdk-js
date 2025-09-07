@@ -38,7 +38,7 @@ export interface Tag {
      * @type {Date}
      * @memberof Tag
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -62,7 +62,7 @@ export interface Tag {
      * @type {number}
      * @memberof Tag
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface Tag {
      * @type {number}
      * @memberof Tag
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the Tag interface.
@@ -83,4 +83,4 @@ export declare function instanceOfTag(value: object): value is Tag;
 export declare function TagFromJSON(json: any): Tag;
 export declare function TagFromJSONTyped(json: any, ignoreDiscriminator: boolean): Tag;
 export declare function TagToJSON(json: any): Tag;
-export declare function TagToJSONTyped(value?: Omit<Tag, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function TagToJSONTyped(value?: Omit<Tag, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

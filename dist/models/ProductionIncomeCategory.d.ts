@@ -38,7 +38,7 @@ export interface ProductionIncomeCategory {
      * @type {Date}
      * @memberof ProductionIncomeCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -68,7 +68,7 @@ export interface ProductionIncomeCategory {
      * @type {number}
      * @memberof ProductionIncomeCategory
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -80,7 +80,7 @@ export interface ProductionIncomeCategory {
      * @type {number}
      * @memberof ProductionIncomeCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -101,4 +101,4 @@ export declare function instanceOfProductionIncomeCategory(value: object): value
 export declare function ProductionIncomeCategoryFromJSON(json: any): ProductionIncomeCategory;
 export declare function ProductionIncomeCategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductionIncomeCategory;
 export declare function ProductionIncomeCategoryToJSON(json: any): ProductionIncomeCategory;
-export declare function ProductionIncomeCategoryToJSONTyped(value?: Omit<ProductionIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionIncomeCategoryToJSONTyped(value?: Omit<ProductionIncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

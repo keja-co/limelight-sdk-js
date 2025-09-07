@@ -56,7 +56,7 @@ export interface PatchedFolder {
      * @type {Date}
      * @memberof PatchedFolder
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -68,7 +68,7 @@ export interface PatchedFolder {
      * @type {number}
      * @memberof PatchedFolder
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -80,7 +80,7 @@ export interface PatchedFolder {
      * @type {number}
      * @memberof PatchedFolder
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -130,7 +130,7 @@ export function PatchedFolderToJSON(json: any): PatchedFolder {
     return PatchedFolderToJSONTyped(json, false);
 }
 
-export function PatchedFolderToJSONTyped(value?: Omit<PatchedFolder, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedFolderToJSONTyped(value?: Omit<PatchedFolder, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -138,10 +138,7 @@ export function PatchedFolderToJSONTyped(value?: Omit<PatchedFolder, 'id'|'creat
     return {
         
         'subfolders': value['subfolders'] == null ? undefined : ((value['subfolders'] as Array<any>).map(SubfolderToJSON)),
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'repo': value['repo'],
         'parent': value['parent'],
     };

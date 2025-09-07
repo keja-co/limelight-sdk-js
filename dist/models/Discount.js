@@ -29,6 +29,8 @@ function instanceOfDiscount(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
     if (!('code' in value) || value['code'] === undefined)
@@ -38,6 +40,8 @@ function instanceOfDiscount(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('production' in value) || value['production'] === undefined)
         return false;
@@ -56,7 +60,7 @@ function DiscountFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'code': json['code'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -70,7 +74,7 @@ function DiscountFromJSONTyped(json, ignoreDiscriminator) {
         'validUntil': json['valid_until'] == null ? undefined : (new Date(json['valid_until'])),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'],
         'productionVenue': json['production_venue'] == null ? undefined : json['production_venue'],
         'applicableTicketTypes': json['applicable_ticket_types'],
@@ -80,13 +84,12 @@ function DiscountToJSON(json) {
     return DiscountToJSONTyped(json, false);
 }
 function DiscountToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'code': value['code'],
         'description': value['description'],
@@ -96,10 +99,8 @@ function DiscountToJSONTyped(value, ignoreDiscriminator) {
         'minimum_tickets': value['minimumTickets'],
         'global_limit': value['globalLimit'],
         'customer_limit': value['customerLimit'],
-        'valid_from': value['validFrom'] === null ? null : ((_b = value['validFrom']) === null || _b === void 0 ? void 0 : _b.toISOString()),
-        'valid_until': value['validUntil'] === null ? null : ((_c = value['validUntil']) === null || _c === void 0 ? void 0 : _c.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
+        'valid_from': value['validFrom'] === null ? null : ((_a = value['validFrom']) === null || _a === void 0 ? void 0 : _a.toISOString()),
+        'valid_until': value['validUntil'] === null ? null : ((_b = value['validUntil']) === null || _b === void 0 ? void 0 : _b.toISOString()),
         'production': value['production'],
         'production_venue': value['productionVenue'],
         'applicable_ticket_types': value['applicableTicketTypes'],

@@ -38,7 +38,7 @@ export interface PatchedProductionCategoryAssignment {
      * @type {Date}
      * @memberof PatchedProductionCategoryAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Indicates if this is the primary category for the production.
      * @type {boolean}
@@ -50,7 +50,7 @@ export interface PatchedProductionCategoryAssignment {
      * @type {number}
      * @memberof PatchedProductionCategoryAssignment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -62,7 +62,7 @@ export interface PatchedProductionCategoryAssignment {
      * @type {number}
      * @memberof PatchedProductionCategoryAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -83,4 +83,4 @@ export declare function instanceOfPatchedProductionCategoryAssignment(value: obj
 export declare function PatchedProductionCategoryAssignmentFromJSON(json: any): PatchedProductionCategoryAssignment;
 export declare function PatchedProductionCategoryAssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedProductionCategoryAssignment;
 export declare function PatchedProductionCategoryAssignmentToJSON(json: any): PatchedProductionCategoryAssignment;
-export declare function PatchedProductionCategoryAssignmentToJSONTyped(value?: Omit<PatchedProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedProductionCategoryAssignmentToJSONTyped(value?: Omit<PatchedProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

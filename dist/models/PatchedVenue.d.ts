@@ -45,7 +45,7 @@ export interface PatchedVenue {
      * @type {Date}
      * @memberof PatchedVenue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the venue
      * @type {string}
@@ -87,7 +87,7 @@ export interface PatchedVenue {
      * @type {number}
      * @memberof PatchedVenue
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -99,7 +99,7 @@ export interface PatchedVenue {
      * @type {number}
      * @memberof PatchedVenue
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Tags associated with the venue
      * @type {Array<number>}
@@ -114,4 +114,4 @@ export declare function instanceOfPatchedVenue(value: object): value is PatchedV
 export declare function PatchedVenueFromJSON(json: any): PatchedVenue;
 export declare function PatchedVenueFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedVenue;
 export declare function PatchedVenueToJSON(json: any): PatchedVenue;
-export declare function PatchedVenueToJSONTyped(value?: Omit<PatchedVenue, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedVenueToJSONTyped(value?: Omit<PatchedVenue, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

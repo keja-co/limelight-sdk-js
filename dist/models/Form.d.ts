@@ -38,7 +38,7 @@ export interface Form {
      * @type {Date}
      * @memberof Form
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -98,7 +98,7 @@ export interface Form {
      * @type {number}
      * @memberof Form
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -110,7 +110,7 @@ export interface Form {
      * @type {number}
      * @memberof Form
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * If this form is associated with a production, select it here.
      * @type {number}
@@ -125,4 +125,4 @@ export declare function instanceOfForm(value: object): value is Form;
 export declare function FormFromJSON(json: any): Form;
 export declare function FormFromJSONTyped(json: any, ignoreDiscriminator: boolean): Form;
 export declare function FormToJSON(json: any): Form;
-export declare function FormToJSONTyped(value?: Omit<Form, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function FormToJSONTyped(value?: Omit<Form, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

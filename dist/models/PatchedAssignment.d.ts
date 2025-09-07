@@ -38,7 +38,7 @@ export interface PatchedAssignment {
      * @type {Date}
      * @memberof PatchedAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Date and time when the asset was assigned
      * @type {Date}
@@ -56,7 +56,7 @@ export interface PatchedAssignment {
      * @type {number}
      * @memberof PatchedAssignment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedAssignment {
      * @type {number}
      * @memberof PatchedAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The asset being assigned
      * @type {number}
@@ -95,4 +95,4 @@ export declare function instanceOfPatchedAssignment(value: object): value is Pat
 export declare function PatchedAssignmentFromJSON(json: any): PatchedAssignment;
 export declare function PatchedAssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedAssignment;
 export declare function PatchedAssignmentToJSON(json: any): PatchedAssignment;
-export declare function PatchedAssignmentToJSONTyped(value?: Omit<PatchedAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedAssignmentToJSONTyped(value?: Omit<PatchedAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

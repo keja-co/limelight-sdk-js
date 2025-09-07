@@ -64,13 +64,11 @@ function PatchedIncomeToJSON(json) {
     return PatchedIncomeToJSONTyped(json, false);
 }
 function PatchedIncomeToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'amount': value['amount'],
@@ -85,8 +83,6 @@ function PatchedIncomeToJSONTyped(value, ignoreDiscriminator) {
         'tax_amount': value['taxAmount'],
         'reference_number': value['referenceNumber'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'category': value['category'],
         'prod_category': value['prodCategory'],
     };

@@ -39,7 +39,7 @@ export interface IncomeCategory {
      * @type {Date}
      * @memberof IncomeCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {IncomeCategoryTypeEnum}
@@ -69,7 +69,7 @@ export interface IncomeCategory {
      * @type {number}
      * @memberof IncomeCategory
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -81,7 +81,7 @@ export interface IncomeCategory {
      * @type {number}
      * @memberof IncomeCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -96,4 +96,4 @@ export declare function instanceOfIncomeCategory(value: object): value is Income
 export declare function IncomeCategoryFromJSON(json: any): IncomeCategory;
 export declare function IncomeCategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): IncomeCategory;
 export declare function IncomeCategoryToJSON(json: any): IncomeCategory;
-export declare function IncomeCategoryToJSONTyped(value?: Omit<IncomeCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function IncomeCategoryToJSONTyped(value?: Omit<IncomeCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

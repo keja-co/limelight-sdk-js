@@ -49,17 +49,13 @@ function PatchedFeedbackToJSON(json) {
     return PatchedFeedbackToJSONTyped(json, false);
 }
 function PatchedFeedbackToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'notes': value['notes'],
         'score': value['score'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'signup': value['signup'],
         'reviewer': value['reviewer'],
     };

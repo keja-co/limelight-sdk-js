@@ -47,16 +47,12 @@ function PatchedWorkLocationToJSON(json) {
     return PatchedWorkLocationToJSONTyped(json, false);
 }
 function PatchedWorkLocationToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'address': value['address'],
     };
 }

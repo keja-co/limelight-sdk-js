@@ -52,20 +52,16 @@ function PatchedAddressToJSON(json) {
     return PatchedAddressToJSONTyped(json, false);
 }
 function PatchedAddressToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'line_1': value['line1'],
         'line_2': value['line2'],
         'city': value['city'],
         'suburb': value['suburb'],
         'postal_code': value['postalCode'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'state': value['state'],
         'country': value['country'],
     };

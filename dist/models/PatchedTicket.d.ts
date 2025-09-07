@@ -60,7 +60,7 @@ export interface PatchedTicket {
      * @type {Date}
      * @memberof PatchedTicket
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Unique identifier for the ticket, used for tracking and validation.
      * @type {string}
@@ -108,7 +108,7 @@ export interface PatchedTicket {
      * @type {number}
      * @memberof PatchedTicket
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -120,7 +120,7 @@ export interface PatchedTicket {
      * @type {number}
      * @memberof PatchedTicket
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The performance for which this ticket is valid.
      * @type {number}
@@ -153,4 +153,4 @@ export declare function instanceOfPatchedTicket(value: object): value is Patched
 export declare function PatchedTicketFromJSON(json: any): PatchedTicket;
 export declare function PatchedTicketFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedTicket;
 export declare function PatchedTicketToJSON(json: any): PatchedTicket;
-export declare function PatchedTicketToJSONTyped(value?: Omit<PatchedTicket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'ticket_uuid' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedTicketToJSONTyped(value?: Omit<PatchedTicket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'archive_at' | 'ticket_uuid' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -41,7 +41,7 @@ export interface PatchedIncome {
      * @type {Date}
      * @memberof PatchedIncome
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -131,7 +131,7 @@ export interface PatchedIncome {
      * @type {number}
      * @memberof PatchedIncome
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -143,7 +143,7 @@ export interface PatchedIncome {
      * @type {number}
      * @memberof PatchedIncome
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The Income Category this income belongs to. Either this or `prod_category` must be set (but not both).
      * @type {number}
@@ -164,4 +164,4 @@ export declare function instanceOfPatchedIncome(value: object): value is Patched
 export declare function PatchedIncomeFromJSON(json: any): PatchedIncome;
 export declare function PatchedIncomeFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedIncome;
 export declare function PatchedIncomeToJSON(json: any): PatchedIncome;
-export declare function PatchedIncomeToJSONTyped(value?: Omit<PatchedIncome, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedIncomeToJSONTyped(value?: Omit<PatchedIncome, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

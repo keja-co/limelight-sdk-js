@@ -42,7 +42,7 @@ export interface ProductionIncomeCategory {
      * @type {Date}
      * @memberof ProductionIncomeCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {string}
@@ -72,7 +72,7 @@ export interface ProductionIncomeCategory {
      * @type {number}
      * @memberof ProductionIncomeCategory
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -84,7 +84,7 @@ export interface ProductionIncomeCategory {
      * @type {number}
      * @memberof ProductionIncomeCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -106,11 +106,13 @@ export function instanceOfProductionIncomeCategory(value: object): value is Prod
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('lineCode' in value) || value['lineCode'] === undefined) return false;
     if (!('budget' in value) || value['budget'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('production' in value) || value['production'] === undefined) return false;
     return true;
 }
@@ -128,14 +130,14 @@ export function ProductionIncomeCategoryFromJSONTyped(json: any, ignoreDiscrimin
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'lineCode': json['line_code'],
         'budget': json['budget'],
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'],
         'incomeCategory': json['income_category'] == null ? undefined : json['income_category'],
     };
@@ -145,20 +147,17 @@ export function ProductionIncomeCategoryToJSON(json: any): ProductionIncomeCateg
     return ProductionIncomeCategoryToJSONTyped(json, false);
 }
 
-export function ProductionIncomeCategoryToJSONTyped(value?: Omit<ProductionIncomeCategory, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function ProductionIncomeCategoryToJSONTyped(value?: Omit<ProductionIncomeCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'line_code': value['lineCode'],
         'budget': value['budget'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'income_category': value['incomeCategory'],
     };

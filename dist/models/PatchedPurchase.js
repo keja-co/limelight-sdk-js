@@ -61,13 +61,11 @@ function PatchedPurchaseToJSON(json) {
     return PatchedPurchaseToJSONTyped(json, false);
 }
 function PatchedPurchaseToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'title': value['title'],
         'customer_first_name': value['customerFirstName'],
         'customer_last_name': value['customerLastName'],
@@ -81,8 +79,6 @@ function PatchedPurchaseToJSONTyped(value, ignoreDiscriminator) {
         'booking_fee': value['bookingFee'],
         'total_amount': value['totalAmount'],
         'payment_reference': value['paymentReference'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'discount_applied': value['discountApplied'],
     };
 }

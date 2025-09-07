@@ -28,11 +28,15 @@ function instanceOfAssignment(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('startDate' in value) || value['startDate'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('asset' in value) || value['asset'] === undefined)
         return false;
@@ -49,12 +53,12 @@ function AssignmentFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'startDate': (new Date(json['start_date'])),
         'endDate': json['end_date'] == null ? undefined : (new Date(json['end_date'])),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'asset': json['asset'],
         'user': json['user'] == null ? undefined : json['user'],
         'production': json['production'] == null ? undefined : json['production'],
@@ -64,17 +68,14 @@ function AssignmentToJSON(json) {
     return AssignmentToJSONTyped(json, false);
 }
 function AssignmentToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b;
+    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'start_date': ((value['startDate']).toISOString()),
-        'end_date': value['endDate'] === null ? null : ((_b = value['endDate']) === null || _b === void 0 ? void 0 : _b.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
+        'end_date': value['endDate'] === null ? null : ((_a = value['endDate']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'asset': value['asset'],
         'user': value['user'],
         'production': value['production'],

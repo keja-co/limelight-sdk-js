@@ -38,7 +38,7 @@ export interface PatchedCountry {
      * @type {Date}
      * @memberof PatchedCountry
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -56,7 +56,7 @@ export interface PatchedCountry {
      * @type {number}
      * @memberof PatchedCountry
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedCountry {
      * @type {number}
      * @memberof PatchedCountry
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 /**
  * Check if a given object implements the PatchedCountry interface.
@@ -77,4 +77,4 @@ export declare function instanceOfPatchedCountry(value: object): value is Patche
 export declare function PatchedCountryFromJSON(json: any): PatchedCountry;
 export declare function PatchedCountryFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedCountry;
 export declare function PatchedCountryToJSON(json: any): PatchedCountry;
-export declare function PatchedCountryToJSONTyped(value?: Omit<PatchedCountry, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedCountryToJSONTyped(value?: Omit<PatchedCountry, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

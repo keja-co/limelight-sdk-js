@@ -60,7 +60,7 @@ export interface Ticket {
      * @type {Date}
      * @memberof Ticket
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Unique identifier for the ticket, used for tracking and validation.
      * @type {string}
@@ -108,7 +108,7 @@ export interface Ticket {
      * @type {number}
      * @memberof Ticket
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -120,7 +120,7 @@ export interface Ticket {
      * @type {number}
      * @memberof Ticket
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * The performance for which this ticket is valid.
      * @type {number}
@@ -153,4 +153,4 @@ export declare function instanceOfTicket(value: object): value is Ticket;
 export declare function TicketFromJSON(json: any): Ticket;
 export declare function TicketFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ticket;
 export declare function TicketToJSON(json: any): Ticket;
-export declare function TicketToJSONTyped(value?: Omit<Ticket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'ticket_uuid' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function TicketToJSONTyped(value?: Omit<Ticket, 'id' | 'section_seat' | 'ticket_type' | 'purchase' | 'created_at' | 'updated_at' | 'archive_at' | 'ticket_uuid' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -38,7 +38,7 @@ export interface SubmissionFieldValue {
      * @type {Date}
      * @memberof SubmissionFieldValue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -110,7 +110,7 @@ export interface SubmissionFieldValue {
      * @type {number}
      * @memberof SubmissionFieldValue
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -122,7 +122,7 @@ export interface SubmissionFieldValue {
      * @type {number}
      * @memberof SubmissionFieldValue
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -143,4 +143,4 @@ export declare function instanceOfSubmissionFieldValue(value: object): value is 
 export declare function SubmissionFieldValueFromJSON(json: any): SubmissionFieldValue;
 export declare function SubmissionFieldValueFromJSONTyped(json: any, ignoreDiscriminator: boolean): SubmissionFieldValue;
 export declare function SubmissionFieldValueToJSON(json: any): SubmissionFieldValue;
-export declare function SubmissionFieldValueToJSONTyped(value?: Omit<SubmissionFieldValue, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function SubmissionFieldValueToJSONTyped(value?: Omit<SubmissionFieldValue, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

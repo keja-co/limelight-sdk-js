@@ -42,7 +42,7 @@ export interface PatchedEmployeeQualification {
      * @type {Date}
      * @memberof PatchedEmployeeQualification
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {Date}
@@ -60,7 +60,7 @@ export interface PatchedEmployeeQualification {
      * @type {number}
      * @memberof PatchedEmployeeQualification
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedEmployeeQualification {
      * @type {number}
      * @memberof PatchedEmployeeQualification
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -122,18 +122,15 @@ export function PatchedEmployeeQualificationToJSON(json: any): PatchedEmployeeQu
     return PatchedEmployeeQualificationToJSONTyped(json, false);
 }
 
-export function PatchedEmployeeQualificationToJSONTyped(value?: Omit<PatchedEmployeeQualification, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedEmployeeQualificationToJSONTyped(value?: Omit<PatchedEmployeeQualification, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'issue_date': value['issueDate'] == null ? undefined : ((value['issueDate']).toISOString().substring(0,10)),
         'expiry_date': value['expiryDate'] == null ? undefined : ((value['expiryDate']).toISOString().substring(0,10)),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'employee': value['employee'],
         'qualification': value['qualification'],
     };

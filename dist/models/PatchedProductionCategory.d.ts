@@ -38,7 +38,7 @@ export interface PatchedProductionCategory {
      * @type {Date}
      * @memberof PatchedProductionCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -68,7 +68,7 @@ export interface PatchedProductionCategory {
      * @type {number}
      * @memberof PatchedProductionCategory
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -80,7 +80,7 @@ export interface PatchedProductionCategory {
      * @type {number}
      * @memberof PatchedProductionCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Parent category for hierarchical categorisation.
      * @type {number}
@@ -95,4 +95,4 @@ export declare function instanceOfPatchedProductionCategory(value: object): valu
 export declare function PatchedProductionCategoryFromJSON(json: any): PatchedProductionCategory;
 export declare function PatchedProductionCategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedProductionCategory;
 export declare function PatchedProductionCategoryToJSON(json: any): PatchedProductionCategory;
-export declare function PatchedProductionCategoryToJSONTyped(value?: Omit<PatchedProductionCategory, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedProductionCategoryToJSONTyped(value?: Omit<PatchedProductionCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -42,13 +42,13 @@ export interface PatchedVenueTagAssignment {
      * @type {Date}
      * @memberof PatchedVenueTagAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {number}
      * @memberof PatchedVenueTagAssignment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -60,7 +60,7 @@ export interface PatchedVenueTagAssignment {
      * @type {number}
      * @memberof PatchedVenueTagAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * Venue to which the tag is assigned
      * @type {number}
@@ -108,16 +108,13 @@ export function PatchedVenueTagAssignmentToJSON(json: any): PatchedVenueTagAssig
     return PatchedVenueTagAssignmentToJSONTyped(json, false);
 }
 
-export function PatchedVenueTagAssignmentToJSONTyped(value?: Omit<PatchedVenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedVenueTagAssignmentToJSONTyped(value?: Omit<PatchedVenueTagAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'venue': value['venue'],
         'tag': value['tag'],
     };

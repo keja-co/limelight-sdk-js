@@ -38,7 +38,7 @@ export interface PatchedDocumentRepo {
      * @type {Date}
      * @memberof PatchedDocumentRepo
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {string}
@@ -62,7 +62,7 @@ export interface PatchedDocumentRepo {
      * @type {number}
      * @memberof PatchedDocumentRepo
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface PatchedDocumentRepo {
      * @type {number}
      * @memberof PatchedDocumentRepo
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 /**
  * Check if a given object implements the PatchedDocumentRepo interface.
@@ -83,4 +83,4 @@ export declare function instanceOfPatchedDocumentRepo(value: object): value is P
 export declare function PatchedDocumentRepoFromJSON(json: any): PatchedDocumentRepo;
 export declare function PatchedDocumentRepoFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedDocumentRepo;
 export declare function PatchedDocumentRepoToJSON(json: any): PatchedDocumentRepo;
-export declare function PatchedDocumentRepoToJSONTyped(value?: Omit<PatchedDocumentRepo, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedDocumentRepoToJSONTyped(value?: Omit<PatchedDocumentRepo, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

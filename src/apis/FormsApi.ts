@@ -57,7 +57,7 @@ import {
 
 export interface FormsV1FormsCreateRequest {
     tenantRef: string;
-    form: Omit<Form, 'id'|'created_at'|'updated_at'|'created_by'>;
+    form: Omit<Form, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface FormsV1FormsDestroyRequest {
@@ -113,7 +113,7 @@ export interface FormsV1FormsListRequest {
 export interface FormsV1FormsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedForm?: Omit<PatchedForm, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedForm?: Omit<PatchedForm, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface FormsV1FormsRetrieveRequest {
@@ -124,7 +124,7 @@ export interface FormsV1FormsRetrieveRequest {
 export interface FormsV1FormsSubmissionsCreateRequest {
     formId: number;
     tenantRef: string;
-    submission: Omit<Submission, 'id'|'created_at'|'updated_at'|'submitted_date_time'|'created_by'>;
+    submission: Omit<Submission, 'id'|'created_at'|'updated_at'|'archive_at'|'submitted_date_time'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface FormsV1FormsSubmissionsDestroyRequest {
@@ -138,7 +138,7 @@ export interface FormsV1FormsSubmissionsFieldResponseCreateRequest {
     formId: number;
     submissionId: number;
     tenantRef: string;
-    submissionFieldValue: Omit<SubmissionFieldValue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    submissionFieldValue: Omit<SubmissionFieldValue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface FormsV1FormsSubmissionsFieldResponseDestroyRequest {
@@ -164,7 +164,7 @@ export interface FormsV1FormsSubmissionsFieldResponsePartialUpdateRequest {
     id: number;
     submissionId: number;
     tenantRef: string;
-    patchedSubmissionFieldValue?: Omit<PatchedSubmissionFieldValue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedSubmissionFieldValue?: Omit<PatchedSubmissionFieldValue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface FormsV1FormsSubmissionsFieldResponseRetrieveRequest {
@@ -181,7 +181,7 @@ export interface FormsV1FormsSubmissionsFieldResponseUpdateRequest {
     id: number;
     submissionId: number;
     tenantRef: string;
-    submissionFieldValue: Omit<SubmissionFieldValue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    submissionFieldValue: Omit<SubmissionFieldValue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface FormsV1FormsSubmissionsListRequest {
@@ -195,7 +195,7 @@ export interface FormsV1FormsSubmissionsPartialUpdateRequest {
     formId: number;
     id: number;
     tenantRef: string;
-    patchedSubmission?: Omit<PatchedSubmission, 'id'|'created_at'|'updated_at'|'submitted_date_time'|'created_by'>;
+    patchedSubmission?: Omit<PatchedSubmission, 'id'|'created_at'|'updated_at'|'archive_at'|'submitted_date_time'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface FormsV1FormsSubmissionsRetrieveRequest {
@@ -208,13 +208,13 @@ export interface FormsV1FormsSubmissionsUpdateRequest {
     formId: number;
     id: number;
     tenantRef: string;
-    submission: Omit<Submission, 'id'|'created_at'|'updated_at'|'submitted_date_time'|'created_by'>;
+    submission: Omit<Submission, 'id'|'created_at'|'updated_at'|'archive_at'|'submitted_date_time'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface FormsV1FormsUpdateRequest {
     id: number;
     tenantRef: string;
-    form: Omit<Form, 'id'|'created_at'|'updated_at'|'created_by'>;
+    form: Omit<Form, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 /**

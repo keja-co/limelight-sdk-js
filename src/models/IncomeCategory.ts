@@ -50,7 +50,7 @@ export interface IncomeCategory {
      * @type {Date}
      * @memberof IncomeCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {IncomeCategoryTypeEnum}
@@ -80,7 +80,7 @@ export interface IncomeCategory {
      * @type {number}
      * @memberof IncomeCategory
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -92,7 +92,7 @@ export interface IncomeCategory {
      * @type {number}
      * @memberof IncomeCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -110,11 +110,13 @@ export function instanceOfIncomeCategory(value: object): value is IncomeCategory
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('lineCode' in value) || value['lineCode'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     return true;
 }
 
@@ -131,14 +133,14 @@ export function IncomeCategoryFromJSONTyped(json: any, ignoreDiscriminator: bool
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'type': IncomeCategoryTypeEnumFromJSON(json['type']),
         'lineCode': json['line_code'],
         'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'parent': json['parent'] == null ? undefined : json['parent'],
     };
 }
@@ -147,20 +149,17 @@ export function IncomeCategoryToJSON(json: any): IncomeCategory {
     return IncomeCategoryToJSONTyped(json, false);
 }
 
-export function IncomeCategoryToJSONTyped(value?: Omit<IncomeCategory, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function IncomeCategoryToJSONTyped(value?: Omit<IncomeCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'type': IncomeCategoryTypeEnumToJSON(value['type']),
         'line_code': value['lineCode'],
         'name': value['name'],
         'description': value['description'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'parent': value['parent'],
     };
 }

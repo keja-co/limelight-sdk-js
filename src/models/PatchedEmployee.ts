@@ -42,7 +42,7 @@ export interface PatchedEmployee {
      * @type {Date}
      * @memberof PatchedEmployee
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -162,7 +162,7 @@ export interface PatchedEmployee {
      * @type {number}
      * @memberof PatchedEmployee
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -174,7 +174,7 @@ export interface PatchedEmployee {
      * @type {number}
      * @memberof PatchedEmployee
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -276,14 +276,13 @@ export function PatchedEmployeeToJSON(json: any): PatchedEmployee {
     return PatchedEmployeeToJSONTyped(json, false);
 }
 
-export function PatchedEmployeeToJSONTyped(value?: Omit<PatchedEmployee, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedEmployeeToJSONTyped(value?: Omit<PatchedEmployee, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'first_name': value['firstName'],
         'last_name': value['lastName'],
         'email': value['email'],
@@ -303,8 +302,6 @@ export function PatchedEmployeeToJSONTyped(value?: Omit<PatchedEmployee, 'id'|'c
         'is_active': value['isActive'],
         'probation_end_date': value['probationEndDate'] === null ? null : ((value['probationEndDate'] as any)?.toISOString().substring(0,10)),
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'user': value['user'],
         'employee_address': value['employeeAddress'],
         'state': value['state'],

@@ -57,7 +57,7 @@ export interface Expense {
      * @type {Date}
      * @memberof Expense
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {Date}
@@ -117,7 +117,7 @@ export interface Expense {
      * @type {number}
      * @memberof Expense
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -129,7 +129,7 @@ export interface Expense {
      * @type {number}
      * @memberof Expense
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * 
      * @type {number}
@@ -171,12 +171,14 @@ export function instanceOfExpense(value: object): value is Expense {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('cost' in value) || value['cost'] === undefined) return false;
     if (!('expenseDateTime' in value) || value['expenseDateTime'] === undefined) return false;
     if (!('paymentMethod' in value) || value['paymentMethod'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     if (!('purchaser' in value) || value['purchaser'] === undefined) return false;
     return true;
 }
@@ -194,7 +196,7 @@ export function ExpenseFromJSONTyped(json: any, ignoreDiscriminator: boolean): E
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'approvedDateTime': json['approved_date_time'] == null ? undefined : (new Date(json['approved_date_time'])),
         'status': json['status'] == null ? undefined : ExpenseStatusEnumFromJSON(json['status']),
         'title': json['title'],
@@ -206,7 +208,7 @@ export function ExpenseFromJSONTyped(json: any, ignoreDiscriminator: boolean): E
         'receiptNumber': json['receipt_number'] == null ? undefined : json['receipt_number'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'purchaser': json['purchaser'],
         'approver': json['approver'] == null ? undefined : json['approver'],
         'category': json['category'] == null ? undefined : json['category'],
@@ -219,14 +221,13 @@ export function ExpenseToJSON(json: any): Expense {
     return ExpenseToJSONTyped(json, false);
 }
 
-export function ExpenseToJSONTyped(value?: Omit<Expense, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function ExpenseToJSONTyped(value?: Omit<Expense, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'approved_date_time': value['approvedDateTime'] === null ? null : ((value['approvedDateTime'] as any)?.toISOString()),
         'status': ExpenseStatusEnumToJSON(value['status']),
         'title': value['title'],
@@ -236,8 +237,6 @@ export function ExpenseToJSONTyped(value?: Omit<Expense, 'id'|'created_at'|'upda
         'payment_method': ExpensePaymentMethodEnumToJSON(value['paymentMethod']),
         'notes': value['notes'],
         'receipt_number': value['receiptNumber'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'purchaser': value['purchaser'],
         'approver': value['approver'],
         'category': value['category'],

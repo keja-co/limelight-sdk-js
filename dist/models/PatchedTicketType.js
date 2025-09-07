@@ -54,13 +54,11 @@ function PatchedTicketTypeToJSON(json) {
     return PatchedTicketTypeToJSONTyped(json, false);
 }
 function PatchedTicketTypeToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'external_name': value['externalName'],
         'internal_name': value['internalName'],
         'description': value['description'],
@@ -68,8 +66,6 @@ function PatchedTicketTypeToJSONTyped(value, ignoreDiscriminator) {
         'currency': (0, CurrencyEnum_1.CurrencyEnumToJSON)(value['currency']),
         'limit': value['limit'],
         'sort_order': value['sortOrder'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production_venue': value['productionVenue'],
     };
 }

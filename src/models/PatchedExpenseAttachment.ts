@@ -42,7 +42,7 @@ export interface PatchedExpenseAttachment {
      * @type {Date}
      * @memberof PatchedExpenseAttachment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -60,7 +60,7 @@ export interface PatchedExpenseAttachment {
      * @type {number}
      * @memberof PatchedExpenseAttachment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedExpenseAttachment {
      * @type {number}
      * @memberof PatchedExpenseAttachment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -122,18 +122,15 @@ export function PatchedExpenseAttachmentToJSON(json: any): PatchedExpenseAttachm
     return PatchedExpenseAttachmentToJSONTyped(json, false);
 }
 
-export function PatchedExpenseAttachmentToJSONTyped(value?: Omit<PatchedExpenseAttachment, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedExpenseAttachmentToJSONTyped(value?: Omit<PatchedExpenseAttachment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'description': value['description'],
         'file_uri': value['fileUri'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'expense': value['expense'],
         'uploaded_by': value['uploadedBy'],
     };

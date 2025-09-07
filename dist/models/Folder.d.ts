@@ -45,7 +45,7 @@ export interface Folder {
      * @type {Date}
      * @memberof Folder
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -57,7 +57,7 @@ export interface Folder {
      * @type {number}
      * @memberof Folder
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -69,7 +69,7 @@ export interface Folder {
      * @type {number}
      * @memberof Folder
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -90,4 +90,4 @@ export declare function instanceOfFolder(value: object): value is Folder;
 export declare function FolderFromJSON(json: any): Folder;
 export declare function FolderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Folder;
 export declare function FolderToJSON(json: any): Folder;
-export declare function FolderToJSONTyped(value?: Omit<Folder, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function FolderToJSONTyped(value?: Omit<Folder, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

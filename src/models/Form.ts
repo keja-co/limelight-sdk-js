@@ -42,7 +42,7 @@ export interface Form {
      * @type {Date}
      * @memberof Form
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * 
      * @type {string}
@@ -102,7 +102,7 @@ export interface Form {
      * @type {number}
      * @memberof Form
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      * 
      * @type {number}
@@ -114,7 +114,7 @@ export interface Form {
      * @type {number}
      * @memberof Form
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * If this form is associated with a production, select it here.
      * @type {number}
@@ -130,9 +130,11 @@ export function instanceOfForm(value: object): value is Form {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('tenant' in value) || value['tenant'] === undefined) return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined) return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined) return false;
     return true;
 }
 
@@ -149,7 +151,7 @@ export function FormFromJSONTyped(json: any, ignoreDiscriminator: boolean): Form
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'openDateTime': json['open_date_time'] == null ? undefined : (new Date(json['open_date_time'])),
@@ -161,7 +163,7 @@ export function FormFromJSONTyped(json: any, ignoreDiscriminator: boolean): Form
         'isActive': json['is_active'] == null ? undefined : json['is_active'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'] == null ? undefined : json['production'],
     };
 }
@@ -170,14 +172,13 @@ export function FormToJSON(json: any): Form {
     return FormToJSONTyped(json, false);
 }
 
-export function FormToJSONTyped(value?: Omit<Form, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function FormToJSONTyped(value?: Omit<Form, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'title': value['title'],
         'description': value['description'],
         'open_date_time': value['openDateTime'] === null ? null : ((value['openDateTime'] as any)?.toISOString()),
@@ -187,8 +188,6 @@ export function FormToJSONTyped(value?: Omit<Form, 'id'|'created_at'|'updated_at
         'success_message': value['successMessage'],
         'is_template': value['isTemplate'],
         'is_active': value['isActive'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
     };
 }

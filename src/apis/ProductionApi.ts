@@ -103,7 +103,7 @@ import {
 export interface ProductionV1CategoriesAssignmentsCreateRequest {
     categoryId: number;
     tenantRef: string;
-    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1CategoriesAssignmentsDestroyRequest {
@@ -123,7 +123,7 @@ export interface ProductionV1CategoriesAssignmentsPartialUpdateRequest {
     categoryId: number;
     id: number;
     tenantRef: string;
-    patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1CategoriesAssignmentsRetrieveRequest {
@@ -136,12 +136,12 @@ export interface ProductionV1CategoriesAssignmentsUpdateRequest {
     categoryId: number;
     id: number;
     tenantRef: string;
-    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1CategoriesCreateRequest {
     tenantRef: string;
-    productionCategory: Omit<ProductionCategory, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionCategory: Omit<ProductionCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1CategoriesDestroyRequest {
@@ -158,7 +158,7 @@ export interface ProductionV1CategoriesListRequest {
 export interface ProductionV1CategoriesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedProductionCategory?: Omit<PatchedProductionCategory, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedProductionCategory?: Omit<PatchedProductionCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1CategoriesRetrieveRequest {
@@ -169,12 +169,12 @@ export interface ProductionV1CategoriesRetrieveRequest {
 export interface ProductionV1CategoriesUpdateRequest {
     id: number;
     tenantRef: string;
-    productionCategory: Omit<ProductionCategory, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionCategory: Omit<ProductionCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsCreateRequest {
     tenantRef: string;
-    production: Omit<Production, 'id'|'created_at'|'updated_at'|'created_by'>;
+    production: Omit<Production, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsDestroyRequest {
@@ -191,7 +191,7 @@ export interface ProductionV1ProductionsListRequest {
 export interface ProductionV1ProductionsMembersCreateRequest {
     productionId: number;
     tenantRef: string;
-    productionMember: Omit<ProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionMember: Omit<ProductionMember, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsMembersDestroyRequest {
@@ -211,7 +211,7 @@ export interface ProductionV1ProductionsMembersPartialUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    patchedProductionMember?: Omit<PatchedProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedProductionMember?: Omit<PatchedProductionMember, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsMembersRetrieveRequest {
@@ -224,7 +224,7 @@ export interface ProductionV1ProductionsMembersRolesCreateRequest {
     memberId: number;
     productionId: number;
     tenantRef: string;
-    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsMembersRolesDestroyRequest {
@@ -247,7 +247,7 @@ export interface ProductionV1ProductionsMembersRolesPartialUpdateRequest {
     memberId: number;
     productionId: number;
     tenantRef: string;
-    patchedProductionRoleAssignment?: Omit<PatchedProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedProductionRoleAssignment?: Omit<PatchedProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsMembersRolesRetrieveRequest {
@@ -262,26 +262,26 @@ export interface ProductionV1ProductionsMembersRolesUpdateRequest {
     memberId: number;
     productionId: number;
     tenantRef: string;
-    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionRoleAssignment: Omit<ProductionRoleAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsMembersUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    productionMember: Omit<ProductionMember, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionMember: Omit<ProductionMember, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedProduction?: Omit<PatchedProduction, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedProduction?: Omit<PatchedProduction, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsPerformancesCreateRequest {
     productionId: number;
     tenantRef: string;
-    performance: Omit<Performance, 'id'|'created_at'|'updated_at'|'created_by'>;
+    performance: Omit<Performance, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsPerformancesDestroyRequest {
@@ -301,7 +301,7 @@ export interface ProductionV1ProductionsPerformancesPartialUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    patchedPerformance?: Omit<PatchedPerformance, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedPerformance?: Omit<PatchedPerformance, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsPerformancesRetrieveRequest {
@@ -314,13 +314,13 @@ export interface ProductionV1ProductionsPerformancesUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    performance: Omit<Performance, 'id'|'created_at'|'updated_at'|'created_by'>;
+    performance: Omit<Performance, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsRehearsalsCreateRequest {
     productionId: number;
     tenantRef: string;
-    rehearsal: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
+    rehearsal: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsRehearsalsDestroyRequest {
@@ -340,14 +340,14 @@ export interface ProductionV1ProductionsRehearsalsPartialUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    patchedRehearsal?: Omit<PatchedRehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedRehearsal?: Omit<PatchedRehearsal, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsRehearsalsParticipantsCreateRequest {
     productionId: number;
     rehearsalId: number;
     tenantRef: string;
-    rehearsalParticipant: Omit<RehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
+    rehearsalParticipant: Omit<RehearsalParticipant, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsRehearsalsParticipantsDestroyRequest {
@@ -370,7 +370,7 @@ export interface ProductionV1ProductionsRehearsalsParticipantsPartialUpdateReque
     productionId: number;
     rehearsalId: number;
     tenantRef: string;
-    patchedRehearsalParticipant?: Omit<PatchedRehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedRehearsalParticipant?: Omit<PatchedRehearsalParticipant, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsRehearsalsParticipantsRetrieveRequest {
@@ -385,7 +385,7 @@ export interface ProductionV1ProductionsRehearsalsParticipantsUpdateRequest {
     productionId: number;
     rehearsalId: number;
     tenantRef: string;
-    rehearsalParticipant: Omit<RehearsalParticipant, 'id'|'created_at'|'updated_at'|'created_by'>;
+    rehearsalParticipant: Omit<RehearsalParticipant, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsRehearsalsRetrieveRequest {
@@ -398,7 +398,7 @@ export interface ProductionV1ProductionsRehearsalsUpdateRequest {
     id: number;
     productionId: number;
     tenantRef: string;
-    rehearsal: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'created_by'>;
+    rehearsal: Omit<Rehearsal, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsRetrieveRequest {
@@ -409,12 +409,12 @@ export interface ProductionV1ProductionsRetrieveRequest {
 export interface ProductionV1ProductionsUpdateRequest {
     id: number;
     tenantRef: string;
-    production: Omit<Production, 'id'|'created_at'|'updated_at'|'created_by'>;
+    production: Omit<Production, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1VenuesCreateRequest {
     tenantRef: string;
-    productionVenue: Omit<ProductionVenue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionVenue: Omit<ProductionVenue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1VenuesDestroyRequest {
@@ -431,7 +431,7 @@ export interface ProductionV1VenuesListRequest {
 export interface ProductionV1VenuesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedProductionVenue?: Omit<PatchedProductionVenue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedProductionVenue?: Omit<PatchedProductionVenue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1VenuesRetrieveRequest {
@@ -442,7 +442,7 @@ export interface ProductionV1VenuesRetrieveRequest {
 export interface ProductionV1VenuesUpdateRequest {
     id: number;
     tenantRef: string;
-    productionVenue: Omit<ProductionVenue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    productionVenue: Omit<ProductionVenue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 /**

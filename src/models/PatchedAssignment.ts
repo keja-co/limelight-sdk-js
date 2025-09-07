@@ -42,7 +42,7 @@ export interface PatchedAssignment {
      * @type {Date}
      * @memberof PatchedAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Date and time when the asset was assigned
      * @type {Date}
@@ -60,7 +60,7 @@ export interface PatchedAssignment {
      * @type {number}
      * @memberof PatchedAssignment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -72,7 +72,7 @@ export interface PatchedAssignment {
      * @type {number}
      * @memberof PatchedAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The asset being assigned
      * @type {number}
@@ -129,18 +129,15 @@ export function PatchedAssignmentToJSON(json: any): PatchedAssignment {
     return PatchedAssignmentToJSONTyped(json, false);
 }
 
-export function PatchedAssignmentToJSONTyped(value?: Omit<PatchedAssignment, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedAssignmentToJSONTyped(value?: Omit<PatchedAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'start_date': value['startDate'] == null ? undefined : ((value['startDate']).toISOString()),
         'end_date': value['endDate'] === null ? null : ((value['endDate'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'asset': value['asset'],
         'user': value['user'],
         'production': value['production'],

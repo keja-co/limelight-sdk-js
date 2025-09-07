@@ -40,7 +40,7 @@ export interface Expense {
      * @type {Date}
      * @memberof Expense
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {Date}
@@ -100,7 +100,7 @@ export interface Expense {
      * @type {number}
      * @memberof Expense
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -112,7 +112,7 @@ export interface Expense {
      * @type {number}
      * @memberof Expense
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -151,4 +151,4 @@ export declare function instanceOfExpense(value: object): value is Expense;
 export declare function ExpenseFromJSON(json: any): Expense;
 export declare function ExpenseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Expense;
 export declare function ExpenseToJSON(json: any): Expense;
-export declare function ExpenseToJSONTyped(value?: Omit<Expense, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ExpenseToJSONTyped(value?: Omit<Expense, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

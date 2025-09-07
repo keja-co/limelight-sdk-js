@@ -28,6 +28,8 @@ function instanceOfProductionCostCategory(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
     if (!('budget' in value) || value['budget'] === undefined)
@@ -35,6 +37,8 @@ function instanceOfProductionCostCategory(value) {
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     if (!('production' in value) || value['production'] === undefined)
         return false;
@@ -51,14 +55,14 @@ function ProductionCostCategoryFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
         'lineCode': json['line_code'] == null ? undefined : json['line_code'],
         'budget': json['budget'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'production': json['production'],
         'companyCostCategory': json['company_cost_category'] == null ? undefined : json['company_cost_category'],
     };
@@ -67,19 +71,15 @@ function ProductionCostCategoryToJSON(json) {
     return ProductionCostCategoryToJSONTyped(json, false);
 }
 function ProductionCostCategoryToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'description': value['description'],
         'line_code': value['lineCode'],
         'budget': value['budget'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'company_cost_category': value['companyCostCategory'],
     };

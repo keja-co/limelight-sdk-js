@@ -45,7 +45,7 @@ export interface PatchedSectionSeat {
      * @type {Date}
      * @memberof PatchedSectionSeat
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Seat Code, example: 1, 2, 3 etc. This should be unique within the row.
      * @type {string}
@@ -93,7 +93,7 @@ export interface PatchedSectionSeat {
      * @type {number}
      * @memberof PatchedSectionSeat
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -105,7 +105,7 @@ export interface PatchedSectionSeat {
      * @type {number}
      * @memberof PatchedSectionSeat
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
 }
 /**
  * Check if a given object implements the PatchedSectionSeat interface.
@@ -114,4 +114,4 @@ export declare function instanceOfPatchedSectionSeat(value: object): value is Pa
 export declare function PatchedSectionSeatFromJSON(json: any): PatchedSectionSeat;
 export declare function PatchedSectionSeatFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedSectionSeat;
 export declare function PatchedSectionSeatToJSON(json: any): PatchedSectionSeat;
-export declare function PatchedSectionSeatToJSONTyped(value?: Omit<PatchedSectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedSectionSeatToJSONTyped(value?: Omit<PatchedSectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

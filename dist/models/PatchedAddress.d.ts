@@ -38,7 +38,7 @@ export interface PatchedAddress {
      * @type {Date}
      * @memberof PatchedAddress
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Street address or PO Box
      * @type {string}
@@ -74,7 +74,7 @@ export interface PatchedAddress {
      * @type {number}
      * @memberof PatchedAddress
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -86,7 +86,7 @@ export interface PatchedAddress {
      * @type {number}
      * @memberof PatchedAddress
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -107,4 +107,4 @@ export declare function instanceOfPatchedAddress(value: object): value is Patche
 export declare function PatchedAddressFromJSON(json: any): PatchedAddress;
 export declare function PatchedAddressFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedAddress;
 export declare function PatchedAddressToJSON(json: any): PatchedAddress;
-export declare function PatchedAddressToJSONTyped(value?: Omit<PatchedAddress, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedAddressToJSONTyped(value?: Omit<PatchedAddress, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -42,7 +42,7 @@ export interface PatchedAddress {
      * @type {Date}
      * @memberof PatchedAddress
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Street address or PO Box
      * @type {string}
@@ -78,7 +78,7 @@ export interface PatchedAddress {
      * @type {number}
      * @memberof PatchedAddress
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -90,7 +90,7 @@ export interface PatchedAddress {
      * @type {number}
      * @memberof PatchedAddress
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -143,21 +143,18 @@ export function PatchedAddressToJSON(json: any): PatchedAddress {
     return PatchedAddressToJSONTyped(json, false);
 }
 
-export function PatchedAddressToJSONTyped(value?: Omit<PatchedAddress, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedAddressToJSONTyped(value?: Omit<PatchedAddress, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'line_1': value['line1'],
         'line_2': value['line2'],
         'city': value['city'],
         'suburb': value['suburb'],
         'postal_code': value['postalCode'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'state': value['state'],
         'country': value['country'],
     };

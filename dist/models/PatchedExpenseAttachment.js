@@ -49,17 +49,13 @@ function PatchedExpenseAttachmentToJSON(json) {
     return PatchedExpenseAttachmentToJSONTyped(json, false);
 }
 function PatchedExpenseAttachmentToJSONTyped(value, ignoreDiscriminator) {
-    var _a;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'description': value['description'],
         'file_uri': value['fileUri'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'expense': value['expense'],
         'uploaded_by': value['uploadedBy'],
     };

@@ -29,11 +29,15 @@ function instanceOfProduction(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     return true;
 }
@@ -48,7 +52,7 @@ function ProductionFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
         'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
@@ -56,7 +60,7 @@ function ProductionFromJSONTyped(json, ignoreDiscriminator) {
         'status': json['status'] == null ? undefined : (0, ProductionStatusEnum_1.ProductionStatusEnumFromJSON)(json['status']),
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'venue': json['venue'] == null ? undefined : json['venue'],
         'director': json['director'] == null ? undefined : json['director'],
     };
@@ -65,20 +69,17 @@ function ProductionToJSON(json) {
     return ProductionToJSONTyped(json, false);
 }
 function ProductionToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'name': value['name'],
         'description': value['description'],
-        'start_date': value['startDate'] === null ? null : ((_b = value['startDate']) === null || _b === void 0 ? void 0 : _b.toISOString()),
-        'end_date': value['endDate'] === null ? null : ((_c = value['endDate']) === null || _c === void 0 ? void 0 : _c.toISOString()),
+        'start_date': value['startDate'] === null ? null : ((_a = value['startDate']) === null || _a === void 0 ? void 0 : _a.toISOString()),
+        'end_date': value['endDate'] === null ? null : ((_b = value['endDate']) === null || _b === void 0 ? void 0 : _b.toISOString()),
         'status': (0, ProductionStatusEnum_1.ProductionStatusEnumToJSON)(value['status']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'venue': value['venue'],
         'director': value['director'],
     };

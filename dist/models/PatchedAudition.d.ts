@@ -38,7 +38,7 @@ export interface PatchedAudition {
      * @type {Date}
      * @memberof PatchedAudition
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Name of the audition
      * @type {string}
@@ -56,7 +56,7 @@ export interface PatchedAudition {
      * @type {number}
      * @memberof PatchedAudition
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface PatchedAudition {
      * @type {number}
      * @memberof PatchedAudition
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -89,4 +89,4 @@ export declare function instanceOfPatchedAudition(value: object): value is Patch
 export declare function PatchedAuditionFromJSON(json: any): PatchedAudition;
 export declare function PatchedAuditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedAudition;
 export declare function PatchedAuditionToJSON(json: any): PatchedAudition;
-export declare function PatchedAuditionToJSONTyped(value?: Omit<PatchedAudition, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedAuditionToJSONTyped(value?: Omit<PatchedAudition, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

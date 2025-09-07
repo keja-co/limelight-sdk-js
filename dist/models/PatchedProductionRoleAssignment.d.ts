@@ -39,7 +39,7 @@ export interface PatchedProductionRoleAssignment {
      * @type {Date}
      * @memberof PatchedProductionRoleAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {RoleEnum}
@@ -51,7 +51,7 @@ export interface PatchedProductionRoleAssignment {
      * @type {number}
      * @memberof PatchedProductionRoleAssignment
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -63,7 +63,7 @@ export interface PatchedProductionRoleAssignment {
      * @type {number}
      * @memberof PatchedProductionRoleAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -84,4 +84,4 @@ export declare function instanceOfPatchedProductionRoleAssignment(value: object)
 export declare function PatchedProductionRoleAssignmentFromJSON(json: any): PatchedProductionRoleAssignment;
 export declare function PatchedProductionRoleAssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedProductionRoleAssignment;
 export declare function PatchedProductionRoleAssignmentToJSON(json: any): PatchedProductionRoleAssignment;
-export declare function PatchedProductionRoleAssignmentToJSONTyped(value?: Omit<PatchedProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedProductionRoleAssignmentToJSONTyped(value?: Omit<PatchedProductionRoleAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

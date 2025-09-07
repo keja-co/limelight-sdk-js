@@ -38,7 +38,7 @@ export interface ProductionCategoryAssignment {
      * @type {Date}
      * @memberof ProductionCategoryAssignment
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Indicates if this is the primary category for the production.
      * @type {boolean}
@@ -50,7 +50,7 @@ export interface ProductionCategoryAssignment {
      * @type {number}
      * @memberof ProductionCategoryAssignment
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -62,7 +62,7 @@ export interface ProductionCategoryAssignment {
      * @type {number}
      * @memberof ProductionCategoryAssignment
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -83,4 +83,4 @@ export declare function instanceOfProductionCategoryAssignment(value: object): v
 export declare function ProductionCategoryAssignmentFromJSON(json: any): ProductionCategoryAssignment;
 export declare function ProductionCategoryAssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductionCategoryAssignment;
 export declare function ProductionCategoryAssignmentToJSON(json: any): ProductionCategoryAssignment;
-export declare function ProductionCategoryAssignmentToJSONTyped(value?: Omit<ProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionCategoryAssignmentToJSONTyped(value?: Omit<ProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

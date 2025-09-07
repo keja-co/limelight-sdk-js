@@ -50,7 +50,7 @@ export interface PatchedSection {
      * @type {Date}
      * @memberof PatchedSection
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * Section Code, example: L-MEZ, ORCH, R-BALC, etc.
      * @type {string}
@@ -101,7 +101,7 @@ export interface PatchedSection {
      * @type {number}
      * @memberof PatchedSection
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -113,7 +113,7 @@ export interface PatchedSection {
      * @type {number}
      * @memberof PatchedSection
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The production & venue this section belongs to
      * @type {number}
@@ -163,14 +163,13 @@ export function PatchedSectionToJSON(json: any): PatchedSection {
     return PatchedSectionToJSONTyped(json, false);
 }
 
-export function PatchedSectionToJSONTyped(value?: Omit<PatchedSection, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedSectionToJSONTyped(value?: Omit<PatchedSection, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'section_code': value['sectionCode'],
         'name': value['name'],
         'floor': value['floor'],
@@ -178,8 +177,6 @@ export function PatchedSectionToJSONTyped(value?: Omit<PatchedSection, 'id'|'cre
         'sort_order': value['sortOrder'],
         'seating_system': SeatingSystemEnumToJSON(value['seatingSystem']),
         'limit': value['limit'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production_venue': value['productionVenue'],
     };
 }

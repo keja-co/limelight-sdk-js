@@ -38,7 +38,7 @@ export interface WorkLocation {
      * @type {Date}
      * @memberof WorkLocation
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      *
      * @type {string}
@@ -50,7 +50,7 @@ export interface WorkLocation {
      * @type {number}
      * @memberof WorkLocation
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -62,7 +62,7 @@ export interface WorkLocation {
      * @type {number}
      * @memberof WorkLocation
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -77,4 +77,4 @@ export declare function instanceOfWorkLocation(value: object): value is WorkLoca
 export declare function WorkLocationFromJSON(json: any): WorkLocation;
 export declare function WorkLocationFromJSONTyped(json: any, ignoreDiscriminator: boolean): WorkLocation;
 export declare function WorkLocationToJSON(json: any): WorkLocation;
-export declare function WorkLocationToJSONTyped(value?: Omit<WorkLocation, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function WorkLocationToJSONTyped(value?: Omit<WorkLocation, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

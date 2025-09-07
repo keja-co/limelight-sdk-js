@@ -29,11 +29,15 @@ function instanceOfReimbursement(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('archiveAt' in value) || value['archiveAt'] === undefined)
+        return false;
     if (!('amount' in value) || value['amount'] === undefined)
         return false;
     if (!('tenant' in value) || value['tenant'] === undefined)
         return false;
     if (!('createdBy' in value) || value['createdBy'] === undefined)
+        return false;
+    if (!('updatedBy' in value) || value['updatedBy'] === undefined)
         return false;
     return true;
 }
@@ -48,7 +52,7 @@ function ReimbursementFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
+        'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
         'approvedDateTime': json['approved_date_time'] == null ? undefined : (new Date(json['approved_date_time'])),
         'amount': json['amount'],
         'scheduledDate': json['scheduled_date'] == null ? undefined : (new Date(json['scheduled_date'])),
@@ -58,7 +62,7 @@ function ReimbursementFromJSONTyped(json, ignoreDiscriminator) {
         'notes': json['notes'] == null ? undefined : json['notes'],
         'tenant': json['tenant'],
         'createdBy': json['created_by'],
-        'updatedBy': json['updated_by'] == null ? undefined : json['updated_by'],
+        'updatedBy': json['updated_by'],
         'payee': json['payee'] == null ? undefined : json['payee'],
         'approver': json['approver'] == null ? undefined : json['approver'],
         'expense': json['expense'] == null ? undefined : json['expense'],
@@ -68,22 +72,19 @@ function ReimbursementToJSON(json) {
     return ReimbursementToJSONTyped(json, false);
 }
 function ReimbursementToJSONTyped(value, ignoreDiscriminator) {
-    var _a, _b, _c;
+    var _a, _b;
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'archive_at': value['archiveAt'] === null ? null : ((_a = value['archiveAt']) === null || _a === void 0 ? void 0 : _a.toISOString()),
         'approved_date_time': value['approvedDateTime'] == null ? undefined : ((value['approvedDateTime']).toISOString()),
         'amount': value['amount'],
-        'scheduled_date': value['scheduledDate'] === null ? null : ((_b = value['scheduledDate']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
-        'processed_date': value['processedDate'] === null ? null : ((_c = value['processedDate']) === null || _c === void 0 ? void 0 : _c.toISOString().substring(0, 10)),
+        'scheduled_date': value['scheduledDate'] === null ? null : ((_a = value['scheduledDate']) === null || _a === void 0 ? void 0 : _a.toISOString().substring(0, 10)),
+        'processed_date': value['processedDate'] === null ? null : ((_b = value['processedDate']) === null || _b === void 0 ? void 0 : _b.toISOString().substring(0, 10)),
         'status': (0, ReimbursementStatusEnum_1.ReimbursementStatusEnumToJSON)(value['status']),
         'payment_reference': value['paymentReference'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'payee': value['payee'],
         'approver': value['approver'],
         'expense': value['expense'],

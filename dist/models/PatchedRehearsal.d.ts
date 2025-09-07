@@ -38,7 +38,7 @@ export interface PatchedRehearsal {
      * @type {Date}
      * @memberof PatchedRehearsal
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      *
      * @type {Date}
@@ -62,7 +62,7 @@ export interface PatchedRehearsal {
      * @type {number}
      * @memberof PatchedRehearsal
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      *
      * @type {number}
@@ -74,7 +74,7 @@ export interface PatchedRehearsal {
      * @type {number}
      * @memberof PatchedRehearsal
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      *
      * @type {number}
@@ -95,4 +95,4 @@ export declare function instanceOfPatchedRehearsal(value: object): value is Patc
 export declare function PatchedRehearsalFromJSON(json: any): PatchedRehearsal;
 export declare function PatchedRehearsalFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedRehearsal;
 export declare function PatchedRehearsalToJSON(json: any): PatchedRehearsal;
-export declare function PatchedRehearsalToJSONTyped(value?: Omit<PatchedRehearsal, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedRehearsalToJSONTyped(value?: Omit<PatchedRehearsal, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

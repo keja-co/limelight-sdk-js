@@ -42,7 +42,7 @@ export interface PatchedProductionIncomeCategory {
      * @type {Date}
      * @memberof PatchedProductionIncomeCategory
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -72,7 +72,7 @@ export interface PatchedProductionIncomeCategory {
      * @type {number}
      * @memberof PatchedProductionIncomeCategory
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -84,7 +84,7 @@ export interface PatchedProductionIncomeCategory {
      * @type {number}
      * @memberof PatchedProductionIncomeCategory
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -136,20 +136,17 @@ export function PatchedProductionIncomeCategoryToJSON(json: any): PatchedProduct
     return PatchedProductionIncomeCategoryToJSONTyped(json, false);
 }
 
-export function PatchedProductionIncomeCategoryToJSONTyped(value?: Omit<PatchedProductionIncomeCategory, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedProductionIncomeCategoryToJSONTyped(value?: Omit<PatchedProductionIncomeCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'line_code': value['lineCode'],
         'budget': value['budget'],
         'notes': value['notes'],
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'income_category': value['incomeCategory'],
     };

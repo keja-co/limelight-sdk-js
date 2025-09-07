@@ -50,7 +50,7 @@ export interface PatchedProduction {
      * @type {Date}
      * @memberof PatchedProduction
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {string}
@@ -86,7 +86,7 @@ export interface PatchedProduction {
      * @type {number}
      * @memberof PatchedProduction
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -98,7 +98,7 @@ export interface PatchedProduction {
      * @type {number}
      * @memberof PatchedProduction
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * The primary venue for the production, not necessarily where all performances will take place.
      * @type {number}
@@ -153,21 +153,18 @@ export function PatchedProductionToJSON(json: any): PatchedProduction {
     return PatchedProductionToJSONTyped(json, false);
 }
 
-export function PatchedProductionToJSONTyped(value?: Omit<PatchedProduction, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedProductionToJSONTyped(value?: Omit<PatchedProduction, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
         'name': value['name'],
         'description': value['description'],
         'start_date': value['startDate'] === null ? null : ((value['startDate'] as any)?.toISOString()),
         'end_date': value['endDate'] === null ? null : ((value['endDate'] as any)?.toISOString()),
         'status': ProductionStatusEnumToJSON(value['status']),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'venue': value['venue'],
         'director': value['director'],
     };

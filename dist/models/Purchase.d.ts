@@ -40,7 +40,7 @@ export interface Purchase {
      * @type {Date}
      * @memberof Purchase
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Title for the purchase, e.g., 'VIP Tickets for Opening Night'.
      * @type {string}
@@ -138,7 +138,7 @@ export interface Purchase {
      * @type {number}
      * @memberof Purchase
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -150,7 +150,7 @@ export interface Purchase {
      * @type {number}
      * @memberof Purchase
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      * Discount applied to this purchase.
      * @type {number}
@@ -165,4 +165,4 @@ export declare function instanceOfPurchase(value: object): value is Purchase;
 export declare function PurchaseFromJSON(json: any): Purchase;
 export declare function PurchaseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Purchase;
 export declare function PurchaseToJSON(json: any): Purchase;
-export declare function PurchaseToJSONTyped(value?: Omit<Purchase, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PurchaseToJSONTyped(value?: Omit<Purchase, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

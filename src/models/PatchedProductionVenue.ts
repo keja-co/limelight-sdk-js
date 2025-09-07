@@ -42,13 +42,13 @@ export interface PatchedProductionVenue {
      * @type {Date}
      * @memberof PatchedProductionVenue
      */
-    archiveAt?: Date | null;
+    readonly archiveAt?: Date | null;
     /**
      * 
      * @type {number}
      * @memberof PatchedProductionVenue
      */
-    tenant?: number;
+    readonly tenant?: number;
     /**
      * 
      * @type {number}
@@ -60,7 +60,7 @@ export interface PatchedProductionVenue {
      * @type {number}
      * @memberof PatchedProductionVenue
      */
-    updatedBy?: number | null;
+    readonly updatedBy?: number | null;
     /**
      * 
      * @type {number}
@@ -108,16 +108,13 @@ export function PatchedProductionVenueToJSON(json: any): PatchedProductionVenue 
     return PatchedProductionVenueToJSONTyped(json, false);
 }
 
-export function PatchedProductionVenueToJSONTyped(value?: Omit<PatchedProductionVenue, 'id'|'created_at'|'updated_at'|'created_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedProductionVenueToJSONTyped(value?: Omit<PatchedProductionVenue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'archive_at': value['archiveAt'] === null ? null : ((value['archiveAt'] as any)?.toISOString()),
-        'tenant': value['tenant'],
-        'updated_by': value['updatedBy'],
         'production': value['production'],
         'venue': value['venue'],
     };

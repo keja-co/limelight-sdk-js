@@ -38,7 +38,7 @@ export interface Signup {
      * @type {Date}
      * @memberof Signup
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * First name of the user signing up
      * @type {string}
@@ -74,7 +74,7 @@ export interface Signup {
      * @type {number}
      * @memberof Signup
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -86,7 +86,7 @@ export interface Signup {
      * @type {number}
      * @memberof Signup
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
     /**
      *
      * @type {number}
@@ -107,4 +107,4 @@ export declare function instanceOfSignup(value: object): value is Signup;
 export declare function SignupFromJSON(json: any): Signup;
 export declare function SignupFromJSONTyped(json: any, ignoreDiscriminator: boolean): Signup;
 export declare function SignupToJSON(json: any): Signup;
-export declare function SignupToJSONTyped(value?: Omit<Signup, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function SignupToJSONTyped(value?: Omit<Signup, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

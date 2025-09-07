@@ -38,7 +38,7 @@ export interface VenueTag {
      * @type {Date}
      * @memberof VenueTag
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Name of the tag
      * @type {string}
@@ -56,7 +56,7 @@ export interface VenueTag {
      * @type {number}
      * @memberof VenueTag
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -68,7 +68,7 @@ export interface VenueTag {
      * @type {number}
      * @memberof VenueTag
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the VenueTag interface.
@@ -77,4 +77,4 @@ export declare function instanceOfVenueTag(value: object): value is VenueTag;
 export declare function VenueTagFromJSON(json: any): VenueTag;
 export declare function VenueTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): VenueTag;
 export declare function VenueTagToJSON(json: any): VenueTag;
-export declare function VenueTagToJSONTyped(value?: Omit<VenueTag, 'id' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function VenueTagToJSONTyped(value?: Omit<VenueTag, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

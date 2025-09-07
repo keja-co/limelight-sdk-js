@@ -45,7 +45,7 @@ export interface SectionSeat {
      * @type {Date}
      * @memberof SectionSeat
      */
-    archiveAt?: Date | null;
+    readonly archiveAt: Date | null;
     /**
      * Seat Code, example: 1, 2, 3 etc. This should be unique within the row.
      * @type {string}
@@ -93,7 +93,7 @@ export interface SectionSeat {
      * @type {number}
      * @memberof SectionSeat
      */
-    tenant: number;
+    readonly tenant: number;
     /**
      *
      * @type {number}
@@ -105,7 +105,7 @@ export interface SectionSeat {
      * @type {number}
      * @memberof SectionSeat
      */
-    updatedBy?: number | null;
+    readonly updatedBy: number | null;
 }
 /**
  * Check if a given object implements the SectionSeat interface.
@@ -114,4 +114,4 @@ export declare function instanceOfSectionSeat(value: object): value is SectionSe
 export declare function SectionSeatFromJSON(json: any): SectionSeat;
 export declare function SectionSeatFromJSONTyped(json: any, ignoreDiscriminator: boolean): SectionSeat;
 export declare function SectionSeatToJSON(json: any): SectionSeat;
-export declare function SectionSeatToJSONTyped(value?: Omit<SectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'created_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function SectionSeatToJSONTyped(value?: Omit<SectionSeat, 'id' | 'section' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

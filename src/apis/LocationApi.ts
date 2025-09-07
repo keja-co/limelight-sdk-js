@@ -85,7 +85,7 @@ import {
 export interface LocationV1CountriesAddressesCreateRequest {
     countryId: number;
     tenantRef: string;
-    address: Omit<Address, 'id'|'created_at'|'updated_at'|'created_by'>;
+    address: Omit<Address, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1CountriesAddressesDestroyRequest {
@@ -105,7 +105,7 @@ export interface LocationV1CountriesAddressesPartialUpdateRequest {
     countryId: number;
     id: number;
     tenantRef: string;
-    patchedAddress?: Omit<PatchedAddress, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedAddress?: Omit<PatchedAddress, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1CountriesAddressesRetrieveRequest {
@@ -118,12 +118,12 @@ export interface LocationV1CountriesAddressesUpdateRequest {
     countryId: number;
     id: number;
     tenantRef: string;
-    address: Omit<Address, 'id'|'created_at'|'updated_at'|'created_by'>;
+    address: Omit<Address, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1CountriesCreateRequest {
     tenantRef: string;
-    country: Omit<Country, 'id'|'created_at'|'updated_at'|'created_by'>;
+    country: Omit<Country, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1CountriesDestroyRequest {
@@ -140,7 +140,7 @@ export interface LocationV1CountriesListRequest {
 export interface LocationV1CountriesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedCountry?: Omit<PatchedCountry, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedCountry?: Omit<PatchedCountry, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1CountriesRetrieveRequest {
@@ -151,7 +151,7 @@ export interface LocationV1CountriesRetrieveRequest {
 export interface LocationV1CountriesStateCreateRequest {
     countryId: number;
     tenantRef: string;
-    state: Omit<State, 'id'|'created_at'|'updated_at'|'created_by'>;
+    state: Omit<State, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1CountriesStateDestroyRequest {
@@ -171,7 +171,7 @@ export interface LocationV1CountriesStatePartialUpdateRequest {
     countryId: number;
     id: number;
     tenantRef: string;
-    patchedState?: Omit<PatchedState, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedState?: Omit<PatchedState, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1CountriesStateRetrieveRequest {
@@ -184,18 +184,18 @@ export interface LocationV1CountriesStateUpdateRequest {
     countryId: number;
     id: number;
     tenantRef: string;
-    state: Omit<State, 'id'|'created_at'|'updated_at'|'created_by'>;
+    state: Omit<State, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1CountriesUpdateRequest {
     id: number;
     tenantRef: string;
-    country: Omit<Country, 'id'|'created_at'|'updated_at'|'created_by'>;
+    country: Omit<Country, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenueTagsCreateRequest {
     tenantRef: string;
-    venueTag: Omit<VenueTag, 'id'|'created_at'|'updated_at'|'created_by'>;
+    venueTag: Omit<VenueTag, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenueTagsDestroyRequest {
@@ -212,7 +212,7 @@ export interface LocationV1VenueTagsListRequest {
 export interface LocationV1VenueTagsPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedVenueTag?: Omit<PatchedVenueTag, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedVenueTag?: Omit<PatchedVenueTag, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenueTagsRetrieveRequest {
@@ -223,13 +223,13 @@ export interface LocationV1VenueTagsRetrieveRequest {
 export interface LocationV1VenueTagsUpdateRequest {
     id: number;
     tenantRef: string;
-    venueTag: Omit<VenueTag, 'id'|'created_at'|'updated_at'|'created_by'>;
+    venueTag: Omit<VenueTag, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesCapacitiesCreateRequest {
     tenantRef: string;
     venueId: number;
-    venueCapacity: Omit<VenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
+    venueCapacity: Omit<VenueCapacity, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesCapacitiesDestroyRequest {
@@ -249,7 +249,7 @@ export interface LocationV1VenuesCapacitiesPartialUpdateRequest {
     id: number;
     tenantRef: string;
     venueId: number;
-    patchedVenueCapacity?: Omit<PatchedVenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedVenueCapacity?: Omit<PatchedVenueCapacity, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesCapacitiesRetrieveRequest {
@@ -262,12 +262,12 @@ export interface LocationV1VenuesCapacitiesUpdateRequest {
     id: number;
     tenantRef: string;
     venueId: number;
-    venueCapacity: Omit<VenueCapacity, 'id'|'created_at'|'updated_at'|'created_by'>;
+    venueCapacity: Omit<VenueCapacity, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesCreateRequest {
     tenantRef: string;
-    venue: Omit<Venue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    venue: Omit<Venue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesDestroyRequest {
@@ -284,7 +284,7 @@ export interface LocationV1VenuesListRequest {
 export interface LocationV1VenuesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedVenue?: Omit<PatchedVenue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedVenue?: Omit<PatchedVenue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesRetrieveRequest {
@@ -295,7 +295,7 @@ export interface LocationV1VenuesRetrieveRequest {
 export interface LocationV1VenuesTagsCreateRequest {
     tenantRef: string;
     venueId: number;
-    venueTagAssignment: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    venueTagAssignment: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesTagsDestroyRequest {
@@ -315,7 +315,7 @@ export interface LocationV1VenuesTagsPartialUpdateRequest {
     id: number;
     tenantRef: string;
     venueId: number;
-    patchedVenueTagAssignment?: Omit<PatchedVenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    patchedVenueTagAssignment?: Omit<PatchedVenueTagAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesTagsRetrieveRequest {
@@ -328,13 +328,13 @@ export interface LocationV1VenuesTagsUpdateRequest {
     id: number;
     tenantRef: string;
     venueId: number;
-    venueTagAssignment: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'created_by'>;
+    venueTagAssignment: Omit<VenueTagAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface LocationV1VenuesUpdateRequest {
     id: number;
     tenantRef: string;
-    venue: Omit<Venue, 'id'|'created_at'|'updated_at'|'created_by'>;
+    venue: Omit<Venue, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 /**
