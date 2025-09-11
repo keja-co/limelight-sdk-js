@@ -221,6 +221,7 @@ export function FormFieldConfigurationFromJSONTyped(json: any, ignoreDiscriminat
     if (instanceOfURLConfiguration(json)) {
         return URLConfigurationFromJSONTyped(json, true);
     }
+
     return {} as any;
 }
 
@@ -292,6 +293,7 @@ export function FormFieldConfigurationToJSONTyped(value?: FormFieldConfiguration
     if (instanceOfURLConfiguration(value)) {
         return URLConfigurationToJSON(value as URLConfiguration);
     }
+
     return {};
 }
 
