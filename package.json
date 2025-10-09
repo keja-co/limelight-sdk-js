@@ -1,6 +1,6 @@
 {
   "name": "@keja-co/limelight-sdk",
-  "version": "1.0.96",
+  "version": "1.0.97",
   "description": "OpenAPI client for @keja-co/limelight-sdk",
   "author": "OpenAPI-Generator",
   "repository": {
