@@ -24,6 +24,24 @@ export interface Document {
     readonly id: number;
     /**
      *
+     * @type {string}
+     * @memberof Document
+     */
+    readonly authorName: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Document
+     */
+    readonly repoName: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Document
+     */
+    readonly folderPath: string | null;
+    /**
+     *
      * @type {Date}
      * @memberof Document
      */
@@ -120,4 +138,4 @@ export declare function instanceOfDocument(value: object): value is Document;
 export declare function DocumentFromJSON(json: any): Document;
 export declare function DocumentFromJSONTyped(json: any, ignoreDiscriminator: boolean): Document;
 export declare function DocumentToJSON(json: any): Document;
-export declare function DocumentToJSONTyped(value?: Omit<Document, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'> | null, ignoreDiscriminator?: boolean): any;
+export declare function DocumentToJSONTyped(value?: Omit<Document, 'id' | 'author_name' | 'repo_name' | 'folder_path' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'> | null, ignoreDiscriminator?: boolean): any;

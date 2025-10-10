@@ -33,6 +33,7 @@ function PatchedProductionCategoryAssignmentFromJSONTyped(json, ignoreDiscrimina
     }
     return {
         'id': json['id'] == null ? undefined : json['id'],
+        'categoryName': json['category_name'] == null ? undefined : json['category_name'],
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),

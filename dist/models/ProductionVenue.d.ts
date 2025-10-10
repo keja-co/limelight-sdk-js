@@ -29,6 +29,18 @@ export interface ProductionVenue {
     readonly venueName: string;
     /**
      *
+     * @type {string}
+     * @memberof ProductionVenue
+     */
+    readonly shortAddress: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ProductionVenue
+     */
+    readonly isPrimary: boolean;
+    /**
+     *
      * @type {Date}
      * @memberof ProductionVenue
      */
@@ -83,4 +95,4 @@ export declare function instanceOfProductionVenue(value: object): value is Produ
 export declare function ProductionVenueFromJSON(json: any): ProductionVenue;
 export declare function ProductionVenueFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductionVenue;
 export declare function ProductionVenueToJSON(json: any): ProductionVenue;
-export declare function ProductionVenueToJSONTyped(value?: Omit<ProductionVenue, 'id' | 'venue_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionVenueToJSONTyped(value?: Omit<ProductionVenue, 'id' | 'venue_name' | 'short_address' | 'is_primary' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

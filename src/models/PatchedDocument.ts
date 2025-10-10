@@ -35,6 +35,24 @@ export interface PatchedDocument {
     readonly id?: number;
     /**
      * 
+     * @type {string}
+     * @memberof PatchedDocument
+     */
+    readonly authorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PatchedDocument
+     */
+    readonly repoName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PatchedDocument
+     */
+    readonly folderPath?: string | null;
+    /**
+     * 
      * @type {Date}
      * @memberof PatchedDocument
      */
@@ -145,6 +163,9 @@ export function PatchedDocumentFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
+        'authorName': json['author_name'] == null ? undefined : json['author_name'],
+        'repoName': json['repo_name'] == null ? undefined : json['repo_name'],
+        'folderPath': json['folder_path'] == null ? undefined : json['folder_path'],
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
@@ -167,7 +188,7 @@ export function PatchedDocumentToJSON(json: any): PatchedDocument {
     return PatchedDocumentToJSONTyped(json, false);
 }
 
-export function PatchedDocumentToJSONTyped(value?: Omit<PatchedDocument, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'|'repo'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedDocumentToJSONTyped(value?: Omit<PatchedDocument, 'id'|'author_name'|'repo_name'|'folder_path'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'|'repo'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

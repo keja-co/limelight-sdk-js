@@ -740,6 +740,350 @@ var ProductionApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesAssignmentsListRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesAssignmentsList().');
+                        }
+                        if (requestParameters['tenantRef'] == null) {
+                            throw new runtime.RequiredError('tenantRef', 'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesAssignmentsList().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['page'] != null) {
+                            queryParameters['page'] = requestParameters['page'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['page_size'] = requestParameters['pageSize'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("tenant_ref", "}"), encodeURIComponent(String(requestParameters['tenantRef'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.PaginatedProductionCategoryAssignmentListFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesAssignmentsList = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsCategoriesAssignmentsListRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesCreateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesCreate().');
+                        }
+                        if (requestParameters['tenantRef'] == null) {
+                            throw new runtime.RequiredError('tenantRef', 'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesCreate().');
+                        }
+                        if (requestParameters['productionCategoryAssignment'] == null) {
+                            throw new runtime.RequiredError('productionCategoryAssignment', 'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1ProductionsCategoriesCreate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/";
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("tenant_ref", "}"), encodeURIComponent(String(requestParameters['tenantRef'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ProductionCategoryAssignmentToJSON)(requestParameters['productionCategoryAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesCreate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsCategoriesCreateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesDestroyRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsCategoriesDestroy().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesDestroy().');
+                        }
+                        if (requestParameters['tenantRef'] == null) {
+                            throw new runtime.RequiredError('tenantRef', 'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesDestroy().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("tenant_ref", "}"), encodeURIComponent(String(requestParameters['tenantRef'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesDestroy = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsCategoriesDestroyRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesPartialUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsCategoriesPartialUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesPartialUpdate().');
+                        }
+                        if (requestParameters['tenantRef'] == null) {
+                            throw new runtime.RequiredError('tenantRef', 'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesPartialUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("tenant_ref", "}"), encodeURIComponent(String(requestParameters['tenantRef'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PatchedProductionCategoryAssignmentToJSON)(requestParameters['patchedProductionCategoryAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesPartialUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsCategoriesPartialUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesRetrieveRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsCategoriesRetrieve().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesRetrieve().');
+                        }
+                        if (requestParameters['tenantRef'] == null) {
+                            throw new runtime.RequiredError('tenantRef', 'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesRetrieve().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("tenant_ref", "}"), encodeURIComponent(String(requestParameters['tenantRef'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesRetrieve = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsCategoriesRetrieveRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesUpdateRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling productionV1ProductionsCategoriesUpdate().');
+                        }
+                        if (requestParameters['productionId'] == null) {
+                            throw new runtime.RequiredError('productionId', 'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesUpdate().');
+                        }
+                        if (requestParameters['tenantRef'] == null) {
+                            throw new runtime.RequiredError('tenantRef', 'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesUpdate().');
+                        }
+                        if (requestParameters['productionCategoryAssignment'] == null) {
+                            throw new runtime.RequiredError('productionCategoryAssignment', 'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1ProductionsCategoriesUpdate().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/{id}/";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        urlPath = urlPath.replace("{".concat("production_id", "}"), encodeURIComponent(String(requestParameters['productionId'])));
+                        urlPath = urlPath.replace("{".concat("tenant_ref", "}"), encodeURIComponent(String(requestParameters['tenantRef'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ProductionCategoryAssignmentToJSON)(requestParameters['productionCategoryAssignment']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ProductionCategoryAssignmentFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment (by production)
+     */
+    ProductionApi.prototype.productionV1ProductionsCategoriesUpdate = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.productionV1ProductionsCategoriesUpdateRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Create a new production.
      * Create a Production
      */

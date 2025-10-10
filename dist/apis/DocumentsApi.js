@@ -318,6 +318,15 @@ var DocumentsApi = /** @class */ (function (_super) {
                         if (requestParameters['pageSize'] != null) {
                             queryParameters['page_size'] = requestParameters['pageSize'];
                         }
+                        if (requestParameters['production'] != null) {
+                            queryParameters['production'] = requestParameters['production'];
+                        }
+                        if (requestParameters['statusIexact'] != null) {
+                            queryParameters['status__iexact'] = requestParameters['statusIexact'];
+                        }
+                        if (requestParameters['titleIcontains'] != null) {
+                            queryParameters['title_icontains'] = requestParameters['titleIcontains'];
+                        }
                         headerParameters = {};
                         urlPath = "/api/t/{tenant_ref}/documents/v1/repos/{repo_id}/documents/";
                         urlPath = urlPath.replace("{".concat("repo_id", "}"), encodeURIComponent(String(requestParameters['repoId'])));

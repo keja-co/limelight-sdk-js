@@ -24,6 +24,24 @@ export interface PatchedDocument {
     readonly id?: number;
     /**
      *
+     * @type {string}
+     * @memberof PatchedDocument
+     */
+    readonly authorName?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PatchedDocument
+     */
+    readonly repoName?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PatchedDocument
+     */
+    readonly folderPath?: string | null;
+    /**
+     *
      * @type {Date}
      * @memberof PatchedDocument
      */
@@ -120,4 +138,4 @@ export declare function instanceOfPatchedDocument(value: object): value is Patch
 export declare function PatchedDocumentFromJSON(json: any): PatchedDocument;
 export declare function PatchedDocumentFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedDocument;
 export declare function PatchedDocumentToJSON(json: any): PatchedDocument;
-export declare function PatchedDocumentToJSONTyped(value?: Omit<PatchedDocument, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedDocumentToJSONTyped(value?: Omit<PatchedDocument, 'id' | 'author_name' | 'repo_name' | 'folder_path' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'> | null, ignoreDiscriminator?: boolean): any;

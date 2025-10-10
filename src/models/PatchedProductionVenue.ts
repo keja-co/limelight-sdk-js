@@ -33,6 +33,18 @@ export interface PatchedProductionVenue {
     readonly venueName?: string;
     /**
      * 
+     * @type {string}
+     * @memberof PatchedProductionVenue
+     */
+    readonly shortAddress?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PatchedProductionVenue
+     */
+    readonly isPrimary?: boolean;
+    /**
+     * 
      * @type {Date}
      * @memberof PatchedProductionVenue
      */
@@ -100,6 +112,8 @@ export function PatchedProductionVenueFromJSONTyped(json: any, ignoreDiscriminat
         
         'id': json['id'] == null ? undefined : json['id'],
         'venueName': json['venue_name'] == null ? undefined : json['venue_name'],
+        'shortAddress': json['short_address'] == null ? undefined : json['short_address'],
+        'isPrimary': json['is_primary'] == null ? undefined : json['is_primary'],
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
@@ -115,7 +129,7 @@ export function PatchedProductionVenueToJSON(json: any): PatchedProductionVenue 
     return PatchedProductionVenueToJSONTyped(json, false);
 }
 
-export function PatchedProductionVenueToJSONTyped(value?: Omit<PatchedProductionVenue, 'id'|'venue_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedProductionVenueToJSONTyped(value?: Omit<PatchedProductionVenue, 'id'|'venue_name'|'short_address'|'is_primary'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

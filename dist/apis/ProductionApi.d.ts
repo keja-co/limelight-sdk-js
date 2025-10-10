@@ -14,7 +14,7 @@ import type { PaginatedPerformanceList, PaginatedProductionCategoryAssignmentLis
 export interface ProductionV1CategoriesAssignmentsCreateRequest {
     categoryId: number;
     tenantRef: string;
-    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id' | 'category_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface ProductionV1CategoriesAssignmentsDestroyRequest {
     categoryId: number;
@@ -31,7 +31,7 @@ export interface ProductionV1CategoriesAssignmentsPartialUpdateRequest {
     categoryId: number;
     id: number;
     tenantRef: string;
-    patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+    patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id' | 'category_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface ProductionV1CategoriesAssignmentsRetrieveRequest {
     categoryId: number;
@@ -42,7 +42,7 @@ export interface ProductionV1CategoriesAssignmentsUpdateRequest {
     categoryId: number;
     id: number;
     tenantRef: string;
-    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id' | 'category_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface ProductionV1CategoriesCreateRequest {
     tenantRef: string;
@@ -70,6 +70,39 @@ export interface ProductionV1CategoriesUpdateRequest {
     id: number;
     tenantRef: string;
     productionCategory: Omit<ProductionCategory, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+}
+export interface ProductionV1ProductionsCategoriesAssignmentsListRequest {
+    productionId: number;
+    tenantRef: string;
+    page?: number;
+    pageSize?: number;
+}
+export interface ProductionV1ProductionsCategoriesCreateRequest {
+    productionId: number;
+    tenantRef: string;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id' | 'category_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+}
+export interface ProductionV1ProductionsCategoriesDestroyRequest {
+    id: number;
+    productionId: number;
+    tenantRef: string;
+}
+export interface ProductionV1ProductionsCategoriesPartialUpdateRequest {
+    id: number;
+    productionId: number;
+    tenantRef: string;
+    patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id' | 'category_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+}
+export interface ProductionV1ProductionsCategoriesRetrieveRequest {
+    id: number;
+    productionId: number;
+    tenantRef: string;
+}
+export interface ProductionV1ProductionsCategoriesUpdateRequest {
+    id: number;
+    productionId: number;
+    tenantRef: string;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id' | 'category_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface ProductionV1ProductionsCreateRequest {
     tenantRef: string;
@@ -323,7 +356,7 @@ export interface ProductionV1ProductionsUpdateRequest {
 }
 export interface ProductionV1VenuesCreateRequest {
     tenantRef: string;
-    productionVenue: Omit<ProductionVenue, 'id' | 'venue_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+    productionVenue: Omit<ProductionVenue, 'id' | 'venue_name' | 'short_address' | 'is_primary' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface ProductionV1VenuesDestroyRequest {
     id: number;
@@ -338,7 +371,7 @@ export interface ProductionV1VenuesListRequest {
 export interface ProductionV1VenuesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedProductionVenue?: Omit<PatchedProductionVenue, 'id' | 'venue_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+    patchedProductionVenue?: Omit<PatchedProductionVenue, 'id' | 'venue_name' | 'short_address' | 'is_primary' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 export interface ProductionV1VenuesRetrieveRequest {
     id: number;
@@ -347,7 +380,7 @@ export interface ProductionV1VenuesRetrieveRequest {
 export interface ProductionV1VenuesUpdateRequest {
     id: number;
     tenantRef: string;
-    productionVenue: Omit<ProductionVenue, 'id' | 'venue_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
+    productionVenue: Omit<ProductionVenue, 'id' | 'venue_name' | 'short_address' | 'is_primary' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'>;
 }
 /**
  *
@@ -473,6 +506,66 @@ export declare class ProductionApi extends runtime.BaseAPI {
      * Update a Production Category
      */
     productionV1CategoriesUpdate(requestParameters: ProductionV1CategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory>;
+    /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments (by production)
+     */
+    productionV1ProductionsCategoriesAssignmentsListRaw(requestParameters: ProductionV1ProductionsCategoriesAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryAssignmentList>>;
+    /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments (by production)
+     */
+    productionV1ProductionsCategoriesAssignmentsList(requestParameters: ProductionV1ProductionsCategoriesAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryAssignmentList>;
+    /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesCreateRaw(requestParameters: ProductionV1ProductionsCategoriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
+    /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesCreate(requestParameters: ProductionV1ProductionsCategoriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
+    /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesDestroyRaw(requestParameters: ProductionV1ProductionsCategoriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesDestroy(requestParameters: ProductionV1ProductionsCategoriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesPartialUpdateRaw(requestParameters: ProductionV1ProductionsCategoriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
+    /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesPartialUpdate(requestParameters: ProductionV1ProductionsCategoriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
+    /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesRetrieveRaw(requestParameters: ProductionV1ProductionsCategoriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
+    /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesRetrieve(requestParameters: ProductionV1ProductionsCategoriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
+    /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesUpdateRaw(requestParameters: ProductionV1ProductionsCategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>>;
+    /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment (by production)
+     */
+    productionV1ProductionsCategoriesUpdate(requestParameters: ProductionV1ProductionsCategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment>;
     /**
      * Create a new production.
      * Create a Production

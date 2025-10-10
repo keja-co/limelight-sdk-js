@@ -33,6 +33,18 @@ export interface ProductionVenue {
     readonly venueName: string;
     /**
      * 
+     * @type {string}
+     * @memberof ProductionVenue
+     */
+    readonly shortAddress: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ProductionVenue
+     */
+    readonly isPrimary: boolean;
+    /**
+     * 
      * @type {Date}
      * @memberof ProductionVenue
      */
@@ -87,6 +99,8 @@ export interface ProductionVenue {
 export function instanceOfProductionVenue(value: object): value is ProductionVenue {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('venueName' in value) || value['venueName'] === undefined) return false;
+    if (!('shortAddress' in value) || value['shortAddress'] === undefined) return false;
+    if (!('isPrimary' in value) || value['isPrimary'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
@@ -110,6 +124,8 @@ export function ProductionVenueFromJSONTyped(json: any, ignoreDiscriminator: boo
         
         'id': json['id'],
         'venueName': json['venue_name'],
+        'shortAddress': json['short_address'],
+        'isPrimary': json['is_primary'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
@@ -125,7 +141,7 @@ export function ProductionVenueToJSON(json: any): ProductionVenue {
     return ProductionVenueToJSONTyped(json, false);
 }
 
-export function ProductionVenueToJSONTyped(value?: Omit<ProductionVenue, 'id'|'venue_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function ProductionVenueToJSONTyped(value?: Omit<ProductionVenue, 'id'|'venue_name'|'short_address'|'is_primary'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

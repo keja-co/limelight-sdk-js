@@ -34,6 +34,9 @@ function PatchedDocumentFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'] == null ? undefined : json['id'],
+        'authorName': json['author_name'] == null ? undefined : json['author_name'],
+        'repoName': json['repo_name'] == null ? undefined : json['repo_name'],
+        'folderPath': json['folder_path'] == null ? undefined : json['folder_path'],
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),

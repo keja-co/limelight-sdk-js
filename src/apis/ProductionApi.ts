@@ -103,7 +103,7 @@ import {
 export interface ProductionV1CategoriesAssignmentsCreateRequest {
     categoryId: number;
     tenantRef: string;
-    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'category_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1CategoriesAssignmentsDestroyRequest {
@@ -123,7 +123,7 @@ export interface ProductionV1CategoriesAssignmentsPartialUpdateRequest {
     categoryId: number;
     id: number;
     tenantRef: string;
-    patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+    patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id'|'category_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1CategoriesAssignmentsRetrieveRequest {
@@ -136,7 +136,7 @@ export interface ProductionV1CategoriesAssignmentsUpdateRequest {
     categoryId: number;
     id: number;
     tenantRef: string;
-    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'category_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1CategoriesCreateRequest {
@@ -170,6 +170,45 @@ export interface ProductionV1CategoriesUpdateRequest {
     id: number;
     tenantRef: string;
     productionCategory: Omit<ProductionCategory, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+}
+
+export interface ProductionV1ProductionsCategoriesAssignmentsListRequest {
+    productionId: number;
+    tenantRef: string;
+    page?: number;
+    pageSize?: number;
+}
+
+export interface ProductionV1ProductionsCategoriesCreateRequest {
+    productionId: number;
+    tenantRef: string;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'category_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+}
+
+export interface ProductionV1ProductionsCategoriesDestroyRequest {
+    id: number;
+    productionId: number;
+    tenantRef: string;
+}
+
+export interface ProductionV1ProductionsCategoriesPartialUpdateRequest {
+    id: number;
+    productionId: number;
+    tenantRef: string;
+    patchedProductionCategoryAssignment?: Omit<PatchedProductionCategoryAssignment, 'id'|'category_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+}
+
+export interface ProductionV1ProductionsCategoriesRetrieveRequest {
+    id: number;
+    productionId: number;
+    tenantRef: string;
+}
+
+export interface ProductionV1ProductionsCategoriesUpdateRequest {
+    id: number;
+    productionId: number;
+    tenantRef: string;
+    productionCategoryAssignment: Omit<ProductionCategoryAssignment, 'id'|'category_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1ProductionsCreateRequest {
@@ -466,7 +505,7 @@ export interface ProductionV1ProductionsUpdateRequest {
 
 export interface ProductionV1VenuesCreateRequest {
     tenantRef: string;
-    productionVenue: Omit<ProductionVenue, 'id'|'venue_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+    productionVenue: Omit<ProductionVenue, 'id'|'venue_name'|'short_address'|'is_primary'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1VenuesDestroyRequest {
@@ -484,7 +523,7 @@ export interface ProductionV1VenuesListRequest {
 export interface ProductionV1VenuesPartialUpdateRequest {
     id: number;
     tenantRef: string;
-    patchedProductionVenue?: Omit<PatchedProductionVenue, 'id'|'venue_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+    patchedProductionVenue?: Omit<PatchedProductionVenue, 'id'|'venue_name'|'short_address'|'is_primary'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 export interface ProductionV1VenuesRetrieveRequest {
@@ -495,7 +534,7 @@ export interface ProductionV1VenuesRetrieveRequest {
 export interface ProductionV1VenuesUpdateRequest {
     id: number;
     tenantRef: string;
-    productionVenue: Omit<ProductionVenue, 'id'|'venue_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
+    productionVenue: Omit<ProductionVenue, 'id'|'venue_name'|'short_address'|'is_primary'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'>;
 }
 
 /**
@@ -1140,6 +1179,350 @@ export class ProductionApi extends runtime.BaseAPI {
      */
     async productionV1CategoriesUpdate(requestParameters: ProductionV1CategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategory> {
         const response = await this.productionV1CategoriesUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments (by production)
+     */
+    async productionV1ProductionsCategoriesAssignmentsListRaw(requestParameters: ProductionV1ProductionsCategoriesAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PaginatedProductionCategoryAssignmentList>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesAssignmentsList().'
+            );
+        }
+
+        if (requestParameters['tenantRef'] == null) {
+            throw new runtime.RequiredError(
+                'tenantRef',
+                'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesAssignmentsList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['page'] != null) {
+            queryParameters['page'] = requestParameters['page'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['page_size'] = requestParameters['pageSize'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"tenant_ref"}}`, encodeURIComponent(String(requestParameters['tenantRef'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PaginatedProductionCategoryAssignmentListFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve all category assignments for a production.
+     * List Production Category Assignments (by production)
+     */
+    async productionV1ProductionsCategoriesAssignmentsList(requestParameters: ProductionV1ProductionsCategoriesAssignmentsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PaginatedProductionCategoryAssignmentList> {
+        const response = await this.productionV1ProductionsCategoriesAssignmentsListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesCreateRaw(requestParameters: ProductionV1ProductionsCategoriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesCreate().'
+            );
+        }
+
+        if (requestParameters['tenantRef'] == null) {
+            throw new runtime.RequiredError(
+                'tenantRef',
+                'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesCreate().'
+            );
+        }
+
+        if (requestParameters['productionCategoryAssignment'] == null) {
+            throw new runtime.RequiredError(
+                'productionCategoryAssignment',
+                'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1ProductionsCategoriesCreate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/`;
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"tenant_ref"}}`, encodeURIComponent(String(requestParameters['tenantRef'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductionCategoryAssignmentToJSON(requestParameters['productionCategoryAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionCategoryAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a new production category assignment.
+     * Create a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesCreate(requestParameters: ProductionV1ProductionsCategoriesCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
+        const response = await this.productionV1ProductionsCategoriesCreateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesDestroyRaw(requestParameters: ProductionV1ProductionsCategoriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsCategoriesDestroy().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesDestroy().'
+            );
+        }
+
+        if (requestParameters['tenantRef'] == null) {
+            throw new runtime.RequiredError(
+                'tenantRef',
+                'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesDestroy().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"tenant_ref"}}`, encodeURIComponent(String(requestParameters['tenantRef'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a specific production category assignment.
+     * Delete a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesDestroy(requestParameters: ProductionV1ProductionsCategoriesDestroyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.productionV1ProductionsCategoriesDestroyRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesPartialUpdateRaw(requestParameters: ProductionV1ProductionsCategoriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsCategoriesPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesPartialUpdate().'
+            );
+        }
+
+        if (requestParameters['tenantRef'] == null) {
+            throw new runtime.RequiredError(
+                'tenantRef',
+                'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesPartialUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"tenant_ref"}}`, encodeURIComponent(String(requestParameters['tenantRef'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchedProductionCategoryAssignmentToJSON(requestParameters['patchedProductionCategoryAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionCategoryAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Partially update an existing production category assignment.
+     * Partially Update a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesPartialUpdate(requestParameters: ProductionV1ProductionsCategoriesPartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
+        const response = await this.productionV1ProductionsCategoriesPartialUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesRetrieveRaw(requestParameters: ProductionV1ProductionsCategoriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsCategoriesRetrieve().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesRetrieve().'
+            );
+        }
+
+        if (requestParameters['tenantRef'] == null) {
+            throw new runtime.RequiredError(
+                'tenantRef',
+                'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesRetrieve().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"tenant_ref"}}`, encodeURIComponent(String(requestParameters['tenantRef'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionCategoryAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a specific production category assignment.
+     * Retrieve a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesRetrieve(requestParameters: ProductionV1ProductionsCategoriesRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
+        const response = await this.productionV1ProductionsCategoriesRetrieveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesUpdateRaw(requestParameters: ProductionV1ProductionsCategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductionCategoryAssignment>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling productionV1ProductionsCategoriesUpdate().'
+            );
+        }
+
+        if (requestParameters['productionId'] == null) {
+            throw new runtime.RequiredError(
+                'productionId',
+                'Required parameter "productionId" was null or undefined when calling productionV1ProductionsCategoriesUpdate().'
+            );
+        }
+
+        if (requestParameters['tenantRef'] == null) {
+            throw new runtime.RequiredError(
+                'tenantRef',
+                'Required parameter "tenantRef" was null or undefined when calling productionV1ProductionsCategoriesUpdate().'
+            );
+        }
+
+        if (requestParameters['productionCategoryAssignment'] == null) {
+            throw new runtime.RequiredError(
+                'productionCategoryAssignment',
+                'Required parameter "productionCategoryAssignment" was null or undefined when calling productionV1ProductionsCategoriesUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/t/{tenant_ref}/production/v1/productions/{production_id}/categories/{id}/`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace(`{${"production_id"}}`, encodeURIComponent(String(requestParameters['productionId'])));
+        urlPath = urlPath.replace(`{${"tenant_ref"}}`, encodeURIComponent(String(requestParameters['tenantRef'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductionCategoryAssignmentToJSON(requestParameters['productionCategoryAssignment']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductionCategoryAssignmentFromJSON(jsonValue));
+    }
+
+    /**
+     * Update an existing production category assignment.
+     * Update a Production Category Assignment (by production)
+     */
+    async productionV1ProductionsCategoriesUpdate(requestParameters: ProductionV1ProductionsCategoriesUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductionCategoryAssignment> {
+        const response = await this.productionV1ProductionsCategoriesUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

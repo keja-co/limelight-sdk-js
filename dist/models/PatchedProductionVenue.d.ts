@@ -29,6 +29,18 @@ export interface PatchedProductionVenue {
     readonly venueName?: string;
     /**
      *
+     * @type {string}
+     * @memberof PatchedProductionVenue
+     */
+    readonly shortAddress?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PatchedProductionVenue
+     */
+    readonly isPrimary?: boolean;
+    /**
+     *
      * @type {Date}
      * @memberof PatchedProductionVenue
      */
@@ -83,4 +95,4 @@ export declare function instanceOfPatchedProductionVenue(value: object): value i
 export declare function PatchedProductionVenueFromJSON(json: any): PatchedProductionVenue;
 export declare function PatchedProductionVenueFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedProductionVenue;
 export declare function PatchedProductionVenueToJSON(json: any): PatchedProductionVenue;
-export declare function PatchedProductionVenueToJSONTyped(value?: Omit<PatchedProductionVenue, 'id' | 'venue_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedProductionVenueToJSONTyped(value?: Omit<PatchedProductionVenue, 'id' | 'venue_name' | 'short_address' | 'is_primary' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -24,6 +24,8 @@ exports.ProductionCategoryAssignmentToJSONTyped = ProductionCategoryAssignmentTo
 function instanceOfProductionCategoryAssignment(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
+    if (!('categoryName' in value) || value['categoryName'] === undefined)
+        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -51,6 +53,7 @@ function ProductionCategoryAssignmentFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'],
+        'categoryName': json['category_name'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),

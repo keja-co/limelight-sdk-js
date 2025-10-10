@@ -23,6 +23,12 @@ export interface PatchedProductionCategoryAssignment {
     readonly id?: number;
     /**
      *
+     * @type {string}
+     * @memberof PatchedProductionCategoryAssignment
+     */
+    readonly categoryName?: string;
+    /**
+     *
      * @type {Date}
      * @memberof PatchedProductionCategoryAssignment
      */
@@ -83,4 +89,4 @@ export declare function instanceOfPatchedProductionCategoryAssignment(value: obj
 export declare function PatchedProductionCategoryAssignmentFromJSON(json: any): PatchedProductionCategoryAssignment;
 export declare function PatchedProductionCategoryAssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): PatchedProductionCategoryAssignment;
 export declare function PatchedProductionCategoryAssignmentToJSON(json: any): PatchedProductionCategoryAssignment;
-export declare function PatchedProductionCategoryAssignmentToJSONTyped(value?: Omit<PatchedProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function PatchedProductionCategoryAssignmentToJSONTyped(value?: Omit<PatchedProductionCategoryAssignment, 'id' | 'category_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

@@ -25,6 +25,12 @@ var DocumentStatusEnum_1 = require("./DocumentStatusEnum");
 function instanceOfDocument(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
+    if (!('authorName' in value) || value['authorName'] === undefined)
+        return false;
+    if (!('repoName' in value) || value['repoName'] === undefined)
+        return false;
+    if (!('folderPath' in value) || value['folderPath'] === undefined)
+        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -54,6 +60,9 @@ function DocumentFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'],
+        'authorName': json['author_name'],
+        'repoName': json['repo_name'],
+        'folderPath': json['folder_path'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),

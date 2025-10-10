@@ -22,7 +22,7 @@ export interface DocumentsV1ReposDestroyRequest {
 export interface DocumentsV1ReposDocumentsCreateRequest {
     repoId: string;
     tenantRef: string;
-    document: Omit<Document, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'>;
+    document: Omit<Document, 'id' | 'author_name' | 'repo_name' | 'folder_path' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'>;
 }
 export interface DocumentsV1ReposDocumentsDestroyRequest {
     id: number;
@@ -36,12 +36,15 @@ export interface DocumentsV1ReposDocumentsListRequest {
     folderId?: string;
     page?: number;
     pageSize?: number;
+    production?: number;
+    statusIexact?: string;
+    titleIcontains?: string;
 }
 export interface DocumentsV1ReposDocumentsPartialUpdateRequest {
     id: number;
     repoId: string;
     tenantRef: string;
-    patchedDocument?: Omit<PatchedDocument, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'>;
+    patchedDocument?: Omit<PatchedDocument, 'id' | 'author_name' | 'repo_name' | 'folder_path' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'>;
 }
 export interface DocumentsV1ReposDocumentsRetrieveRequest {
     id: number;
@@ -77,7 +80,7 @@ export interface DocumentsV1ReposDocumentsUpdateRequest {
     id: number;
     repoId: string;
     tenantRef: string;
-    document: Omit<Document, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'>;
+    document: Omit<Document, 'id' | 'author_name' | 'repo_name' | 'folder_path' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by' | 'repo'>;
 }
 export interface DocumentsV1ReposDocumentsVersionsCreateRequest {
     documentId: string;

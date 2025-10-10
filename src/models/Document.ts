@@ -35,6 +35,24 @@ export interface Document {
     readonly id: number;
     /**
      * 
+     * @type {string}
+     * @memberof Document
+     */
+    readonly authorName: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Document
+     */
+    readonly repoName: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Document
+     */
+    readonly folderPath: string | null;
+    /**
+     * 
      * @type {Date}
      * @memberof Document
      */
@@ -132,6 +150,9 @@ export interface Document {
  */
 export function instanceOfDocument(value: object): value is Document {
     if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('authorName' in value) || value['authorName'] === undefined) return false;
+    if (!('repoName' in value) || value['repoName'] === undefined) return false;
+    if (!('folderPath' in value) || value['folderPath'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
@@ -155,6 +176,9 @@ export function DocumentFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'id': json['id'],
+        'authorName': json['author_name'],
+        'repoName': json['repo_name'],
+        'folderPath': json['folder_path'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
@@ -177,7 +201,7 @@ export function DocumentToJSON(json: any): Document {
     return DocumentToJSONTyped(json, false);
 }
 
-export function DocumentToJSONTyped(value?: Omit<Document, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'|'repo'> | null, ignoreDiscriminator: boolean = false): any {
+export function DocumentToJSONTyped(value?: Omit<Document, 'id'|'author_name'|'repo_name'|'folder_path'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'|'repo'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

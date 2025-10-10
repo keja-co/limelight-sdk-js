@@ -23,6 +23,12 @@ export interface ProductionCategoryAssignment {
     readonly id: number;
     /**
      *
+     * @type {string}
+     * @memberof ProductionCategoryAssignment
+     */
+    readonly categoryName: string;
+    /**
+     *
      * @type {Date}
      * @memberof ProductionCategoryAssignment
      */
@@ -83,4 +89,4 @@ export declare function instanceOfProductionCategoryAssignment(value: object): v
 export declare function ProductionCategoryAssignmentFromJSON(json: any): ProductionCategoryAssignment;
 export declare function ProductionCategoryAssignmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductionCategoryAssignment;
 export declare function ProductionCategoryAssignmentToJSON(json: any): ProductionCategoryAssignment;
-export declare function ProductionCategoryAssignmentToJSONTyped(value?: Omit<ProductionCategoryAssignment, 'id' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;
+export declare function ProductionCategoryAssignmentToJSONTyped(value?: Omit<ProductionCategoryAssignment, 'id' | 'category_name' | 'created_at' | 'updated_at' | 'archive_at' | 'tenant' | 'created_by' | 'updated_by'> | null, ignoreDiscriminator?: boolean): any;

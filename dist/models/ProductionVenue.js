@@ -26,6 +26,10 @@ function instanceOfProductionVenue(value) {
         return false;
     if (!('venueName' in value) || value['venueName'] === undefined)
         return false;
+    if (!('shortAddress' in value) || value['shortAddress'] === undefined)
+        return false;
+    if (!('isPrimary' in value) || value['isPrimary'] === undefined)
+        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -54,6 +58,8 @@ function ProductionVenueFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'venueName': json['venue_name'],
+        'shortAddress': json['short_address'],
+        'isPrimary': json['is_primary'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),

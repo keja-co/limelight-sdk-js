@@ -27,6 +27,12 @@ export interface PatchedProductionCategoryAssignment {
     readonly id?: number;
     /**
      * 
+     * @type {string}
+     * @memberof PatchedProductionCategoryAssignment
+     */
+    readonly categoryName?: string;
+    /**
+     * 
      * @type {Date}
      * @memberof PatchedProductionCategoryAssignment
      */
@@ -99,6 +105,7 @@ export function PatchedProductionCategoryAssignmentFromJSONTyped(json: any, igno
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
+        'categoryName': json['category_name'] == null ? undefined : json['category_name'],
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
         'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'archiveAt': json['archive_at'] == null ? undefined : (new Date(json['archive_at'])),
@@ -115,7 +122,7 @@ export function PatchedProductionCategoryAssignmentToJSON(json: any): PatchedPro
     return PatchedProductionCategoryAssignmentToJSONTyped(json, false);
 }
 
-export function PatchedProductionCategoryAssignmentToJSONTyped(value?: Omit<PatchedProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function PatchedProductionCategoryAssignmentToJSONTyped(value?: Omit<PatchedProductionCategoryAssignment, 'id'|'category_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

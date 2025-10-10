@@ -27,6 +27,12 @@ export interface ProductionCategoryAssignment {
     readonly id: number;
     /**
      * 
+     * @type {string}
+     * @memberof ProductionCategoryAssignment
+     */
+    readonly categoryName: string;
+    /**
+     * 
      * @type {Date}
      * @memberof ProductionCategoryAssignment
      */
@@ -86,6 +92,7 @@ export interface ProductionCategoryAssignment {
  */
 export function instanceOfProductionCategoryAssignment(value: object): value is ProductionCategoryAssignment {
     if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('categoryName' in value) || value['categoryName'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     if (!('archiveAt' in value) || value['archiveAt'] === undefined) return false;
@@ -108,6 +115,7 @@ export function ProductionCategoryAssignmentFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'id': json['id'],
+        'categoryName': json['category_name'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'archiveAt': (json['archive_at'] == null ? null : new Date(json['archive_at'])),
@@ -124,7 +132,7 @@ export function ProductionCategoryAssignmentToJSON(json: any): ProductionCategor
     return ProductionCategoryAssignmentToJSONTyped(json, false);
 }
 
-export function ProductionCategoryAssignmentToJSONTyped(value?: Omit<ProductionCategoryAssignment, 'id'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
+export function ProductionCategoryAssignmentToJSONTyped(value?: Omit<ProductionCategoryAssignment, 'id'|'category_name'|'created_at'|'updated_at'|'archive_at'|'tenant'|'created_by'|'updated_by'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
